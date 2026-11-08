@@ -17,16 +17,27 @@ export function jumpRotations(element) {
 	return [...element.element_code_raw.matchAll(/([1-4])(?=[A-Z])/g)].reduce((sum, match) => sum + Number(match[1]), 0);
 }
 
+const JUMP_TOKEN = /^[1-4](?:A|F|Lz|Lo|S|T|Eu)/;
+
 export function protocolMarks(element) {
 	const code = element.element_code_raw;
 	const info = element.info_flag ?? '';
+	// The letters q and e are also part of element names (StSq, ChSq), so read them only from
+	// the part of each jump token that follows the jump code, e.g. the "q" in "4Loq" or "4Lz!q".
+	const jumpSuffixes = code.split('+').filter((token) => JUMP_TOKEN.test(token)).map((token) => token.replace(JUMP_TOKEN, ''));
 	return ['<<', '<', 'e', 'q', '!', '*'].filter((mark) => {
 		if (mark === '<<') return info.includes('<<') || code.includes('<<');
 		if (mark === '<') return info === '<' || (code.includes('<') && !code.includes('<<'));
 		if (info.includes(mark)) return true;
-		if (mark === 'e') return /[1-4][A-Z]+e/.test(code);
+		if (mark === 'e' || mark === 'q') return jumpSuffixes.some((suffix) => suffix.includes(mark));
 		return code.includes(mark);
 	});
+}
+
+export function elementLevel(element) {
+	// Spin and step-sequence codes end in the level digit; a trailing V marks a spin whose base
+	// value was reduced (CCoSp4V) but does not change its level.
+	return Number(element.element_code_raw.match(/([1-4])V?$/)?.[1] ?? 0);
 }
 
 export function summarizeJumpShare(elements) {

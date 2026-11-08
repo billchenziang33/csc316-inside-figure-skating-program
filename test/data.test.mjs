@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { parseBrief } from '../src/lib/data/parse-brief.mjs';
-import { countJumpElements, jumpRotations, protocolMarks, summarizeJumpShare } from '../src/lib/data/derived.mjs';
+import { countJumpElements, elementLevel, jumpRotations, protocolMarks, summarizeJumpShare } from '../src/lib/data/derived.mjs';
 
 const markdown = await readFile(new URL('../data/source/Beijing_2022_Mens_Singles_Top10_Data_Brief.md', import.meta.url), 'utf8');
 const data = parseBrief(markdown);
@@ -40,4 +40,29 @@ test('selected-view helpers preserve combinations, rotation totals, and protocol
 	assert.ok(protocolMarks(data.elements.find((d) => d.element_code_raw.includes('<'))).includes('<'));
 	assert.deepEqual(protocolMarks({ element_code_raw: '4A<<', info_flag: null }), ['<<']);
 	assert.equal(countJumpElements(data.elements).length, 20);
+});
+
+test('protocol marks come from jump calls only, never from the q in StSq or ChSq', () => {
+	assert.deepEqual(protocolMarks({ element_code_raw: 'StSq4', info_flag: null }), []);
+	assert.deepEqual(protocolMarks({ element_code_raw: 'ChSq1', info_flag: null }), []);
+	assert.deepEqual(protocolMarks({ element_code_raw: '4Loq', info_flag: 'q' }), ['q']);
+	assert.deepEqual(protocolMarks({ element_code_raw: '4Lz!q', info_flag: '!' }), ['q', '!']);
+	assert.deepEqual(protocolMarks({ element_code_raw: '3F+3T<', info_flag: 'x' }), ['<']);
+	assert.deepEqual(protocolMarks({ element_code_raw: '3Lze', info_flag: null }), ['e']);
+	const marked = data.elements.filter((d) => protocolMarks(d).length);
+	assert.equal(marked.length, 11, 'the official protocol has 11 elements with calls: q 5, < 3, ! 3, * 1');
+	assert.ok(marked.every((d) => d.element_group === 'jump'));
+	const counts = {};
+	for (const mark of marked.flatMap(protocolMarks)) counts[mark] = (counts[mark] ?? 0) + 1;
+	assert.deepEqual(counts, { q: 5, '<': 3, '!': 3, '*': 1 });
+});
+
+test('spin and step levels are read for every row, including reduced-value V spins', () => {
+	assert.equal(elementLevel({ element_code_raw: 'CCoSp4V' }), 4);
+	assert.equal(elementLevel({ element_code_raw: 'CCoSp2V' }), 2);
+	assert.equal(elementLevel({ element_code_raw: 'StSq3' }), 3);
+	assert.equal(elementLevel({ element_code_raw: 'ChSq1' }), 1);
+	const levelled = data.elements.filter((d) => d.element_group === 'spin' || d.element_group === 'step_sequence');
+	assert.equal(levelled.length, 80);
+	assert.ok(levelled.every((d) => elementLevel(d) >= 1 && elementLevel(d) <= 4));
 });
