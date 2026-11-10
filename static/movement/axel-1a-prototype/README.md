@@ -1,9 +1,23 @@
 # Single Axel 1A illustrative pose study
 
+## Current version: v108 calf-roll continuity
+
+- V108 is derived from preserved V107 and changes only the two tapered calf mesh rotation tracks. The calf long axes follow the same sampled 22-joint directions while parallel transport removes arbitrary roll near anti-parallel poses. Builder: `scripts/prepare_1a_limb_roll_continuity_v108.py`; showcase renders: `scripts/render_1a_v108_showcase_previews.py`.
+- Integer-frame quaternion-step maxima fell from 139.6183° to 19.4338° on the left calf and 98.4261° to 20.8755° on the right. The transported calf axes stay within 0.0322° of their original sampled directions. Side/front previews for frames 63/64 and phase previews at 60/76/90 plus skate close-up are saved beside the `.blend`.
+- Blender 5.2.3 verification: `scripts/audit_1a_motion_continuity.py` passes (left/right calf 50→51: 4.1813°/7.3231°; right skate 86→87: 8.2431°; integer-frame blade minima +13 mm). `scripts/audit_1a_pose_angular_steps.py` checks quarter-frame world transforms. `scripts/audit_1a_actual_ice_track_v102.py` now accepts V108 and samples 2,545 points per blade at 1/16-frame spacing against ice top Z=+0.012 m. Events remain 60/76/90, flight 2.50 s, root rise 0.2997 m, apex travel 0.5297 m, total travel 0.9931 m; minimum blade gaps are +0.746/+0.695 mm. Boot-to-ankle fit remains ≤0.000243 mm and boot/blade axis error is 0°.
+- Known limits remain: the BVH audit detects lower-leg/boot surface overlaps at 2,537/2,545 left and 2,341/2,545 right samples (max 198/186 triangle pairs), and boot/ankle overlaps at every sample. These occur at the cuff/ankle interface; this is not a no-clipping result. Full 3D source-foot axis residual reaches 73.906° under ice/pitch constraints. These measurements do not certify biomechanics or continuous collision freedom.
+- The local viewer and curated public package now target the matching V108 GLB and Blender file. The player supports left-drag orbit, Shift+left-drag/right-drag pan, wheel zoom, camera presets, and reset. All poses and phases remain illustrative/simulated, not Beijing 2022 capture. The original default Blender `Scene` remains Camera/Cube/Light; V107 and earlier remain unchanged.
+
 ## Interactive website camera
 
-- In the embedded 3D player, drag on the rink to orbit the scene and use the mouse wheel to zoom. Side, front, skate close-up, and arena buttons choose the starting view; **Reset view** restores that preset. The camera keeps following the animated skater or inspection target while playback continues.
-- Camera orbit only changes the web viewer. It does not rewrite the Blender scene or animation. The model remains V107 and all poses, phases, and measurements remain illustrative/simulated.
+- In the embedded 3D player, left-drag on the rink to orbit, Shift+left-drag or right-drag to pan, and use the mouse wheel to zoom. Side, front, skate close-up, and arena buttons choose the starting view; **Reset view** restores that preset. The camera keeps following the animated skater or inspection target while playback continues.
+- Camera orbit only changes the web viewer. It does not rewrite the Blender scene or animation. All poses, phases, and measurements remain illustrative/simulated.
+- Previous live Edge check: [production Vercel player](https://csc316-inside-figure-skating-progra.vercel.app/#workspace) loaded `Blender v107` in Ready state (97 animated channels, 77 draw calls). Dragging over the rink changed the camera from level side view to an elevated oblique view. Front, skate close-up, arena, side, and reset controls visibly switched views. The V108 production player still needs a fresh browser check after deployment.
+
+## Current motion and default-scale check
+
+- On the live Edge production page at a 1496×871 CSS-pixel viewport, the V107 player completed the full 1–160-frame sequence at both 1× and 0.35×, ending on `Exit glide · simulated`. Scrubbing to frame 60 (`Take-off`) and frame 90 (`Landing`) updated the phase HUD and rendered the corresponding poses. At frame 90, both white skate boots and dark steel runners are distinguishable in the default side view. At frame 60, the far blade is more foreshortened, so default-size take-off blade readability remains a visual follow-up. Front view at frame 90 shows both boots and their laces. Current V107 mobile-width playback has not been checked.
+- New read-only comparison helper: `scripts/audit_1a_transition_comparison.py`. Blender 5.2.3 measured world-space calf and blade-axis changes across the original V8 and current V107 transitions. V8 → V107 blade-axis changes are 50→51 left 7.9599°→2.7252°, right 14.1962°→2.6895°; 86→87 left 18.4624°→13.3668°, right 26.2676°→4.5207°. At 50→51, left calf change is 15.6508°→4.1203°. V8 runs 100 fps and V107 runs 12 fps, so per-frame angles alone are not a time-normalized animation-speed comparison. Existing V107 fine audit still reports up to 73.906° full-3D reference-foot-axis residual and cuff/boot surface intersections; those remain open.
 
 ## Current version: v107 graduated skate-cuff profile
 
