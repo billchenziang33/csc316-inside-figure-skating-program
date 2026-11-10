@@ -1,6 +1,6 @@
 ## 2026-11-10 CSC316 V141 skate-heading and site-parity correction
 
-- Fresh Edge inspection found the main-site Movement overlay still identifying its embedded action as V125 while Blender MCP had V141 open. The Svelte workspace poster/fullscreen overlay labels and public static asset curation are now aligned to V141; production verification is pending.
+- Fresh Edge inspection found the main-site Movement overlay still identifying its embedded action as V125 while Blender MCP had V141 open. Commit `fcacf8ca1f5d0700cdb370189954e7b753fa1477` aligns the Svelte workspace poster/fullscreen overlay and preview assets. Production `dpl_H7UqKhSDMkBsmPns6XrtPhRPJ6DN` is READY; Edge confirmed V141 in the workspace and fullscreen player, with `Ready · Blender v141`, 101 channels, 77 draw calls, and frame 87/160 showing Descent, +0.04 m rise, 0.89 m travel.
 - A V142 candidate reduced the free-skate yaw by 8° during late flight, but its half-frame BVH audit rose from V141's 37 boot/opposite-calf triangle pairs at one sample to 106 pairs across three samples, so it is not selected for Blender or the website.
 
 - Watched a public single-Axel tutorial in Edge and read its auto-captions at 4:41, 6:15 and 7:02. It describes forward outside-edge entry, free-leg swing, quick air position, opposite-foot landing and checked glide-out; it does not support a constant torso-to-skate angle. ISU jump guidance corroborates broad Axel take-off/landing mechanics. All project poses remain illustrative/simulated.
