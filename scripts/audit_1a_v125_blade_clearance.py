@@ -8,8 +8,9 @@ import numpy as np
 
 
 scene = bpy.context.scene
-if scene.get("prototype_version") != "v125":
-    raise RuntimeError(f"Expected V125, got {scene.get('prototype_version')}")
+version = scene.get("prototype_version")
+if version not in {"v125", "v126", "v127", "v128"}:
+    raise RuntimeError(f"Expected V125–V128, got {version}")
 ice = scene.objects.get("V23 capsule ice · 60 m × 30 m (30 m straights + semicircles)")
 if ice is None:
     raise RuntimeError("The V125 rink ice mesh is missing")
@@ -48,6 +49,6 @@ report = {
     "criteria": "blade mesh must not cross below the actual ice top during sampled playback",
     "method_limit": "Dense sampled geometry-height audit; it does not prove continuous contact or collision-free body motion.",
 }
-print("V125_ACTUAL_ICE_CLEARANCE " + json.dumps(report, ensure_ascii=False))
+print(version.upper() + "_ACTUAL_ICE_CLEARANCE " + json.dumps(report, ensure_ascii=False))
 if min(item["clearance_m"] for item in minimum.values()) < -1e-5:
-    raise RuntimeError("A V125 blade penetrates the rink ice in the 1/16-frame sample")
+    raise RuntimeError(f"A {version} blade penetrates the rink ice in the 1/16-frame sample")
