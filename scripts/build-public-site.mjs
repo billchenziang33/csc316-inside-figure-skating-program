@@ -37,15 +37,18 @@ const publicFiles = [
 	'movement/axel-1a-prototype/vendor/GLTFLoader.js',
 	'movement/axel-1a-prototype/vendor/three.umd.js',
 	...[
-		'single-axel-1a-human-rink-v108-takeoff-side.png',
-		'single-axel-1a-human-rink-v108-apex-side.png',
-		'single-axel-1a-human-rink-v108-landing-side.png',
-		'single-axel-1a-human-rink-v108-skate-closeup.png',
-		'single-axel-1a-human-rink-v108-takeoff-front.png',
-		'single-axel-1a-human-rink-v108-apex-front.png',
-		'single-axel-1a-human-rink-v108-landing-front.png',
-		'single-axel-1a-human-rink-v108.blend',
-		'single-axel-1a-human-rink-v108-web.glb'
+		'single-axel-1a-human-rink-v113-takeoff-side.png',
+		'single-axel-1a-human-rink-v113-apex-side.png',
+		'single-axel-1a-human-rink-v113-frame090-side.png',
+		'single-axel-1a-human-rink-v113-frame087-side.png',
+		'single-axel-1a-human-rink-v113-frame150-side.png',
+		'single-axel-1a-human-rink-v113-frame150-skate-closeup.png',
+		'single-axel-1a-human-rink-v113-takeoff-front.png',
+		'single-axel-1a-human-rink-v113-apex-front.png',
+		'single-axel-1a-human-rink-v113-frame090-front.png',
+		'single-axel-1a-human-rink-v113-frame037-side.png',
+		'single-axel-1a-human-rink-v113.blend',
+		'single-axel-1a-human-rink-v113-web.glb'
 	].map((name) => `movement/axel-1a-prototype/${name}`)
 ];
 
