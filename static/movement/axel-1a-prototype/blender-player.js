@@ -52,7 +52,9 @@ let orbitEnabled = false;
 let orbitYaw = 0;
 let orbitPitch = 0;
 let orbitZoom = 1;
+const orbitPan = new THREE.Vector3();
 let dragPointerId = null;
+let dragMode = 'orbit';
 let lastPointerX = 0;
 let lastPointerY = 0;
 let trajectoryRoot;
@@ -68,6 +70,8 @@ const cameraWorldPosition = new THREE.Vector3();
 const cameraWorldQuaternion = new THREE.Quaternion();
 const orbitTarget = new THREE.Vector3();
 const orbitOffset = new THREE.Vector3();
+const cameraRight = new THREE.Vector3();
+const cameraUp = new THREE.Vector3();
 const arenaBounds = new THREE.Box3();
 const arenaTarget = new THREE.Vector3();
 let arenaObject;
@@ -189,6 +193,7 @@ function updateViewerCamera() {
 		const theta = Math.atan2(orbitOffset.x, orbitOffset.z) + orbitYaw;
 		const phi = THREE.MathUtils.clamp(Math.acos(THREE.MathUtils.clamp(orbitOffset.y / baseRadius, -1, 1)) + orbitPitch, 0.08, Math.PI - 0.08);
 		radius = THREE.MathUtils.clamp(radius, 0.25, 120);
+		orbitTarget.add(orbitPan);
 		viewerCamera.position.set(
 			orbitTarget.x + radius * Math.sin(phi) * Math.sin(theta),
 			orbitTarget.y + radius * Math.cos(phi),
@@ -210,6 +215,7 @@ function resetView() {
 	orbitYaw = 0;
 	orbitPitch = 0;
 	orbitZoom = 1;
+	orbitPan.set(0, 0, 0);
 	updateViewerCamera();
 	resize();
 }
@@ -229,6 +235,7 @@ function chooseCamera(name) {
 	orbitYaw = 0;
 	orbitPitch = 0;
 	orbitZoom = 1;
+	orbitPan.set(0, 0, 0);
 	for (const guide of trajectoryGuides) guide.visible = !followInspection;
 	updateInspectionCamera();
 	updateViewerCamera();
@@ -371,12 +378,14 @@ frameSlider.addEventListener('input', () => {
 cameraButtons.forEach((button) => button.addEventListener('click', () => chooseCamera(button.dataset.camera)));
 cameraResetButton.addEventListener('click', resetView);
 canvas.addEventListener('pointerdown', (event) => {
-	if (event.button !== 0 || !activeCamera) return;
+	if ((event.button !== 0 && event.button !== 2) || !activeCamera) return;
 	dragPointerId = event.pointerId;
+	dragMode = event.button === 2 || event.shiftKey ? 'pan' : 'orbit';
 	lastPointerX = event.clientX;
 	lastPointerY = event.clientY;
 	canvas.setPointerCapture(event.pointerId);
-	canvas.classList.add('is-dragging');
+	canvas.classList.toggle('is-panning', dragMode === 'pan');
+	canvas.classList.toggle('is-dragging', dragMode === 'orbit');
 	event.preventDefault();
 });
 canvas.addEventListener('pointermove', (event) => {
@@ -386,8 +395,18 @@ canvas.addEventListener('pointermove', (event) => {
 	lastPointerX = event.clientX;
 	lastPointerY = event.clientY;
 	orbitEnabled = true;
-	orbitYaw -= dx * 0.006;
-	orbitPitch += dy * 0.006;
+	if (dragMode === 'pan') {
+		updateViewerCamera();
+		cameraRight.set(1, 0, 0).applyQuaternion(viewerCamera.quaternion).normalize();
+		cameraUp.set(0, 1, 0).applyQuaternion(viewerCamera.quaternion).normalize();
+		const radius = viewerCamera.position.distanceTo(orbitTarget);
+		const worldUnitsPerPixel = 2 * radius * Math.tan(THREE.MathUtils.degToRad(viewerCamera.fov) / 2) / Math.max(1, canvas.clientHeight);
+		orbitPan.addScaledVector(cameraRight, -dx * worldUnitsPerPixel);
+		orbitPan.addScaledVector(cameraUp, dy * worldUnitsPerPixel);
+	} else {
+		orbitYaw -= dx * 0.006;
+		orbitPitch += dy * 0.006;
+	}
 	updateViewerCamera();
 	renderer.render(modelScene, activeCamera);
 });
@@ -395,10 +414,12 @@ const endOrbitDrag = (event) => {
 	if (dragPointerId !== event.pointerId) return;
 	if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
 	dragPointerId = null;
+	canvas.classList.remove('is-panning');
 	canvas.classList.remove('is-dragging');
 };
 canvas.addEventListener('pointerup', endOrbitDrag);
 canvas.addEventListener('pointercancel', endOrbitDrag);
+canvas.addEventListener('contextmenu', (event) => event.preventDefault());
 canvas.addEventListener('wheel', (event) => {
 	if (!activeCamera) return;
 	event.preventDefault();
