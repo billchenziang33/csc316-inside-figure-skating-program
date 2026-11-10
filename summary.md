@@ -1,3 +1,9 @@
+## 2026-11-10 CSC316 V141 desktop player layout correction
+
+- Edge screenshot showed the fullscreen player controls wrapping Fullscreen to a second row because the 8 control elements had only 7 CSS grid columns. Updated `static/movement/axel-1a-prototype/player.html` to 8 tracks; the controls now stay on one row, leaving substantially more height for the 3D viewport.
+- Production commit `883990e0200f5fd87e320f78b27452ec2454229e` is READY as deployment `dpl_3TyutLDeEwNZtCctaTTddpEtck8m`. Edge verified the stable public Movement overlay on V141, with Side profile selected and a 1496×495 px stage in the 1496×757 content viewport. Front view selection also worked. Full 13.25 s playback had already reached frame 160/160 on the same V141 player before this HTML-only change; the GLB and animation code did not change.
+- `npm run build` passed (694 modules), and the curated public build prepared 52 static files. Blender MCP scene remains V141; no scene/model files were modified. Continue auditing default-size takeoff/landing blade visibility, continuity, and collision limits.
+
 ## 2026-11-10 CSC316 V141 skate-heading and site-parity correction
 
 - Fresh Edge inspection found the main-site Movement overlay still identifying its embedded action as V125 while Blender MCP had V141 open. Commit `fcacf8ca1f5d0700cdb370189954e7b753fa1477` aligns the Svelte workspace poster/fullscreen overlay and preview assets. Production `dpl_H7UqKhSDMkBsmPns6XrtPhRPJ6DN` is READY; Edge confirmed V141 in the workspace and fullscreen player, with `Ready · Blender v141`, 101 channels, 77 draw calls, and frame 87/160 showing Descent, +0.04 m rise, 0.89 m travel.

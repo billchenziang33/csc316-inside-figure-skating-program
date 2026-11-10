@@ -1,5 +1,13 @@
 # Single Axel 1A illustrative pose study
 
+## Current web presentation check: V141, desktop
+
+- The active Blender scene and web player remain the matching V141 `.blend` and `.glb`; no pose, skate geometry, or animation data changed in this round. V141 and all previous model files remain preserved.
+- Edge review identified a layout bug in `player.html`: `.controls` contained eight children but declared only seven desktop grid columns, so Fullscreen wrapped to a second row and reduced the 3D viewport. The grid now declares eight tracks so Play, Restart, timeline, counter, speed selector, and Fullscreen share one row.
+- Production deployment `dpl_3TyutLDeEwNZtCctaTTddpEtck8m` is READY from commit `883990e0200f5fd87e320f78b27452ec2454229e`. Edge confirmed the public Movement overlay loads Blender v141, with Side profile active; at a 1496×757 content viewport the 3D stage measured 1496×495 px and every control occupied the same row. The default side view shows the full skater and both skates without zoom; Front view also rendered and its preset became active.
+- The underlying 13.25-second V141 playback was run through frame 160/160 in Edge before this HTML-only layout change; the player/GLB were not changed by this commit. A saved screenshot file was not produced by the browser bridge. Phone-width review is deferred; the current focus is the desktop website presentation.
+- Remaining: repeat full playback on the newly published release and inspect takeoff/landing at default size from both views; the sampled collision audit still permits baseline free-boot/opposite-calf contact at f81, and simplified upper-leg/calf contacts remain. All poses and trajectories are illustrative/simulated.
+
 ## Previous version: V137 free-skate and landing alignment
 
 - The apparent backwards-facing skate in the side view was the model-left free skate, which appears on the viewer's right; the model-right skate is the landing skate. V137 keeps the free-leg chain at its V128 source pose again by frame 80, preserving the earlier crossing clearance. During frames 86–90, it makes a smooth 30° torso-relative visual correction, split into a 10° hip/leg turn and a 20° ankle-centered turn of the rigid boot/blade assembly. The 30° value is only a visual review target.
