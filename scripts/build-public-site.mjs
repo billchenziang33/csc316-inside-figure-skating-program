@@ -28,18 +28,24 @@ const publicFiles = [
 	'movement/THIRD_PARTY_NOTICES.md',
 	'movement/axel-1a-prototype/README.md',
 	'movement/axel-1a-prototype/blender-player.js',
+	'movement/axel-1a-prototype/camera-name.mjs',
+	'movement/axel-1a-prototype/playback-clock.mjs',
+	'movement/axel-1a-prototype/trajectory-hud.mjs',
 	'movement/axel-1a-prototype/index.html',
+	'movement/axel-1a-prototype/joint-reference.json',
 	'movement/axel-1a-prototype/player.html',
 	'movement/axel-1a-prototype/vendor/GLTFLoader.js',
 	'movement/axel-1a-prototype/vendor/three.umd.js',
 	...[
-		'single-axel-1a-human-rink-v69-frame039-side.png',
-		'single-axel-1a-human-rink-v69-frame074-front.png',
-		'single-axel-1a-human-rink-v69-frame074-side.png',
-		'single-axel-1a-human-rink-v69-frame074-skate-inspection.png',
-		'single-axel-1a-human-rink-v69-frame093-side.png',
-		'single-axel-1a-human-rink-v69-public.blend',
-		'single-axel-1a-human-rink-v69-web.glb'
+		'single-axel-1a-human-rink-v107-takeoff-side.png',
+		'single-axel-1a-human-rink-v107-apex-side.png',
+		'single-axel-1a-human-rink-v107-landing-side.png',
+		'single-axel-1a-human-rink-v107-skate-closeup.png',
+		'single-axel-1a-human-rink-v107-takeoff-front.png',
+		'single-axel-1a-human-rink-v107-apex-front.png',
+		'single-axel-1a-human-rink-v107-landing-front.png',
+		'single-axel-1a-human-rink-v107.blend',
+		'single-axel-1a-human-rink-v107-web.glb'
 	].map((name) => `movement/axel-1a-prototype/${name}`)
 ];
 

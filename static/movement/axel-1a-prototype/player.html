@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="color-scheme" content="dark">
-	<title>Single Axel 1A · Blender v69 playback</title>
+	<title>Single Axel 1A · Blender v107 playback</title>
 	<style>
 		:root{font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;color:#edf4f7;background:#142c3c;color-scheme:dark}
 		*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden}
@@ -13,8 +13,11 @@
 		.player-head strong{font-size:.92rem}.badge{font-size:.65rem;font-weight:750;letter-spacing:.08em;color:#ffd38c;border:1px solid #916d3e;border-radius:999px;padding:.25rem .5rem;white-space:nowrap}
 		.stage-shell{position:relative;flex:1;min-height:160px;overflow:hidden;background:#c9dce1}
 		#blender-stage{display:block;width:100%;height:100%;background:#c9dce1}
-		.stage-message{position:absolute;left:.65rem;bottom:.6rem;max-width:calc(100% - 1.3rem);padding:.35rem .55rem;border-radius:5px;background:#102734df;color:#edf4f7;font-size:.72rem}
+		.flight-hud{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.35rem;padding:.45rem .65rem;background:#193846;color:#eaf3f4}
+		.flight-hud div{min-width:0;border-left:2px solid #547482;padding-left:.45rem}.flight-hud b{display:block;font-size:.65rem;color:#a8c0c7;font-weight:500}.flight-hud strong{display:block;font-size:.82rem;font-variant-numeric:tabular-nums}.flight-reference{grid-column:1/-1;margin:0;color:#a8c0c7;font-size:.62rem}
+		.stage-message{align-self:flex-start;max-width:calc(100% - 1.3rem);margin:.3rem .65rem 0;padding:.3rem .5rem;border-radius:5px;background:#102734;color:#edf4f7;font-size:.72rem}
 		.camera-picks{display:flex;justify-content:center;flex-wrap:wrap;gap:.45rem;padding:.5rem .65rem .15rem}
+		.view-hint{margin:0;text-align:center;color:#a8c0c7;font-size:.66rem;padding:.1rem .6rem .25rem}
 		button,select{min-height:40px;font:inherit;color:#edf4f7;background:#244657;border:1px solid #577482;border-radius:6px;padding:.45rem .7rem;cursor:pointer}
 		button:hover,select:hover{background:#31596c}button[aria-pressed=true]{border-color:#8de3d5;background:#356875}
 		button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #f0bd70;outline-offset:2px}
@@ -22,23 +25,34 @@
 		.controls{display:grid;grid-template-columns:auto auto minmax(100px,1fr) auto auto auto auto;align-items:center;gap:.45rem;padding:.45rem .65rem .65rem}
 		input[type=range]{width:100%;min-width:0;accent-color:#8de3d5}label{font-size:.72rem;color:#c5d9df}.counter{font-size:.72rem;text-align:right;white-space:nowrap;color:#dbe9ed}
 		.note{flex:none;margin:0;padding:0 .7rem .55rem;color:#a8c0c7;font-size:.66rem}
-		@media(max-width:600px){.player-head{padding:.4rem .55rem}.player-head strong{font-size:.78rem}.badge{font-size:.58rem}.camera-picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:.4rem .5rem .1rem}.camera-picks button{font-size:.74rem;padding:.35rem .45rem}.controls{grid-template-columns:auto auto minmax(60px,1fr);gap:.35rem;padding:.35rem .5rem}.controls #blender-frame{grid-column:1/-1;grid-row:2}.controls #blender-counter{grid-column:1/-1;grid-row:3}.controls .speed-label{grid-column:1;grid-row:4}.controls #blender-speed{grid-column:2;grid-row:4}.controls #blender-fullscreen{grid-column:3;grid-row:4}.note{font-size:.6rem;padding:0 .5rem .35rem}}
+		#blender-stage{touch-action:none;cursor:grab}#blender-stage.is-dragging{cursor:grabbing}
+		@media(max-width:600px){.player-head{padding:.4rem .55rem}.player-head strong{font-size:.78rem}.badge{font-size:.58rem}.camera-picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:.4rem .5rem .1rem}.camera-picks button{font-size:.74rem;padding:.35rem .45rem}.view-hint{font-size:.6rem}.flight-hud{grid-template-columns:repeat(2,minmax(0,1fr));padding:.35rem .5rem}.flight-hud strong{font-size:.75rem}.controls{grid-template-columns:repeat(2,minmax(0,1fr));gap:.35rem;padding:.35rem .5rem}.controls #blender-frame{grid-column:1/-1;grid-row:2}.controls #blender-counter{grid-column:1/-1;grid-row:3}.controls .speed-label{grid-column:1;grid-row:4}.controls #blender-speed{grid-column:2;grid-row:4;min-width:0;width:100%}.controls #blender-fullscreen{grid-column:1/-1;grid-row:5}.note{font-size:.6rem;padding:0 .5rem .35rem}}
 	</style>
 </head>
 <body>
-	<div class="player-head"><strong>Single Axel 1A · Blender v69</strong><span class="badge">ILLUSTRATIVE / SIMULATED</span></div>
-	<div class="stage-shell" id="stage-shell"><canvas id="blender-stage" aria-label="Blender v69 simulated Single Axel on capsule ice"></canvas><div class="stage-message" id="stage-message" role="status">Loading Blender v69 animation…</div></div>
+	<div class="player-head"><strong>Single Axel 1A · Blender v107</strong><span class="badge">ILLUSTRATIVE / SIMULATED</span></div>
+	<div class="stage-shell" id="stage-shell"><canvas id="blender-stage" aria-label="Blender v107 simulated Single Axel on capsule ice"></canvas></div>
+	<div class="flight-hud" aria-live="polite" aria-label="Live simulated flight measurements">
+		<div><b>Phase</b><strong id="flight-phase">Loading…</strong></div>
+		<div><b>Current rise from take-off</b><strong id="flight-height">—</strong></div>
+		<div><b>Current horizontal travel</b><strong id="flight-distance">—</strong></div>
+		<div><b>Peak rise on V107 track</b><strong id="flight-peak">—</strong></div>
+		<div><b>Take-off to landing</b><strong id="flight-total">—</strong></div>
+		<p class="flight-reference">Actual Blender/GLB root track · illustrative/simulated. Separate reference preset: 0.60 s · 0.44 m · 1.92 m.</p>
+	</div>
+	<div class="stage-message" id="stage-message" role="status">Loading Blender v107 animation…</div>
 	<div class="camera-picks" role="group" aria-label="3D camera view">
 		<button type="button" data-camera="Action side view · horizontal follow composition" aria-pressed="true">Side view</button>
 		<button type="button" data-camera="Action front view" aria-pressed="false">Front view</button>
 		<button type="button" data-camera="Skate inspection · close view" aria-pressed="false">Skate close-up</button>
 		<button type="button" data-camera="Arena overview · full 60×30 rink" aria-pressed="false">Arena</button>
+		<button id="blender-camera-reset" type="button" disabled>Reset view</button>
 	</div>
+	<p class="view-hint">Drag to orbit · scroll to zoom</p>
 	<div class="controls"><button id="blender-play" type="button" disabled>Play</button><button id="blender-reset" type="button" disabled>Restart</button><label for="blender-frame">Frame</label><input id="blender-frame" type="range" min="0" max="159" step="1" value="0" aria-label="Blender animation frame" disabled><span id="blender-counter" class="counter">Frame 1 / 160 · Approach · simulated</span><label class="speed-label" for="blender-speed">Speed</label><select id="blender-speed" aria-label="Playback speed"><option value="0.35">Slow · 0.35×</option><option value="1" selected>Normal · 1×</option></select><button id="blender-fullscreen" type="button" disabled>Fullscreen</button></div>
 	<p class="note">Every pose, phase and trajectory is illustrative / simulated; this is not Beijing 2022 athlete capture. The bundled Three.js player works without an external CDN request.</p>
 	<script src="/movement/axel-1a-prototype/vendor/three.umd.js"></script>
 	<script src="/movement/axel-1a-prototype/vendor/GLTFLoader.js"></script>
-	<script type="module" src="/movement/axel-1a-prototype/blender-player.js"></script>
+<script type="module" src="/movement/axel-1a-prototype/blender-player.js?v=107"></script>
 </body>
 </html>
-
