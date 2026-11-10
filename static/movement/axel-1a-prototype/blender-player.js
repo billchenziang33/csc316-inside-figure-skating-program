@@ -404,8 +404,8 @@ canvas.addEventListener('pointermove', (event) => {
 		orbitPan.addScaledVector(cameraRight, -dx * worldUnitsPerPixel);
 		orbitPan.addScaledVector(cameraUp, dy * worldUnitsPerPixel);
 	} else {
-		orbitYaw -= dx * 0.006;
-		orbitPitch += dy * 0.006;
+		orbitYaw -= dx * 0.003;
+		orbitPitch += dy * 0.003;
 	}
 	updateViewerCamera();
 	renderer.render(modelScene, activeCamera);
