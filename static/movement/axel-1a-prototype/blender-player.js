@@ -287,7 +287,7 @@ async function start() {
 		inspectionBoot = findExportedNameMatch(sceneObjects, 'Right skate · website boot v64');
 		inspectionCamera = findExportedNameMatch(sceneObjects, CAMERA_NAMES[2]);
 		arenaCamera = findExportedNameMatch(sceneObjects, CAMERA_NAMES[3]);
-		arenaObject = findExportedNameMatch(sceneObjects, 'V23 capsule ice polygon · 60 × 30 m');
+		arenaObject = findExportedNameMatch(sceneObjects, 'V23 capsule ice · 60 m × 30 m (30 m straights + semicircles)');
 		if (!inspectionRunner || !inspectionBoot || !inspectionCamera?.isCamera || !arenaCamera?.isCamera || !arenaObject) {
 			throw new Error('The v107 skate inspection or arena camera target is missing.');
 		}
