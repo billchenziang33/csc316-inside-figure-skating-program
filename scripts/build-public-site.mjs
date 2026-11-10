@@ -29,6 +29,7 @@ const publicFiles = [
 	'movement/axel-1a-prototype/README.md',
 	'movement/axel-1a-prototype/blender-player.js',
 	'movement/axel-1a-prototype/camera-name.mjs',
+	'movement/axel-1a-prototype/camera-fit.mjs',
 	'movement/axel-1a-prototype/playback-clock.mjs',
 	'movement/axel-1a-prototype/trajectory-hud.mjs',
 	'movement/axel-1a-prototype/index.html',
@@ -37,22 +38,16 @@ const publicFiles = [
 	'movement/axel-1a-prototype/vendor/GLTFLoader.js',
 	'movement/axel-1a-prototype/vendor/three.umd.js',
 	...[
-		'single-axel-1a-human-rink-v113-takeoff-side.png',
-		'single-axel-1a-human-rink-v113-apex-side.png',
-		'single-axel-1a-human-rink-v117-frame090-side.png',
-		'single-axel-1a-human-rink-v117-frame082-side.png',
-		'single-axel-1a-human-rink-v117-frame084-side.png',
-		'single-axel-1a-human-rink-v117-frame076-side.png',
-		'single-axel-1a-human-rink-v117-frame082-front.png',
-		'single-axel-1a-human-rink-v117-frame090-front.png',
-		'single-axel-1a-human-rink-v113-frame087-side.png',
-		'single-axel-1a-human-rink-v113-frame150-side.png',
-		'single-axel-1a-human-rink-v113-frame150-skate-closeup.png',
-		'single-axel-1a-human-rink-v113-takeoff-front.png',
-		'single-axel-1a-human-rink-v113-apex-front.png',
-		'single-axel-1a-human-rink-v113-frame037-side.png',
-		'single-axel-1a-human-rink-v117.blend',
-		'single-axel-1a-human-rink-v117-web.glb'
+		'single-axel-1a-human-rink-v118-frame060-side.png',
+		'single-axel-1a-human-rink-v118-frame076-side.png',
+		'single-axel-1a-human-rink-v118-frame082-side.png',
+		'single-axel-1a-human-rink-v118-frame090-side.png',
+		'single-axel-1a-human-rink-v118-frame060-front.png',
+		'single-axel-1a-human-rink-v118-frame076-front.png',
+		'single-axel-1a-human-rink-v118-frame090-front.png',
+		'single-axel-1a-human-rink-v118-frame087-skate-closeup-web.png',
+		'single-axel-1a-human-rink-v118.blend',
+		'single-axel-1a-human-rink-v118-web.glb'
 	].map((name) => `movement/axel-1a-prototype/${name}`)
 ];
 

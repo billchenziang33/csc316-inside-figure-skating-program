@@ -7,7 +7,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"test": "node --test",
+		"test": "node --test test/*.test.mjs",
 		"data:prepare": "node scripts/prepare-data.mjs",
 		"check": "npm test && npm run build"
 	},

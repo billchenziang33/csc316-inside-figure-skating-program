@@ -66,8 +66,8 @@ def direction_at(directions, frame, frame_start):
 
 
 scene = bpy.context.scene
-require(scene.get("prototype_version") in {"v101", "v102", "v103", "v104", "v105", "v106", "v107", "v108", "v109", "v110", "v111", "v112", "v113", "v116", "v117"},
-		f"Expected V101–V113, V116, or V117, got {scene.get('prototype_version')}")
+require(scene.get("prototype_version") in {"v101", "v102", "v103", "v104", "v105", "v106", "v107", "v108", "v109", "v110", "v111", "v112", "v113", "v116", "v117", "v118", "v119"},
+		f"Expected V101–V113 or V116–V119, got {scene.get('prototype_version')}")
 ice = scene.objects.get("V23 capsule ice · 60 m × 30 m (30 m straights + semicircles)")
 rig = scene.objects.get("Skater root · simulated travel and 1.5-turn yaw v8")
 require(ice and rig, "The ice mesh or animated root is missing")
