@@ -1,4 +1,7 @@
-## 2026-11-10 CSC316 V141 late-descent skate-heading correction
+## 2026-11-10 CSC316 V141 skate-heading and site-parity correction
+
+- Fresh Edge inspection found the main-site Movement overlay still identifying its embedded action as V125 while Blender MCP had V141 open. The Svelte workspace poster/fullscreen overlay labels and public static asset curation are now aligned to V141; production verification is pending.
+- A V142 candidate reduced the free-skate yaw by 8° during late flight, but its half-frame BVH audit rose from V141's 37 boot/opposite-calf triangle pairs at one sample to 106 pairs across three samples, so it is not selected for Blender or the website.
 
 - Watched a public single-Axel tutorial in Edge and read its auto-captions at 4:41, 6:15 and 7:02. It describes forward outside-edge entry, free-leg swing, quick air position, opposite-foot landing and checked glide-out; it does not support a constant torso-to-skate angle. ISU jump guidance corroborates broad Axel take-off/landing mechanics. All project poses remain illustrative/simulated.
 - Root cause: V137's free-leg correction faded out after frame 76 and did not resume until frame 86, so the screen-right/model-left free skate returned to a 60° torso-relative angle around f83. V140 held a 45° limit earlier but increased free-boot/opposite-calf BVH contacts to 132 triangle pairs at f81.5; rejected and not wired to the site. V141 preserves the source pose through f84, eases full-leg yaw to 45° by f86, then to 30° by f90. This preserves the 37-pair f81 baseline while making the late-descent turn continuous.
