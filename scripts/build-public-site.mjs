@@ -48,16 +48,15 @@ const publicFiles = [
 		'single-axel-1a-human-rink-v118-frame087-skate-closeup-web.png',
 		'single-axel-1a-human-rink-v118.blend',
 		'single-axel-1a-human-rink-v118-web.glb',
-		'single-axel-1a-human-rink-v121-frame060-takeoff.png',
-		'single-axel-1a-human-rink-v121-frame076-apex.png',
-		'single-axel-1a-human-rink-v121-frame087-right-skate-check.png',
-		'single-axel-1a-human-rink-v121-frame090-landing.png',
-		'single-axel-1a-human-rink-v121-frame121-exit.png',
-		'single-axel-1a-human-rink-v121-frame060-front.png',
-		'single-axel-1a-human-rink-v121-frame076-front.png',
-		'single-axel-1a-human-rink-v121-frame090-front.png',
-		'single-axel-1a-human-rink-v121.blend',
-		'single-axel-1a-human-rink-v121-web.glb'
+		'single-axel-1a-human-rink-v124-frame060-side.png',
+		'single-axel-1a-human-rink-v124-frame076-side.png',
+		'single-axel-1a-human-rink-v124-frame090-side.png',
+		'single-axel-1a-human-rink-v124-frame060-front.png',
+		'single-axel-1a-human-rink-v124-frame076-front.png',
+		'single-axel-1a-human-rink-v124-frame090-front.png',
+		'single-axel-1a-human-rink-v124-frame087-skate-closeup.png',
+		'single-axel-1a-human-rink-v124.blend',
+		'single-axel-1a-human-rink-v124-web.glb'
 	].map((name) => `movement/axel-1a-prototype/${name}`)
 ];
 
