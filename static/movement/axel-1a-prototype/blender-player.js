@@ -39,6 +39,7 @@ let mixer;
 let clipActions = [];
 let animationTrackCount = 0;
 let duration = 0;
+let animationStartTime = 0;
 let frameCount = 160;
 let playbackTime = 0;
 let playing = false;
@@ -121,7 +122,7 @@ function resize() {
 function setPlaybackTime(time, updateSlider = true) {
 	if (!activeCamera) throw new Error('The v116 GLB camera was not resolved.');
 	playbackTime = Math.max(0, Math.min(duration, time));
-	seekAnimationActions(mixer, clipActions, playbackTime);
+	seekAnimationActions(mixer, clipActions, animationStartTime + playbackTime);
 	modelScene.updateMatrixWorld(true);
 	updateInspectionCamera();
 	updateViewerCamera();
@@ -148,7 +149,8 @@ function updateFlightHud(frame) {
 function sampleTrajectoryEvents() {
 	const restoreTime = playbackTime;
 	const sample = (frame) => {
-		seekAnimationActions(mixer, clipActions, timeAtAnimationFrame(frame, duration, frameCount));
+		seekAnimationActions(mixer, clipActions,
+			animationStartTime + timeAtAnimationFrame(frame, duration, frameCount));
 		modelScene.updateMatrixWorld(true);
 		trajectoryRoot.getWorldPosition(trajectoryPosition);
 		return { x: trajectoryPosition.x, y: trajectoryPosition.y, z: trajectoryPosition.z };
@@ -158,7 +160,7 @@ function sampleTrajectoryEvents() {
 		apex: sample(trajectoryEventFrames.apex),
 		landing: sample(trajectoryEventFrames.landing),
 	};
-	seekAnimationActions(mixer, clipActions, restoreTime);
+	seekAnimationActions(mixer, clipActions, animationStartTime + restoreTime);
 	modelScene.updateMatrixWorld(true);
 }
 
@@ -303,7 +305,13 @@ async function start() {
 		if (!clips.length || animationTrackCount < 80) {
 			throw new Error('The v116 GLB did not contain the expected articulated 3D action.');
 		}
-		duration = Math.max(...clips.map((clip) => clip.duration));
+		const rootPositionTrack = clips.flatMap((clip) => clip.tracks).find((track) =>
+			track.name.startsWith(trajectoryRoot.name) && track.name.endsWith('.position'));
+		if (!rootPositionTrack || rootPositionTrack.times.length !== frameCount) {
+			throw new Error('The v116 root track does not contain the expected frame samples.');
+		}
+		animationStartTime = rootPositionTrack.times[0];
+		duration = rootPositionTrack.times.at(-1) - animationStartTime;
 		if (!Number.isFinite(duration) || duration <= 0) throw new Error('The v116 animation has no usable duration.');
 		mixer = new THREE.AnimationMixer(gltf.scene);
 		clipActions = clips.map((clip) => {
@@ -319,7 +327,7 @@ async function start() {
 			throw new Error('A V102 inherited trajectory event is outside the exported animation frame range.');
 		}
 		sampleTrajectoryEvents();
-		mixer.setTime(duration * (94 - 1) / (frameCount - 1));
+		mixer.setTime(animationStartTime + duration * (94 - 1) / (frameCount - 1));
 		modelScene.updateMatrixWorld(true);
 		inspectionBox.setFromObject(inspectionRunner);
 		inspectionBox.union(new THREE.Box3().setFromObject(inspectionBoot));
@@ -329,7 +337,7 @@ async function start() {
 		inspectionCamera.zoom = 1.0;
 		inspectionCamera.near = 0.01;
 		inspectionCamera.updateProjectionMatrix();
-		mixer.setTime(0);
+		mixer.setTime(animationStartTime);
 		modelScene.updateMatrixWorld(true);
 		chooseCamera(CAMERA_NAMES[0]);
 		frameSlider.disabled = false;
