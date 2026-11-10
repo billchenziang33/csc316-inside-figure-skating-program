@@ -6,7 +6,7 @@ import { formatMeters, measureFlightMetrics, phaseAt, readAxelEventFrames, timeA
 const THREE = globalThis.THREE;
 const GLTFLoader = THREE?.GLTFLoader;
 
-const FILE = '/movement/axel-1a-prototype/single-axel-1a-human-rink-v128-web.glb';
+const FILE = '/movement/axel-1a-prototype/single-axel-1a-human-rink-v137-web.glb';
 const CAMERA_NAMES = [
 	'Action side view · horizontal follow composition',
 	'Action front view',
@@ -125,7 +125,7 @@ function resize() {
 }
 
 function setPlaybackTime(time, updateSlider = true) {
-	if (!activeCamera) throw new Error('The v128 GLB camera was not resolved.');
+	if (!activeCamera) throw new Error('The v137 GLB camera was not resolved.');
 	playbackTime = Math.max(0, Math.min(duration, time));
 	seekAnimationActions(mixer, clipActions, animationStartTime + playbackTime);
 	modelScene.updateMatrixWorld(true);
@@ -305,21 +305,21 @@ async function start() {
 		const skaterSideCamera = findExportedNameMatch(sceneObjects, CAMERA_NAMES[5]);
 		arenaObject = findExportedNameMatch(sceneObjects, 'V23 capsule ice · 60 m × 30 m (30 m straights + semicircles)');
 		if (!inspectionRunner || !inspectionBoot || !inspectionCamera?.isCamera || !arenaCamera?.isCamera || !skaterFollowCamera?.isCamera || !skaterSideCamera?.isCamera || !arenaObject) {
-			throw new Error('The v128 skate inspection, arena, skater-follow or side-profile camera is missing.');
+			throw new Error('The v137 skate inspection, arena, skater-follow or side-profile camera is missing.');
 		}
 		const clips = gltf.animations;
 		animationTrackCount = clips.reduce((count, clip) => count + clip.tracks.length, 0);
 		if (!clips.length || animationTrackCount < 80) {
-			throw new Error('The v128 GLB did not contain the expected articulated 3D action.');
+			throw new Error('The v137 GLB did not contain the expected articulated 3D action.');
 		}
 		const rootPositionTrack = clips.flatMap((clip) => clip.tracks).find((track) =>
 			track.name.startsWith(trajectoryRoot.name) && track.name.endsWith('.position'));
 		if (!rootPositionTrack || rootPositionTrack.times.length !== frameCount) {
-			throw new Error('The v128 root track does not contain the expected frame samples.');
+			throw new Error('The v137 root track does not contain the expected frame samples.');
 		}
 		animationStartTime = rootPositionTrack.times[0];
 		duration = rootPositionTrack.times.at(-1) - animationStartTime;
-		if (!Number.isFinite(duration) || duration <= 0) throw new Error('The v128 animation has no usable duration.');
+		if (!Number.isFinite(duration) || duration <= 0) throw new Error('The v137 animation has no usable duration.');
 		mixer = new THREE.AnimationMixer(gltf.scene);
 		clipActions = clips.map((clip) => {
 			const action = mixer.clipAction(clip);
@@ -328,7 +328,7 @@ async function start() {
 			action.play();
 			return action;
 		});
-		if (!trajectoryRoot) throw new Error('The v128 GLB is missing its animated skater root track.');
+		if (!trajectoryRoot) throw new Error('The v137 GLB is missing its animated skater root track.');
 		trajectoryEventFrames = readAxelEventFrames(sceneObjects);
 		if (Object.values(trajectoryEventFrames).some((frame) => frame > frameCount)) {
 			throw new Error('A V102 inherited trajectory event is outside the exported animation frame range.');
@@ -353,10 +353,10 @@ async function start() {
 		fullscreenButton.disabled = false;
 		cameraResetButton.disabled = false;
 		setPlaybackTime(0);
-		message.textContent = `Ready · Blender v128 · ${(duration).toFixed(2)} s · ${animationTrackCount} animated channels · ${renderer.info.render.calls} draw calls`;
+		message.textContent = `Ready · Blender v137 · ${(duration).toFixed(2)} s · ${animationTrackCount} animated channels · ${renderer.info.render.calls} draw calls`;
 		requestAnimationFrame(animate);
 	} catch (error) {
-		console.error('Blender v128 player failed to load:', error);
+		console.error('Blender v137 player failed to load:', error);
 		message.textContent = `3D playback failed: ${error.message}. Open README for the .blend and fallback previews.`;
 		message.setAttribute('data-error', 'true');
 	}
