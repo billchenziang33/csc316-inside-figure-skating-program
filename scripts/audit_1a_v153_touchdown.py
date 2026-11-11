@@ -17,7 +17,7 @@ def require(condition, message):
         raise RuntimeError(message)
 
 
-require(scene.get("prototype_version") in {"v153", "v155"}, "Expected V153/V155 scene")
+require(scene.get("prototype_version") in {"v153", "v155", "v156"}, "Expected V153/V155/V156 scene")
 landing_markers = [obj for obj in scene.objects if "EVENT_LANDING_FRAME" in obj.name]
 require(len(landing_markers) == 1 and landing_markers[0].name.endswith("_92"),
         "Expected a single landing event marker at frame 92")
@@ -66,7 +66,7 @@ report = {
     "post_touchdown_min_support_gap_mm": round(
         min(row["support_gap_m"] for row in samples if row["frame"] >= LANDING_FRAME) * 1000.0, 3),
 }
-print("TOUCHDOWN_AUDIT_V153_V155 " + json.dumps(report, ensure_ascii=False))
+print("TOUCHDOWN_AUDIT_V153_V155_V156 " + json.dumps(report, ensure_ascii=False))
 
 require(first_contact is not None and
         math.ceil(first_contact["frame"] - 1e-8) == LANDING_FRAME,

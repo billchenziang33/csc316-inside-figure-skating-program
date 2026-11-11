@@ -9,8 +9,8 @@ from mathutils.bvhtree import BVHTree
 
 scene = bpy.context.scene
 version = scene.get("prototype_version")
-if version not in {"v153", "v155"}:
-    raise RuntimeError(f"Expected V153/V155 candidate, got {version}")
+if version not in {"v153", "v155", "v156"}:
+    raise RuntimeError(f"Expected V153/V155/V156 candidate, got {version}")
 
 objects = {
     "left_thigh": scene.objects["Human · left leg volume 3"],
@@ -55,7 +55,7 @@ for index in range(29):
                 item["max_triangle_pairs"] = len(overlaps)
                 item["worst_frame"] = frame
 
-print("V155_LEG_SKATE_BVH " + json.dumps({
+print(version.upper() + "_LEG_SKATE_BVH " + json.dumps({
     "blend": bpy.data.filepath,
     "prototype_version": version,
     "sample_start_frame": 76.0,
