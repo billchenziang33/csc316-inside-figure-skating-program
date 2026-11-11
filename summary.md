@@ -421,6 +421,7 @@ Updated 2026-11-06.
 
 - Reproduced a live V145 pointer-drag defect: a modest horizontal drag moved the legs/skates below the stage. Root cause was a fixed pelvis-relative orbit target (`trajectoryRoot` position + 0.82 m) combined with the old camera distance, which was composed around another camera center.
 - V146 computes current animated skater bounds with Three.js `Box3`, targets the resulting bounding-sphere center, and fits camera distance to the full sphere for the current FOV/aspect while preserving the existing zoom. No Blender/GLB asset or animation was changed.
+- The standalone player's module URL now uses cache key `v=146`, ensuring browsers fetch the updated camera code while the 3D asset remains V145.
 - Focused verification: `node --test test/camera-fit.test.mjs test/orbit-camera-framing.test.mjs` passed 4/4; `node --check static/movement/axel-1a-prototype/blender-player.js`; `git diff --check`; `npm run build` passed (Vite 8.3.4, 694 modules). A broader legacy asset test was not run because this isolated V145 worktree lacks historical builder scripts that the monolithic test imports.
 - Worktree/branch: `.worktrees/axel-v146-orbit-framing`, `codex/axel-v146-orbit-framing`, based on production V145 commit `88ac8d03a6906d1a0d491f74df5c340659a46017`. Browser drag and deployment validation pending. See prototype README for final status.
 

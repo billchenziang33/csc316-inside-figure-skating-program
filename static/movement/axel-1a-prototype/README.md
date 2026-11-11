@@ -3,7 +3,7 @@
 ## 2026-11-10 V146 orbit framing fix
 
 - The V145 web player's first pointer drag could crop the legs and skates because the orbit target used a fixed pelvis offset while keeping a camera distance framed for a different composition center. V146 derives the orbit target and bounding sphere from the currently animated skater hierarchy, then fits the entire figure into the viewer using the source camera FOV, viewport aspect, and existing zoom.
-- Code: `blender-player.js` and `camera-fit.mjs`; focused checks: `test/camera-fit.test.mjs` and `test/orbit-camera-framing.test.mjs`. Verification so far: all 4 focused Node tests pass, `node --check` passes, `git diff --check` passes, and `npm run build` passes (Vite 8.3.4, 694 modules). Live browser drag validation and publication are pending.
+- Code: `blender-player.js`, `camera-fit.mjs`, and the cache-busted player module URL in `player.html`; focused checks: `test/camera-fit.test.mjs` and `test/orbit-camera-framing.test.mjs`. Verification so far: all 4 focused Node tests pass, `node --check` passes, `git diff --check` passes, and `npm run build` passes (Vite 8.3.4, 694 modules). Live browser drag validation and publication are pending.
 - The V145 Blender/GLB model and animation are unchanged. This fix changes web camera framing only. Motion and trajectory remain illustrative/simulated.
 
 ## 2026-11-10 V145 late free-skate heading correction
