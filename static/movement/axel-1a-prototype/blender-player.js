@@ -1,5 +1,5 @@
 import { findExportedNameMatch, findExportedNamesByPrefix } from './camera-name.mjs';
-import { fitBoundingSphereDistance } from './camera-fit.mjs';
+import { fitBoundingSphereDistance, fitOrbitCameraDistance } from './camera-fit.mjs';
 import { advancePlaybackTime, elapsedPlaybackSeconds, playbackSpeedFromControl, seekAnimationActions } from './playback-clock.mjs?v=100';
 import { formatMeters, measureFlightMetrics, phaseAt, readAxelEventFrames, timeAtAnimationFrame } from './trajectory-hud.mjs?v=102';
 
@@ -74,6 +74,8 @@ const cameraWorldPosition = new THREE.Vector3();
 const cameraWorldQuaternion = new THREE.Quaternion();
 const orbitTarget = new THREE.Vector3();
 const orbitOffset = new THREE.Vector3();
+const orbitFitBounds = new THREE.Box3();
+const orbitFitSphere = new THREE.Sphere();
 const cameraRight = new THREE.Vector3();
 const cameraUp = new THREE.Vector3();
 const arenaBounds = new THREE.Box3();
@@ -184,22 +186,34 @@ function updateViewerCamera() {
 			viewerCamera.quaternion.copy(cameraWorldQuaternion);
 		}
 	} else {
+		let orbitFitRadius = 0;
 		if (followInspection) {
 			orbitTarget.copy(inspectionTarget);
+			inspectionBox.getBoundingSphere(orbitFitSphere);
+			orbitFitRadius = orbitFitSphere.radius;
 		} else if (sourceCamera === arenaCamera && arenaObject) {
 			arenaBounds.setFromObject(arenaObject);
-			arenaBounds.getCenter(arenaTarget);
+			arenaBounds.getBoundingSphere(orbitFitSphere);
+			arenaTarget.copy(orbitFitSphere.center);
 			orbitTarget.copy(arenaTarget);
+			orbitFitRadius = orbitFitSphere.radius;
 		} else {
-			trajectoryRoot.getWorldPosition(orbitTarget);
-			orbitTarget.y += 0.82;
+			orbitFitBounds.setFromObject(trajectoryRoot);
+			orbitFitBounds.getBoundingSphere(orbitFitSphere);
+			orbitTarget.copy(orbitFitSphere.center);
+			orbitFitRadius = orbitFitSphere.radius;
 		}
 		orbitOffset.copy(cameraWorldPosition).sub(orbitTarget);
-		let radius = Math.max(0.25, orbitOffset.length() * orbitZoom);
 		const baseRadius = Math.max(0.25, cameraWorldPosition.distanceTo(orbitTarget));
+		const radius = fitOrbitCameraDistance({
+			cameraDistance: baseRadius,
+			boundingRadius: orbitFitRadius,
+			verticalFovDegrees: sourceCamera.fov,
+			aspect: viewerCamera.aspect || 1,
+			zoom: orbitZoom,
+		});
 		const theta = Math.atan2(orbitOffset.x, orbitOffset.z) + orbitYaw;
 		const phi = THREE.MathUtils.clamp(Math.acos(THREE.MathUtils.clamp(orbitOffset.y / baseRadius, -1, 1)) + orbitPitch, 0.08, Math.PI - 0.08);
-		radius = THREE.MathUtils.clamp(radius, 0.25, 120);
 		orbitTarget.add(orbitPan);
 		viewerCamera.position.set(
 			orbitTarget.x + radius * Math.sin(phi) * Math.sin(theta),

@@ -13,3 +13,30 @@ export function fitBoundingSphereDistance({ radius, verticalFovDegrees, aspect, 
 	const limitingHalfAngle = Math.min(halfVertical, halfHorizontal);
 	return radius * margin / Math.sin(limitingHalfAngle);
 }
+
+export function fitOrbitCameraDistance({
+	cameraDistance,
+	boundingRadius,
+	verticalFovDegrees,
+	aspect,
+	zoom = 1,
+	margin = 1.18,
+	minDistance = 0.25,
+	maxDistance = 120,
+}) {
+	if (!Number.isFinite(cameraDistance) || cameraDistance < 0) {
+		throw new RangeError('cameraDistance must be finite and non-negative');
+	}
+	if (!Number.isFinite(zoom) || zoom <= 0) throw new RangeError('zoom must be positive');
+	if (!Number.isFinite(minDistance) || minDistance <= 0) throw new RangeError('minDistance must be positive');
+	if (!Number.isFinite(maxDistance) || maxDistance < minDistance) {
+		throw new RangeError('maxDistance must be at least minDistance');
+	}
+	const fitDistance = fitBoundingSphereDistance({
+		radius: boundingRadius,
+		verticalFovDegrees,
+		aspect,
+		margin,
+	});
+	return Math.min(maxDistance, Math.max(minDistance, cameraDistance, fitDistance) * zoom);
+}
