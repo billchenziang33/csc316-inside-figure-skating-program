@@ -6,6 +6,14 @@ A CSC316 prototype built with Vite, Svelte 5, and D3. It explores the official B
 
 Open the public prototype at [inside-figure-skating-program.eagercoast2.chatgpt.site](https://inside-figure-skating-program.eagercoast2.chatgpt.site/). No local server is needed.
 
+## Current Blender reference
+
+The interactive Movement panel uses the V145 Blender/GLB scene and includes draggable 3D orbit, front/side presets, playback, frame scrubbing, and a live illustrative trajectory HUD. The viewer-right skate in the horizontal side camera is the model-left free skate; V145 narrows its torso-relative heading to 10° at the simulated landing, then opens it during the exit glide. The `.blend`, matching `.glb`, preview renders, supporting Blender audit scripts, sources, attribution, and limitations are documented in [`static/movement/axel-1a-prototype/README.md`](static/movement/axel-1a-prototype/README.md). All poses and measured values are illustrative/simulated, not Beijing 2022 athlete capture or coaching certification.
+
+## Milestone 7 package
+
+The current Prototype 1 package is `submission/CSC316_Milestone7_Final_Submission_2026-11-07-r3.zip`. It includes the current source, the 81-page M1-M7 process book, and the active Blender v62 `.blend` scene and web GLB with side/front stills. The 80-page base preserves the November 6 Google Docs export; the final page records the current v62 player and verification. The player includes local Three.js r160 and `GLTFLoader` files. Each team member must complete their own self/peer evaluation. Quercus's assignment body requests a ZIP, while its file-type label and upload control accept PDF; confirm the required upload format with course staff before submission.
+
 ## Run locally
 
 ```sh

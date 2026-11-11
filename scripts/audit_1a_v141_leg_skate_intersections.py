@@ -8,7 +8,7 @@ from mathutils.bvhtree import BVHTree
 
 
 scene = bpy.context.scene
-if scene.get("prototype_version") != "v141":
+if scene.get("prototype_version") not in {"v141", "v144", "v145"}:
     raise RuntimeError(f"Expected V141, got {scene.get('prototype_version')}")
 objects = {
     "left_thigh": scene.objects["Human · left leg volume 3"],

@@ -9,7 +9,7 @@ from mathutils import Vector
 
 
 SCENE = next((item for item in bpy.data.scenes
-              if item.get("prototype_version") == "v141"), None)
+              if item.get("prototype_version") in {"v141", "v144", "v145"}), None)
 if SCENE is None:
     raise RuntimeError(f"Expected a V141 scene, got {bpy.data.filepath}")
 

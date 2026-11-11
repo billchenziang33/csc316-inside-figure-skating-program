@@ -9,7 +9,7 @@ import numpy as np
 
 scene = bpy.context.scene
 version = scene.get("prototype_version")
-if version != "v141":
+if version not in {"v141", "v144", "v145"}:
     raise RuntimeError(f"Expected V141, got {version}")
 ice = scene.objects.get("V23 capsule ice · 60 m × 30 m (30 m straights + semicircles)")
 if ice is None:
