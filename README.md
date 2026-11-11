@@ -8,7 +8,7 @@ Open the public prototype at [inside-figure-skating-program.eagercoast2.chatgpt.
 
 ## Current Blender reference
 
-The interactive Movement panel uses the V145 Blender/GLB scene and includes draggable 3D orbit, front/side presets, playback, frame scrubbing, and a live illustrative trajectory HUD. The viewer-right skate in the horizontal side camera is the model-left free skate; V145 narrows its torso-relative heading to 10° at the simulated landing, then opens it during the exit glide. The `.blend`, matching `.glb`, preview renders, supporting Blender audit scripts, sources, attribution, and limitations are documented in [`static/movement/axel-1a-prototype/README.md`](static/movement/axel-1a-prototype/README.md). All poses and measured values are illustrative/simulated, not Beijing 2022 athlete capture or coaching certification.
+The interactive Movement panel uses the V174 Blender/GLB scene and includes draggable 3D orbit, front/side presets, playback, frame scrubbing, and a live illustrative trajectory HUD. V174 corrects the physical boot-toe direction on both fitted skates using the boot and blade mesh ends; the sampled physical toes remain within 12.01° left / 8.01° right of torso-forward through the 160-frame sequence. The `.blend`, matching `.glb`, preview renders, Blender audit scripts, sources, attribution, measurements, and limitations are documented in [`static/movement/axel-1a-prototype/README.md`](static/movement/axel-1a-prototype/README.md). All poses and measured values are illustrative/simulated, not athlete capture or coaching certification.
 
 ## Milestone 7 package
 
