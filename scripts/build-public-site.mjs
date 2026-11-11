@@ -111,7 +111,14 @@ const publicFiles = [
 		'single-axel-1a-human-rink-v159-frame092-front.png',
 		'single-axel-1a-human-rink-v159-frame136-front.png',
 		'single-axel-1a-human-rink-v159.blend',
-		'single-axel-1a-human-rink-v159-web.glb'
+		'single-axel-1a-human-rink-v159-web.glb',
+		'single-axel-1a-human-rink-v167-frame047-side.png',
+		'single-axel-1a-human-rink-v167-frame050-front.png',
+		'single-axel-1a-human-rink-v167-frame050-side.png',
+		'single-axel-1a-human-rink-v167-frame051-side.png',
+		'single-axel-1a-human-rink-v167-frame055-side.png',
+		'single-axel-1a-human-rink-v167.blend',
+		'single-axel-1a-human-rink-v167-web.glb'
 	].map((name) => `movement/axel-1a-prototype/${name}`)
 ];
 
