@@ -1,12 +1,13 @@
 import { findExportedNameMatch, findExportedNamesByPrefix } from './camera-name.mjs';
 import { fitBoundingSphereDistance, fitOrbitCameraDistance } from './camera-fit.mjs';
+import { toggleFullscreen } from './fullscreen-control.js';
 import { advancePlaybackTime, elapsedPlaybackSeconds, playbackSpeedFromControl, seekAnimationActions } from './playback-clock.mjs?v=100';
 import { formatMeters, measureFlightMetrics, phaseAt, readAxelEventFrames, timeAtAnimationFrame } from './trajectory-hud.mjs?v=102';
 
 const THREE = globalThis.THREE;
 const GLTFLoader = THREE?.GLTFLoader;
 
-const FILE = '/movement/axel-1a-prototype/single-axel-1a-human-rink-v149-web.glb';
+const FILE = '/movement/axel-1a-prototype/single-axel-1a-human-rink-v151-web.glb';
 const CAMERA_NAMES = [
 	'Action side view · horizontal follow composition',
 	'Action front view',
@@ -127,7 +128,7 @@ function resize() {
 }
 
 function setPlaybackTime(time, updateSlider = true) {
-	if (!activeCamera) throw new Error('The v149 GLB camera was not resolved.');
+	if (!activeCamera) throw new Error('The v151 GLB camera was not resolved.');
 	playbackTime = Math.max(0, Math.min(duration, time));
 	seekAnimationActions(mixer, clipActions, animationStartTime + playbackTime);
 	modelScene.updateMatrixWorld(true);
@@ -319,21 +320,21 @@ async function start() {
 		const skaterSideCamera = findExportedNameMatch(sceneObjects, CAMERA_NAMES[5]);
 		arenaObject = findExportedNameMatch(sceneObjects, 'V23 capsule ice · 60 m × 30 m (30 m straights + semicircles)');
 		if (!inspectionRunner || !inspectionBoot || !inspectionCamera?.isCamera || !arenaCamera?.isCamera || !skaterFollowCamera?.isCamera || !skaterSideCamera?.isCamera || !arenaObject) {
-			throw new Error('The v149 skate inspection, arena, skater-follow or side-profile camera is missing.');
+			throw new Error('The v151 skate inspection, arena, skater-follow or side-profile camera is missing.');
 		}
 		const clips = gltf.animations;
 		animationTrackCount = clips.reduce((count, clip) => count + clip.tracks.length, 0);
 		if (!clips.length || animationTrackCount < 80) {
-			throw new Error('The v149 GLB did not contain the expected articulated 3D action.');
+			throw new Error('The v151 GLB did not contain the expected articulated 3D action.');
 		}
 		const rootPositionTrack = clips.flatMap((clip) => clip.tracks).find((track) =>
 			track.name.startsWith(trajectoryRoot.name) && track.name.endsWith('.position'));
 		if (!rootPositionTrack || rootPositionTrack.times.length !== frameCount) {
-			throw new Error('The v149 root track does not contain the expected frame samples.');
+			throw new Error('The v151 root track does not contain the expected frame samples.');
 		}
 		animationStartTime = rootPositionTrack.times[0];
 		duration = rootPositionTrack.times.at(-1) - animationStartTime;
-		if (!Number.isFinite(duration) || duration <= 0) throw new Error('The v149 animation has no usable duration.');
+		if (!Number.isFinite(duration) || duration <= 0) throw new Error('The v151 animation has no usable duration.');
 		mixer = new THREE.AnimationMixer(gltf.scene);
 		clipActions = clips.map((clip) => {
 			const action = mixer.clipAction(clip);
@@ -342,7 +343,7 @@ async function start() {
 			action.play();
 			return action;
 		});
-		if (!trajectoryRoot) throw new Error('The v149 GLB is missing its animated skater root track.');
+		if (!trajectoryRoot) throw new Error('The v151 GLB is missing its animated skater root track.');
 		trajectoryEventFrames = readAxelEventFrames(sceneObjects);
 		if (Object.values(trajectoryEventFrames).some((frame) => frame > frameCount)) {
 			throw new Error('A V102 inherited trajectory event is outside the exported animation frame range.');
@@ -367,10 +368,10 @@ async function start() {
 		fullscreenButton.disabled = false;
 		cameraResetButton.disabled = false;
 		setPlaybackTime(0);
-		message.textContent = `Ready · Blender v149 · ${(duration).toFixed(2)} s · ${animationTrackCount} animated channels · ${renderer.info.render.calls} draw calls`;
+		message.textContent = `Ready · Blender v151 · ${(duration).toFixed(2)} s · ${animationTrackCount} animated channels · ${renderer.info.render.calls} draw calls`;
 		requestAnimationFrame(animate);
 	} catch (error) {
-		console.error('Blender v149 player failed to load:', error);
+		console.error('Blender v151 player failed to load:', error);
 		message.textContent = `3D playback failed: ${error.message}. Open README for the .blend and fallback previews.`;
 		message.setAttribute('data-error', 'true');
 	}
@@ -458,14 +459,31 @@ canvas.addEventListener('wheel', (event) => {
 	renderer.render(modelScene, activeCamera);
 }, { passive: false });
 fullscreenButton.addEventListener('click', async () => {
-	if (!document.fullscreenElement) await shell.requestFullscreen();
-	else await document.exitFullscreen();
+	const fallback = {
+		get active() { return document.body.classList.contains('css-fullscreen'); },
+		enter() { document.body.classList.add('css-fullscreen'); },
+		exit() { document.body.classList.remove('css-fullscreen'); },
+	};
+	await toggleFullscreen({ element: shell, documentRef: document, fallback });
+	fullscreenButton.textContent = document.fullscreenElement || fallback.active ? 'Exit fullscreen' : 'Fullscreen';
+	resize();
+});
+document.addEventListener('fullscreenchange', () => {
+	fullscreenButton.textContent = document.fullscreenElement ? 'Exit fullscreen' : 'Fullscreen';
+	resize();
+});
+document.addEventListener('keydown', (event) => {
+	if (event.key !== 'Escape' || !document.body.classList.contains('css-fullscreen')) return;
+	event.preventDefault();
+	event.stopPropagation();
+	document.body.classList.remove('css-fullscreen');
+	fullscreenButton.textContent = 'Fullscreen';
 	resize();
 });
 window.addEventListener('resize', resize);
 new ResizeObserver(resize).observe(shell);
 start();
 window.addEventListener('keydown', (event) => {
-	if (event.key !== 'Escape' || window.parent === window) return;
+	if (event.key !== 'Escape' || window.parent === window || document.body.classList.contains('css-fullscreen')) return;
 	window.parent.postMessage({ type: 'motion-escape' }, location.origin);
 });

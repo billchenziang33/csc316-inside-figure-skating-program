@@ -12,18 +12,19 @@ const [player, runtime, showcase, app, overlay, build] = await Promise.all([
 	read('../scripts/build-public-site.mjs')
 ]);
 
-test('V149 is the same right-leg correction in standalone, workspace and public package', () => {
-	assert.match(player, /Blender v149/);
-	assert.match(player, /blender-player\.js\?v=149/);
-	assert.match(runtime, /single-axel-1a-human-rink-v149-web\.glb/);
-	assert.match(showcase, /Full 3D skater and capsule arena · V149/);
-	assert.match(app, /single-axel-1a-human-rink-v149-frame060-side\.png/);
-	assert.match(app, /Play Blender v149 in 3D/);
-	assert.match(overlay, /Blender v149 3D reference/);
+test('V151 free-skate landing alignment is wired through the standalone and workspace players', () => {
+	assert.match(player, /Blender v151/);
+	assert.match(player, /blender-player\.js\?v=152/);
+	assert.match(runtime, /single-axel-1a-human-rink-v151-web\.glb/);
+	assert.match(showcase, /Full 3D skater and capsule arena · V151/);
+	assert.match(app, /single-axel-1a-human-rink-v151-frame060-side\.png/);
+	assert.match(app, /Play Blender v151 in 3D/);
+	assert.match(overlay, /Blender v151 3D reference/);
 	for (const asset of [
-		'single-axel-1a-human-rink-v149.blend',
-		'single-axel-1a-human-rink-v149-web.glb',
-		'single-axel-1a-human-rink-v149-frame037-side.png',
-		'single-axel-1a-human-rink-v149-frame090-skate-closeup.png'
+		'single-axel-1a-human-rink-v151.blend',
+		'single-axel-1a-human-rink-v151-web.glb',
+		'single-axel-1a-human-rink-v151-frame087-side.png',
+		'single-axel-1a-human-rink-v151-frame090-skate-closeup.png',
+		'fullscreen-control.js'
 	]) assert.ok(build.includes(asset), `public build omits ${asset}`);
 });
