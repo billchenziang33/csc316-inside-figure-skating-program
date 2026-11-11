@@ -138,7 +138,7 @@
 
 				<section class="column panel motion-column" class:inactive-panel={workspaceTab !== 'movement'} aria-labelledby="motion-title">
 					<div class="column-head"><span class="section-number">C · 3D REFERENCE</span><h3 id="motion-title">A movement example</h3><p>Open the interactive Single Axel reference in a full-screen view.</p></div>
-					<figure class="movement-preview"><img src="/movement/axel-1a-prototype/single-axel-1a-human-rink-v145-frame090-side.png" alt="Blender v145 full-body side view of the illustrative Single Axel landing with fitted skates and visible blades"/><figcaption>Blender v145 · simulated landing · fitted skate and blade</figcaption></figure><button class="primary motion-expand" onclick={() => motionOpen = true}>Play Blender v145 in 3D ↗</button>
+					<figure class="movement-preview"><img src="/movement/axel-1a-prototype/single-axel-1a-human-rink-v149-frame090-side.png" alt="Blender v149 full-body side view of the illustrative Single Axel landing with fitted skates and visible blades"/><figcaption>Blender v149 · simulated landing · aligned skate and blade</figcaption></figure><button class="primary motion-expand" onclick={() => motionOpen = true}>Play Blender v149 in 3D ↗</button>
 					<p class="motion-caveat">This is a generic reference demo, not motion capture of {selectedSkater || 'the selected skater'} or a Beijing 2022 performance.</p>
 
 				</section>
@@ -161,8 +161,8 @@
     {:else if activeStage === 'movement'}
       <p class="stage-intro">Single Axel · a generic movement reference. This is not motion capture of {selectedSkater} or a Beijing 2022 performance.</p>
       <div class="motion-toolbar"><button class="secondary" onclick={() => { workspaceTab = 'movement'; go('workspace'); }}>← Return to workbench</button><button class="primary" onclick={() => motionOpen = true}>Enter full-screen 3D reference ↗</button><a class="secondary" href="/movement/axel-1a-prototype/">Open 1A illustrative pose study ↗</a></div>
-      <figure class="motion-poster"><button class="poster-launch" onclick={() => motionOpen = true} aria-label="Enter the Blender v145 Single Axel animation in full screen"><img src="/movement/axel-1a-prototype/single-axel-1a-human-rink-v145-frame060-side.png" alt="Blender v145 simulated skater at take-off, shown in the horizontal side view"/></button><figcaption>Blender v145 take-off · play, scrub, and inspect the same action from side, front, skate close-up, or arena views.</figcaption></figure>
-      <p class="scope-note">The full-screen view keeps your selected program and element. It loads the same Blender v145 motion as the standalone prototype. Use Play, Front, Side and skate close-up; all phases remain illustrative / simulated.</p>
+      <figure class="motion-poster"><button class="poster-launch" onclick={() => motionOpen = true} aria-label="Enter the Blender v149 Single Axel animation in full screen"><img src="/movement/axel-1a-prototype/single-axel-1a-human-rink-v149-frame060-side.png" alt="Blender v149 simulated skater at take-off, shown in the horizontal side view"/></button><figcaption>Blender v149 take-off · play, scrub, and inspect the same action from side, front, skate close-up, or arena views.</figcaption></figure>
+      <p class="scope-note">The full-screen view keeps your selected program and element. It loads the same Blender v149 motion as the standalone prototype. Use Play, Front, Side and skate close-up; all phases remain illustrative / simulated.</p>
     {/if}
     {/if}
   </section>
