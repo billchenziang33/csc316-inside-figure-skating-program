@@ -15,6 +15,8 @@ const [player, runtime, showcase, app, overlay, build] = await Promise.all([
 test('V155 ankle-alignment action is wired through the standalone and workspace players', () => {
 	assert.match(player, /Blender v155/);
 	assert.match(player, /blender-player\.js\?v=155/);
+	assert.match(player, /data-mobile-extra/);
+	assert.match(player, /\.camera-picks\s+\[data-mobile-extra\]\s*\{\s*display:\s*none/);
 	assert.match(runtime, /single-axel-1a-human-rink-v155-web\.glb/);
 	assert.match(showcase, /Full 3D skater and capsule arena · V155/);
 	assert.match(app, /single-axel-1a-human-rink-v155-frame081-side\.png/);

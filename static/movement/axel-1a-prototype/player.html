@@ -27,7 +27,7 @@
 		input[type=range]{width:100%;min-width:0;accent-color:#8de3d5}label{font-size:.72rem;color:#c5d9df}.counter{font-size:.72rem;text-align:right;white-space:nowrap;color:#dbe9ed}
 		.note{flex:none;margin:0;padding:0 .7rem .55rem;color:#a8c0c7;font-size:.66rem}
 		#blender-stage{touch-action:none;cursor:grab}#blender-stage.is-dragging{cursor:grabbing}#blender-stage.is-panning{cursor:move}
-		@media(max-width:600px){.player-head{padding:.4rem .55rem}.player-head strong{font-size:.78rem}.badge{font-size:.58rem}.camera-picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:.4rem .5rem .1rem}.camera-picks button{font-size:.74rem;padding:.35rem .45rem}.view-hint{font-size:.6rem}.flight-hud{grid-template-columns:repeat(2,minmax(0,1fr));padding:.35rem .5rem}.flight-hud strong{font-size:.75rem}.controls{grid-template-columns:repeat(2,minmax(0,1fr));gap:.35rem;padding:.35rem .5rem}.controls #blender-frame{grid-column:1/-1;grid-row:2}.controls #blender-counter{grid-column:1/-1;grid-row:3}.controls .speed-label{grid-column:1;grid-row:4}.controls #blender-speed{grid-column:2;grid-row:4;min-width:0;width:100%}.controls #blender-fullscreen{grid-column:1/-1;grid-row:5}.note{font-size:.6rem;padding:0 .5rem .35rem}}
+		@media(max-width:600px){.player-head{padding:.4rem .55rem}.player-head strong{font-size:.78rem}.badge{font-size:.58rem}.camera-picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:.4rem .5rem .1rem}.camera-picks button{font-size:.74rem;padding:.35rem .45rem}.camera-picks [data-mobile-extra]{display:none}.view-hint{font-size:.6rem}.flight-hud{grid-template-columns:repeat(2,minmax(0,1fr));padding:.35rem .5rem}.flight-hud strong{font-size:.75rem}.controls{grid-template-columns:repeat(2,minmax(0,1fr));gap:.35rem;padding:.35rem .5rem}.controls #blender-frame{grid-column:1/-1;grid-row:2}.controls #blender-counter{grid-column:1/-1;grid-row:3}.controls .speed-label{grid-column:1;grid-row:4}.controls #blender-speed{grid-column:2;grid-row:4;min-width:0;width:100%}.controls #blender-fullscreen{grid-column:1/-1;grid-row:5}.note{font-size:.6rem;padding:0 .5rem .35rem}}
 	</style>
 </head>
 <body>
@@ -46,8 +46,8 @@
 		<button type="button" data-camera="Action skater side profile full-body v124" aria-pressed="true">Side profile</button>
 		<button type="button" data-camera="Action front view" aria-pressed="false">Front view</button>
 		<button type="button" data-camera="Skate inspection · close view" aria-pressed="false">Skate close-up</button>
-		<button type="button" data-camera="Arena overview · full 60×30 rink" aria-pressed="false">Arena</button>
-		<button type="button" data-camera="Action skater-facing follow view v121" aria-pressed="false">Skater follow</button><button type="button" data-camera="Action side view · horizontal follow composition" aria-pressed="false">Rink side</button>
+		<button type="button" data-mobile-extra data-camera="Arena overview · full 60×30 rink" aria-pressed="false">Arena</button>
+		<button type="button" data-mobile-extra data-camera="Action skater-facing follow view v121" aria-pressed="false">Skater follow</button><button type="button" data-mobile-extra data-camera="Action side view · horizontal follow composition" aria-pressed="false">Rink side</button>
 		<button id="blender-camera-reset" type="button" disabled>Reset view</button>
 	</div>
 	<p class="view-hint">Left-drag: rotate · Shift + left-drag or right-drag: pan · scroll: zoom · Reset view restores the selected camera preset</p>
