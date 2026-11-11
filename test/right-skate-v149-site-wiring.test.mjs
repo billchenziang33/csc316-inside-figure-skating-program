@@ -12,25 +12,25 @@ const [player, runtime, showcase, app, overlay, build] = await Promise.all([
 	read('../scripts/build-public-site.mjs')
 ]);
 
-test('V167 skate alignment is wired through the standalone and workspace players', () => {
-	assert.match(player, /Blender v167/);
-	assert.match(player, /blender-player\.js\?v=167/);
+test('V168 skate alignment is wired through the standalone and workspace players', () => {
+	assert.match(player, /Blender v168/);
+	assert.match(player, /blender-player\.js\?v=168/);
 	assert.match(player, /data-mobile-extra/);
 	assert.match(player, /\.camera-picks\s+\[data-mobile-extra\]\s*\{\s*display:\s*none/);
-	assert.match(runtime, /single-axel-1a-human-rink-v167-web\.glb/);
-	assert.match(showcase, /Full 3D skater and capsule arena · V167/);
-	assert.match(app, /single-axel-1a-human-rink-v167-frame051-side\.png/);
-	assert.match(app, /Play Blender v167 in 3D/);
-	assert.match(overlay, /Blender v167 3D reference/);
+	assert.match(runtime, /single-axel-1a-human-rink-v168-web\.glb/);
+	assert.match(showcase, /Full 3D skater and capsule arena · V168/);
+	assert.match(app, /single-axel-1a-human-rink-v168-frame083-side\.png/);
+	assert.match(app, /Play Blender v168 in 3D/);
+	assert.match(overlay, /Blender v168 3D reference/);
 	for (const asset of [
 		'single-axel-1a-human-rink-v155.blend',
 		'single-axel-1a-human-rink-v155-web.glb',
 		'single-axel-1a-human-rink-v155-frame081-side.png',
 		'single-axel-1a-human-rink-v155-frame081-front.png',
 		'single-axel-1a-human-rink-v155-frame092-skate-closeup.png',
-		'single-axel-1a-human-rink-v167.blend',
-		'single-axel-1a-human-rink-v167-web.glb',
-		'single-axel-1a-human-rink-v167-frame050-front.png',
+		'single-axel-1a-human-rink-v168.blend',
+		'single-axel-1a-human-rink-v168-web.glb',
+		'single-axel-1a-human-rink-v168-frame083-side.png',
 		'fullscreen-control.js'
 	]) assert.ok(build.includes(asset), `public build omits ${asset}`);
 });

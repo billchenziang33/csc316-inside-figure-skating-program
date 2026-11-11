@@ -47,13 +47,11 @@ test('V101 scene, GLB and previews remain as an archived checkpoint', async () =
 	]) assert.ok((await stat(new URL(file, root))).size > 10_000, `${file} is missing`);
 });
 
-test('side and front showcase include the current V167 skate-direction previews', () => {
+test('showcase includes V168 side previews for approach, flight and exit glide', () => {
 	const showcase = prototypePage.match(/<div class="blender-views">([\s\S]*?)<\/div>/)?.[1] ?? '';
-	assert.match(showcase, /v167-frame047-side\.png/);
-	assert.match(showcase, /v167-frame050-front\.png/);
-	assert.match(showcase, /v167-frame050-side\.png/);
-	assert.match(showcase, /v167-frame051-side\.png/);
-	assert.match(showcase, /v167-frame055-side\.png/);
+	assert.match(showcase, /v168-frame047-side\.png/);
+	assert.match(showcase, /v168-frame083-side\.png/);
+	assert.match(showcase, /v168-frame136-side\.png/);
 	assert.doesNotMatch(showcase, /front-browser/);
 	assert.doesNotMatch(publicBuild, /front-browser/);
 });
@@ -73,15 +71,15 @@ test('public package includes the local Three runtime, camera fit module and V12
 	assert.match(cameraFit, /halfHorizontal/);
 });
 
-test('current player reads inherited event markers and selects the V167 scene', () => {
-	assert.match(player, /single-axel-1a-human-rink-v167-web\.glb/);
+test('current player reads inherited event markers and selects the V168 scene', () => {
+	assert.match(player, /single-axel-1a-human-rink-v168-web\.glb/);
 	assert.match(player, /readAxelEventFrames\(sceneObjects\)/);
 	assert.match(player, /phaseAt\(frame, trajectoryEventFrames\)/);
 	assert.match(player, /findExportedNamesByPrefix\(sceneObjects, 'V102'\)/);
-	assert.match(prototypePage, /Full 3D skater and capsule arena · V167/);
-	assert.match(motionOverlay, /Blender v167/);
-	assert.match(app, /single-axel-1a-human-rink-v167-frame051-side\.png/);
-	assert.match(publicBuild, /single-axel-1a-human-rink-v167-web\.glb/);
+	assert.match(prototypePage, /Full 3D skater and capsule arena · V168/);
+	assert.match(motionOverlay, /Blender v168/);
+	assert.match(app, /single-axel-1a-human-rink-v168-frame083-side\.png/);
+	assert.match(publicBuild, /single-axel-1a-human-rink-v168-web\.glb/);
 	assert.match(v102Builder, /AIRBORNE_CLEARANCE = 0\.020/);
 	assert.match(v102Builder, /V102_BUILD_AUDIT/);
 	assert.match(v102Audit, /STEP = 1\.0 \/ 16\.0/);
@@ -111,10 +109,10 @@ test('the 3D player supports free pointer orbit, wheel zoom and a camera reset',
 	assert.match(player, /resetView/);
 });
 
-test('the V167 player resolves the exported capsule-ice arena target', () => {
+test('the V168 player resolves the exported capsule-ice arena target', () => {
 	assert.match(player, /V23 capsule ice · 60 m × 30 m \(30 m straights \+ semicircles\)/);
 	assert.doesNotMatch(player, /V23 capsule ice polygon/);
-	assert.match(html, /blender-player\.js\?v=167/);
+	assert.match(html, /blender-player\.js\?v=168/);
 });
 
 test('the player defaults to a full-body side profile and keeps rink and follow views', () => {
