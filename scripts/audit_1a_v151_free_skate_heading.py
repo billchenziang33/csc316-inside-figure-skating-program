@@ -99,4 +99,3 @@ if report["max_boot_to_blade_abs_deg"] > 0.01:
     raise RuntimeError("The left boot toe and its blade toe point in different directions")
 if report["minimum_landing_blade_gap_m"] < -1e-5:
     raise RuntimeError("A blade crosses below the actual ice top")
-

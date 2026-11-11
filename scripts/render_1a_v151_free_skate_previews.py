@@ -42,4 +42,3 @@ scene.frame_set(old_frame)
  scene.render.image_settings.file_format) = old_render
 bpy.context.view_layer.update()
 print("V151_REVIEW_RENDERS " + json.dumps(outputs, ensure_ascii=False))
-

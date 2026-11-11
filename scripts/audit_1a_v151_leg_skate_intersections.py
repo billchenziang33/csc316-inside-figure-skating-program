@@ -66,4 +66,3 @@ print("V151_LEG_SKATE_BVH " + json.dumps({
     "pairs": results,
     "method_limit": "Surface triangle intersections sampled every 0.5 frames; not continuous volumetric collision proof.",
 }, ensure_ascii=False))
-
