@@ -1,9 +1,16 @@
+## 2026-11-11 CSC316 V177 approach stride continuity
+
+- Edge review of V176 found the remaining visual change in the front view at f16→17. Blender measured 205.9 mm left and 340.9 mm right horizontal ankle travel in that single interval. V177 interpolates the f11–20 hip/ankle tracks between matching endpoint positions and slopes, rebuilds both forward knee hinges, and preserves the sampled blade heights. The f16→17 steps fell to 13.4 mm and 74.4 mm. Minimum front-view projected ankle spacing in that interval increased from 0.46% to 3.03% of the frame width.
+- `scripts/prepare_1a_early_stride_v177.py` outputs the V177 Blender/GLB pair from V176. The two GLB root tracks and all three markers match V176, including the 1.5000-turn f60–92 airborne segment. The original scenes and all earlier file versions remain available.
+- The V177 pose audit found zero reverse knees in 2,545 samples and zero opposite-leg mesh intersections in 1,273 samples. At f16→17 the thigh/shin steps are 7.73°/5.87° left and 6.86°/9.13° right. Minimum left/right runner gaps are +2.817/+1.956 mm. Front renders at f16 and f17 show clear ankle separation at both frames.
+
 ## 2026-11-11 CSC316 V176 left take-off, right landing, and skate contrast
 
 - V176 derives from V175 in `scripts/prepare_1a_axel_contact_v176.py`. The matching `single-axel-1a-human-rink-v176.blend` and `single-axel-1a-human-rink-v176-web.glb` are under `static/movement/axel-1a-prototype/`. The previous assets and Blender default scene remain available.
 - V175's f60 support was model-right and its f60–92 root yaw was 1.1095 turns. V176 places model-left support at f60 and model-right support at f92, straightens the entry/exit headings along the traveled line, and collects both feet below the pelvis near f76. `scripts/audit_1a_v176_events.py` measured 1.5000 airborne turns, +4.0 mm clearance at both support events, ~7.5°/8.0° outward bank, and a f92–102 support gap range of +3.994–4.000 mm. The sampled blade clearances and banks are geometric, and the skater is illustrative/simulated with no Beijing 2022 athlete capture.
 - `scripts/audit_1a_leg_hinge.py` passed with 0 knee reversals over 2,545 poses, 0 opposite-leg intersections over 1,273 poses, min blade gaps +2.817/+1.956 mm and maximum world rotation step 28.39°. `scripts/audit_1a_v176_glb.cjs` verified 160 unchanged translation samples and the same event markers in the export plus a 1.5000-turn f60–92 root channel.
 - Skate surfaces distinguish the outsole, mounts, steel runner, and toe pick. The web close-up fits both animated skates and tracks the side camera. On the ice, soft contact shadows fade with the clearance of the rendered runner vertices. The standalone page and Movement reference/full-screen player use the same GLB. The mobile controls place the frame count under the scrubber.
+- Commit `9d8d615` was pushed to `codex/axel-v146-orbit-framing` and deployed as `dpl_6Nfj6D9TiRQWemS8whrqcvxWPe9T`. Edge verified public 1× side playback and 0.35× front playback to f160, dragging the timeline, the skate close-up, free rotation, full-screen entry, and a 390 × 844 CSS pixel viewport. The default phone side view showed both blades at landing. The f16→17 change remained visible in the front view.
 
 ## 2026-11-11 CSC316 V175 knee hinge and cross-leg separation
 

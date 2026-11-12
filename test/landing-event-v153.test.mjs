@@ -10,7 +10,7 @@ const [builder, audit, player, runtime] = await Promise.all([
 	read('../static/movement/axel-1a-prototype/blender-player.js')
 ]);
 
-test('V153 touchdown marker remains wired into the V176 toe-aligned action', () => {
+test('V153 touchdown marker remains wired into the V177 toe-aligned action', () => {
 	assert.match(builder, /single-axel-1a-human-rink-v152\.blend/);
 	assert.match(builder, /LANDING_FRAME = 92/);
 	assert.match(builder, /V102_EVENT_LANDING_FRAME_92/);
@@ -18,8 +18,8 @@ test('V153 touchdown marker remains wired into the V176 toe-aligned action', () 
 	assert.doesNotMatch(builder, /keyframe_insert/);
 	assert.match(audit, /first_contact_whole_frame/);
 	assert.match(audit, /0\.001 <= landing_sample\["support_gap_m"\] <= 0\.003/);
-	assert.match(player, /Blender v176/);
-	assert.match(player, /blender-player\.js\?v=176/);
-	assert.match(runtime, /single-axel-1a-human-rink-v176-web\.glb/);
+	assert.match(player, /Blender v177/);
+	assert.match(player, /blender-player\.js\?v=177/);
+	assert.match(runtime, /single-axel-1a-human-rink-v177-web\.glb/);
 	assert.match(runtime, /readAxelEventFrames\(sceneObjects\)/);
 });

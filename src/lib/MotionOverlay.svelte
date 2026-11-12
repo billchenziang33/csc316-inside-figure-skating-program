@@ -24,8 +24,8 @@
 </script>
 
 <dialog bind:this={dialog} class="motion-overlay" aria-labelledby="motion-overlay-title" oncancel={(event) => { event.preventDefault(); onClose(); }}>
-  <header><div><h2 id="motion-overlay-title">Single Axel · Blender v176 3D reference</h2><p>Illustrative / simulated action · not motion capture of {skater || 'the selected athlete'}</p></div><button onclick={onClose}>Return to the main page ↙</button></header>
-  {#if demoHtml}<iframe bind:this={frame} srcdoc={demoHtml} allow="fullscreen" title="Blender v176 Single Axel animation with play, scrub and side/front cameras"></iframe>{:else if loadError}<p role="alert">{loadError}</p>{:else}<p role="status">Loading the Blender v176 animation…</p>{/if}
+  <header><div><h2 id="motion-overlay-title">Single Axel · Blender v177 3D reference</h2><p>Illustrative / simulated action · not motion capture of {skater || 'the selected athlete'}</p></div><button onclick={onClose}>Return to the main page ↙</button></header>
+  {#if demoHtml}<iframe bind:this={frame} srcdoc={demoHtml} allow="fullscreen" title="Blender v177 Single Axel animation with play, scrub and side/front cameras"></iframe>{:else if loadError}<p role="alert">{loadError}</p>{:else}<p role="status">Loading the Blender v177 animation…</p>{/if}
 </dialog>
 
 <style>

@@ -1,5 +1,13 @@
 # Single Axel 1A illustrative pose study
 
+## 2026-11-11 V177 continuous approach stride
+
+- `single-axel-1a-human-rink-v177.blend` contains the skater, skates, ice, empty stands, cameras, and animation. `single-axel-1a-human-rink-v177-web.glb` was exported from that scene. The V8, V174, V175, and V176 assets and the default Blender scene remain available.
+- The f16→17 horizontal ankle steps in V176 were 205.9 mm left and 340.9 mm right. V177 uses an endpoint-matched curve from f11 to f20, rebuilds the forward knee hinges around it, and preserves the sampled blade height during the transfer. The f16→17 steps are now 13.4 mm left and 74.4 mm right. The minimum front-camera projected ankle separation in f11–20 increased from 0.46% to 3.03% of the frame width.
+- V177 inherits the V176 skate materials and jump choreography. Both exported root tracks match V176 across all 160 samples. The take-off, apex, and landing markers remain f60, f76, and f92, with 1.5000 turns between take-off and landing.
+- The geometric audit found zero reverse-knee poses in 2,545 samples, zero opposite-leg surface intersections in 1,273 samples, and minimum left/right runner gaps of 2.817/1.956 mm. The f16→17 thigh and shin rotation steps are all below 10°.
+- Rebuild with `scripts/prepare_1a_early_stride_v177.py` using V176 as the source. Front-view review renders show f16, f17, and f34. See the V176 entry for the motion reference, measurement limits, and asset attribution. All motion is illustrative/simulated and uses no Beijing 2022 athlete capture.
+
 ## 2026-11-11 V176 take-off, flight, and landing
 
 - Open `single-axel-1a-human-rink-v176.blend` for the skater, ice, empty stands, cameras, and 160-frame animation. The accompanying `single-axel-1a-human-rink-v176-web.glb` was exported directly from that scene. The V8, V174, and V175 source files and the separate default `Scene` (Camera, Cube, Light) remain available.
