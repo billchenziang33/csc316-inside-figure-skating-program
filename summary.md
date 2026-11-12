@@ -1,10 +1,16 @@
+## 2026-11-11 CSC316 V178 anatomical take-off and landing
+
+- The V177 user observation was correct: f60 uses the anatomical right foot and f92 the anatomical left. The V176/V177 audit inferred anatomy from object names. The new `scripts/audit_1a_anatomical_handedness.py` compares the hip axis against the skater's torso facing, checks that direction against the modeled nose, and determines support from blade mesh height.
+- `scripts/prepare_1a_handedness_v178.py` corrects the skater in the moving root frame, keeping the existing counterclockwise rotation, ice centerline, timings, fixed cameras and separate default scene. V178's matching Blender and GLB files are under `static/movement/axel-1a-prototype/`. Both the public player and Movement reference use the V178 export.
+- The anatomical audit fails on V177 and passes on V178: f60 left forward outside, f92 right backward outside, support runner clearance 4.000 mm at both frames, outside-edge bank 7.515°/7.993°, and +1.500 turns f60–92. The export's 160-sample root tracks and three event markers match V177. Measurements describe simulated motion; no Beijing 2022 motion capture was used.
+
 ## 2026-11-11 CSC316 V177 approach stride continuity
 
 - Edge review of V176 found the remaining visual change in the front view at f16→17. Blender measured 205.9 mm left and 340.9 mm right horizontal ankle travel in that single interval. V177 interpolates the f11–20 hip/ankle tracks between matching endpoint positions and slopes, rebuilds both forward knee hinges, and preserves the sampled blade heights. The f16→17 steps fell to 13.4 mm and 74.4 mm. Minimum front-view projected ankle spacing in that interval increased from 0.46% to 3.03% of the frame width.
 - `scripts/prepare_1a_early_stride_v177.py` outputs the V177 Blender/GLB pair from V176. The two GLB root tracks and all three markers match V176, including the 1.5000-turn f60–92 airborne segment. The original scenes and all earlier file versions remain available.
 - The V177 pose audit found zero reverse knees in 2,545 samples and zero opposite-leg mesh intersections in 1,273 samples. At f16→17 the thigh/shin steps are 7.73°/5.87° left and 6.86°/9.13° right. Minimum left/right runner gaps are +2.817/+1.956 mm. Front renders at f16 and f17 show clear ankle separation at both frames.
 
-## 2026-11-11 CSC316 V176 left take-off, right landing, and skate contrast
+## 2026-11-11 CSC316 V176 support-foot swap and skate contrast
 
 - V176 derives from V175 in `scripts/prepare_1a_axel_contact_v176.py`. The matching `single-axel-1a-human-rink-v176.blend` and `single-axel-1a-human-rink-v176-web.glb` are under `static/movement/axel-1a-prototype/`. The previous assets and Blender default scene remain available.
 - V175's f60 support was model-right and its f60–92 root yaw was 1.1095 turns. V176 places model-left support at f60 and model-right support at f92, straightens the entry/exit headings along the traveled line, and collects both feet below the pelvis near f76. `scripts/audit_1a_v176_events.py` measured 1.5000 airborne turns, +4.0 mm clearance at both support events, ~7.5°/8.0° outward bank, and a f92–102 support gap range of +3.994–4.000 mm. The sampled blade clearances and banks are geometric, and the skater is illustrative/simulated with no Beijing 2022 athlete capture.

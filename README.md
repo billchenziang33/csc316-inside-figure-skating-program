@@ -8,7 +8,7 @@ Open the public prototype at [inside-figure-skating-program.eagercoast2.chatgpt.
 
 ## Current Blender reference
 
-The interactive Movement panel uses the V177 Blender/GLB scene with draggable 3D orbit, front/side/skate views, playback, frame scrubbing, and a live simulated trajectory. V177 shows a left-foot forward take-off, a one-and-a-half-turn airborne phase, and a right-foot backward landing. The matching assets, previews, measured changes, sources and limits are documented in [the Single Axel README](static/movement/axel-1a-prototype/README.md). The animation is illustrative/simulated and uses no Beijing 2022 athlete capture.
+The interactive Movement panel uses the V178 Blender/GLB scene with draggable 3D orbit, front/side/skate views, playback, frame scrubbing, and a live simulated trajectory. V178 shows a left-foot forward take-off, a one-and-a-half-turn airborne phase, and a right-foot backward landing. The matching assets, previews, measured changes, sources and limits are documented in [the Single Axel README](static/movement/axel-1a-prototype/README.md). The animation is illustrative/simulated and uses no Beijing 2022 athlete capture.
 
 ## Milestone 7 package
 
