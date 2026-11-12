@@ -7,7 +7,7 @@ import { formatMeters, measureFlightMetrics, phaseAt, readAxelEventFrames, timeA
 const THREE = globalThis.THREE;
 const GLTFLoader = THREE?.GLTFLoader;
 
-const FILE = '/movement/axel-1a-prototype/single-axel-1a-human-rink-v175-web.glb';
+const FILE = '/movement/axel-1a-prototype/single-axel-1a-human-rink-v176-web.glb';
 const CAMERA_NAMES = [
 	'Action side view · horizontal follow composition',
 	'Action front view',
@@ -48,8 +48,8 @@ let frameCount = 160;
 let playbackTime = 0;
 let playing = false;
 let lastTick = 0;
-let inspectionRunner;
-let inspectionBoot;
+let inspectionSkates;
+let skaterSideCamera;
 let inspectionCamera;
 let arenaCamera;
 let followInspection = false;
@@ -67,6 +67,7 @@ let trajectoryEventFrames;
 let trajectoryPoints;
 let trajectoryGuides = [];
 const inspectionDirection = new THREE.Vector3();
+const inspectionOrientation = new THREE.Quaternion();
 const inspectionTarget = new THREE.Vector3();
 const inspectionCameraPosition = new THREE.Vector3();
 const inspectionBox = new THREE.Box3();
@@ -82,18 +83,76 @@ const cameraUp = new THREE.Vector3();
 const arenaBounds = new THREE.Box3();
 const arenaTarget = new THREE.Vector3();
 let arenaObject;
+let iceHeight;
+let skateShadows = [];
+const shadowDirection = new THREE.Vector3();
+const shadowCenter = new THREE.Vector3();
+const shadowBounds = new THREE.Box3();
+
+function createSkateShadows() {
+	const textureCanvas = document.createElement('canvas');
+	textureCanvas.width = textureCanvas.height = 64;
+	const context = textureCanvas.getContext('2d');
+	const falloff = context.createRadialGradient(32, 32, 0, 32, 32, 32);
+	falloff.addColorStop(0, 'rgba(255,255,255,1)');
+	falloff.addColorStop(0.45, 'rgba(255,255,255,.75)');
+	falloff.addColorStop(1, 'rgba(255,255,255,0)');
+	context.fillStyle = falloff;
+	context.fillRect(0, 0, 64, 64);
+	const texture = new THREE.CanvasTexture(textureCanvas);
+	const geometry = new THREE.PlaneGeometry(.57, .21).rotateX(-Math.PI / 2);
+	iceHeight = shadowBounds.setFromObject(arenaObject).max.y;
+	skateShadows = [inspectionSkates[1], inspectionSkates[3]].map((runner) => {
+		const surfaces = [];
+		runner.traverse((part) => {
+			const positions = part.geometry?.getAttribute('position');
+			if (positions) surfaces.push({ part, positions });
+		});
+		const material = new THREE.MeshBasicMaterial({
+			map: texture, color: 0x223646, transparent: true, depthWrite: false,
+		});
+		const shadow = new THREE.Mesh(geometry, material);
+		shadow.renderOrder = 2;
+		modelScene.add(shadow);
+		return { runner, surfaces, shadow };
+	});
+}
+
+function updateSkateShadows() {
+	for (const { runner, surfaces, shadow } of skateShadows) {
+		let lowest = Infinity;
+		for (const { part, positions } of surfaces) {
+			const matrix = part.matrixWorld.elements;
+			for (let i = 0; i < positions.count; i++) {
+				const y = matrix[1] * positions.getX(i) + matrix[5] * positions.getY(i) +
+					matrix[9] * positions.getZ(i) + matrix[13];
+				lowest = Math.min(lowest, y);
+			}
+		}
+		const gap = Math.max(0, lowest - iceHeight);
+		shadow.visible = gap < .26;
+		if (!shadow.visible) continue;
+		shadowBounds.setFromObject(runner).getCenter(shadowCenter);
+		shadow.position.set(shadowCenter.x, iceHeight + .002, shadowCenter.z);
+		shadowDirection.set(0, 0, 1).transformDirection(runner.matrixWorld);
+		shadow.rotation.y = Math.atan2(-shadowDirection.z, shadowDirection.x);
+		shadow.scale.setScalar(1 + 1.5 * gap);
+		shadow.material.opacity = .53 * Math.exp(-16 * gap);
+	}
+}
 
 function frameFromTime(time) {
 	return Math.min(frameCount - 1, Math.max(0, Math.round(time / duration * (frameCount - 1))));
 }
 
 function updateInspectionCamera() {
-	if (!followInspection || !inspectionRunner || !activeCamera) return;
+	if (!followInspection || !activeCamera) return;
 	modelScene.updateMatrixWorld(true);
-	inspectionBox.setFromObject(inspectionRunner);
-	if (inspectionBoot) inspectionBox.union(new THREE.Box3().setFromObject(inspectionBoot));
+	inspectionBox.makeEmpty();
+	for (const skatePart of inspectionSkates) inspectionBox.expandByObject(skatePart);
 	inspectionBox.getCenter(inspectionTarget);
-	inspectionTarget.y += 0.04;
+	skaterSideCamera.getWorldQuaternion(inspectionOrientation);
+	inspectionDirection.set(0.27, 0.04, 1).applyQuaternion(inspectionOrientation).normalize();
 	const aspect = viewerCamera?.aspect || inspectionCamera.aspect || 1.5;
 	const sphere = inspectionBox.getBoundingSphere(new THREE.Sphere());
 	const fitDistance = fitBoundingSphereDistance({
@@ -124,14 +183,19 @@ function resize() {
 		activeCamera.aspect = width / height;
 		activeCamera.updateProjectionMatrix();
 	}
+	if (followInspection) {
+		updateInspectionCamera();
+		updateViewerCamera();
+	}
 	renderer.render(modelScene, activeCamera);
 }
 
 function setPlaybackTime(time, updateSlider = true) {
-	if (!activeCamera) throw new Error('The v175 GLB camera was not resolved.');
+	if (!activeCamera) throw new Error('The v176 GLB camera was not resolved.');
 	playbackTime = Math.max(0, Math.min(duration, time));
 	seekAnimationActions(mixer, clipActions, animationStartTime + playbackTime);
 	modelScene.updateMatrixWorld(true);
+	updateSkateShadows();
 	updateInspectionCamera();
 	updateViewerCamera();
 	const frame = frameFromTime(playbackTime);
@@ -312,29 +376,30 @@ async function start() {
 		modelScene.traverse((object) => sceneObjects.push(object));
 		trajectoryGuides = findExportedNamesByPrefix(sceneObjects, 'V102');
 		trajectoryRoot = findExportedNameMatch(sceneObjects, 'Skater root · simulated travel and 1.5-turn yaw v8');
-		inspectionRunner = findExportedNameMatch(sceneObjects, 'Right skate · website blade v64');
-		inspectionBoot = findExportedNameMatch(sceneObjects, 'Right skate · website boot v64');
+		inspectionSkates = ['Left', 'Right'].flatMap((side) => ['boot', 'blade'].map((part) =>
+			findExportedNameMatch(sceneObjects, `${side} skate · website ${part} v64`)));
 		inspectionCamera = findExportedNameMatch(sceneObjects, CAMERA_NAMES[2]);
 		arenaCamera = findExportedNameMatch(sceneObjects, CAMERA_NAMES[3]);
 		const skaterFollowCamera = findExportedNameMatch(sceneObjects, CAMERA_NAMES[4]);
-		const skaterSideCamera = findExportedNameMatch(sceneObjects, CAMERA_NAMES[5]);
+		skaterSideCamera = findExportedNameMatch(sceneObjects, CAMERA_NAMES[5]);
 		arenaObject = findExportedNameMatch(sceneObjects, 'V23 capsule ice · 60 m × 30 m (30 m straights + semicircles)');
-		if (!inspectionRunner || !inspectionBoot || !inspectionCamera?.isCamera || !arenaCamera?.isCamera || !skaterFollowCamera?.isCamera || !skaterSideCamera?.isCamera || !arenaObject) {
-			throw new Error('The v175 skate inspection, arena, skater-follow or side-profile camera is missing.');
+		if (inspectionSkates.some((part) => !part) || !inspectionCamera?.isCamera || !arenaCamera?.isCamera || !skaterFollowCamera?.isCamera || !skaterSideCamera?.isCamera || !arenaObject) {
+			throw new Error('The v176 skate inspection, arena, skater-follow or side-profile camera is missing.');
 		}
+		createSkateShadows();
 		const clips = gltf.animations;
 		animationTrackCount = clips.reduce((count, clip) => count + clip.tracks.length, 0);
 		if (!clips.length || animationTrackCount < 80) {
-			throw new Error('The v175 GLB did not contain the expected articulated 3D action.');
+			throw new Error('The v176 GLB did not contain the expected articulated 3D action.');
 		}
 		const rootPositionTrack = clips.flatMap((clip) => clip.tracks).find((track) =>
 			track.name.startsWith(trajectoryRoot.name) && track.name.endsWith('.position'));
 		if (!rootPositionTrack || rootPositionTrack.times.length !== frameCount) {
-			throw new Error('The v175 root track does not contain the expected frame samples.');
+			throw new Error('The v176 root track does not contain the expected frame samples.');
 		}
 		animationStartTime = rootPositionTrack.times[0];
 		duration = rootPositionTrack.times.at(-1) - animationStartTime;
-		if (!Number.isFinite(duration) || duration <= 0) throw new Error('The v175 animation has no usable duration.');
+		if (!Number.isFinite(duration) || duration <= 0) throw new Error('The v176 animation has no usable duration.');
 		mixer = new THREE.AnimationMixer(gltf.scene);
 		clipActions = clips.map((clip) => {
 			const action = mixer.clipAction(clip);
@@ -343,19 +408,12 @@ async function start() {
 			action.play();
 			return action;
 		});
-		if (!trajectoryRoot) throw new Error('The v175 GLB is missing its animated skater root track.');
+		if (!trajectoryRoot) throw new Error('The v176 GLB is missing its animated skater root track.');
 		trajectoryEventFrames = readAxelEventFrames(sceneObjects);
 		if (Object.values(trajectoryEventFrames).some((frame) => frame > frameCount)) {
 			throw new Error('A V102 inherited trajectory event is outside the exported animation frame range.');
 		}
 		sampleTrajectoryEvents();
-		mixer.setTime(animationStartTime + duration * (94 - 1) / (frameCount - 1));
-		modelScene.updateMatrixWorld(true);
-		inspectionBox.setFromObject(inspectionRunner);
-		inspectionBox.union(new THREE.Box3().setFromObject(inspectionBoot));
-		inspectionBox.getCenter(inspectionTarget);
-		inspectionCamera.getWorldPosition(inspectionCameraPosition);
-		inspectionDirection.copy(inspectionCameraPosition).sub(inspectionTarget).normalize();
 		inspectionCamera.zoom = 1.0;
 		inspectionCamera.near = 0.01;
 		inspectionCamera.updateProjectionMatrix();
@@ -368,10 +426,10 @@ async function start() {
 		fullscreenButton.disabled = false;
 		cameraResetButton.disabled = false;
 		setPlaybackTime(0);
-		message.textContent = `Ready · Blender v175 · ${(duration).toFixed(2)} s · ${animationTrackCount} animated channels · ${renderer.info.render.calls} draw calls`;
+		message.textContent = `Ready · Blender v176 · ${(duration).toFixed(2)} s · ${animationTrackCount} animated channels · ${renderer.info.render.calls} draw calls`;
 		requestAnimationFrame(animate);
 	} catch (error) {
-		console.error('Blender v175 player failed to load:', error);
+		console.error('Blender v176 player failed to load:', error);
 		message.textContent = `3D playback failed: ${error.message}. Open README for the .blend and fallback previews.`;
 		message.setAttribute('data-error', 'true');
 	}
