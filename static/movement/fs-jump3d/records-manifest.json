@@ -1,0 +1,6395 @@
+[
+  {
+    "id": "Skater_A-Axel-01",
+    "family": "Axel",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 133,
+        "apex_frame": 145,
+        "landing_frame": 161,
+        "contact_takeoff_frame": 132,
+        "contact_landing_frame": 163,
+        "estimated_air_turns": 1.0808,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "geometry_pass",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Axel\\Axel_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": true,
+    "assets": {
+      "r1": {
+        "path": "Axel/Skater_A-Axel-01/Skater_A-Axel-01-r1-web.glb",
+        "sha256": "353962117090c0df9ed0fd86dd6041c66ff150a3810e36ea17d25657c0c01917"
+      },
+      "r2": {
+        "path": "Axel/Skater_A-Axel-01/Skater_A-Axel-01-r2-web.glb",
+        "sha256": "d23125ec7f53ea15ea8a1ae4c0a3e0d6a621bb958b9a9557c4dfd544c75103d8"
+      },
+      "r3": {
+        "path": "Axel/Skater_A-Axel-01/Skater_A-Axel-01-r3-web.glb",
+        "sha256": "fed5678227e6d12c8266d40e1efaacfa20fbc8f59d5da23725387f446e3c6fef"
+      }
+    }
+  },
+  {
+    "id": "Skater_A-Axel-10",
+    "family": "Axel",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 158,
+        "apex_frame": 174,
+        "landing_frame": 188,
+        "contact_takeoff_frame": 156,
+        "contact_landing_frame": 189,
+        "estimated_air_turns": 1.9148,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "geometry_pass",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Axel\\Axel_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": true,
+    "assets": {
+      "r1": {
+        "path": "Axel/Skater_A-Axel-10/Skater_A-Axel-10-r1-web.glb",
+        "sha256": "0ce7f0e8e6ddf303a24c7bc58d1173b96d7791e80b51dfca43dd6f619360ab80"
+      },
+      "r2": {
+        "path": "Axel/Skater_A-Axel-10/Skater_A-Axel-10-r2-web.glb",
+        "sha256": "28afd5d6edf375a580016c8ed0a7d67b47eb0c2b1462d2aa28257935e2872231"
+      },
+      "r3": {
+        "path": "Axel/Skater_A-Axel-10/Skater_A-Axel-10-r3-web.glb",
+        "sha256": "a19b8b8e9079158a5e4b8b7e980e2ed85187cb73a6a40299282011ec0aeb43bd"
+      }
+    }
+  },
+  {
+    "id": "Skater_A-Axel-02",
+    "family": "Axel",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 142,
+        "apex_frame": 157,
+        "landing_frame": 171,
+        "contact_takeoff_frame": 141,
+        "contact_landing_frame": 172,
+        "estimated_air_turns": 1.8612,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Axel\\Axel_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Axel-03",
+    "family": "Axel",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 161,
+        "apex_frame": 176,
+        "landing_frame": 190,
+        "contact_takeoff_frame": 160,
+        "contact_landing_frame": 192,
+        "estimated_air_turns": 1.8436,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Axel\\Axel_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Axel-04",
+    "family": "Axel",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 143,
+        "apex_frame": 158,
+        "landing_frame": 172,
+        "contact_takeoff_frame": 142,
+        "contact_landing_frame": 174,
+        "estimated_air_turns": 1.8197,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Axel\\Axel_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Axel-05",
+    "family": "Axel",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 149,
+        "apex_frame": 163,
+        "landing_frame": 178,
+        "contact_takeoff_frame": 147,
+        "contact_landing_frame": 180,
+        "estimated_air_turns": 1.8753,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Axel\\Axel_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Axel-06",
+    "family": "Axel",
+    "skater": "Skater_A",
+    "frames": 289,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 136,
+        "apex_frame": 151,
+        "landing_frame": 166,
+        "contact_takeoff_frame": 135,
+        "contact_landing_frame": 168,
+        "estimated_air_turns": 1.8977,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Axel\\Axel_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Axel-07",
+    "family": "Axel",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 130,
+        "apex_frame": 145,
+        "landing_frame": 160,
+        "contact_takeoff_frame": 129,
+        "contact_landing_frame": 162,
+        "estimated_air_turns": 1.864,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Axel\\Axel_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Axel-08",
+    "family": "Axel",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 133,
+        "apex_frame": 149,
+        "landing_frame": 163,
+        "contact_takeoff_frame": 132,
+        "contact_landing_frame": 164,
+        "estimated_air_turns": 1.88,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Axel\\Axel_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Axel-09",
+    "family": "Axel",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 172,
+        "apex_frame": 188,
+        "landing_frame": 202,
+        "contact_takeoff_frame": 171,
+        "contact_landing_frame": 203,
+        "estimated_air_turns": 1.8891,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Axel\\Axel_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Comb-01",
+    "family": "Comb",
+    "skater": "Skater_A",
+    "frames": 568,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 147,
+        "apex_frame": 162,
+        "landing_frame": 176,
+        "contact_takeoff_frame": 146,
+        "contact_landing_frame": 178,
+        "estimated_air_turns": 1.86,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 226,
+        "apex_frame": 238,
+        "landing_frame": 251,
+        "contact_takeoff_frame": 225,
+        "contact_landing_frame": 252,
+        "estimated_air_turns": 1.2856,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Comb\\Comb_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Comb-02",
+    "family": "Comb",
+    "skater": "Skater_A",
+    "frames": 512,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 155,
+        "apex_frame": 170,
+        "landing_frame": 183,
+        "contact_takeoff_frame": 154,
+        "contact_landing_frame": 185,
+        "estimated_air_turns": 1.7938,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 236,
+        "apex_frame": 252,
+        "landing_frame": 268,
+        "contact_takeoff_frame": 235,
+        "contact_landing_frame": 269,
+        "estimated_air_turns": 2.1535,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Comb\\Comb_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Comb-03",
+    "family": "Comb",
+    "skater": "Skater_A",
+    "frames": 518,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 150,
+        "apex_frame": 166,
+        "landing_frame": 179,
+        "contact_takeoff_frame": 149,
+        "contact_landing_frame": 181,
+        "estimated_air_turns": 1.825,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 231,
+        "apex_frame": 246,
+        "landing_frame": 259,
+        "contact_takeoff_frame": 230,
+        "contact_landing_frame": 262,
+        "estimated_air_turns": 0.7333,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Comb\\Comb_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Flip-01",
+    "family": "Flip",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 100,
+        "apex_frame": 115,
+        "landing_frame": 131,
+        "contact_takeoff_frame": 99,
+        "contact_landing_frame": 133,
+        "estimated_air_turns": 0.6043,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Flip\\Flip_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Flip-10",
+    "family": "Flip",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 157,
+        "apex_frame": 172,
+        "landing_frame": 191,
+        "contact_takeoff_frame": 156,
+        "contact_landing_frame": 192,
+        "estimated_air_turns": 2.2164,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Flip\\Flip_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Flip-02",
+    "family": "Flip",
+    "skater": "Skater_A",
+    "frames": 285,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 100,
+        "apex_frame": 118,
+        "landing_frame": 133,
+        "contact_takeoff_frame": 99,
+        "contact_landing_frame": 135,
+        "estimated_air_turns": 2.1673,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Flip\\Flip_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Flip-03",
+    "family": "Flip",
+    "skater": "Skater_A",
+    "frames": 278,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 111,
+        "apex_frame": 127,
+        "landing_frame": 142,
+        "contact_takeoff_frame": 109,
+        "contact_landing_frame": 144,
+        "estimated_air_turns": 0.5181,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Flip\\Flip_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Flip-04",
+    "family": "Flip",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 97,
+        "apex_frame": 112,
+        "landing_frame": 130,
+        "contact_takeoff_frame": 95,
+        "contact_landing_frame": 132,
+        "estimated_air_turns": 2.1376,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Flip\\Flip_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Flip-05",
+    "family": "Flip",
+    "skater": "Skater_A",
+    "frames": 278,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 99,
+        "apex_frame": 117,
+        "landing_frame": 133,
+        "contact_takeoff_frame": 98,
+        "contact_landing_frame": 134,
+        "estimated_air_turns": 2.1952,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Flip\\Flip_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Flip-06",
+    "family": "Flip",
+    "skater": "Skater_A",
+    "frames": 284,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 124,
+        "apex_frame": 139,
+        "landing_frame": 156,
+        "contact_takeoff_frame": 122,
+        "contact_landing_frame": 158,
+        "estimated_air_turns": 2.0789,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Flip\\Flip_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Flip-07",
+    "family": "Flip",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 146,
+        "apex_frame": 163,
+        "landing_frame": 179,
+        "contact_takeoff_frame": 145,
+        "contact_landing_frame": 180,
+        "estimated_air_turns": 2.2058,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Flip\\Flip_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Flip-08",
+    "family": "Flip",
+    "skater": "Skater_A",
+    "frames": 288,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 112,
+        "apex_frame": 127,
+        "landing_frame": 147,
+        "contact_takeoff_frame": 111,
+        "contact_landing_frame": 148,
+        "estimated_air_turns": 2.2748,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Flip\\Flip_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Flip-09",
+    "family": "Flip",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 109,
+        "apex_frame": 127,
+        "landing_frame": 143,
+        "contact_takeoff_frame": 108,
+        "contact_landing_frame": 144,
+        "estimated_air_turns": 2.2226,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Flip\\Flip_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Loop-01",
+    "family": "Loop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 96,
+        "apex_frame": 107,
+        "landing_frame": 122,
+        "contact_takeoff_frame": 94,
+        "contact_landing_frame": 124,
+        "estimated_air_turns": 1.1795,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Loop\\Loop_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Loop-10",
+    "family": "Loop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 153,
+        "apex_frame": 167,
+        "landing_frame": 182,
+        "contact_takeoff_frame": 151,
+        "contact_landing_frame": 183,
+        "estimated_air_turns": 1.9717,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Loop\\Loop_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Loop-02",
+    "family": "Loop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 107,
+        "apex_frame": 122,
+        "landing_frame": 137,
+        "contact_takeoff_frame": 106,
+        "contact_landing_frame": 138,
+        "estimated_air_turns": 2.0967,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Loop\\Loop_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Loop-03",
+    "family": "Loop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 118,
+        "apex_frame": 132,
+        "landing_frame": 146,
+        "contact_takeoff_frame": 116,
+        "contact_landing_frame": 148,
+        "estimated_air_turns": 1.9532,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Loop\\Loop_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Loop-04",
+    "family": "Loop",
+    "skater": "Skater_A",
+    "frames": 294,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 131,
+        "apex_frame": 147,
+        "landing_frame": 160,
+        "contact_takeoff_frame": 130,
+        "contact_landing_frame": 161,
+        "estimated_air_turns": 2.0516,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Loop\\Loop_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Loop-05",
+    "family": "Loop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 113,
+        "apex_frame": 130,
+        "landing_frame": 143,
+        "contact_takeoff_frame": 112,
+        "contact_landing_frame": 145,
+        "estimated_air_turns": 2.0725,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Loop\\Loop_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Loop-06",
+    "family": "Loop",
+    "skater": "Skater_A",
+    "frames": 290,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 118,
+        "apex_frame": 131,
+        "landing_frame": 146,
+        "contact_takeoff_frame": 116,
+        "contact_landing_frame": 147,
+        "estimated_air_turns": 1.2688,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Loop\\Loop_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Loop-07",
+    "family": "Loop",
+    "skater": "Skater_A",
+    "frames": 295,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 147,
+        "apex_frame": 162,
+        "landing_frame": 176,
+        "contact_takeoff_frame": 145,
+        "contact_landing_frame": 177,
+        "estimated_air_turns": 2.0426,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Loop\\Loop_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Loop-08",
+    "family": "Loop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 141,
+        "apex_frame": 154,
+        "landing_frame": 167,
+        "contact_takeoff_frame": 139,
+        "contact_landing_frame": 168,
+        "estimated_air_turns": 1.1767,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Loop\\Loop_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Loop-09",
+    "family": "Loop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 144,
+        "apex_frame": 159,
+        "landing_frame": 172,
+        "contact_takeoff_frame": 142,
+        "contact_landing_frame": 173,
+        "estimated_air_turns": 0.374,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Loop\\Loop_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Lutz-01",
+    "family": "Lutz",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 83,
+        "apex_frame": 98,
+        "landing_frame": 115,
+        "contact_takeoff_frame": 80,
+        "contact_landing_frame": 117,
+        "estimated_air_turns": 2.0681,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Lutz\\Lutz_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Lutz-10",
+    "family": "Lutz",
+    "skater": "Skater_A",
+    "frames": 278,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 103,
+        "apex_frame": 120,
+        "landing_frame": 135,
+        "contact_takeoff_frame": 101,
+        "contact_landing_frame": 137,
+        "estimated_air_turns": 2.0753,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Lutz\\Lutz_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Lutz-02",
+    "family": "Lutz",
+    "skater": "Skater_A",
+    "frames": 272,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 105,
+        "apex_frame": 121,
+        "landing_frame": 138,
+        "contact_takeoff_frame": 103,
+        "contact_landing_frame": 139,
+        "estimated_air_turns": 2.1944,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Lutz\\Lutz_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Lutz-03",
+    "family": "Lutz",
+    "skater": "Skater_A",
+    "frames": 268,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 108,
+        "apex_frame": 123,
+        "landing_frame": 140,
+        "contact_takeoff_frame": 107,
+        "contact_landing_frame": 141,
+        "estimated_air_turns": 2.0634,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Lutz\\Lutz_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Lutz-04",
+    "family": "Lutz",
+    "skater": "Skater_A",
+    "frames": 285,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 96,
+        "apex_frame": 114,
+        "landing_frame": 130,
+        "contact_takeoff_frame": 95,
+        "contact_landing_frame": 132,
+        "estimated_air_turns": 2.2568,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Lutz\\Lutz_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Lutz-05",
+    "family": "Lutz",
+    "skater": "Skater_A",
+    "frames": 262,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 103,
+        "apex_frame": 121,
+        "landing_frame": 136,
+        "contact_takeoff_frame": 102,
+        "contact_landing_frame": 138,
+        "estimated_air_turns": 2.1739,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Lutz\\Lutz_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Lutz-06",
+    "family": "Lutz",
+    "skater": "Skater_A",
+    "frames": 280,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 102,
+        "apex_frame": 119,
+        "landing_frame": 134,
+        "contact_takeoff_frame": 101,
+        "contact_landing_frame": 136,
+        "estimated_air_turns": 2.1285,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Lutz\\Lutz_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Lutz-07",
+    "family": "Lutz",
+    "skater": "Skater_A",
+    "frames": 264,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 108,
+        "apex_frame": 126,
+        "landing_frame": 142,
+        "contact_takeoff_frame": 107,
+        "contact_landing_frame": 143,
+        "estimated_air_turns": 2.2463,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Lutz\\Lutz_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Lutz-08",
+    "family": "Lutz",
+    "skater": "Skater_A",
+    "frames": 273,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 108,
+        "apex_frame": 124,
+        "landing_frame": 140,
+        "contact_takeoff_frame": 106,
+        "contact_landing_frame": 141,
+        "estimated_air_turns": 2.1854,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Lutz\\Lutz_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Lutz-09",
+    "family": "Lutz",
+    "skater": "Skater_A",
+    "frames": 267,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 107,
+        "apex_frame": 121,
+        "landing_frame": 139,
+        "contact_takeoff_frame": 106,
+        "contact_landing_frame": 140,
+        "estimated_air_turns": 2.1172,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Lutz\\Lutz_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Salchow-01",
+    "family": "Salchow",
+    "skater": "Skater_A",
+    "frames": 265,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 126,
+        "apex_frame": 139,
+        "landing_frame": 155,
+        "contact_takeoff_frame": 122,
+        "contact_landing_frame": 157,
+        "estimated_air_turns": 2.0421,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Salchow\\Salchow_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Salchow-10",
+    "family": "Salchow",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 139,
+        "apex_frame": 153,
+        "landing_frame": 168,
+        "contact_takeoff_frame": 137,
+        "contact_landing_frame": 169,
+        "estimated_air_turns": 2.0247,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Salchow\\Salchow_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Salchow-02",
+    "family": "Salchow",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 153,
+        "apex_frame": 167,
+        "landing_frame": 182,
+        "contact_takeoff_frame": 150,
+        "contact_landing_frame": 184,
+        "estimated_air_turns": 2.0447,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Salchow\\Salchow_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Salchow-03",
+    "family": "Salchow",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 121,
+        "apex_frame": 135,
+        "landing_frame": 150,
+        "contact_takeoff_frame": 119,
+        "contact_landing_frame": 151,
+        "estimated_air_turns": 2.0175,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Salchow\\Salchow_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Salchow-04",
+    "family": "Salchow",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 114,
+        "apex_frame": 127,
+        "landing_frame": 140,
+        "contact_takeoff_frame": 112,
+        "contact_landing_frame": 142,
+        "estimated_air_turns": 1.1049,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Salchow\\Salchow_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Salchow-05",
+    "family": "Salchow",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 97,
+        "apex_frame": 110,
+        "landing_frame": 126,
+        "contact_takeoff_frame": 94,
+        "contact_landing_frame": 127,
+        "estimated_air_turns": 1.9722,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Salchow\\Salchow_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Salchow-06",
+    "family": "Salchow",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 126,
+        "apex_frame": 138,
+        "landing_frame": 151,
+        "contact_takeoff_frame": 123,
+        "contact_landing_frame": 153,
+        "estimated_air_turns": 1.2228,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Salchow\\Salchow_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Salchow-07",
+    "family": "Salchow",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 151,
+        "apex_frame": 166,
+        "landing_frame": 180,
+        "contact_takeoff_frame": 149,
+        "contact_landing_frame": 181,
+        "estimated_air_turns": 2.0562,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Salchow\\Salchow_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Salchow-08",
+    "family": "Salchow",
+    "skater": "Skater_A",
+    "frames": 283,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 117,
+        "apex_frame": 130,
+        "landing_frame": 145,
+        "contact_takeoff_frame": 114,
+        "contact_landing_frame": 147,
+        "estimated_air_turns": 1.9717,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Salchow\\Salchow_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Salchow-09",
+    "family": "Salchow",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 119,
+        "apex_frame": 134,
+        "landing_frame": 149,
+        "contact_takeoff_frame": 116,
+        "contact_landing_frame": 150,
+        "estimated_air_turns": 2.1028,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Salchow\\Salchow_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Toeloop-01",
+    "family": "Toeloop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 98,
+        "apex_frame": 115,
+        "landing_frame": 132,
+        "contact_takeoff_frame": 96,
+        "contact_landing_frame": 134,
+        "estimated_air_turns": 2.214,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Toeloop\\Toeloop_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Toeloop-10",
+    "family": "Toeloop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 129,
+        "apex_frame": 146,
+        "landing_frame": 164,
+        "contact_takeoff_frame": 128,
+        "contact_landing_frame": 166,
+        "estimated_air_turns": 2.287,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Toeloop\\Toeloop_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Toeloop-02",
+    "family": "Toeloop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 90,
+        "apex_frame": 108,
+        "landing_frame": 126,
+        "contact_takeoff_frame": 89,
+        "contact_landing_frame": 128,
+        "estimated_air_turns": 2.2845,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Toeloop\\Toeloop_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Toeloop-03",
+    "family": "Toeloop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 88,
+        "apex_frame": 106,
+        "landing_frame": 124,
+        "contact_takeoff_frame": 86,
+        "contact_landing_frame": 125,
+        "estimated_air_turns": 2.1968,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Toeloop\\Toeloop_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Toeloop-04",
+    "family": "Toeloop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 94,
+        "apex_frame": 112,
+        "landing_frame": 130,
+        "contact_takeoff_frame": 92,
+        "contact_landing_frame": 131,
+        "estimated_air_turns": 2.3311,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Toeloop\\Toeloop_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Toeloop-05",
+    "family": "Toeloop",
+    "skater": "Skater_A",
+    "frames": 291,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 112,
+        "apex_frame": 129,
+        "landing_frame": 146,
+        "contact_takeoff_frame": 110,
+        "contact_landing_frame": 148,
+        "estimated_air_turns": 2.2341,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Toeloop\\Toeloop_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Toeloop-06",
+    "family": "Toeloop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 144,
+        "apex_frame": 161,
+        "landing_frame": 179,
+        "contact_takeoff_frame": 142,
+        "contact_landing_frame": 180,
+        "estimated_air_turns": 2.2711,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Toeloop\\Toeloop_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Toeloop-07",
+    "family": "Toeloop",
+    "skater": "Skater_A",
+    "frames": 295,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 137,
+        "apex_frame": 154,
+        "landing_frame": 173,
+        "contact_takeoff_frame": 136,
+        "contact_landing_frame": 174,
+        "estimated_air_turns": 2.3303,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Toeloop\\Toeloop_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Toeloop-08",
+    "family": "Toeloop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 142,
+        "apex_frame": 159,
+        "landing_frame": 177,
+        "contact_takeoff_frame": 141,
+        "contact_landing_frame": 179,
+        "estimated_air_turns": 2.334,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Toeloop\\Toeloop_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_A-Toeloop-09",
+    "family": "Toeloop",
+    "skater": "Skater_A",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 116,
+        "apex_frame": 133,
+        "landing_frame": 152,
+        "contact_takeoff_frame": 114,
+        "contact_landing_frame": 153,
+        "estimated_air_turns": 2.2984,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_A\\Toeloop\\Toeloop_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Axel-01",
+    "family": "Axel",
+    "skater": "Skater_B",
+    "frames": 294,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 182,
+        "apex_frame": 190,
+        "landing_frame": 201,
+        "contact_takeoff_frame": 180,
+        "contact_landing_frame": 203,
+        "estimated_air_turns": 0.8491,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Axel\\Axel_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Axel-10",
+    "family": "Axel",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 130,
+        "apex_frame": 137,
+        "landing_frame": 147,
+        "contact_takeoff_frame": 128,
+        "contact_landing_frame": 151,
+        "estimated_air_turns": 0.7577,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Axel\\Axel_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Axel-02",
+    "family": "Axel",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 178,
+        "apex_frame": 188,
+        "landing_frame": 197,
+        "contact_takeoff_frame": 176,
+        "contact_landing_frame": 199,
+        "estimated_air_turns": 0.8463,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Axel\\Axel_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Axel-03",
+    "family": "Axel",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 163,
+        "apex_frame": 171,
+        "landing_frame": 180,
+        "contact_takeoff_frame": 161,
+        "contact_landing_frame": 182,
+        "estimated_air_turns": 0.7835,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Axel\\Axel_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Axel-04",
+    "family": "Axel",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 175,
+        "apex_frame": 183,
+        "landing_frame": 194,
+        "contact_takeoff_frame": 174,
+        "contact_landing_frame": 199,
+        "estimated_air_turns": 0.8665,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Axel\\Axel_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Axel-05",
+    "family": "Axel",
+    "skater": "Skater_B",
+    "frames": 283,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 168,
+        "apex_frame": 178,
+        "landing_frame": 188,
+        "contact_takeoff_frame": 167,
+        "contact_landing_frame": 191,
+        "estimated_air_turns": 0.9118,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Axel\\Axel_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Axel-06",
+    "family": "Axel",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 224,
+        "apex_frame": 233,
+        "landing_frame": 243,
+        "contact_takeoff_frame": 222,
+        "contact_landing_frame": 245,
+        "estimated_air_turns": 0.8705,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Axel\\Axel_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Axel-07",
+    "family": "Axel",
+    "skater": "Skater_B",
+    "frames": 293,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 198,
+        "apex_frame": 207,
+        "landing_frame": 217,
+        "contact_takeoff_frame": 196,
+        "contact_landing_frame": 221,
+        "estimated_air_turns": 0.8433,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Axel\\Axel_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Axel-08",
+    "family": "Axel",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 162,
+        "apex_frame": 171,
+        "landing_frame": 180,
+        "contact_takeoff_frame": 161,
+        "contact_landing_frame": 185,
+        "estimated_air_turns": 0.8287,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Axel\\Axel_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Axel-09",
+    "family": "Axel",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 194,
+        "apex_frame": 202,
+        "landing_frame": 211,
+        "contact_takeoff_frame": 192,
+        "contact_landing_frame": 216,
+        "estimated_air_turns": 0.7925,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Axel\\Axel_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Comb-01",
+    "family": "Comb",
+    "skater": "Skater_B",
+    "frames": 589,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 216,
+        "apex_frame": 224,
+        "landing_frame": 234,
+        "contact_takeoff_frame": 213,
+        "contact_landing_frame": 238,
+        "estimated_air_turns": 0.8286,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 296,
+        "apex_frame": 305,
+        "landing_frame": 315,
+        "contact_takeoff_frame": 292,
+        "contact_landing_frame": 318,
+        "estimated_air_turns": 0.9093,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Comb\\Comb_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Comb-02",
+    "family": "Comb",
+    "skater": "Skater_B",
+    "frames": 600,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 200,
+        "apex_frame": 208,
+        "landing_frame": 219,
+        "contact_takeoff_frame": 199,
+        "contact_landing_frame": 222,
+        "estimated_air_turns": 0.8468,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 280,
+        "apex_frame": 289,
+        "landing_frame": 301,
+        "contact_takeoff_frame": 278,
+        "contact_landing_frame": 305,
+        "estimated_air_turns": 0.9783,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 345,
+        "apex_frame": 395,
+        "landing_frame": 396,
+        "contact_takeoff_frame": 342,
+        "contact_landing_frame": 400,
+        "estimated_air_turns": 0.1222,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Comb\\Comb_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Comb-03",
+    "family": "Comb",
+    "skater": "Skater_B",
+    "frames": 549,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 155,
+        "apex_frame": 163,
+        "landing_frame": 174,
+        "contact_takeoff_frame": 153,
+        "contact_landing_frame": 177,
+        "estimated_air_turns": 0.8821,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 234,
+        "apex_frame": 244,
+        "landing_frame": 253,
+        "contact_takeoff_frame": 231,
+        "contact_landing_frame": 258,
+        "estimated_air_turns": 0.9187,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Comb\\Comb_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Flip-01",
+    "family": "Flip",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 150,
+        "apex_frame": 158,
+        "landing_frame": 170,
+        "contact_takeoff_frame": 148,
+        "contact_landing_frame": 173,
+        "estimated_air_turns": 0.9932,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Flip\\Flip_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Flip-10",
+    "family": "Flip",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 169,
+        "apex_frame": 177,
+        "landing_frame": 188,
+        "contact_takeoff_frame": 166,
+        "contact_landing_frame": 192,
+        "estimated_air_turns": 0.9796,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Flip\\Flip_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Flip-02",
+    "family": "Flip",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 155,
+        "apex_frame": 161,
+        "landing_frame": 171,
+        "contact_takeoff_frame": 153,
+        "contact_landing_frame": 173,
+        "estimated_air_turns": 0.7919,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Flip\\Flip_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Flip-03",
+    "family": "Flip",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 110,
+        "apex_frame": 117,
+        "landing_frame": 129,
+        "contact_takeoff_frame": 106,
+        "contact_landing_frame": 132,
+        "estimated_air_turns": 0.9616,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Flip\\Flip_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Flip-04",
+    "family": "Flip",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 120,
+        "apex_frame": 128,
+        "landing_frame": 138,
+        "contact_takeoff_frame": 116,
+        "contact_landing_frame": 144,
+        "estimated_air_turns": 0.9034,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Flip\\Flip_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Flip-05",
+    "family": "Flip",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 80,
+        "apex_frame": 86,
+        "landing_frame": 96,
+        "contact_takeoff_frame": 77,
+        "contact_landing_frame": 99,
+        "estimated_air_turns": 0.8208,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Flip\\Flip_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Flip-06",
+    "family": "Flip",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 156,
+        "apex_frame": 163,
+        "landing_frame": 174,
+        "contact_takeoff_frame": 154,
+        "contact_landing_frame": 176,
+        "estimated_air_turns": 0.9085,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Flip\\Flip_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Flip-07",
+    "family": "Flip",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 159,
+        "apex_frame": 167,
+        "landing_frame": 177,
+        "contact_takeoff_frame": 155,
+        "contact_landing_frame": 180,
+        "estimated_air_turns": 0.8727,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Flip\\Flip_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Flip-08",
+    "family": "Flip",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 169,
+        "apex_frame": 177,
+        "landing_frame": 188,
+        "contact_takeoff_frame": 165,
+        "contact_landing_frame": 191,
+        "estimated_air_turns": 0.9434,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Flip\\Flip_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Flip-09",
+    "family": "Flip",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 150,
+        "apex_frame": 157,
+        "landing_frame": 167,
+        "contact_takeoff_frame": 146,
+        "contact_landing_frame": 171,
+        "estimated_air_turns": 0.8936,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Flip\\Flip_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Loop-01",
+    "family": "Loop",
+    "skater": "Skater_B",
+    "frames": 280,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 170,
+        "apex_frame": 178,
+        "landing_frame": 186,
+        "contact_takeoff_frame": 169,
+        "contact_landing_frame": 187,
+        "estimated_air_turns": 0.7648,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Loop\\Loop_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Loop-10",
+    "family": "Loop",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 167,
+        "apex_frame": 175,
+        "landing_frame": 184,
+        "contact_takeoff_frame": 161,
+        "contact_landing_frame": 189,
+        "estimated_air_turns": 0.8563,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Loop\\Loop_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Loop-02",
+    "family": "Loop",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 194,
+        "apex_frame": 201,
+        "landing_frame": 207,
+        "contact_takeoff_frame": 191,
+        "contact_landing_frame": 210,
+        "estimated_air_turns": 0.6212,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Loop\\Loop_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Loop-03",
+    "family": "Loop",
+    "skater": "Skater_B",
+    "frames": 295,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 148,
+        "apex_frame": 155,
+        "landing_frame": 164,
+        "contact_takeoff_frame": 144,
+        "contact_landing_frame": 169,
+        "estimated_air_turns": 0.8058,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Loop\\Loop_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Loop-04",
+    "family": "Loop",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 152,
+        "apex_frame": 158,
+        "landing_frame": 168,
+        "contact_takeoff_frame": 148,
+        "contact_landing_frame": 170,
+        "estimated_air_turns": 0.7894,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Loop\\Loop_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Loop-05",
+    "family": "Loop",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 179,
+        "apex_frame": 187,
+        "landing_frame": 195,
+        "contact_takeoff_frame": 173,
+        "contact_landing_frame": 202,
+        "estimated_air_turns": 0.8257,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Loop\\Loop_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Loop-06",
+    "family": "Loop",
+    "skater": "Skater_B",
+    "frames": 280,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 149,
+        "apex_frame": 158,
+        "landing_frame": 166,
+        "contact_takeoff_frame": 143,
+        "contact_landing_frame": 171,
+        "estimated_air_turns": 0.8531,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Loop\\Loop_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Loop-07",
+    "family": "Loop",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 151,
+        "apex_frame": 159,
+        "landing_frame": 167,
+        "contact_takeoff_frame": 144,
+        "contact_landing_frame": 172,
+        "estimated_air_turns": 0.7992,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Loop\\Loop_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Loop-08",
+    "family": "Loop",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 197,
+        "apex_frame": 205,
+        "landing_frame": 214,
+        "contact_takeoff_frame": 192,
+        "contact_landing_frame": 219,
+        "estimated_air_turns": 0.8245,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Loop\\Loop_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Loop-09",
+    "family": "Loop",
+    "skater": "Skater_B",
+    "frames": 295,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 171,
+        "apex_frame": 179,
+        "landing_frame": 188,
+        "contact_takeoff_frame": 167,
+        "contact_landing_frame": 192,
+        "estimated_air_turns": 0.8256,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Loop\\Loop_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Lutz-01",
+    "family": "Lutz",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 225,
+        "apex_frame": 231,
+        "landing_frame": 239,
+        "contact_takeoff_frame": 223,
+        "contact_landing_frame": 241,
+        "estimated_air_turns": 0.6887,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Lutz\\Lutz_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Lutz-10",
+    "family": "Lutz",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 173,
+        "apex_frame": 181,
+        "landing_frame": 191,
+        "contact_takeoff_frame": 169,
+        "contact_landing_frame": 195,
+        "estimated_air_turns": 0.9137,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Lutz\\Lutz_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Lutz-02",
+    "family": "Lutz",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 172,
+        "apex_frame": 181,
+        "landing_frame": 190,
+        "contact_takeoff_frame": 170,
+        "contact_landing_frame": 192,
+        "estimated_air_turns": 0.3426,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Lutz\\Lutz_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Lutz-03",
+    "family": "Lutz",
+    "skater": "Skater_B",
+    "frames": 291,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 123,
+        "apex_frame": 131,
+        "landing_frame": 141,
+        "contact_takeoff_frame": 121,
+        "contact_landing_frame": 144,
+        "estimated_air_turns": 0.859,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 188,
+        "apex_frame": 213,
+        "landing_frame": 214,
+        "contact_takeoff_frame": 186,
+        "contact_landing_frame": 219,
+        "estimated_air_turns": 0.1104,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Lutz\\Lutz_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Lutz-04",
+    "family": "Lutz",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 160,
+        "apex_frame": 169,
+        "landing_frame": 181,
+        "contact_takeoff_frame": 156,
+        "contact_landing_frame": 183,
+        "estimated_air_turns": 0.7956,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Lutz\\Lutz_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Lutz-05",
+    "family": "Lutz",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 195,
+        "apex_frame": 205,
+        "landing_frame": 212,
+        "contact_takeoff_frame": 193,
+        "contact_landing_frame": 214,
+        "estimated_air_turns": 0.8166,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Lutz\\Lutz_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Lutz-06",
+    "family": "Lutz",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 174,
+        "apex_frame": 180,
+        "landing_frame": 187,
+        "contact_takeoff_frame": 171,
+        "contact_landing_frame": 190,
+        "estimated_air_turns": 0.6079,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Lutz\\Lutz_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Lutz-07",
+    "family": "Lutz",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 176,
+        "apex_frame": 184,
+        "landing_frame": 194,
+        "contact_takeoff_frame": 173,
+        "contact_landing_frame": 197,
+        "estimated_air_turns": 0.8707,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Lutz\\Lutz_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Lutz-08",
+    "family": "Lutz",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 215,
+        "apex_frame": 222,
+        "landing_frame": 232,
+        "contact_takeoff_frame": 213,
+        "contact_landing_frame": 234,
+        "estimated_air_turns": 0.8371,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Lutz\\Lutz_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Lutz-09",
+    "family": "Lutz",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 162,
+        "apex_frame": 171,
+        "landing_frame": 181,
+        "contact_takeoff_frame": 158,
+        "contact_landing_frame": 187,
+        "estimated_air_turns": 0.9173,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Lutz\\Lutz_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Salchow-01",
+    "family": "Salchow",
+    "skater": "Skater_B",
+    "frames": 254,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 154,
+        "apex_frame": 163,
+        "landing_frame": 173,
+        "contact_takeoff_frame": 151,
+        "contact_landing_frame": 176,
+        "estimated_air_turns": 0.9759,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Salchow\\Salchow_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Salchow-10",
+    "family": "Salchow",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 181,
+        "apex_frame": 189,
+        "landing_frame": 199,
+        "contact_takeoff_frame": 180,
+        "contact_landing_frame": 204,
+        "estimated_air_turns": 0.9292,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Salchow\\Salchow_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Salchow-02",
+    "family": "Salchow",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 169,
+        "apex_frame": 177,
+        "landing_frame": 188,
+        "contact_takeoff_frame": 167,
+        "contact_landing_frame": 192,
+        "estimated_air_turns": 0.9796,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Salchow\\Salchow_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Salchow-03",
+    "family": "Salchow",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 180,
+        "apex_frame": 188,
+        "landing_frame": 199,
+        "contact_takeoff_frame": 178,
+        "contact_landing_frame": 203,
+        "estimated_air_turns": 0.9438,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Salchow\\Salchow_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Salchow-04",
+    "family": "Salchow",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 106,
+        "apex_frame": 116,
+        "landing_frame": 126,
+        "contact_takeoff_frame": 104,
+        "contact_landing_frame": 127,
+        "estimated_air_turns": 0.7707,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Salchow\\Salchow_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Salchow-05",
+    "family": "Salchow",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 128,
+        "apex_frame": 135,
+        "landing_frame": 147,
+        "contact_takeoff_frame": 126,
+        "contact_landing_frame": 152,
+        "estimated_air_turns": 0.9808,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Salchow\\Salchow_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Salchow-06",
+    "family": "Salchow",
+    "skater": "Skater_B",
+    "frames": 290,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 117,
+        "apex_frame": 126,
+        "landing_frame": 136,
+        "contact_takeoff_frame": 115,
+        "contact_landing_frame": 141,
+        "estimated_air_turns": 0.9929,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Salchow\\Salchow_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Salchow-07",
+    "family": "Salchow",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 151,
+        "apex_frame": 159,
+        "landing_frame": 169,
+        "contact_takeoff_frame": 149,
+        "contact_landing_frame": 173,
+        "estimated_air_turns": 0.9063,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Salchow\\Salchow_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Salchow-08",
+    "family": "Salchow",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 132,
+        "apex_frame": 141,
+        "landing_frame": 152,
+        "contact_takeoff_frame": 130,
+        "contact_landing_frame": 153,
+        "estimated_air_turns": 1.0197,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Salchow\\Salchow_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Salchow-09",
+    "family": "Salchow",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 167,
+        "apex_frame": 175,
+        "landing_frame": 184,
+        "contact_takeoff_frame": 165,
+        "contact_landing_frame": 186,
+        "estimated_air_turns": 0.8569,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Salchow\\Salchow_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Toeloop-01",
+    "family": "Toeloop",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 70,
+        "apex_frame": 83,
+        "landing_frame": 95,
+        "contact_takeoff_frame": 68,
+        "contact_landing_frame": 98,
+        "estimated_air_turns": 1.222,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Toeloop\\Toeloop_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Toeloop-10",
+    "family": "Toeloop",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 167,
+        "apex_frame": 179,
+        "landing_frame": 192,
+        "contact_takeoff_frame": 165,
+        "contact_landing_frame": 195,
+        "estimated_air_turns": 1.2405,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Toeloop\\Toeloop_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Toeloop-02",
+    "family": "Toeloop",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 110,
+        "apex_frame": 123,
+        "landing_frame": 135,
+        "contact_takeoff_frame": 108,
+        "contact_landing_frame": 138,
+        "estimated_air_turns": 1.2318,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Toeloop\\Toeloop_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Toeloop-03",
+    "family": "Toeloop",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 110,
+        "apex_frame": 122,
+        "landing_frame": 134,
+        "contact_takeoff_frame": 107,
+        "contact_landing_frame": 136,
+        "estimated_air_turns": 1.1859,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Toeloop\\Toeloop_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Toeloop-04",
+    "family": "Toeloop",
+    "skater": "Skater_B",
+    "frames": 288,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 103,
+        "apex_frame": 115,
+        "landing_frame": 129,
+        "contact_takeoff_frame": 101,
+        "contact_landing_frame": 132,
+        "estimated_air_turns": 1.2063,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Toeloop\\Toeloop_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Toeloop-05",
+    "family": "Toeloop",
+    "skater": "Skater_B",
+    "frames": 295,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 119,
+        "apex_frame": 131,
+        "landing_frame": 143,
+        "contact_takeoff_frame": 117,
+        "contact_landing_frame": 146,
+        "estimated_air_turns": 1.203,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Toeloop\\Toeloop_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Toeloop-06",
+    "family": "Toeloop",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 193,
+        "apex_frame": 206,
+        "landing_frame": 218,
+        "contact_takeoff_frame": 191,
+        "contact_landing_frame": 221,
+        "estimated_air_turns": 1.2437,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Toeloop\\Toeloop_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Toeloop-07",
+    "family": "Toeloop",
+    "skater": "Skater_B",
+    "frames": 294,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 124,
+        "apex_frame": 137,
+        "landing_frame": 151,
+        "contact_takeoff_frame": 122,
+        "contact_landing_frame": 154,
+        "estimated_air_turns": 1.2964,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Toeloop\\Toeloop_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Toeloop-08",
+    "family": "Toeloop",
+    "skater": "Skater_B",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 178,
+        "apex_frame": 190,
+        "landing_frame": 202,
+        "contact_takeoff_frame": 176,
+        "contact_landing_frame": 205,
+        "estimated_air_turns": 1.1965,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Toeloop\\Toeloop_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_B-Toeloop-09",
+    "family": "Toeloop",
+    "skater": "Skater_B",
+    "frames": 289,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 115,
+        "apex_frame": 127,
+        "landing_frame": 141,
+        "contact_takeoff_frame": 114,
+        "contact_landing_frame": 144,
+        "estimated_air_turns": 1.2643,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_B\\Toeloop\\Toeloop_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Axel-01",
+    "family": "Axel",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 176,
+        "apex_frame": 190,
+        "landing_frame": 203,
+        "contact_takeoff_frame": 174,
+        "contact_landing_frame": 204,
+        "estimated_air_turns": 1.6188,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Axel\\Axel_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Axel-10",
+    "family": "Axel",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 165,
+        "apex_frame": 180,
+        "landing_frame": 195,
+        "contact_takeoff_frame": 164,
+        "contact_landing_frame": 196,
+        "estimated_air_turns": 1.8545,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Axel\\Axel_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Axel-02",
+    "family": "Axel",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 189,
+        "apex_frame": 203,
+        "landing_frame": 217,
+        "contact_takeoff_frame": 188,
+        "contact_landing_frame": 219,
+        "estimated_air_turns": 1.8411,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Axel\\Axel_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Axel-03",
+    "family": "Axel",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 162,
+        "apex_frame": 176,
+        "landing_frame": 191,
+        "contact_takeoff_frame": 161,
+        "contact_landing_frame": 192,
+        "estimated_air_turns": 1.8417,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Axel\\Axel_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Axel-04",
+    "family": "Axel",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 157,
+        "apex_frame": 171,
+        "landing_frame": 185,
+        "contact_takeoff_frame": 155,
+        "contact_landing_frame": 187,
+        "estimated_air_turns": 1.8421,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Axel\\Axel_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Axel-05",
+    "family": "Axel",
+    "skater": "Skater_C",
+    "frames": 294,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 145,
+        "apex_frame": 159,
+        "landing_frame": 173,
+        "contact_takeoff_frame": 144,
+        "contact_landing_frame": 174,
+        "estimated_air_turns": 1.7648,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Axel\\Axel_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Axel-06",
+    "family": "Axel",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 145,
+        "apex_frame": 159,
+        "landing_frame": 172,
+        "contact_takeoff_frame": 144,
+        "contact_landing_frame": 174,
+        "estimated_air_turns": 1.7114,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Axel\\Axel_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Axel-07",
+    "family": "Axel",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 163,
+        "apex_frame": 177,
+        "landing_frame": 192,
+        "contact_takeoff_frame": 162,
+        "contact_landing_frame": 193,
+        "estimated_air_turns": 1.8721,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Axel\\Axel_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Axel-08",
+    "family": "Axel",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 171,
+        "apex_frame": 186,
+        "landing_frame": 200,
+        "contact_takeoff_frame": 170,
+        "contact_landing_frame": 201,
+        "estimated_air_turns": 1.8531,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Axel\\Axel_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Axel-09",
+    "family": "Axel",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 180,
+        "apex_frame": 194,
+        "landing_frame": 210,
+        "contact_takeoff_frame": 178,
+        "contact_landing_frame": 211,
+        "estimated_air_turns": 1.9727,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Axel\\Axel_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Comb-01",
+    "family": "Comb",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 15,
+        "apex_frame": 29,
+        "landing_frame": 41,
+        "contact_takeoff_frame": 14,
+        "contact_landing_frame": 43,
+        "estimated_air_turns": 1.1057,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 143,
+        "apex_frame": 155,
+        "landing_frame": 167,
+        "contact_takeoff_frame": 141,
+        "contact_landing_frame": 168,
+        "estimated_air_turns": 0.9642,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Comb\\Comb_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Comb-02",
+    "family": "Comb",
+    "skater": "Skater_C",
+    "frames": 274,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 129,
+        "apex_frame": 142,
+        "landing_frame": 155,
+        "contact_takeoff_frame": 128,
+        "contact_landing_frame": 156,
+        "estimated_air_turns": 1.0811,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Comb\\Comb_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Comb-03",
+    "family": "Comb",
+    "skater": "Skater_C",
+    "frames": 569,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 106,
+        "apex_frame": 120,
+        "landing_frame": 135,
+        "contact_takeoff_frame": 105,
+        "contact_landing_frame": 136,
+        "estimated_air_turns": 1.1417,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 236,
+        "apex_frame": 246,
+        "landing_frame": 257,
+        "contact_takeoff_frame": 234,
+        "contact_landing_frame": 259,
+        "estimated_air_turns": 0.9966,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Comb\\Comb_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Comb-04",
+    "family": "Comb",
+    "skater": "Skater_C",
+    "frames": 563,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 103,
+        "apex_frame": 117,
+        "landing_frame": 130,
+        "contact_takeoff_frame": 102,
+        "contact_landing_frame": 132,
+        "estimated_air_turns": 1.114,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 227,
+        "apex_frame": 237,
+        "landing_frame": 249,
+        "contact_takeoff_frame": 225,
+        "contact_landing_frame": 251,
+        "estimated_air_turns": 1.0375,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Comb\\Comb_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Flip-01",
+    "family": "Flip",
+    "skater": "Skater_C",
+    "frames": 277,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 108,
+        "apex_frame": 118,
+        "landing_frame": 131,
+        "contact_takeoff_frame": 105,
+        "contact_landing_frame": 133,
+        "estimated_air_turns": 1.2478,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Flip\\Flip_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Flip-10",
+    "family": "Flip",
+    "skater": "Skater_C",
+    "frames": 265,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 116,
+        "apex_frame": 126,
+        "landing_frame": 141,
+        "contact_takeoff_frame": 114,
+        "contact_landing_frame": 143,
+        "estimated_air_turns": 1.2962,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Flip\\Flip_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Flip-02",
+    "family": "Flip",
+    "skater": "Skater_C",
+    "frames": 265,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 102,
+        "apex_frame": 113,
+        "landing_frame": 127,
+        "contact_takeoff_frame": 100,
+        "contact_landing_frame": 129,
+        "estimated_air_turns": 1.2851,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Flip\\Flip_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Flip-03",
+    "family": "Flip",
+    "skater": "Skater_C",
+    "frames": 271,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 94,
+        "apex_frame": 104,
+        "landing_frame": 119,
+        "contact_takeoff_frame": 92,
+        "contact_landing_frame": 121,
+        "estimated_air_turns": 1.3078,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Flip\\Flip_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Flip-04",
+    "family": "Flip",
+    "skater": "Skater_C",
+    "frames": 259,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 111,
+        "apex_frame": 121,
+        "landing_frame": 134,
+        "contact_takeoff_frame": 109,
+        "contact_landing_frame": 136,
+        "estimated_air_turns": 1.2277,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Flip\\Flip_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Flip-05",
+    "family": "Flip",
+    "skater": "Skater_C",
+    "frames": 276,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 113,
+        "apex_frame": 125,
+        "landing_frame": 139,
+        "contact_takeoff_frame": 112,
+        "contact_landing_frame": 140,
+        "estimated_air_turns": 1.3489,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Flip\\Flip_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Flip-06",
+    "family": "Flip",
+    "skater": "Skater_C",
+    "frames": 273,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 116,
+        "apex_frame": 127,
+        "landing_frame": 141,
+        "contact_takeoff_frame": 114,
+        "contact_landing_frame": 143,
+        "estimated_air_turns": 1.3192,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Flip\\Flip_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Flip-07",
+    "family": "Flip",
+    "skater": "Skater_C",
+    "frames": 287,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 109,
+        "apex_frame": 120,
+        "landing_frame": 134,
+        "contact_takeoff_frame": 106,
+        "contact_landing_frame": 136,
+        "estimated_air_turns": 1.3169,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Flip\\Flip_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Flip-08",
+    "family": "Flip",
+    "skater": "Skater_C",
+    "frames": 257,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 105,
+        "apex_frame": 117,
+        "landing_frame": 130,
+        "contact_takeoff_frame": 103,
+        "contact_landing_frame": 132,
+        "estimated_air_turns": 1.2977,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Flip\\Flip_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Flip-09",
+    "family": "Flip",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 168,
+        "apex_frame": 179,
+        "landing_frame": 193,
+        "contact_takeoff_frame": 166,
+        "contact_landing_frame": 195,
+        "estimated_air_turns": 1.2821,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Flip\\Flip_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Loop-01",
+    "family": "Loop",
+    "skater": "Skater_C",
+    "frames": 276,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 149,
+        "apex_frame": 160,
+        "landing_frame": 170,
+        "contact_takeoff_frame": 147,
+        "contact_landing_frame": 171,
+        "estimated_air_turns": 1.0699,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Loop\\Loop_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Loop-10",
+    "family": "Loop",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 166,
+        "apex_frame": 175,
+        "landing_frame": 187,
+        "contact_takeoff_frame": 163,
+        "contact_landing_frame": 189,
+        "estimated_air_turns": 1.1174,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Loop\\Loop_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Loop-02",
+    "family": "Loop",
+    "skater": "Skater_C",
+    "frames": 282,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 138,
+        "apex_frame": 148,
+        "landing_frame": 159,
+        "contact_takeoff_frame": 136,
+        "contact_landing_frame": 161,
+        "estimated_air_turns": 1.0594,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Loop\\Loop_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Loop-03",
+    "family": "Loop",
+    "skater": "Skater_C",
+    "frames": 274,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 154,
+        "apex_frame": 166,
+        "landing_frame": 177,
+        "contact_takeoff_frame": 151,
+        "contact_landing_frame": 178,
+        "estimated_air_turns": 1.161,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Loop\\Loop_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Loop-04",
+    "family": "Loop",
+    "skater": "Skater_C",
+    "frames": 296,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 154,
+        "apex_frame": 164,
+        "landing_frame": 175,
+        "contact_takeoff_frame": 152,
+        "contact_landing_frame": 177,
+        "estimated_air_turns": 1.0633,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Loop\\Loop_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Loop-05",
+    "family": "Loop",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 157,
+        "apex_frame": 169,
+        "landing_frame": 179,
+        "contact_takeoff_frame": 155,
+        "contact_landing_frame": 181,
+        "estimated_air_turns": 1.0903,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Loop\\Loop_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Loop-06",
+    "family": "Loop",
+    "skater": "Skater_C",
+    "frames": 291,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 168,
+        "apex_frame": 178,
+        "landing_frame": 189,
+        "contact_takeoff_frame": 166,
+        "contact_landing_frame": 192,
+        "estimated_air_turns": 1.068,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Loop\\Loop_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Loop-07",
+    "family": "Loop",
+    "skater": "Skater_C",
+    "frames": 296,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 145,
+        "apex_frame": 157,
+        "landing_frame": 168,
+        "contact_takeoff_frame": 143,
+        "contact_landing_frame": 169,
+        "estimated_air_turns": 1.1419,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Loop\\Loop_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Loop-08",
+    "family": "Loop",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 186,
+        "apex_frame": 196,
+        "landing_frame": 206,
+        "contact_takeoff_frame": 184,
+        "contact_landing_frame": 208,
+        "estimated_air_turns": 1.0349,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Loop\\Loop_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Loop-09",
+    "family": "Loop",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 169,
+        "apex_frame": 181,
+        "landing_frame": 191,
+        "contact_takeoff_frame": 167,
+        "contact_landing_frame": 193,
+        "estimated_air_turns": 1.0964,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Loop\\Loop_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Lutz-01",
+    "family": "Lutz",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 156,
+        "apex_frame": 164,
+        "landing_frame": 176,
+        "contact_takeoff_frame": 151,
+        "contact_landing_frame": 179,
+        "estimated_air_turns": 1.1382,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Lutz\\Lutz_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Lutz-10",
+    "family": "Lutz",
+    "skater": "Skater_C",
+    "frames": 281,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 118,
+        "apex_frame": 128,
+        "landing_frame": 142,
+        "contact_takeoff_frame": 116,
+        "contact_landing_frame": 144,
+        "estimated_air_turns": 1.2898,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Lutz\\Lutz_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Lutz-02",
+    "family": "Lutz",
+    "skater": "Skater_C",
+    "frames": 273,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 128,
+        "apex_frame": 138,
+        "landing_frame": 152,
+        "contact_takeoff_frame": 124,
+        "contact_landing_frame": 154,
+        "estimated_air_turns": 1.2858,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Lutz\\Lutz_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Lutz-03",
+    "family": "Lutz",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 142,
+        "apex_frame": 151,
+        "landing_frame": 165,
+        "contact_takeoff_frame": 139,
+        "contact_landing_frame": 167,
+        "estimated_air_turns": 1.2614,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Lutz\\Lutz_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Lutz-04",
+    "family": "Lutz",
+    "skater": "Skater_C",
+    "frames": 269,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 142,
+        "apex_frame": 152,
+        "landing_frame": 165,
+        "contact_takeoff_frame": 140,
+        "contact_landing_frame": 166,
+        "estimated_air_turns": 1.2254,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Lutz\\Lutz_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Lutz-05",
+    "family": "Lutz",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 160,
+        "apex_frame": 169,
+        "landing_frame": 185,
+        "contact_takeoff_frame": 158,
+        "contact_landing_frame": 186,
+        "estimated_air_turns": 1.3301,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Lutz\\Lutz_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Lutz-06",
+    "family": "Lutz",
+    "skater": "Skater_C",
+    "frames": 289,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 130,
+        "apex_frame": 141,
+        "landing_frame": 155,
+        "contact_takeoff_frame": 128,
+        "contact_landing_frame": 157,
+        "estimated_air_turns": 1.3316,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Lutz\\Lutz_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Lutz-07",
+    "family": "Lutz",
+    "skater": "Skater_C",
+    "frames": 283,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 116,
+        "apex_frame": 124,
+        "landing_frame": 136,
+        "contact_takeoff_frame": 114,
+        "contact_landing_frame": 139,
+        "estimated_air_turns": 1.1102,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Lutz\\Lutz_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Lutz-08",
+    "family": "Lutz",
+    "skater": "Skater_C",
+    "frames": 291,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 131,
+        "apex_frame": 140,
+        "landing_frame": 154,
+        "contact_takeoff_frame": 128,
+        "contact_landing_frame": 156,
+        "estimated_air_turns": 1.2329,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Lutz\\Lutz_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Lutz-09",
+    "family": "Lutz",
+    "skater": "Skater_C",
+    "frames": 292,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 154,
+        "apex_frame": 163,
+        "landing_frame": 177,
+        "contact_takeoff_frame": 151,
+        "contact_landing_frame": 179,
+        "estimated_air_turns": 1.2444,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Lutz\\Lutz_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Salchow-01",
+    "family": "Salchow",
+    "skater": "Skater_C",
+    "frames": 291,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 154,
+        "apex_frame": 165,
+        "landing_frame": 177,
+        "contact_takeoff_frame": 151,
+        "contact_landing_frame": 178,
+        "estimated_air_turns": 1.31,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Salchow\\Salchow_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Salchow-10",
+    "family": "Salchow",
+    "skater": "Skater_C",
+    "frames": 275,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 124,
+        "apex_frame": 134,
+        "landing_frame": 148,
+        "contact_takeoff_frame": 121,
+        "contact_landing_frame": 150,
+        "estimated_air_turns": 1.1681,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Salchow\\Salchow_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Salchow-02",
+    "family": "Salchow",
+    "skater": "Skater_C",
+    "frames": 291,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 123,
+        "apex_frame": 133,
+        "landing_frame": 145,
+        "contact_takeoff_frame": 119,
+        "contact_landing_frame": 146,
+        "estimated_air_turns": 1.1929,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Salchow\\Salchow_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Salchow-03",
+    "family": "Salchow",
+    "skater": "Skater_C",
+    "frames": 276,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 124,
+        "apex_frame": 134,
+        "landing_frame": 147,
+        "contact_takeoff_frame": 122,
+        "contact_landing_frame": 149,
+        "estimated_air_turns": 1.2068,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Salchow\\Salchow_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Salchow-04",
+    "family": "Salchow",
+    "skater": "Skater_C",
+    "frames": 282,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 118,
+        "apex_frame": 128,
+        "landing_frame": 141,
+        "contact_takeoff_frame": 114,
+        "contact_landing_frame": 143,
+        "estimated_air_turns": 1.1886,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Salchow\\Salchow_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Salchow-05",
+    "family": "Salchow",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 179,
+        "apex_frame": 189,
+        "landing_frame": 203,
+        "contact_takeoff_frame": 177,
+        "contact_landing_frame": 204,
+        "estimated_air_turns": 1.2307,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Salchow\\Salchow_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Salchow-06",
+    "family": "Salchow",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 118,
+        "apex_frame": 127,
+        "landing_frame": 140,
+        "contact_takeoff_frame": 116,
+        "contact_landing_frame": 142,
+        "estimated_air_turns": 1.1603,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Salchow\\Salchow_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Salchow-07",
+    "family": "Salchow",
+    "skater": "Skater_C",
+    "frames": 294,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 114,
+        "apex_frame": 124,
+        "landing_frame": 137,
+        "contact_takeoff_frame": 112,
+        "contact_landing_frame": 139,
+        "estimated_air_turns": 0.313,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Salchow\\Salchow_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Salchow-08",
+    "family": "Salchow",
+    "skater": "Skater_C",
+    "frames": 287,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 125,
+        "apex_frame": 135,
+        "landing_frame": 149,
+        "contact_takeoff_frame": 122,
+        "contact_landing_frame": 150,
+        "estimated_air_turns": 1.1993,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Salchow\\Salchow_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Salchow-09",
+    "family": "Salchow",
+    "skater": "Skater_C",
+    "frames": 280,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 134,
+        "apex_frame": 144,
+        "landing_frame": 158,
+        "contact_takeoff_frame": 132,
+        "contact_landing_frame": 160,
+        "estimated_air_turns": 1.2611,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Salchow\\Salchow_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Toeloop-01",
+    "family": "Toeloop",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 173,
+        "apex_frame": 183,
+        "landing_frame": 194,
+        "contact_takeoff_frame": 171,
+        "contact_landing_frame": 197,
+        "estimated_air_turns": 1.1633,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Toeloop\\Toeloop_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Toeloop-10",
+    "family": "Toeloop",
+    "skater": "Skater_C",
+    "frames": 293,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 125,
+        "apex_frame": 136,
+        "landing_frame": 149,
+        "contact_takeoff_frame": 123,
+        "contact_landing_frame": 150,
+        "estimated_air_turns": 1.1635,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 190,
+        "apex_frame": 211,
+        "landing_frame": 212,
+        "contact_takeoff_frame": 187,
+        "contact_landing_frame": 216,
+        "estimated_air_turns": 0.0651,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Toeloop\\Toeloop_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Toeloop-02",
+    "family": "Toeloop",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 123,
+        "apex_frame": 137,
+        "landing_frame": 150,
+        "contact_takeoff_frame": 121,
+        "contact_landing_frame": 151,
+        "estimated_air_turns": 1.3596,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Toeloop\\Toeloop_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Toeloop-03",
+    "family": "Toeloop",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 157,
+        "apex_frame": 168,
+        "landing_frame": 181,
+        "contact_takeoff_frame": 155,
+        "contact_landing_frame": 183,
+        "estimated_air_turns": 1.2548,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Toeloop\\Toeloop_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Toeloop-04",
+    "family": "Toeloop",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 135,
+        "apex_frame": 149,
+        "landing_frame": 162,
+        "contact_takeoff_frame": 134,
+        "contact_landing_frame": 164,
+        "estimated_air_turns": 1.3204,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Toeloop\\Toeloop_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Toeloop-05",
+    "family": "Toeloop",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 108,
+        "apex_frame": 120,
+        "landing_frame": 134,
+        "contact_takeoff_frame": 106,
+        "contact_landing_frame": 135,
+        "estimated_air_turns": 1.2784,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Toeloop\\Toeloop_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Toeloop-06",
+    "family": "Toeloop",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 153,
+        "apex_frame": 166,
+        "landing_frame": 180,
+        "contact_takeoff_frame": 152,
+        "contact_landing_frame": 181,
+        "estimated_air_turns": 1.3289,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Toeloop\\Toeloop_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Toeloop-07",
+    "family": "Toeloop",
+    "skater": "Skater_C",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 160,
+        "apex_frame": 173,
+        "landing_frame": 186,
+        "contact_takeoff_frame": 158,
+        "contact_landing_frame": 187,
+        "estimated_air_turns": 1.306,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Toeloop\\Toeloop_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Toeloop-08",
+    "family": "Toeloop",
+    "skater": "Skater_C",
+    "frames": 295,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 129,
+        "apex_frame": 141,
+        "landing_frame": 153,
+        "contact_takeoff_frame": 127,
+        "contact_landing_frame": 154,
+        "estimated_air_turns": 1.2218,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Toeloop\\Toeloop_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_C-Toeloop-09",
+    "family": "Toeloop",
+    "skater": "Skater_C",
+    "frames": 284,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 135,
+        "apex_frame": 148,
+        "landing_frame": 162,
+        "contact_takeoff_frame": 133,
+        "contact_landing_frame": 164,
+        "estimated_air_turns": 1.3058,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_C\\Toeloop\\Toeloop_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Axel-01",
+    "family": "Axel",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 137,
+        "apex_frame": 149,
+        "landing_frame": 161,
+        "contact_takeoff_frame": 135,
+        "contact_landing_frame": 163,
+        "estimated_air_turns": 1.0439,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Axel\\Axel_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Axel-10",
+    "family": "Axel",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 149,
+        "apex_frame": 160,
+        "landing_frame": 173,
+        "contact_takeoff_frame": 147,
+        "contact_landing_frame": 175,
+        "estimated_air_turns": 1.0384,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Axel\\Axel_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Axel-02",
+    "family": "Axel",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 159,
+        "apex_frame": 173,
+        "landing_frame": 184,
+        "contact_takeoff_frame": 157,
+        "contact_landing_frame": 186,
+        "estimated_air_turns": 1.0715,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Axel\\Axel_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Axel-03",
+    "family": "Axel",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 123,
+        "apex_frame": 136,
+        "landing_frame": 147,
+        "contact_takeoff_frame": 121,
+        "contact_landing_frame": 149,
+        "estimated_air_turns": 1.0425,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Axel\\Axel_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Axel-04",
+    "family": "Axel",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 132,
+        "apex_frame": 145,
+        "landing_frame": 156,
+        "contact_takeoff_frame": 129,
+        "contact_landing_frame": 158,
+        "estimated_air_turns": 1.0348,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Axel\\Axel_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Axel-05",
+    "family": "Axel",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 155,
+        "apex_frame": 167,
+        "landing_frame": 180,
+        "contact_takeoff_frame": 153,
+        "contact_landing_frame": 181,
+        "estimated_air_turns": 1.0426,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Axel\\Axel_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Axel-06",
+    "family": "Axel",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 132,
+        "apex_frame": 146,
+        "landing_frame": 157,
+        "contact_takeoff_frame": 131,
+        "contact_landing_frame": 158,
+        "estimated_air_turns": 1.0523,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Axel\\Axel_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Axel-07",
+    "family": "Axel",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 126,
+        "apex_frame": 139,
+        "landing_frame": 150,
+        "contact_takeoff_frame": 124,
+        "contact_landing_frame": 151,
+        "estimated_air_turns": 1.0494,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Axel\\Axel_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Axel-08",
+    "family": "Axel",
+    "skater": "Skater_D",
+    "frames": 296,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 126,
+        "apex_frame": 138,
+        "landing_frame": 148,
+        "contact_takeoff_frame": 124,
+        "contact_landing_frame": 150,
+        "estimated_air_turns": 0.9725,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Axel\\Axel_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Axel-09",
+    "family": "Axel",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 144,
+        "apex_frame": 157,
+        "landing_frame": 168,
+        "contact_takeoff_frame": 143,
+        "contact_landing_frame": 170,
+        "estimated_air_turns": 1.0106,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Axel\\Axel_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Comb-01",
+    "family": "Comb",
+    "skater": "Skater_D",
+    "frames": 540,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 137,
+        "apex_frame": 150,
+        "landing_frame": 161,
+        "contact_takeoff_frame": 135,
+        "contact_landing_frame": 162,
+        "estimated_air_turns": 1.162,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 242,
+        "apex_frame": 252,
+        "landing_frame": 263,
+        "contact_takeoff_frame": 239,
+        "contact_landing_frame": 266,
+        "estimated_air_turns": 1.1412,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Comb\\Comb_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Comb-02",
+    "family": "Comb",
+    "skater": "Skater_D",
+    "frames": 600,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 169,
+        "apex_frame": 180,
+        "landing_frame": 191,
+        "contact_takeoff_frame": 167,
+        "contact_landing_frame": 193,
+        "estimated_air_turns": 1.083,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 277,
+        "apex_frame": 286,
+        "landing_frame": 298,
+        "contact_takeoff_frame": 274,
+        "contact_landing_frame": 301,
+        "estimated_air_turns": 1.1085,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Comb\\Comb_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Comb-03",
+    "family": "Comb",
+    "skater": "Skater_D",
+    "frames": 600,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 168,
+        "apex_frame": 181,
+        "landing_frame": 192,
+        "contact_takeoff_frame": 167,
+        "contact_landing_frame": 194,
+        "estimated_air_turns": 1.1913,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 291,
+        "apex_frame": 298,
+        "landing_frame": 311,
+        "contact_takeoff_frame": 288,
+        "contact_landing_frame": 313,
+        "estimated_air_turns": 0.9722,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Comb\\Comb_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Flip-01",
+    "family": "Flip",
+    "skater": "Skater_D",
+    "frames": 276,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 116,
+        "apex_frame": 127,
+        "landing_frame": 137,
+        "contact_takeoff_frame": 114,
+        "contact_landing_frame": 139,
+        "estimated_air_turns": 1.0755,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Flip\\Flip_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Flip-10",
+    "family": "Flip",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 141,
+        "apex_frame": 153,
+        "landing_frame": 165,
+        "contact_takeoff_frame": 139,
+        "contact_landing_frame": 167,
+        "estimated_air_turns": 1.1819,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Flip\\Flip_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Flip-02",
+    "family": "Flip",
+    "skater": "Skater_D",
+    "frames": 284,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 113,
+        "apex_frame": 124,
+        "landing_frame": 136,
+        "contact_takeoff_frame": 111,
+        "contact_landing_frame": 138,
+        "estimated_air_turns": 1.1717,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Flip\\Flip_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Flip-03",
+    "family": "Flip",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 156,
+        "apex_frame": 168,
+        "landing_frame": 181,
+        "contact_takeoff_frame": 154,
+        "contact_landing_frame": 183,
+        "estimated_air_turns": 1.2356,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Flip\\Flip_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Flip-04",
+    "family": "Flip",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 118,
+        "apex_frame": 130,
+        "landing_frame": 144,
+        "contact_takeoff_frame": 116,
+        "contact_landing_frame": 145,
+        "estimated_air_turns": 1.3126,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Flip\\Flip_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Flip-05",
+    "family": "Flip",
+    "skater": "Skater_D",
+    "frames": 285,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 118,
+        "apex_frame": 130,
+        "landing_frame": 142,
+        "contact_takeoff_frame": 115,
+        "contact_landing_frame": 144,
+        "estimated_air_turns": 1.1973,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Flip\\Flip_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Flip-06",
+    "family": "Flip",
+    "skater": "Skater_D",
+    "frames": 286,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 114,
+        "apex_frame": 126,
+        "landing_frame": 138,
+        "contact_takeoff_frame": 112,
+        "contact_landing_frame": 141,
+        "estimated_air_turns": 1.1919,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Flip\\Flip_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Flip-07",
+    "family": "Flip",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 124,
+        "apex_frame": 136,
+        "landing_frame": 148,
+        "contact_takeoff_frame": 122,
+        "contact_landing_frame": 150,
+        "estimated_air_turns": 1.1985,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Flip\\Flip_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Flip-08",
+    "family": "Flip",
+    "skater": "Skater_D",
+    "frames": 285,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 121,
+        "apex_frame": 132,
+        "landing_frame": 143,
+        "contact_takeoff_frame": 119,
+        "contact_landing_frame": 145,
+        "estimated_air_turns": 1.0877,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Flip\\Flip_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Flip-09",
+    "family": "Flip",
+    "skater": "Skater_D",
+    "frames": 294,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 144,
+        "apex_frame": 156,
+        "landing_frame": 167,
+        "contact_takeoff_frame": 141,
+        "contact_landing_frame": 169,
+        "estimated_air_turns": 1.1484,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Flip\\Flip_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Loop-01",
+    "family": "Loop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 188,
+        "apex_frame": 202,
+        "landing_frame": 212,
+        "contact_takeoff_frame": 187,
+        "contact_landing_frame": 214,
+        "estimated_air_turns": 1.2119,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Loop\\Loop_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Loop-10",
+    "family": "Loop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 143,
+        "apex_frame": 156,
+        "landing_frame": 169,
+        "contact_takeoff_frame": 139,
+        "contact_landing_frame": 171,
+        "estimated_air_turns": 1.2697,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Loop\\Loop_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Loop-02",
+    "family": "Loop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 174,
+        "apex_frame": 187,
+        "landing_frame": 198,
+        "contact_takeoff_frame": 173,
+        "contact_landing_frame": 200,
+        "estimated_air_turns": 1.1776,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Loop\\Loop_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Loop-03",
+    "family": "Loop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 153,
+        "apex_frame": 166,
+        "landing_frame": 176,
+        "contact_takeoff_frame": 152,
+        "contact_landing_frame": 178,
+        "estimated_air_turns": 1.1616,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Loop\\Loop_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Loop-04",
+    "family": "Loop",
+    "skater": "Skater_D",
+    "frames": 291,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 138,
+        "apex_frame": 149,
+        "landing_frame": 160,
+        "contact_takeoff_frame": 136,
+        "contact_landing_frame": 162,
+        "estimated_air_turns": 1.0996,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Loop\\Loop_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Loop-05",
+    "family": "Loop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 150,
+        "apex_frame": 163,
+        "landing_frame": 175,
+        "contact_takeoff_frame": 148,
+        "contact_landing_frame": 176,
+        "estimated_air_turns": 1.223,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Loop\\Loop_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Loop-06",
+    "family": "Loop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 151,
+        "apex_frame": 164,
+        "landing_frame": 174,
+        "contact_takeoff_frame": 149,
+        "contact_landing_frame": 177,
+        "estimated_air_turns": 1.142,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Loop\\Loop_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Loop-07",
+    "family": "Loop",
+    "skater": "Skater_D",
+    "frames": 296,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 140,
+        "apex_frame": 153,
+        "landing_frame": 166,
+        "contact_takeoff_frame": 138,
+        "contact_landing_frame": 168,
+        "estimated_air_turns": 1.2417,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Loop\\Loop_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Loop-08",
+    "family": "Loop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 147,
+        "apex_frame": 159,
+        "landing_frame": 171,
+        "contact_takeoff_frame": 145,
+        "contact_landing_frame": 173,
+        "estimated_air_turns": 1.1635,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Loop\\Loop_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Loop-09",
+    "family": "Loop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 151,
+        "apex_frame": 163,
+        "landing_frame": 176,
+        "contact_takeoff_frame": 146,
+        "contact_landing_frame": 178,
+        "estimated_air_turns": 1.1494,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Loop\\Loop_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Lutz-01",
+    "family": "Lutz",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 130,
+        "apex_frame": 142,
+        "landing_frame": 154,
+        "contact_takeoff_frame": 128,
+        "contact_landing_frame": 156,
+        "estimated_air_turns": 1.1886,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Lutz\\Lutz_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Lutz-10",
+    "family": "Lutz",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 143,
+        "apex_frame": 156,
+        "landing_frame": 168,
+        "contact_takeoff_frame": 141,
+        "contact_landing_frame": 170,
+        "estimated_air_turns": 1.2329,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Lutz\\Lutz_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Lutz-02",
+    "family": "Lutz",
+    "skater": "Skater_D",
+    "frames": 291,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 124,
+        "apex_frame": 137,
+        "landing_frame": 149,
+        "contact_takeoff_frame": 122,
+        "contact_landing_frame": 151,
+        "estimated_air_turns": 1.2216,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Lutz\\Lutz_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Lutz-03",
+    "family": "Lutz",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 172,
+        "apex_frame": 185,
+        "landing_frame": 197,
+        "contact_takeoff_frame": 170,
+        "contact_landing_frame": 199,
+        "estimated_air_turns": 1.2235,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Lutz\\Lutz_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Lutz-04",
+    "family": "Lutz",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 34,
+        "apex_frame": 35,
+        "landing_frame": 44,
+        "contact_takeoff_frame": 33,
+        "contact_landing_frame": 45,
+        "estimated_air_turns": 0.0104,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 141,
+        "apex_frame": 154,
+        "landing_frame": 166,
+        "contact_takeoff_frame": 138,
+        "contact_landing_frame": 168,
+        "estimated_air_turns": 1.1975,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Lutz\\Lutz_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Lutz-05",
+    "family": "Lutz",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 163,
+        "apex_frame": 177,
+        "landing_frame": 189,
+        "contact_takeoff_frame": 162,
+        "contact_landing_frame": 191,
+        "estimated_air_turns": 1.2608,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Lutz\\Lutz_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Lutz-06",
+    "family": "Lutz",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 177,
+        "apex_frame": 190,
+        "landing_frame": 203,
+        "contact_takeoff_frame": 175,
+        "contact_landing_frame": 205,
+        "estimated_air_turns": 1.287,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Lutz\\Lutz_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Lutz-07",
+    "family": "Lutz",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 143,
+        "apex_frame": 154,
+        "landing_frame": 165,
+        "contact_takeoff_frame": 141,
+        "contact_landing_frame": 167,
+        "estimated_air_turns": 1.058,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Lutz\\Lutz_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Lutz-08",
+    "family": "Lutz",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 159,
+        "apex_frame": 172,
+        "landing_frame": 185,
+        "contact_takeoff_frame": 157,
+        "contact_landing_frame": 186,
+        "estimated_air_turns": 1.2379,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Lutz\\Lutz_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Lutz-09",
+    "family": "Lutz",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 150,
+        "apex_frame": 163,
+        "landing_frame": 176,
+        "contact_takeoff_frame": 148,
+        "contact_landing_frame": 178,
+        "estimated_air_turns": 1.2737,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Lutz\\Lutz_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Salchow-01",
+    "family": "Salchow",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 154,
+        "apex_frame": 164,
+        "landing_frame": 177,
+        "contact_takeoff_frame": 151,
+        "contact_landing_frame": 179,
+        "estimated_air_turns": 1.1851,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Salchow\\Salchow_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Salchow-10",
+    "family": "Salchow",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 106,
+        "apex_frame": 118,
+        "landing_frame": 130,
+        "contact_takeoff_frame": 103,
+        "contact_landing_frame": 132,
+        "estimated_air_turns": 1.2197,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Salchow\\Salchow_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Salchow-02",
+    "family": "Salchow",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 173,
+        "apex_frame": 186,
+        "landing_frame": 197,
+        "contact_takeoff_frame": 171,
+        "contact_landing_frame": 199,
+        "estimated_air_turns": 1.2372,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Salchow\\Salchow_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Salchow-03",
+    "family": "Salchow",
+    "skater": "Skater_D",
+    "frames": 294,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 149,
+        "apex_frame": 160,
+        "landing_frame": 173,
+        "contact_takeoff_frame": 147,
+        "contact_landing_frame": 175,
+        "estimated_air_turns": 1.235,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Salchow\\Salchow_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Salchow-04",
+    "family": "Salchow",
+    "skater": "Skater_D",
+    "frames": 276,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 134,
+        "apex_frame": 144,
+        "landing_frame": 157,
+        "contact_takeoff_frame": 131,
+        "contact_landing_frame": 159,
+        "estimated_air_turns": 1.1503,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Salchow\\Salchow_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Salchow-05",
+    "family": "Salchow",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 109,
+        "apex_frame": 120,
+        "landing_frame": 133,
+        "contact_takeoff_frame": 107,
+        "contact_landing_frame": 135,
+        "estimated_air_turns": 1.2075,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Salchow\\Salchow_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Salchow-06",
+    "family": "Salchow",
+    "skater": "Skater_D",
+    "frames": 280,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 111,
+        "apex_frame": 121,
+        "landing_frame": 133,
+        "contact_takeoff_frame": 109,
+        "contact_landing_frame": 135,
+        "estimated_air_turns": 1.1104,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Salchow\\Salchow_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Salchow-07",
+    "family": "Salchow",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 129,
+        "apex_frame": 139,
+        "landing_frame": 150,
+        "contact_takeoff_frame": 124,
+        "contact_landing_frame": 152,
+        "estimated_air_turns": 1.0798,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Salchow\\Salchow_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Salchow-08",
+    "family": "Salchow",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 93,
+        "apex_frame": 103,
+        "landing_frame": 114,
+        "contact_takeoff_frame": 90,
+        "contact_landing_frame": 115,
+        "estimated_air_turns": 1.0819,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Salchow\\Salchow_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Salchow-09",
+    "family": "Salchow",
+    "skater": "Skater_D",
+    "frames": 295,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 111,
+        "apex_frame": 121,
+        "landing_frame": 134,
+        "contact_takeoff_frame": 109,
+        "contact_landing_frame": 136,
+        "estimated_air_turns": 1.1798,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Salchow\\Salchow_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Toeloop-01",
+    "family": "Toeloop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 113,
+        "apex_frame": 125,
+        "landing_frame": 139,
+        "contact_takeoff_frame": 111,
+        "contact_landing_frame": 141,
+        "estimated_air_turns": 1.3402,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Toeloop\\Toeloop_1.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Toeloop-10",
+    "family": "Toeloop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 134,
+        "apex_frame": 146,
+        "landing_frame": 159,
+        "contact_takeoff_frame": 132,
+        "contact_landing_frame": 161,
+        "estimated_air_turns": 1.2551,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Toeloop\\Toeloop_10.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Toeloop-02",
+    "family": "Toeloop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 151,
+        "apex_frame": 163,
+        "landing_frame": 176,
+        "contact_takeoff_frame": 148,
+        "contact_landing_frame": 178,
+        "estimated_air_turns": 1.2866,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Toeloop\\Toeloop_2.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Toeloop-03",
+    "family": "Toeloop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 129,
+        "apex_frame": 141,
+        "landing_frame": 155,
+        "contact_takeoff_frame": 127,
+        "contact_landing_frame": 156,
+        "estimated_air_turns": 1.297,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Toeloop\\Toeloop_3.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Toeloop-04",
+    "family": "Toeloop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 138,
+        "apex_frame": 151,
+        "landing_frame": 166,
+        "contact_takeoff_frame": 136,
+        "contact_landing_frame": 167,
+        "estimated_air_turns": 1.3623,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Toeloop\\Toeloop_4.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Toeloop-05",
+    "family": "Toeloop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 152,
+        "apex_frame": 165,
+        "landing_frame": 178,
+        "contact_takeoff_frame": 149,
+        "contact_landing_frame": 179,
+        "estimated_air_turns": 1.2672,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Toeloop\\Toeloop_5.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Toeloop-06",
+    "family": "Toeloop",
+    "skater": "Skater_D",
+    "frames": 295,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 154,
+        "apex_frame": 167,
+        "landing_frame": 181,
+        "contact_takeoff_frame": 152,
+        "contact_landing_frame": 182,
+        "estimated_air_turns": 1.2934,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Toeloop\\Toeloop_6.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Toeloop-07",
+    "family": "Toeloop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 149,
+        "apex_frame": 161,
+        "landing_frame": 175,
+        "contact_takeoff_frame": 146,
+        "contact_landing_frame": 177,
+        "estimated_air_turns": 1.3162,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Toeloop\\Toeloop_7.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Toeloop-08",
+    "family": "Toeloop",
+    "skater": "Skater_D",
+    "frames": 300,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 129,
+        "apex_frame": 140,
+        "landing_frame": 154,
+        "contact_takeoff_frame": 125,
+        "contact_landing_frame": 155,
+        "estimated_air_turns": 1.2415,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Toeloop\\Toeloop_8.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  },
+  {
+    "id": "Skater_D-Toeloop-09",
+    "family": "Toeloop",
+    "skater": "Skater_D",
+    "frames": 222,
+    "fps": 60.0,
+    "events": [
+      {
+        "takeoff_frame": 124,
+        "apex_frame": 135,
+        "landing_frame": 150,
+        "contact_takeoff_frame": 121,
+        "contact_landing_frame": 152,
+        "estimated_air_turns": 1.2641,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      },
+      {
+        "takeoff_frame": 179,
+        "apex_frame": 210,
+        "landing_frame": 211,
+        "contact_takeoff_frame": 178,
+        "contact_landing_frame": 212,
+        "estimated_air_turns": 0.1124,
+        "method": "both-foot marker height > estimated floor + 75 mm; provisional"
+      }
+    ],
+    "rounds": [],
+    "geometry_status": "pending",
+    "quality_status": "pending_visual_review",
+    "source": "Skater_D\\Toeloop\\Toeloop_9.c3d",
+    "license": "CC BY-NC-SA 4.0",
+    "available": false
+  }
+]

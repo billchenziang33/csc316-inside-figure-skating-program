@@ -1,0 +1,21 @@
+[
+  "Axel/Skater_A-Axel-01/Skater_A-Axel-01-r1-web.glb",
+  "Axel/Skater_A-Axel-01/Skater_A-Axel-01-r2-web.glb",
+  "Axel/Skater_A-Axel-01/Skater_A-Axel-01-r3-web.glb",
+  "Axel/Skater_A-Axel-10/Skater_A-Axel-10-r1-web.glb",
+  "Axel/Skater_A-Axel-10/Skater_A-Axel-10-r2-web.glb",
+  "Axel/Skater_A-Axel-10/Skater_A-Axel-10-r3-web.glb",
+  "LICENSE-FS-Jump3D.txt",
+  "README.md",
+  "blender-player.js",
+  "camera-fit.mjs",
+  "camera-name.mjs",
+  "fullscreen-control.js",
+  "index.html",
+  "playback-clock.mjs",
+  "player.html",
+  "records-manifest.json",
+  "trajectory-hud.mjs",
+  "vendor/GLTFLoader.js",
+  "vendor/three.umd.js"
+]

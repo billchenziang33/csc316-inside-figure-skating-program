@@ -1,4 +1,4 @@
-import { cpSync, mkdirSync } from 'node:fs';
+import { cpSync, mkdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { build } from 'vite';
@@ -160,6 +160,9 @@ const publicFiles = [
 		'single-axel-1a-human-rink-v178-web.glb'
 	].map((name) => `movement/axel-1a-prototype/${name}`)
 ];
+
+const motionFiles = JSON.parse(readFileSync(path.join(root, 'static/movement/fs-jump3d/public-files.json'), 'utf8'));
+publicFiles.push(...motionFiles.map((relative) => `movement/fs-jump3d/${relative}`));
 
 for (const relative of publicFiles) {
 	const source = path.join(root, 'static', relative);
