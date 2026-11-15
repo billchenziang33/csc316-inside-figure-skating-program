@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  let { onClose, skater = '' } = $props();
+  let { onClose, skater = '', motion = null, code = '' } = $props();
   let dialog;
   let frame = $state(null);
   let demoHtml = $state('');
@@ -11,7 +11,7 @@
     document.body.style.overflow = 'hidden';
     dialog.showModal();
     const controller = new AbortController();
-    fetch('/movement/axel-1a-prototype/player.html', { signal: controller.signal })
+    if (!motion) fetch('/movement/axel-1a-prototype/player.html', { signal: controller.signal })
       .then(response => { if (!response.ok) throw new Error(`Demo request failed (${response.status})`); return response.text(); })
       .then(html => { demoHtml = html; })
       .catch(error => { if (error.name !== 'AbortError') loadError = error.message; });
@@ -24,8 +24,8 @@
 </script>
 
 <dialog bind:this={dialog} class="motion-overlay" aria-labelledby="motion-overlay-title" oncancel={(event) => { event.preventDefault(); onClose(); }}>
-  <header><div><h2 id="motion-overlay-title">Single Axel · Blender v178 3D reference</h2><p>Illustrative / simulated action · not motion capture of {skater || 'the selected athlete'}</p></div><button onclick={onClose}>Return to the main page ↙</button></header>
-  {#if demoHtml}<iframe bind:this={frame} srcdoc={demoHtml} allow="fullscreen" title="Blender v178 Single Axel animation with play, scrub and side/front cameras"></iframe>{:else if loadError}<p role="alert">{loadError}</p>{:else}<p role="status">Loading the Blender v178 animation…</p>{/if}
+  <header><div><h2 id="motion-overlay-title">{motion ? `${code} · 3D movement reference` : 'Single Axel · Blender v178 3D reference'}</h2><p>Illustrative / simulated action · not motion capture of {skater || 'the selected athlete'}</p></div><button onclick={onClose}>Return to the main page ↙</button></header>
+  {#if motion}<iframe bind:this={frame} src={motion.player} allow="fullscreen" title={`${code} Blender animation`}></iframe>{:else if demoHtml}<iframe bind:this={frame} srcdoc={demoHtml} allow="fullscreen" title="Blender v178 Single Axel animation with play, scrub and side/front cameras"></iframe>{:else if loadError}<p role="alert">{loadError}</p>{:else}<p role="status">Loading the Blender v178 animation…</p>{/if}
 </dialog>
 
 <style>

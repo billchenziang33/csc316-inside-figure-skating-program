@@ -1,0 +1,1337 @@
+{
+  "occurrences": {
+    "SP:1:1": {
+      "code": "4F",
+      "flags": "",
+      "official_info": "",
+      "asset": "4F"
+    },
+    "SP:1:2": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "",
+      "asset": "3A"
+    },
+    "SP:1:3": {
+      "code": "CCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCSp"
+    },
+    "SP:1:4": {
+      "code": "4Lz+3T",
+      "flags": "",
+      "official_info": "x",
+      "asset": "4Lz+3T"
+    },
+    "SP:1:5": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "SP:1:6": {
+      "code": "FSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FSSp"
+    },
+    "SP:1:7": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "FS:1:1": {
+      "code": "4F+3T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4F+3T"
+    },
+    "FS:1:2": {
+      "code": "4F",
+      "flags": "",
+      "official_info": "",
+      "asset": "4F"
+    },
+    "FS:1:3": {
+      "code": "4S",
+      "flags": "",
+      "official_info": "",
+      "asset": "4S"
+    },
+    "FS:1:4": {
+      "code": "CCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCSp"
+    },
+    "FS:1:5": {
+      "code": "4Lz",
+      "flags": "",
+      "official_info": "",
+      "asset": "4Lz"
+    },
+    "FS:1:6": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "FS:1:7": {
+      "code": "4T+1Eu+1F",
+      "flags": "",
+      "official_info": "x",
+      "asset": "4T+1Eu+1F"
+    },
+    "FS:1:8": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A"
+    },
+    "FS:1:9": {
+      "code": "3Lz+3T",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3Lz+3T"
+    },
+    "FS:1:10": {
+      "code": "CCoSp2V",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "FS:1:11": {
+      "code": "ChSq1",
+      "flags": "",
+      "official_info": "",
+      "asset": "ChSq"
+    },
+    "FS:1:12": {
+      "code": "FCCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCCoSp"
+    },
+    "SP:2:1": {
+      "code": "4S",
+      "flags": "",
+      "official_info": "",
+      "asset": "4S"
+    },
+    "SP:2:2": {
+      "code": "4T+3T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4T+3T"
+    },
+    "SP:2:3": {
+      "code": "CCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCSp"
+    },
+    "SP:2:4": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A"
+    },
+    "SP:2:5": {
+      "code": "FSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FSSp"
+    },
+    "SP:2:6": {
+      "code": "StSq3",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "SP:2:7": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "FS:2:1": {
+      "code": "4S",
+      "flags": "",
+      "official_info": "",
+      "asset": "4S"
+    },
+    "FS:2:2": {
+      "code": "4Loq",
+      "flags": "q",
+      "official_info": "q",
+      "asset": "4Lo"
+    },
+    "FS:2:3": {
+      "code": "4T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4T"
+    },
+    "FS:2:4": {
+      "code": "3A+2T",
+      "flags": "",
+      "official_info": "",
+      "asset": "3A+2T"
+    },
+    "FS:2:5": {
+      "code": "CSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CSSp"
+    },
+    "FS:2:6": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "FS:2:7": {
+      "code": "4T+1Eu+2S",
+      "flags": "",
+      "official_info": "x",
+      "asset": "4T+1Eu+2S"
+    },
+    "FS:2:8": {
+      "code": "3F+3Lo",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3F+3Lo"
+    },
+    "FS:2:9": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A"
+    },
+    "FS:2:10": {
+      "code": "ChSq1",
+      "flags": "",
+      "official_info": "",
+      "asset": "ChSq"
+    },
+    "FS:2:11": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "FS:2:12": {
+      "code": "FCCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCCoSp"
+    },
+    "SP:3:1": {
+      "code": "4F",
+      "flags": "",
+      "official_info": "",
+      "asset": "4F"
+    },
+    "SP:3:2": {
+      "code": "4T+3T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4T+3T"
+    },
+    "SP:3:3": {
+      "code": "FCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCSp"
+    },
+    "SP:3:4": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A"
+    },
+    "SP:3:5": {
+      "code": "CSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CSSp"
+    },
+    "SP:3:6": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "SP:3:7": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "FS:3:1": {
+      "code": "4Lo",
+      "flags": "",
+      "official_info": "",
+      "asset": "4Lo"
+    },
+    "FS:3:2": {
+      "code": "4Sq",
+      "flags": "q",
+      "official_info": "q",
+      "asset": "4S"
+    },
+    "FS:3:3": {
+      "code": "4F",
+      "flags": "",
+      "official_info": "",
+      "asset": "4F"
+    },
+    "FS:3:4": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "",
+      "asset": "3A"
+    },
+    "FS:3:5": {
+      "code": "FCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCSp"
+    },
+    "FS:3:6": {
+      "code": "ChSq1",
+      "flags": "",
+      "official_info": "",
+      "asset": "ChSq"
+    },
+    "FS:3:7": {
+      "code": "4T",
+      "flags": "",
+      "official_info": "x",
+      "asset": "4T"
+    },
+    "FS:3:8": {
+      "code": "4T+2T",
+      "flags": "",
+      "official_info": "x",
+      "asset": "4T+2T"
+    },
+    "FS:3:9": {
+      "code": "3A+1Eu+1F",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A+1Eu+1F"
+    },
+    "FS:3:10": {
+      "code": "FCCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCCoSp"
+    },
+    "FS:3:11": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "FS:3:12": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "SP:4:1": {
+      "code": "1S*",
+      "flags": "*",
+      "official_info": "*",
+      "asset": "1S"
+    },
+    "SP:4:2": {
+      "code": "4T+3T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4T+3T"
+    },
+    "SP:4:3": {
+      "code": "FCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCSp"
+    },
+    "SP:4:4": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A"
+    },
+    "SP:4:5": {
+      "code": "CSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CSSp"
+    },
+    "SP:4:6": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "SP:4:7": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "FS:4:1": {
+      "code": "4A<",
+      "flags": "<",
+      "official_info": "<",
+      "asset": "4A"
+    },
+    "FS:4:2": {
+      "code": "4Sq",
+      "flags": "q",
+      "official_info": "q",
+      "asset": "4S"
+    },
+    "FS:4:3": {
+      "code": "3A+2T",
+      "flags": "",
+      "official_info": "",
+      "asset": "3A+2T"
+    },
+    "FS:4:4": {
+      "code": "3F",
+      "flags": "",
+      "official_info": "",
+      "asset": "3F"
+    },
+    "FS:4:5": {
+      "code": "FCCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCCoSp"
+    },
+    "FS:4:6": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "FS:4:7": {
+      "code": "4T+3T",
+      "flags": "",
+      "official_info": "x",
+      "asset": "4T+3T"
+    },
+    "FS:4:8": {
+      "code": "4T+1Eu+3S",
+      "flags": "",
+      "official_info": "x",
+      "asset": "4T+1Eu+3S"
+    },
+    "FS:4:9": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A"
+    },
+    "FS:4:10": {
+      "code": "ChSq1",
+      "flags": "",
+      "official_info": "",
+      "asset": "ChSq"
+    },
+    "FS:4:11": {
+      "code": "FCSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCSSp"
+    },
+    "FS:4:12": {
+      "code": "CCoSp4V",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "SP:5:1": {
+      "code": "4S",
+      "flags": "",
+      "official_info": "",
+      "asset": "4S"
+    },
+    "SP:5:2": {
+      "code": "3Lz+3Lo",
+      "flags": "",
+      "official_info": "",
+      "asset": "3Lz+3Lo"
+    },
+    "SP:5:3": {
+      "code": "FCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCSp"
+    },
+    "SP:5:4": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A"
+    },
+    "SP:5:5": {
+      "code": "CSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CSSp"
+    },
+    "SP:5:6": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "SP:5:7": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "FS:5:1": {
+      "code": "4T<",
+      "flags": "<",
+      "official_info": "<",
+      "asset": "4T"
+    },
+    "FS:5:2": {
+      "code": "4S",
+      "flags": "",
+      "official_info": "",
+      "asset": "4S"
+    },
+    "FS:5:3": {
+      "code": "3Lz+3Lo",
+      "flags": "",
+      "official_info": "",
+      "asset": "3Lz+3Lo"
+    },
+    "FS:5:4": {
+      "code": "FCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCSp"
+    },
+    "FS:5:5": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "FS:5:6": {
+      "code": "3A+2T",
+      "flags": "",
+      "official_info": "",
+      "asset": "3A+2T"
+    },
+    "FS:5:7": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A"
+    },
+    "FS:5:8": {
+      "code": "3Lz+1Eu+3S",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3Lz+1Eu+3S"
+    },
+    "FS:5:9": {
+      "code": "3F",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3F"
+    },
+    "FS:5:10": {
+      "code": "ChSq1",
+      "flags": "",
+      "official_info": "",
+      "asset": "ChSq"
+    },
+    "FS:5:11": {
+      "code": "CSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CSSp"
+    },
+    "FS:5:12": {
+      "code": "CCoSp3",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "SP:6:1": {
+      "code": "3F",
+      "flags": "",
+      "official_info": "",
+      "asset": "3F"
+    },
+    "SP:6:2": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "",
+      "asset": "3A"
+    },
+    "SP:6:3": {
+      "code": "FSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FSSp"
+    },
+    "SP:6:4": {
+      "code": "3Lz+3T",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3Lz+3T"
+    },
+    "SP:6:5": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "SP:6:6": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "SP:6:7": {
+      "code": "CCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCSp"
+    },
+    "FS:6:1": {
+      "code": "3F",
+      "flags": "",
+      "official_info": "",
+      "asset": "3F"
+    },
+    "FS:6:2": {
+      "code": "3A+2T",
+      "flags": "",
+      "official_info": "",
+      "asset": "3A+2T"
+    },
+    "FS:6:3": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "",
+      "asset": "3A"
+    },
+    "FS:6:4": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "FS:6:5": {
+      "code": "3Lo",
+      "flags": "",
+      "official_info": "",
+      "asset": "3Lo"
+    },
+    "FS:6:6": {
+      "code": "3F+3T",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3F+3T"
+    },
+    "FS:6:7": {
+      "code": "3Lz+1Eu+2S",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3Lz+1Eu+2S"
+    },
+    "FS:6:8": {
+      "code": "ChSq1",
+      "flags": "",
+      "official_info": "",
+      "asset": "ChSq"
+    },
+    "FS:6:9": {
+      "code": "2A",
+      "flags": "",
+      "official_info": "x",
+      "asset": "2A"
+    },
+    "FS:6:10": {
+      "code": "FCCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCCoSp"
+    },
+    "FS:6:11": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "FS:6:12": {
+      "code": "CCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCSp"
+    },
+    "SP:7:1": {
+      "code": "4Lz!q",
+      "flags": "!",
+      "official_info": "!",
+      "asset": "4Lz"
+    },
+    "SP:7:2": {
+      "code": "3Lz!+3T",
+      "flags": "!",
+      "official_info": "!",
+      "asset": "3Lz+3T"
+    },
+    "SP:7:3": {
+      "code": "FSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FSSp"
+    },
+    "SP:7:4": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A"
+    },
+    "SP:7:5": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "SP:7:6": {
+      "code": "CCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCSp"
+    },
+    "SP:7:7": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "FS:7:1": {
+      "code": "4Lz!",
+      "flags": "!",
+      "official_info": "!",
+      "asset": "4Lz"
+    },
+    "FS:7:2": {
+      "code": "4F",
+      "flags": "",
+      "official_info": "",
+      "asset": "4F"
+    },
+    "FS:7:3": {
+      "code": "4Lo+1Eu+3S",
+      "flags": "",
+      "official_info": "",
+      "asset": "4Lo+1Eu+3S"
+    },
+    "FS:7:4": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "",
+      "asset": "3A"
+    },
+    "FS:7:5": {
+      "code": "CSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CSSp"
+    },
+    "FS:7:6": {
+      "code": "3Lz+3T",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3Lz+3T"
+    },
+    "FS:7:7": {
+      "code": "3F+3T<",
+      "flags": "<",
+      "official_info": "<x",
+      "asset": "3F+3T"
+    },
+    "FS:7:8": {
+      "code": "3Lz",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3Lz"
+    },
+    "FS:7:9": {
+      "code": "FCCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCCoSp"
+    },
+    "FS:7:10": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "FS:7:11": {
+      "code": "ChSq1",
+      "flags": "",
+      "official_info": "",
+      "asset": "ChSq"
+    },
+    "FS:7:12": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "SP:8:1": {
+      "code": "4T+3T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4T+3T"
+    },
+    "SP:8:2": {
+      "code": "4S",
+      "flags": "",
+      "official_info": "",
+      "asset": "4S"
+    },
+    "SP:8:3": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "SP:8:4": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A"
+    },
+    "SP:8:5": {
+      "code": "CSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CSSp"
+    },
+    "SP:8:6": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "SP:8:7": {
+      "code": "FCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCSp"
+    },
+    "FS:8:1": {
+      "code": "4T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4T"
+    },
+    "FS:8:2": {
+      "code": "4S",
+      "flags": "",
+      "official_info": "",
+      "asset": "4S"
+    },
+    "FS:8:3": {
+      "code": "4T+3T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4T+3T"
+    },
+    "FS:8:4": {
+      "code": "3F+2T",
+      "flags": "",
+      "official_info": "",
+      "asset": "3F+2T"
+    },
+    "FS:8:5": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "FS:8:6": {
+      "code": "3A+1Eu+3S",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A+1Eu+3S"
+    },
+    "FS:8:7": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A"
+    },
+    "FS:8:8": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "FS:8:9": {
+      "code": "ChSq1",
+      "flags": "",
+      "official_info": "",
+      "asset": "ChSq"
+    },
+    "FS:8:10": {
+      "code": "3Lo",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3Lo"
+    },
+    "FS:8:11": {
+      "code": "CSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CSSp"
+    },
+    "FS:8:12": {
+      "code": "FCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCSp"
+    },
+    "SP:9:1": {
+      "code": "4Lz+3T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4Lz+3T"
+    },
+    "SP:9:2": {
+      "code": "4T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4T"
+    },
+    "SP:9:3": {
+      "code": "FCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCSp"
+    },
+    "SP:9:4": {
+      "code": "3Aq",
+      "flags": "q",
+      "official_info": "qx",
+      "asset": "3A"
+    },
+    "SP:9:5": {
+      "code": "CSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CSSp"
+    },
+    "SP:9:6": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "SP:9:7": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "FS:9:1": {
+      "code": "4Lz",
+      "flags": "",
+      "official_info": "",
+      "asset": "4Lz"
+    },
+    "FS:9:2": {
+      "code": "4T+2T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4T+2T"
+    },
+    "FS:9:3": {
+      "code": "3A+1Eu+3S",
+      "flags": "",
+      "official_info": "",
+      "asset": "3A+1Eu+3S"
+    },
+    "FS:9:4": {
+      "code": "FCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCSp"
+    },
+    "FS:9:5": {
+      "code": "4T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4T"
+    },
+    "FS:9:6": {
+      "code": "3Lz+2T",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3Lz+2T"
+    },
+    "FS:9:7": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3A"
+    },
+    "FS:9:8": {
+      "code": "3F",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3F"
+    },
+    "FS:9:9": {
+      "code": "CSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CSSp"
+    },
+    "FS:9:10": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "FS:9:11": {
+      "code": "ChSq1",
+      "flags": "",
+      "official_info": "",
+      "asset": "ChSq"
+    },
+    "FS:9:12": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "SP:10:1": {
+      "code": "4S+3T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4S+3T"
+    },
+    "SP:10:2": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "",
+      "asset": "3A"
+    },
+    "SP:10:3": {
+      "code": "FCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCSp"
+    },
+    "SP:10:4": {
+      "code": "4T",
+      "flags": "",
+      "official_info": "x",
+      "asset": "4T"
+    },
+    "SP:10:5": {
+      "code": "StSq3",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "SP:10:6": {
+      "code": "CSSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CSSp"
+    },
+    "SP:10:7": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    },
+    "FS:10:1": {
+      "code": "4S+2T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4S+2T"
+    },
+    "FS:10:2": {
+      "code": "3A",
+      "flags": "",
+      "official_info": "",
+      "asset": "3A"
+    },
+    "FS:10:3": {
+      "code": "4T",
+      "flags": "",
+      "official_info": "",
+      "asset": "4T"
+    },
+    "FS:10:4": {
+      "code": "3Lo",
+      "flags": "",
+      "official_info": "",
+      "asset": "3Lo"
+    },
+    "FS:10:5": {
+      "code": "FCSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCSp"
+    },
+    "FS:10:6": {
+      "code": "StSq4",
+      "flags": "",
+      "official_info": "",
+      "asset": "StSq"
+    },
+    "FS:10:7": {
+      "code": "4T+3T",
+      "flags": "",
+      "official_info": "x",
+      "asset": "4T+3T"
+    },
+    "FS:10:8": {
+      "code": "2F+1Eu+3S",
+      "flags": "",
+      "official_info": "x",
+      "asset": "2F+1Eu+3S"
+    },
+    "FS:10:9": {
+      "code": "3F",
+      "flags": "",
+      "official_info": "x",
+      "asset": "3F"
+    },
+    "FS:10:10": {
+      "code": "FCCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "FCCoSp"
+    },
+    "FS:10:11": {
+      "code": "ChSq1",
+      "flags": "",
+      "official_info": "",
+      "asset": "ChSq"
+    },
+    "FS:10:12": {
+      "code": "CCoSp4",
+      "flags": "",
+      "official_info": "",
+      "asset": "CCoSp"
+    }
+  },
+  "assets": {
+    "2A": {
+      "name": "2A · Axel（阿克塞尔）",
+      "frames": 361,
+      "player": "/movement/beijing-2022/player.html?id=2A",
+      "poster": "/movement/beijing-2022/2A-r3-apex-side.png",
+      "file": "2A-r3-web.glb",
+      "sha256": "0c23e0474fd7178bf17d8bde98c0a1d339e18d7ccf99a4ce11fc55e67246b35d",
+      "reference": "https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/",
+      "source": "CSC316 V178 示意模型与 ISU Axel 技术说明，比赛画面变式待复核",
+      "motion_label": "illustrative / simulated",
+      "measured_turns": null,
+      "event_frames": null,
+      "status": "draft",
+      "blender_geometry_reviewed": true,
+      "blender_technique_reviewed": true,
+      "public_side_view": "pending",
+      "note": "Blender 三轮采样检查通过；公开默认侧视与完整播放尚待验收。"
+    },
+    "3A": {
+      "name": "3A · Axel（阿克塞尔）",
+      "frames": 367,
+      "player": "/movement/beijing-2022/player.html?id=3A",
+      "poster": "/movement/beijing-2022/3A-r3-apex-side.png",
+      "file": "3A-r3-web.glb",
+      "sha256": "8a687d6c592f7d96587df3b527c3da9eec2b25e8cd1b4f17b84571f73f507a09",
+      "reference": "https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/",
+      "source": "CSC316 V178 示意模型与 ISU Axel 技术说明，比赛画面变式待复核",
+      "motion_label": "illustrative / simulated",
+      "measured_turns": null,
+      "event_frames": null,
+      "status": "draft",
+      "blender_geometry_reviewed": true,
+      "blender_technique_reviewed": true,
+      "public_side_view": "pending",
+      "note": "Blender 三轮采样检查通过；公开默认侧视与完整播放尚待验收。"
+    },
+    "1S": {
+      "name": "1S · Salchow（萨霍夫）",
+      "frames": 351,
+      "player": "/movement/beijing-2022/player.html?id=1S",
+      "poster": "/movement/beijing-2022/1S-r3-apex-side.png",
+      "file": "1S-r3-web.glb",
+      "sha256": "1516fd661e9846b02252ccce344a1fc32e02745ae9293ace642eb26d1cee63aa",
+      "reference": "https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/",
+      "source": "CSC316 V178 通用人物/冰场场景与 ISU Salchow 技术说明；未使用北京冬奥选手捕捉数据。",
+      "motion_label": "illustrative / simulated",
+      "measured_turns": 1,
+      "event_frames": {
+        "TAKEOFF": 166,
+        "APEX": 178,
+        "LANDING": 191
+      },
+      "status": "draft",
+      "blender_geometry_reviewed": true,
+      "blender_technique_reviewed": true,
+      "public_side_view": "pending",
+      "note": "Blender 三轮采样检查通过；公开默认侧视与完整播放尚待验收。"
+    },
+    "2S": {
+      "name": "2S · Salchow（萨霍夫）",
+      "frames": 356,
+      "player": "/movement/beijing-2022/player.html?id=2S",
+      "poster": "/movement/beijing-2022/2S-r3-apex-side.png",
+      "file": "2S-r3-web.glb",
+      "sha256": "a11e885938063b430c23d621fbd7ad868b54e4fe39755e3d2317aaf7a8314368",
+      "reference": "https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/",
+      "source": "CSC316 V178 通用人物/冰场场景与 ISU Salchow 技术说明；未使用北京冬奥选手捕捉数据。",
+      "motion_label": "illustrative / simulated",
+      "measured_turns": 2,
+      "event_frames": {
+        "TAKEOFF": 166,
+        "APEX": 180,
+        "LANDING": 196
+      },
+      "status": "draft",
+      "blender_geometry_reviewed": true,
+      "blender_technique_reviewed": true,
+      "public_side_view": "pending",
+      "note": "Blender 三轮采样检查通过；公开默认侧视与完整播放尚待验收。"
+    },
+    "2T": {
+      "name": "2T · Toe loop（后外点冰）",
+      "frames": 355,
+      "player": "/movement/beijing-2022/player.html?id=2T",
+      "poster": "/movement/beijing-2022/2T-r3-apex-side.png",
+      "file": "2T-r3-web.glb",
+      "sha256": "ebe35bedba7f8686ac30d97094e18d42ff12f3f3956080cbf903c50380345cdd",
+      "reference": "https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/",
+      "source": "CSC316 V178 通用场景与 ISU Toe loop 技术说明；未使用北京冬奥选手捕捉数据。",
+      "motion_label": "illustrative / simulated",
+      "measured_turns": 2,
+      "event_frames": {
+        "TAKEOFF": 166,
+        "APEX": 181,
+        "LANDING": 195
+      },
+      "status": "draft",
+      "blender_geometry_reviewed": true,
+      "blender_technique_reviewed": true,
+      "public_side_view": "pending",
+      "note": "Blender 三轮采样检查通过；公开默认侧视与完整播放尚待验收。"
+    },
+    "3S": {
+      "name": "3S · Salchow（萨霍夫）",
+      "frames": 363,
+      "player": "/movement/beijing-2022/player.html?id=3S",
+      "poster": "/movement/beijing-2022/3S-r3-apex-side.png",
+      "file": "3S-r3-web.glb",
+      "sha256": "3c1da6bca191bc24e19c1b3be81c29abc7d46cc90c796b89955de47e28b8909a",
+      "reference": "https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/",
+      "source": "CSC316 V178 通用人物/冰场场景与 ISU Salchow 技术说明；未使用北京冬奥选手捕捉数据。",
+      "motion_label": "illustrative / simulated",
+      "measured_turns": 3,
+      "event_frames": {
+        "TAKEOFF": 166,
+        "APEX": 184,
+        "LANDING": 203
+      },
+      "status": "draft",
+      "blender_geometry_reviewed": true,
+      "blender_technique_reviewed": true,
+      "public_side_view": "pending",
+      "note": "Blender 三轮采样检查通过；公开默认侧视与完整播放尚待验收。"
+    },
+    "3T": {
+      "name": "3T · Toe loop（后外点冰）",
+      "frames": 363,
+      "player": "/movement/beijing-2022/player.html?id=3T",
+      "poster": "/movement/beijing-2022/3T-r3-apex-side.png",
+      "file": "3T-r3-web.glb",
+      "sha256": "ba8ba00db69457e1ad2ba0f134f1ce9c522f8f6187bb37dadd36b35a0195d2b4",
+      "reference": "https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/",
+      "source": "CSC316 V178 通用场景与 ISU Toe loop 技术说明；未使用北京冬奥选手捕捉数据。",
+      "motion_label": "illustrative / simulated",
+      "measured_turns": 3,
+      "event_frames": {
+        "TAKEOFF": 166,
+        "APEX": 185,
+        "LANDING": 203
+      },
+      "status": "draft",
+      "blender_geometry_reviewed": true,
+      "blender_technique_reviewed": true,
+      "public_side_view": "pending",
+      "note": "Blender 三轮采样检查通过；公开默认侧视与完整播放尚待验收。"
+    },
+    "4S": {
+      "name": "4S · Salchow（萨霍夫）",
+      "frames": 369,
+      "player": "/movement/beijing-2022/player.html?id=4S",
+      "poster": "/movement/beijing-2022/4S-r3-apex-side.png",
+      "file": "4S-r3-web.glb",
+      "sha256": "670852fb6cd9c257dd2c62e3e05569feecf45afc426856dd9bf30ae08cd25013",
+      "reference": "https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/",
+      "source": "CSC316 V178 通用人物/冰场场景与 ISU Salchow 技术说明；未使用北京冬奥选手捕捉数据。",
+      "motion_label": "illustrative / simulated",
+      "measured_turns": 4,
+      "event_frames": {
+        "TAKEOFF": 166,
+        "APEX": 187,
+        "LANDING": 209
+      },
+      "status": "draft",
+      "blender_geometry_reviewed": true,
+      "blender_technique_reviewed": true,
+      "public_side_view": "pending",
+      "note": "Blender 三轮采样检查通过；公开默认侧视与完整播放尚待验收。"
+    },
+    "4T": {
+      "name": "4T · Toe loop（后外点冰）",
+      "frames": 369,
+      "player": "/movement/beijing-2022/player.html?id=4T",
+      "poster": "/movement/beijing-2022/4T-r3-apex-side.png",
+      "file": "4T-r3-web.glb",
+      "sha256": "7b10d8624e4745c5bed8b4d939a6ac9a4829c7c3008b797bf562ecfa6aa7bb90",
+      "reference": "https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/",
+      "source": "CSC316 V178 通用场景与 ISU Toe loop 技术说明；未使用北京冬奥选手捕捉数据。",
+      "motion_label": "illustrative / simulated",
+      "measured_turns": 4,
+      "event_frames": {
+        "TAKEOFF": 166,
+        "APEX": 188,
+        "LANDING": 209
+      },
+      "status": "draft",
+      "blender_geometry_reviewed": true,
+      "blender_technique_reviewed": true,
+      "public_side_view": "pending",
+      "note": "Blender 三轮采样检查通过；公开默认侧视与完整播放尚待验收。"
+    }
+  },
+  "plannedBaseActions": 50
+}

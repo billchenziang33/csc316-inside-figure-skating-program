@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>北京 2022 花滑动作库 · CSC316</title>
+  <style>
+    :root{color-scheme:dark;font-family:"DM Sans",system-ui,sans-serif;background:#101e2b;color:#edf5f7}
+    *{box-sizing:border-box}body{margin:0}a{color:#a4e8dc}a:focus-visible{outline:3px solid #ffcb7b;outline-offset:4px}
+    header{border-bottom:1px solid #324b5a}nav,main{max-width:1050px;margin:auto;padding:1.25rem 1.5rem}
+    nav{display:flex;justify-content:space-between;align-items:center;gap:1rem}nav span{color:#9bb4bf;font-size:.85rem;letter-spacing:.09em}
+    h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.12;margin:1.1rem 0 .7rem}h2{margin:1.9rem 0 .85rem;font-size:1.23rem}
+    p{line-height:1.55;color:#bbced7;margin:.6rem 0}#progress{color:#a4e8dc;font-size:1.1rem;font-weight:700;margin:1.15rem 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:1rem}
+    .card{display:block;overflow:hidden;max-width:500px;background:#182d3d;border:1px solid #375362;border-radius:.6rem;text-decoration:none;color:inherit}
+    .card:hover{border-color:#a4e8dc}.card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+    .card div{padding:.85rem 1rem}.card strong{font-size:1.02rem}.card span{display:block;color:#a4e8dc;font-size:.85rem;margin-top:.35rem}
+    .card small{display:block;color:#9bb4bf;font-size:.76rem;line-height:1.4;margin-top:.35rem}
+    .with-return{display:inline-block;margin-top:.6rem}
+  </style>
+</head>
+<body>
+  <header><nav aria-label="项目导航"><span>CSC316 · 北京 2022 男单</span><a href="/">返回比赛工作台 ↗</a></nav></header>
+  <main>
+    <h1>花滑动作库</h1>
+    <p>从北京 2022 男单前十的节目元素中选出 50 项基础动作。点击卡片播放 Blender 模型。</p>
+    <p id="progress" role="status">正在读取制作进度…</p>
+    <section aria-labelledby="available-title">
+      <h2 id="available-title">已开放的比赛动作</h2>
+      <div id="actions" class="grid"></div>
+      <p id="empty" hidden>比赛动作正在制作。下方可播放 Single Axel 质量基线。</p>
+    </section>
+    <section aria-labelledby="baseline-title">
+      <h2 id="baseline-title">制作基线</h2>
+      <a class="card" href="/movement/axel-1a-prototype/player.html">
+        <img src="/movement/axel-1a-prototype/single-axel-1a-human-rink-v178-frame087-side.png" alt="Single Axel V178 的侧视冰鞋和全身画面">
+        <div><strong>1A · Single Axel V178</strong><span>观看动作 →</span></div>
+      </a>
+    </section>
+    <p>三维动作与轨迹为示意模拟（illustrative / simulated）。</p>
+  </main>
+  <script type="module">
+    const progress = document.querySelector('#progress');
+    const container = document.querySelector('#actions');
+    try {
+      const response = await fetch('./catalog.json');
+      if (!response.ok) throw new Error('动作目录读取失败');
+      const catalog = await response.json();
+      const motions = Object.values(catalog.assets);
+      progress.textContent = `已开放 ${motions.length} / ${catalog.plannedBaseActions} 项比赛动作 · 另有 1 项制作基线`;
+      document.querySelector('#empty').hidden = motions.length > 0;
+      for (const motion of motions) {
+        const card = document.createElement('a');
+        card.className = 'card';
+        card.href = motion.player;
+        const image = document.createElement('img');
+        image.src = motion.poster;
+        image.alt = `${motion.name} 默认侧视预览`;
+        const details = document.createElement('div');
+        const title = document.createElement('strong');
+        title.textContent = motion.name;
+        const review = document.createElement('small');
+        review.className = 'motion-review-status';
+        review.textContent = motion.public_side_view === 'passed'
+          ? '公开默认侧视已验收'
+          : 'Blender 几何与技术检查通过 · 公开侧视待复核';
+        const play = document.createElement('span');
+        play.textContent = '观看动作 →';
+        details.append(title, review, play);
+        card.append(image, details);
+        container.append(card);
+      }
+    } catch (error) {
+      progress.textContent = '暂时无法读取动作目录。刷新页面后重试。';
+    }
+  </script>
+</body>
+</html>

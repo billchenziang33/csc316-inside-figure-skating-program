@@ -9,6 +9,7 @@
 	import BaseVsPanel from './lib/charts/BaseVsPanel.svelte';
 
 	import MotionOverlay from './lib/MotionOverlay.svelte';
+	import { resolveMotion } from './lib/data/motion-reference.mjs';
 	import { stages, chartIds, readRoute, routeHash } from './lib/navigation.mjs';
 	let activeStage = $state('story');
 	let activeChart = $state('S12');
@@ -25,6 +26,8 @@
 	}
 	onMount(() => { syncRoute(); window.addEventListener('hashchange', syncRoute); window.addEventListener('popstate', syncRoute); return () => { window.removeEventListener('hashchange', syncRoute); window.removeEventListener('popstate', syncRoute); }; });
 	let data = $state(null);
+	let motionCatalog = $state(null);
+	let motionLoadError = $state(false);
 	let loadError = $state('');
 	let selectedRank = $state(1);
 	let selectedSegment = $state('SP');
@@ -36,6 +39,7 @@
 		.filter((d) => d.skater === selectedSkater && d.segment === selectedSegment)
 		.sort((a, b) => a.element_order - b.element_order));
 	let selectedElement = $derived(programElements.find((d) => d.id === selectedElementId) ?? programElements[0] ?? null);
+	let selectedMotion = $derived(resolveMotion(motionCatalog, selectedElement));
 	let jumpShare = $derived(data?.jumpShare ?? []);
 	let allElements = $derived(data?.elements ?? []);
 
@@ -47,6 +51,14 @@
 		} catch (error) {
 			loadError = error instanceof Error ? error.message : 'Unable to load the competition data.';
 		}
+	});
+	onMount(() => {
+		const controller = new AbortController();
+		fetch('/movement/beijing-2022/catalog.json', {signal: controller.signal})
+			.then(response => { if (!response.ok) throw new Error('Motion catalog unavailable'); return response.json(); })
+			.then(catalog => { motionCatalog = catalog; })
+			.catch(error => { if (error.name !== 'AbortError') motionLoadError = true; });
+		return () => controller.abort();
 	});
 
 	$effect(() => {
@@ -137,8 +149,14 @@
 				</section>
 
 				<section class="column panel motion-column" class:inactive-panel={workspaceTab !== 'movement'} aria-labelledby="motion-title">
-					<div class="column-head"><span class="section-number">C · 3D REFERENCE</span><h3 id="motion-title">A movement example</h3><p>Open the interactive Single Axel reference in a full-screen view.</p></div>
-					<figure class="movement-preview"><img src="/movement/axel-1a-prototype/single-axel-1a-human-rink-v178-frame087-side.png" alt="Blender v178 side view during descent with both skates in view"/><figcaption>Blender v178 · descent · frame 87</figcaption></figure><button class="primary motion-expand" onclick={() => motionOpen = true}>Play Blender v178 in 3D ↗</button>
+					<div class="column-head"><span class="section-number">C · 3D REFERENCE</span><h3 id="motion-title">{selectedElement?.element_code_raw ?? 'Movement reference'}</h3></div>
+					{#if selectedMotion?.asset}
+						<figure class="movement-preview"><img src={selectedMotion.asset.poster} alt={`${selectedMotion.asset.name} · side view`}/><figcaption>{selectedMotion.asset.name} · illustrative / simulated</figcaption></figure>
+						<button class="primary motion-expand" onclick={() => motionOpen = true}>Play {selectedElement.element_code_raw} in 3D ↗</button>
+						{#if selectedMotion.usesBase && selectedMotion.flags}<p class="motion-caveat">Protocol mark: {selectedMotion.flags}. Playback shows the standard {selectedMotion.asset.name} technique.</p>{/if}
+					{:else}<p role="status">{motionLoadError ? 'Movement library could not be loaded.' : motionCatalog ? '3D reference in production.' : 'Loading movement library…'}</p>{/if}
+					<a class="secondary" href="/movement/axel-1a-prototype/">Open Single Axel V178 ↗</a>
+					<a class="secondary" href="/movement/beijing-2022/">Browse the 3D movement library ↗</a>
 					<a class="secondary" href="/movement/fs-jump3d/">Explore FS-Jump3D Blender library ↗</a>
 					<p class="motion-caveat">This is a generic reference demo, not motion capture of {selectedSkater || 'the selected skater'} or a Beijing 2022 performance.</p>
 
@@ -161,7 +179,7 @@
       </article>
     {:else if activeStage === 'movement'}
       <p class="stage-intro">Single Axel · a generic movement reference. This is not motion capture of {selectedSkater} or a Beijing 2022 performance.</p>
-      <div class="motion-toolbar"><button class="secondary" onclick={() => { workspaceTab = 'movement'; go('workspace'); }}>← Return to workbench</button><button class="primary" onclick={() => motionOpen = true}>Enter full-screen 3D reference ↗</button><a class="secondary" href="/movement/axel-1a-prototype/">Open 1A illustrative pose study ↗</a><a class="secondary" href="/movement/fs-jump3d/">FS-Jump3D Blender library ↗</a></div>
+      <div class="motion-toolbar"><button class="secondary" onclick={() => { workspaceTab = 'movement'; go('workspace'); }}>← Return to workbench</button><a class="primary" href="/movement/beijing-2022/">Browse the 3D movement library ↗</a><a class="secondary" href="/movement/axel-1a-prototype/">Open 1A illustrative pose study ↗</a><a class="secondary" href="/movement/fs-jump3d/">FS-Jump3D Blender library ↗</a></div>
       <figure class="motion-poster"><button class="poster-launch" onclick={() => motionOpen = true} aria-label="Enter the Blender v178 Single Axel animation in full screen"><img src="/movement/axel-1a-prototype/single-axel-1a-human-rink-v178-frame047-side.png" alt="Blender v178 simulated skater approaching take-off, shown in the horizontal side view"/></button><figcaption>Blender v178 · play, scrub, and inspect the same action from side, front, skate close-up, or arena views.</figcaption></figure>
       <p class="scope-note">The full-screen view keeps your selected program and element. It loads the same Blender v178 motion as the standalone prototype. Use Play, Front, Side and skate close-up; all phases remain illustrative / simulated.</p>
     {/if}
@@ -175,4 +193,4 @@
   </details>
 </div>
 
-{#if motionOpen}<MotionOverlay onClose={closeMotion} skater={selectedSkater}/>{/if}
+{#if motionOpen}<MotionOverlay onClose={closeMotion} skater={selectedSkater} motion={activeStage === 'workspace' ? selectedMotion?.asset : null} code={selectedElement?.element_code_raw}/>{/if}

@@ -163,6 +163,8 @@ const publicFiles = [
 
 const motionFiles = JSON.parse(readFileSync(path.join(root, 'static/movement/fs-jump3d/public-files.json'), 'utf8'));
 publicFiles.push(...motionFiles.map((relative) => `movement/fs-jump3d/${relative}`));
+const beijingFiles = JSON.parse(readFileSync(path.join(root, 'static/movement/beijing-2022/public-files.json'), 'utf8'));
+publicFiles.push(...beijingFiles.map((relative) => `movement/beijing-2022/${relative}`));
 
 for (const relative of publicFiles) {
 	const source = path.join(root, 'static', relative);

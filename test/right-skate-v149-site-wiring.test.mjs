@@ -12,15 +12,15 @@ const [player, runtime, showcase, app, overlay, build] = await Promise.all([
 	read('../scripts/build-public-site.mjs')
 ]);
 
-test('V178 skate alignment is wired through the standalone and workspace players', () => {
+test('V178 stays accessible as the standalone reference alongside selected element playback', () => {
 	assert.match(player, /Blender v178/);
 	assert.match(player, /blender-player\.js\?v=178/);
 	assert.match(player, /data-mobile-extra/);
 	assert.match(player, /\.camera-picks\s+\[data-mobile-extra\]\s*\{\s*display:\s*none/);
 	assert.match(runtime, /single-axel-1a-human-rink-v178-web\.glb/);
 	assert.match(showcase, /Full 3D skater and capsule arena · V178/);
-	assert.match(app, /single-axel-1a-human-rink-v178-frame087-side\.png/);
-	assert.match(app, /Play Blender v178 in 3D/);
+	assert.match(app, /href="\/movement\/axel-1a-prototype\/">Open Single Axel V178/);
+	assert.match(app, /resolveMotion\(motionCatalog, selectedElement\)/);
 	assert.match(overlay, /Blender v178 3D reference/);
 	for (const asset of [
 		'single-axel-1a-human-rink-v155.blend',
