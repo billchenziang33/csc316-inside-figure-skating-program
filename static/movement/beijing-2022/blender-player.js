@@ -1,8 +1,8 @@
-import { findExportedNameMatch, findExportedNamesByPrefix } from './camera-name.mjs';
-import { fitBoundingSphereDistance, fitOrbitCameraDistance } from './camera-fit.mjs';
-import { toggleFullscreen } from './fullscreen-control.js';
-import { advancePlaybackTime, elapsedPlaybackSeconds, playbackSpeedFromControl, seekAnimationActions } from './playback-clock.mjs?v=100';
-import { formatMeters, measureFlightMetrics, phaseAt, readAxelEventFrames, timeAtAnimationFrame } from './trajectory-hud.mjs?v=102';
+import { findExportedNameMatch, findExportedNamesByPrefix } from '../axel-1a-prototype/camera-name.mjs';
+import { fitBoundingSphereDistance, fitOrbitCameraDistance } from '../axel-1a-prototype/camera-fit.mjs';
+import { toggleFullscreen } from '../axel-1a-prototype/fullscreen-control.js';
+import { advancePlaybackTime, elapsedPlaybackSeconds, playbackSpeedFromControl, seekAnimationActions } from '../axel-1a-prototype/playback-clock.mjs?v=100';
+import { formatMeters, measureFlightMetrics, phaseAt, readAxelEventFrames, timeAtAnimationFrame } from '../axel-1a-prototype/trajectory-hud.mjs?v=102';
 
 const THREE = globalThis.THREE;
 const GLTFLoader = THREE?.GLTFLoader;

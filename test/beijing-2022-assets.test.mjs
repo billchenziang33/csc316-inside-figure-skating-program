@@ -47,3 +47,15 @@ test('every completed jump occurrence resolves to its modeled element code', () 
 test('the public library marks visual reviews that are still pending', () => {
   assert.match(homepage, /Blender 几何与技术检查通过 · 公开侧视待复核/);
 });
+
+test('every Beijing player module import resolves to a file in the curated public build', () => {
+  const playerSource = readFileSync(new URL('blender-player.js', root), 'utf8');
+  const buildSource = readFileSync(new URL('../scripts/build-public-site.mjs', import.meta.url), 'utf8');
+  const imports = [...playerSource.matchAll(/from\s+['"]([^'"]+)['"]/g)].map((match) => match[1]);
+
+  for (const specifier of imports) {
+    const publicPath = new URL(specifier, 'https://example.test/movement/beijing-2022/blender-player.js').pathname.slice(1);
+    assert.doesNotThrow(() => readFileSync(new URL(`../static/${publicPath}`, import.meta.url)), `${specifier} is missing from static sources`);
+    assert.ok(buildSource.includes(`'${publicPath}'`), `curated build omits ${publicPath}`);
+  }
+});
