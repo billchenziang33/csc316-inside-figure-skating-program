@@ -1,10 +1,11 @@
 ## 2026-11-19 Shared three-view motion player
 
 - The 50 movement entries share `static/movement/beijing-2022/player.html` and `blender-player.js`; the camera controls therefore apply to every catalog item.
-- Matched the player chrome to the six-step course site: paper background and cards, Georgia section title, small mono labels, teal active controls, and a cool rink canvas. Replaced the previous dark palette and stale camera presets with a compact 45° angle / Auto fit / Bullet Time control.
-- Added Bullet Time: clicking it pauses at the current animation time and smoothly orbits the full-body camera at 30°/s (one 360° pass in 12 seconds). Clicking it again, switching views, pressing Play/Restart, or seeking stops the orbit; Play and seeking preserve their expected playback behavior. The selected pose does not advance during the camera move.
+- Matched the player chrome to the six-step course site: paper background and cards, Georgia section title, readable mono labels, larger buttons and back link, teal active controls, and a cool rink canvas. The 45° angle, Auto fit, and Bullet Time buttons replace the stale camera presets; Bullet Time includes a short inline explanation.
+- Auto fit frames the complete skater using the side camera's effective field of view and keeps the camera at least 12° above the skater's target. Bullet Time pauses at the selected frame and completes one orbit at 30°/s from 45° above the rink. It returns to the previous view after 12 seconds. Switching views, pressing Play/Restart, or seeking cancels the orbit. The pose remains frozen during the camera move.
+- Jump models retain their blade contact shadows and gain a softer projected rink shadow during marked flight segments. It follows the skater's simulated horizontal position, expands with rise, and fades with height to make separation from the ice easier to read.
 - Files: `static/movement/beijing-2022/player.html`, `static/movement/beijing-2022/blender-player.js`, and this README/summary. The catalog contains 50 assets and all routes use the same player module.
-- Verification: `node --check static/movement/beijing-2022/blender-player.js`, `git diff --check`, and Vite production build pass. Browser verification is still pending because the sandboxed Edge extension cannot reach the local Vite port; check the public deployment after publishing.
+- Verification: `node --check static/movement/beijing-2022/blender-player.js`, `git diff --check`, and Vite production build pass. Browser review of the current three-view and readability changes is pending on the protected Vercel preview.
 
 ## 2026-11-19 Movement Reference embeds the 50-model library
 

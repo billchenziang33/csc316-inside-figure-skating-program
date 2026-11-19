@@ -112,6 +112,7 @@ const arenaTarget = new THREE.Vector3();
 let arenaObject;
 let iceHeight;
 let skateShadows = [];
+let flightShadow;
 const shadowDirection = new THREE.Vector3();
 const shadowCenter = new THREE.Vector3();
 const shadowBounds = new THREE.Box3();
@@ -129,6 +130,13 @@ function createSkateShadows() {
 	const texture = new THREE.CanvasTexture(textureCanvas);
 	const geometry = new THREE.PlaneGeometry(.57, .21).rotateX(-Math.PI / 2);
 	iceHeight = shadowBounds.setFromObject(arenaObject).max.y;
+	const flightGeometry = new THREE.PlaneGeometry(1.8, 1.1).rotateX(-Math.PI / 2);
+	flightShadow = new THREE.Mesh(flightGeometry, new THREE.MeshBasicMaterial({
+		map: texture, color: 0x263c4c, transparent: true, opacity: 0, depthWrite: false,
+	}));
+	flightShadow.visible = false;
+	flightShadow.renderOrder = 1;
+	modelScene.add(flightShadow);
 	skateShadows = [inspectionSkates[1], inspectionSkates[3]].map((runner) => {
 		const surfaces = [];
 		runner.traverse((part) => {
@@ -166,6 +174,26 @@ function updateSkateShadows() {
 		shadow.scale.setScalar(1 + 1.5 * gap);
 		shadow.material.opacity = .53 * Math.exp(-16 * gap);
 	}
+	if (!flightShadow || !trajectoryRoot || !trajectoryEventFrames || !trajectoryPointSegments.length) return;
+	const segments = trajectoryEventFrames.segments ?? [trajectoryEventFrames];
+	const blenderFrame = frameFromTime(playbackTime) + 1;
+	const activeSegment = segments.find((segment) =>
+		blenderFrame >= segment.takeoff && blenderFrame <= segment.landing);
+	const sampled = activeSegment && trajectoryPointSegments.find((segment) => segment.takeoffFrame === activeSegment.takeoff);
+	if (!sampled) {
+		flightShadow.visible = false;
+		return;
+	}
+	trajectoryRoot.getWorldPosition(trajectoryPosition);
+	const rise = Math.max(0, trajectoryPosition.y - sampled.takeoff.y);
+	if (rise < .025) {
+		flightShadow.visible = false;
+		return;
+	}
+	flightShadow.position.set(trajectoryPosition.x, iceHeight + .001, trajectoryPosition.z);
+	flightShadow.scale.setScalar(1 + .65 * Math.min(rise, 1.5));
+	flightShadow.material.opacity = .24 * Math.exp(-2.1 * rise);
+	flightShadow.visible = true;
 }
 
 function frameFromTime(time) {
@@ -178,12 +206,19 @@ function updateInspectionCamera() {
 	inspectionBox.setFromObject(trajectoryRoot);
 	inspectionBox.getCenter(inspectionTarget);
 	skaterSideCamera.getWorldQuaternion(inspectionOrientation);
-	inspectionDirection.set(0.27, 0.04, 1).applyQuaternion(inspectionOrientation).normalize();
+	inspectionDirection.set(0.27, 0.04, 1).applyQuaternion(inspectionOrientation);
+	inspectionDirection.y = Math.max(Math.abs(inspectionDirection.y), Math.sin(THREE.MathUtils.degToRad(12)));
+	inspectionDirection.normalize();
 	const aspect = viewerCamera?.aspect || inspectionCamera.aspect || 1.5;
 	const sphere = inspectionBox.getBoundingSphere(new THREE.Sphere());
+	const cameraFov = sourceCamera?.fov ?? inspectionCamera.fov;
+	const cameraZoom = sourceCamera?.zoom ?? 1;
+	const effectiveFov = THREE.MathUtils.radToDeg(
+		2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(cameraFov) / 2) / cameraZoom),
+	);
 	const fitDistance = fitBoundingSphereDistance({
 		radius: sphere.radius,
-		verticalFovDegrees: inspectionCamera.fov,
+		verticalFovDegrees: effectiveFov,
 		aspect,
 		margin: 1.18,
 	});
@@ -394,6 +429,11 @@ function selectView(mode) {
 	orbitEnabled = mode === 'angled' || mode === 'bullet';
 	orbitYaw = mode === 'angled' ? Math.PI / 4 : (mode === 'bullet' ? bulletTimeAngle : 0);
 	orbitPitch = 0;
+	if (mode === 'bullet') {
+		const offset = inspectionCameraPosition.clone().sub(inspectionTarget);
+		const basePhi = Math.acos(THREE.MathUtils.clamp(offset.y / Math.max(offset.length(), 1e-6), -1, 1));
+		orbitPitch = Math.PI / 4 - basePhi;
+	}
 	orbitZoom = 1;
 	orbitPan.set(0, 0, 0);
 	for (const guide of trajectoryGuides) guide.visible = true;
