@@ -10,7 +10,7 @@ The left column selects a scored occurrence, the middle column keeps the officia
 
 ## Movement Reference
 
-[Step 6 · Movement Reference](https://csc316-inside-figure-skating-progra.vercel.app/#movement) displays the FS-Jump3D Blender library inside the course site. Choose a jump family, a published capture clip, and one of its Blender iterations. The embedded player defaults to a full-body side profile and includes frame scrubbing, camera controls, and the simulated trajectory. The counts come from the FS-Jump3D manifest. [Methods and asset credits](static/movement/fs-jump3d/README.md)
+[Step 6 · Movement Reference](https://csc316-inside-figure-skating-progra.vercel.app/#movement) embeds the complete 50-entry 3D Movement Library. Search or filter the competition movement models, then open a model's interactive Blender player on the same page. The standalone library remains at `/movement/beijing-2022/`.
 
 The workbench also links to the standalone V178 Single Axel study. It shows a left-foot forward take-off, a one-and-a-half-turn airborne phase, and a right-foot backward landing. The animation is illustrative/simulated and uses no Beijing 2022 athlete capture. [Single Axel assets and measurements](static/movement/axel-1a-prototype/README.md)
 

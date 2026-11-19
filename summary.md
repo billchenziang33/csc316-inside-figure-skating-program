@@ -1,7 +1,7 @@
-## 2026-11-19 FS-Jump3D in Movement Reference
+## 2026-11-19 Movement Reference embeds the 50-model library
 
-- Step 6 (`/#movement`) embeds the FS-Jump3D player and lets visitors choose a jump family, clip, or Blender iteration. The workbench's Explore link and the former FS-Jump3D index both lead to this step.
-- The course build publishes two Axel captures with sampled geometry checks and all three iterations. The 253 total is the number of source records in the FS-Jump3D manifest. The FS-Jump3D controls, player, public methods, and the 50-entry competition reference labels and notes are in English.
+- Step 6 (`/#movement`) embeds `/movement/beijing-2022/`, the complete 50-model competition movement library. The 253-record FS-Jump3D research archive is separate.
+- Edge verification of the previous FS-Jump3D release is recorded above; this revision replaces that embed with the 50-model library.
 
 ## 2026-11-19 Standard technique references in the course workbench
 

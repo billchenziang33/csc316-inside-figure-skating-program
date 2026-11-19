@@ -9,7 +9,6 @@
 	import BaseVsPanel from './lib/charts/BaseVsPanel.svelte';
 
 	import MotionOverlay from './lib/MotionOverlay.svelte';
-	import FsJumpReference from './lib/FsJumpReference.svelte';
 	import { resolveMotion } from './lib/data/motion-reference.mjs';
 	import { stages, chartIds, readRoute, routeHash, libraryHref } from './lib/navigation.mjs';
 	let activeStage = $state('story');
@@ -176,7 +175,7 @@
 					{:else}<p role="status">{motionLoadError ? 'Movement library could not be loaded.' : motionCatalog ? '3D reference in production.' : 'Loading movement library…'}</p>{/if}
 					<a class="secondary" href="/movement/axel-1a-prototype/">Open Single Axel V178 ↗</a>
 					<a class="secondary" href={relatedLibrary}>Browse the 3D movement library ↗</a>
-					<button class="secondary" onclick={() => go('movement')}>Explore FS-Jump3D Blender library →</button>
+					<button class="secondary" onclick={() => go('movement')}>Explore the 50 movement models →</button>
 					<p class="motion-caveat">The 3D model illustrates the movement’s technique. The official competition call and score appear in column B.</p>
 
 				</section>
@@ -198,7 +197,11 @@
       </article>
     {:else if activeStage === 'movement'}
       <div class="motion-toolbar"><button class="secondary" onclick={() => { workspaceTab = 'movement'; go('workspace'); }}>← Return to workbench</button></div>
-      <FsJumpReference />
+      <section class="panel reference-library" aria-labelledby="movement-library-heading">
+        <h2 id="movement-library-heading">50 Movement 3D Library</h2>
+        <p class="scope-note">Browse and play the 50 standard movement models from the Beijing 2022 top-ten programs.</p>
+        <iframe class="movement-library-frame" src="/movement/beijing-2022/" title="50 movement 3D library with searchable model cards and interactive Blender playback"></iframe>
+      </section>
     {/if}
     {/if}
   </section>
