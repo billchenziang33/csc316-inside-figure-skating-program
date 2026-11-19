@@ -411,7 +411,7 @@ function animate(now) {
 	const elapsed = elapsedPlaybackSeconds(now, lastTick, document.visibilityState === 'visible');
 	lastTick = now;
 	if (bulletTimeActive && document.visibilityState === 'visible') {
-		const bulletElapsed = Math.min(Math.max((now - lastBulletTimeTick) / 1000, 0), 0.05);
+		const bulletElapsed = elapsedPlaybackSeconds(now, lastBulletTimeTick, true);
 		lastBulletTimeTick = now;
 		bulletTimeAngle += bulletElapsed * Math.PI / 6;
 		orbitYaw = bulletTimeAngle;
@@ -535,6 +535,7 @@ resetButton.addEventListener('click', () => {
 
 document.addEventListener('visibilitychange', () => {
 	lastTick = 0;
+	lastBulletTimeTick = performance.now();
 	if (document.hidden && playing) {
 		playing = false;
 		playButton.textContent = 'Play';
