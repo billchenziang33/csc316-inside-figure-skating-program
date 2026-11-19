@@ -220,7 +220,7 @@ function updateInspectionCamera() {
 		radius: sphere.radius,
 		verticalFovDegrees: effectiveFov,
 		aspect,
-		margin: 1.18,
+		margin: 1.1,
 	});
 	inspectionCameraPosition.copy(inspectionTarget).addScaledVector(inspectionDirection, fitDistance);
 	if (activeCamera.parent) {
