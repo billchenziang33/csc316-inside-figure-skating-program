@@ -214,13 +214,16 @@ function resize() {
 
 function phaseLabel(frame) {
 	const events = asset?.event_frames;
-	if (events?.FALL && frame + 1 >= events.FALL) {
-		return frame + 1 >= events.RECOVERY ? 'Recovery · simulated' : 'Fall · simulated';
+	const frameNumber = frame + 1;
+	if (events?.FALL && frameNumber >= events.LANDING) {
+		if (events.RESUME && frameNumber >= events.RESUME) return 'Recovery glide · simulated';
+		if (frameNumber >= events.RECOVERY) return 'Recovery · simulated';
+		if (frameNumber >= events.FALL) return 'Fall · simulated';
+		return 'Touchdown and loss of balance · simulated';
 	}
 	if (trajectoryEventFrames) return phaseAt(frame, trajectoryEventFrames);
 	if (asset?.kind === 'spin') return 'Spin · simulated';
 	if (asset?.kind === 'sequence') return 'Sequence · simulated';
-	const frameNumber = frame + 1;
 	const event = Object.entries(events ?? {})
 		.filter(([, value]) => Number.isSafeInteger(Number(value)) && Number(value) <= frameNumber)
 		.sort((a, b) => Number(a[1]) - Number(b[1])).at(-1);
