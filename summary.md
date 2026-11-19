@@ -12,6 +12,7 @@
 - Lowered the Bullet Time orbit from 45° to 35° above the rink while preserving the paused pose, one-turn path, and return-to-previous-view behavior.
 - Moved trajectory readouts into a floating, expandable flight capsule over the rink. The compact state shows phase and current rise; the open state shows horizontal travel, peak rise, total jump distance, and simulation attribution. The popup does not change the 3D stage's layout, supports keyboard Escape/close, and respects reduced-motion preferences.
 - Catalog route audit: 50/50 asset entries contain a model and link to the shared `player.html` with the corresponding encoded movement ID. The player resolves each ID against the same catalog; special legacy ID `4A-HANYU` continues to resolve to standard `4A`.
+- Release: commit `fcca838d9672ef04901ee94455fdf08ae79bad43` is deployed to production as `dpl_BRr7H5ZJFEV3JMB8zpHUrxYvuTTM` and aliased to `https://csc316-inside-figure-skating-progra.vercel.app`. Vercel reports READY. Edge confirmed the public library lists all 50 of 50 entries and showed individual cards linking to the shared player with their respective IDs. The player HTML returns HTTP 200 with the updated 35° control and island markup, but the Edge automation view of `player.html?id=4A` displayed only the page background and no accessible controls/model. Therefore the full player rendering and popup interaction are not verified and need a browser-side rendering investigation.
 
 ## 2026-11-19 Movement Reference embeds the 50-model library
 
