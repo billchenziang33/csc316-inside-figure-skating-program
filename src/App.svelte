@@ -171,11 +171,7 @@
 					{#if selectedMotion?.asset?.file}
 						<figure class="movement-preview"><img src={selectedMotion.asset.poster} alt={`${selectedMotion.asset.name} · side view`}/><figcaption>{selectedMotion.asset.name} · illustrative / simulated</figcaption></figure>
 						<button class="primary motion-expand" onclick={() => motionOpen = true}>Play {selectedMotion.asset.id === '4A' ? 'standard 4A' : selectedMotion.asset.id} in 3D ↗</button>
-						{#if selectedMotion.asset.id === '4A'}<p class="motion-caveat"><a href="https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/" target="_blank" rel="noreferrer">ISU Axel technique ↗</a></p>{/if}
 					{:else}<p role="status">{motionLoadError ? 'Movement library could not be loaded.' : motionCatalog ? '3D reference in production.' : 'Loading movement library…'}</p>{/if}
-					<a class="secondary" href="/movement/axel-1a-prototype/">Open Single Axel V178 ↗</a>
-					<a class="secondary" href={relatedLibrary}>Browse the 3D movement library ↗</a>
-					<button class="secondary" onclick={() => go('movement')}>Explore the 50 movement models →</button>
 					<p class="motion-caveat">The 3D model illustrates the movement’s technique. The official competition call and score appear in column B.</p>
 
 				</section>
