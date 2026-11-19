@@ -9,6 +9,7 @@
 	import BaseVsPanel from './lib/charts/BaseVsPanel.svelte';
 
 	import MotionOverlay from './lib/MotionOverlay.svelte';
+	import FsJumpReference from './lib/FsJumpReference.svelte';
 	import { resolveMotion } from './lib/data/motion-reference.mjs';
 	import { stages, chartIds, readRoute, routeHash, libraryHref } from './lib/navigation.mjs';
 	let activeStage = $state('story');
@@ -175,7 +176,7 @@
 					{:else}<p role="status">{motionLoadError ? 'Movement library could not be loaded.' : motionCatalog ? '3D reference in production.' : 'Loading movement library…'}</p>{/if}
 					<a class="secondary" href="/movement/axel-1a-prototype/">Open Single Axel V178 ↗</a>
 					<a class="secondary" href={relatedLibrary}>Browse the 3D movement library ↗</a>
-					<a class="secondary" href="/movement/fs-jump3d/">Explore FS-Jump3D Blender library ↗</a>
+					<button class="secondary" onclick={() => go('movement')}>Explore FS-Jump3D Blender library →</button>
 					<p class="motion-caveat">The 3D model illustrates the movement’s technique. The official competition call and score appear in column B.</p>
 
 				</section>
@@ -196,10 +197,8 @@
         <details class="data-values"><summary>Read the underlying values ({chartRows.length} records)</summary><div class="table-scroll"><table><caption>{activeChart} source values · official ISU protocols</caption><thead><tr><th>Skater</th><th>Program</th>{#if activeChart === 'S12'}<th>TES</th><th>PCS</th><th>Deductions</th><th>TSS</th>{:else}<th>Element</th><th>Base value</th><th>GOE</th><th>Panel points</th>{/if}</tr></thead><tbody>{#each chartRows as row}<tr><th>{row.skater}</th><td>{row.segment}</td>{#if activeChart === 'S12'}<td>{row.TES}</td><td>{row.PCS_factored}</td><td>{row.deductions}</td><td>{row.segment_score_TSS}</td>{:else}<td>{row.element_code_raw}</td><td>{row.base_value}</td><td>{row.goe}</td><td>{row.panel_element_score}</td>{/if}</tr>{/each}</tbody></table></div></details>
       </article>
     {:else if activeStage === 'movement'}
-      <p class="stage-intro">Single Axel · a generic movement reference. This is not motion capture of {selectedSkater} or a Beijing 2022 performance.</p>
-      <div class="motion-toolbar"><button class="secondary" onclick={() => { workspaceTab = 'movement'; go('workspace'); }}>← Return to workbench</button><a class="primary" href={relatedLibrary}>Browse the 3D movement library ↗</a><a class="secondary" href="/movement/axel-1a-prototype/">Open 1A illustrative pose study ↗</a><a class="secondary" href="/movement/fs-jump3d/">FS-Jump3D Blender library ↗</a></div>
-      <figure class="motion-poster"><button class="poster-launch" onclick={() => motionOpen = true} aria-label="Enter the Blender v178 Single Axel animation in full screen"><img src="/movement/axel-1a-prototype/single-axel-1a-human-rink-v178-frame047-side.png" alt="Blender v178 simulated skater approaching take-off, shown in the horizontal side view"/></button><figcaption>Blender v178 · play, scrub, and inspect the same action from side, front, skate close-up, or arena views.</figcaption></figure>
-      <p class="scope-note">The full-screen view keeps your selected program and element. It loads the same Blender v178 motion as the standalone prototype. Use Play, Front, Side and skate close-up; all phases remain illustrative / simulated.</p>
+      <div class="motion-toolbar"><button class="secondary" onclick={() => { workspaceTab = 'movement'; go('workspace'); }}>← Return to workbench</button></div>
+      <FsJumpReference />
     {/if}
     {/if}
   </section>
@@ -211,4 +210,4 @@
   </details>
 </div>
 
-{#if motionOpen}<MotionOverlay onClose={closeMotion} motion={activeStage === 'workspace' ? selectedMotion?.asset : null}/>{/if}
+{#if motionOpen && selectedMotion?.asset}<MotionOverlay onClose={closeMotion} motion={selectedMotion.asset}/>{/if}

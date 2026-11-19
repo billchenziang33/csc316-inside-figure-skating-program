@@ -8,9 +8,11 @@ Open the [CSC316 course site](https://csc316-inside-figure-skating-progra.vercel
 
 The left column selects a scored occurrence, the middle column keeps the official score, and the right column opens the corresponding standard technique reference on demand. Hanyu's first free-skating element retains its official `4A<` call and 5.00 points. Its 3D reference shows a standard quadruple Axel. Measured trajectories belong to the simulation. [ISU protocol](https://results.isu.org/results/season2122/owg2022/FSKMSINGLES-----------FNL-000100--_JudgesDetailsperSkater.pdf#page=2) · [ISU jump guide](https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/)
 
-## Current Blender reference
+## Movement Reference
 
-The interactive Movement panel uses the V178 Blender/GLB scene with draggable 3D orbit, front/side/skate views, playback, frame scrubbing, and a live simulated trajectory. V178 shows a left-foot forward take-off, a one-and-a-half-turn airborne phase, and a right-foot backward landing. The matching assets, previews, measured changes, sources and limits are documented in [the Single Axel README](static/movement/axel-1a-prototype/README.md). The animation is illustrative/simulated and uses no Beijing 2022 athlete capture.
+[Step 6 · Movement Reference](https://csc316-inside-figure-skating-progra.vercel.app/#movement) displays the FS-Jump3D Blender library inside the course site. Choose a jump family, a published capture clip, and one of its Blender iterations. The embedded player defaults to a full-body side profile and includes frame scrubbing, camera controls, and the simulated trajectory. The counts come from the FS-Jump3D manifest. [Methods and asset credits](static/movement/fs-jump3d/README.md)
+
+The workbench also links to the standalone V178 Single Axel study. It shows a left-foot forward take-off, a one-and-a-half-turn airborne phase, and a right-foot backward landing. The animation is illustrative/simulated and uses no Beijing 2022 athlete capture. [Single Axel assets and measurements](static/movement/axel-1a-prototype/README.md)
 
 ## Milestone 7 package
 

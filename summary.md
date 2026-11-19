@@ -1,3 +1,8 @@
+## 2026-11-19 FS-Jump3D in Movement Reference
+
+- Step 6 (`/#movement`) embeds the FS-Jump3D player and lets visitors choose a jump family, clip, or Blender iteration. The workbench's Explore link and the former FS-Jump3D index both lead to this step.
+- The course build publishes two Axel captures with sampled geometry checks and all three iterations. The 253 total is the number of source records in the FS-Jump3D manifest. The FS-Jump3D controls, player, public methods, and the 50-entry competition reference labels and notes are in English.
+
 ## 2026-11-19 Standard technique references in the course workbench
 
 - The 190 scored occurrences resolve to the 50 movement entries. `FS:4:1` keeps the official `4A<` call and 5.00 panel score and opens the standard `4A` in column C.
@@ -561,4 +566,3 @@ Updated 2026-11-06.
 - A separate Blender 5.2.3 read-only V145 heading audit sampled both shoes at 637 quarter-frame points. Model-right/landing skate relative to torso: 19.120° at f87, 15.000° at f90, max absolute 51.671° at approach f37. Both boot-to-blade toe-axis errors are ≤0.000009°. This V145 asset does not contain the reported 180° right-skate reversal; no pose edit was warranted without reproducing the exact alternate file/frame/view.
 - Research via agent-reach: `agent-reach doctor --json` reported yt-dlp available, but `yt-dlp --dump-json ytsearch5:...` failed on YouTube DNS. Search fallback found the [U.S. Figure Skating Axel explainer](https://www.usfigureskating.org/news/article/axel-jump-most-difficult-single-jump) and public [iCoachSkating slow-motion Axel analysis notes](https://icoachskating.com/trevor-laak-axel-analysis/). They support forward-edge take-off, free-leg swing and backward opposite-foot landing; they do not set a universal torso-to-boot yaw. No new raw video was directly fetched or frame-measured in this pass.
 - Worktree/branch: `.worktrees/axel-v146-orbit-framing`, `codex/axel-v146-orbit-framing`, based on production V145 commit `88ac8d03a6906d1a0d491f74df5c340659a46017`. Blender model/GLB remain V145; V146 changes only the web orbit camera and module cache key. All motion and trajectory remain illustrative/simulated.
-

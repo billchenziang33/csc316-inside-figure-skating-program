@@ -1144,7 +1144,7 @@
   "assets": {
     "3A": {
       "id": "3A",
-      "name": "3A · Axel（阿克塞尔）",
+      "name": "3A · Axel",
       "kind": "jump",
       "file": "3A-r3-web.glb",
       "frames": 367,
@@ -1162,11 +1162,11 @@
         "TAKEOFF": 166
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender 几何与技术审计通过；公开默认侧视和全段播放仍待验收。"
+      "note": "All three rounds passed the Blender geometry and technique audits. Full playback in the public default side view awaits review."
     },
     "4T": {
       "id": "4T",
-      "name": "4T · Toe loop（后外点冰）",
+      "name": "4T · Toe loop",
       "kind": "jump",
       "file": "4T-r3-web.glb",
       "frames": 369,
@@ -1184,11 +1184,11 @@
         "LANDING": 209
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender / GLB 已归档；采样几何与技术检查通过，公开默认侧视和全段播放待验收。"
+      "note": "All three Blender and GLB iterations are archived. Sampled geometry and technique checks passed. Full playback in the public default side view awaits review."
     },
     "3T": {
       "id": "3T",
-      "name": "3T · Toe loop（后外点冰）",
+      "name": "3T · Toe loop",
       "kind": "jump",
       "file": "3T-r3-web.glb",
       "frames": 363,
@@ -1206,11 +1206,11 @@
         "LANDING": 203
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮鞋靴分离修正版已归档；Blender 几何与技术审核通过，公开默认侧视待 Edge 验收。"
+      "note": "The three boot-separation revisions are archived. Blender geometry and technique checks passed. The public default side view awaits Edge review."
     },
     "4S": {
       "id": "4S",
-      "name": "4S · Salchow（萨霍夫）",
+      "name": "4S · Salchow",
       "kind": "jump",
       "file": "4S-r3-web.glb",
       "frames": 369,
@@ -1228,11 +1228,11 @@
         "LANDING": 209
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender / GLB 已归档；采样几何与技术检查通过，公开默认侧视和全段播放待验收。"
+      "note": "All three Blender and GLB iterations are archived. Sampled geometry and technique checks passed. Full playback in the public default side view awaits review."
     },
     "1Eu": {
       "id": "1Eu",
-      "name": "1Eu · Euler（连接跳）",
+      "name": "1Eu · Euler",
       "kind": "jump",
       "file": "1Eu-r3-web.glb",
       "frames": 351,
@@ -1254,7 +1254,7 @@
     },
     "3F": {
       "id": "3F",
-      "name": "3F · Flip（后内点冰）",
+      "name": "3F · Flip",
       "kind": "jump",
       "file": "3F-r3-web.glb",
       "frames": 363,
@@ -1272,11 +1272,11 @@
         "LANDING": 203
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender/GLB 已归档；左后内刃起跳、右脚点冰、右后外刃落冰和三周网格审计通过。公开默认侧视全段播放待验收。"
+      "note": "All three Blender and GLB iterations are archived. Mesh checks passed for the left back inside takeoff, right toe-pick assist, right back outside landing, and triple rotation. Full playback in the public default side view awaits review."
     },
     "3Lz": {
       "id": "3Lz",
-      "name": "3Lz · Lutz（勾手）",
+      "name": "3Lz · Lutz",
       "kind": "jump",
       "file": "3Lz-r3-web.glb",
       "frames": 363,
@@ -1298,7 +1298,7 @@
     },
     "2T": {
       "id": "2T",
-      "name": "2T · Toe loop（后外点冰）",
+      "name": "2T · Toe loop",
       "kind": "jump",
       "file": "2T-r3-web.glb",
       "frames": 355,
@@ -1316,11 +1316,11 @@
         "LANDING": 195
       },
       "motion_label": "illustrative / simulated",
-      "note": "r3 侧视相位修订已更新；几何/技术检查通过，公开默认侧视验收待 Edge。"
+      "note": "Round 3 revises the phases in side view. Geometry and technique checks passed. The public default side view awaits Edge review."
     },
     "3Lo": {
       "id": "3Lo",
-      "name": "3Lo · Loop（后外结环）",
+      "name": "3Lo · Loop",
       "kind": "jump",
       "file": "3Lo-r3-web.glb",
       "frames": 363,
@@ -1342,7 +1342,7 @@
     },
     "3S": {
       "id": "3S",
-      "name": "3S · Salchow（萨霍夫）",
+      "name": "3S · Salchow",
       "kind": "jump",
       "file": "3S-r3-web.glb",
       "frames": 363,
@@ -1360,11 +1360,11 @@
         "LANDING": 203
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender / GLB 已归档；采样几何与技术检查通过，公开默认侧视和全段播放待验收。"
+      "note": "All three Blender and GLB iterations are archived. Sampled geometry and technique checks passed. Full playback in the public default side view awaits review."
     },
     "4F": {
       "id": "4F",
-      "name": "4F · Flip（后内点冰）",
+      "name": "4F · Flip",
       "kind": "jump",
       "file": "4F-r3-web.glb",
       "frames": 369,
@@ -1386,7 +1386,7 @@
     },
     "4Lz": {
       "id": "4Lz",
-      "name": "4Lz · Lutz（勾手）",
+      "name": "4Lz · Lutz",
       "kind": "jump",
       "file": "4Lz-r3-web.glb",
       "frames": 370,
@@ -1408,7 +1408,7 @@
     },
     "4Lo": {
       "id": "4Lo",
-      "name": "4Lo · Loop（后外结环）",
+      "name": "4Lo · Loop",
       "kind": "jump",
       "file": "4Lo-r3-web.glb",
       "frames": 369,
@@ -1430,7 +1430,7 @@
     },
     "1F": {
       "id": "1F",
-      "name": "1F · Flip（后内点冰）",
+      "name": "1F · Flip",
       "kind": "jump",
       "file": "1F-r3-web.glb",
       "frames": 351,
@@ -1448,11 +1448,11 @@
         "LANDING": 191
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender/GLB 已归档；左后内刃起跳、右脚点冰、右后外刃落冰及一周网格审计通过。模拟轨迹；公开全段播放待验收。"
+      "note": "All three Blender and GLB iterations are archived. Mesh checks passed for the left back inside takeoff, right toe-pick assist, right back outside landing, and single rotation. The trajectory is simulated. Full public playback awaits review."
     },
     "2S": {
       "id": "2S",
-      "name": "2S · Salchow（萨霍夫）",
+      "name": "2S · Salchow",
       "kind": "jump",
       "file": "2S-r3-web.glb",
       "frames": 356,
@@ -1470,11 +1470,11 @@
         "LANDING": 196
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender / GLB 已归档；采样几何与技术检查通过，公开默认侧视和全段播放待验收。"
+      "note": "All three Blender and GLB iterations are archived. Sampled geometry and technique checks passed. Full playback in the public default side view awaits review."
     },
     "1S": {
       "id": "1S",
-      "name": "1S · Salchow（萨霍夫）",
+      "name": "1S · Salchow",
       "kind": "jump",
       "file": "1S-r3-web.glb",
       "frames": 351,
@@ -1492,11 +1492,11 @@
         "LANDING": 191
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender / GLB 已归档；采样几何与技术检查通过，公开默认侧视和全段播放待验收。"
+      "note": "All three Blender and GLB iterations are archived. Sampled geometry and technique checks passed. Full playback in the public default side view awaits review."
     },
     "2A": {
       "id": "2A",
-      "name": "2A · Axel（阿克塞尔）",
+      "name": "2A · Axel",
       "kind": "jump",
       "file": "2A-C07-iteration-3-web.glb",
       "frames": 300,
@@ -1514,11 +1514,11 @@
         "LANDING": 193
       },
       "motion_label": "illustrative / simulated",
-      "note": "FS-Jump3D C07 第三轮。改善头颈比例、收臂过渡和落冰后的双鞋分离。训练场 2A 尝试，人物与轨迹为示意模拟。由 Ryota Takeda 等人的 FS-Jump3D 改编，CC BY-NC-SA 4.0。"
+      "note": "Round 3 of FS-Jump3D sample C07 improves head and neck proportions, the transition into the arm tuck, and skate separation after landing. It depicts a training double Axel attempt. The skater and trajectory are illustrative / simulated. Adapted from FS-Jump3D by Ryota Takeda and colleagues, CC BY-NC-SA 4.0."
     },
     "2F": {
       "id": "2F",
-      "name": "2F · Flip（后内点冰）",
+      "name": "2F · Flip",
       "kind": "jump",
       "file": "2F-r3-web.glb",
       "frames": 358,
@@ -1536,7 +1536,7 @@
         "LANDING": 198
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender / GLB 已归档；Flip 后内刃起跳、右脚点冰、后外刃落地及几何检查通过，公开默认侧视和全段播放待验收。"
+      "note": "All three Blender and GLB iterations are archived. Checks passed for the Flip's back inside takeoff, right toe-pick assist, back outside landing, and geometry. Full playback in the public default side view awaits review."
     },
     "4A": {
       "id": "4A",
@@ -1563,7 +1563,7 @@
     },
     "4T+3T": {
       "id": "4T+3T",
-      "name": "4T+3T · 四周 Toe loop 接三周 Toe loop",
+      "name": "4T+3T · Quadruple toe loop + triple toe loop",
       "kind": "combination",
       "file": "4T+3T-r3-web.glb",
       "frames": 435,
@@ -1585,11 +1585,11 @@
         "EXIT": 435
       },
       "motion_label": "illustrative / simulated",
-      "note": "4T 落冰后 29 帧内接右脚 3T Toe loop；两个跳跃段分别完成 4 周和 3 周。Illustrative / simulated，无运动员比赛捕捉数据。"
+      "note": "The right-foot triple toe loop follows the quad toe loop landing within 29 frames. The jumps complete four and three rotations respectively. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     },
     "3A+2T": {
       "id": "3A+2T",
-      "name": "3A+2T · 三周半阿克塞尔接两周后外点冰",
+      "name": "3A+2T · Triple Axel + double toe loop",
       "kind": "combination",
       "file": "3A+2T-r3-web.glb",
       "frames": 440,
@@ -1611,11 +1611,11 @@
         "EXIT": 440
       },
       "motion_label": "illustrative / simulated",
-      "note": "3A 落冰后短过渡接右脚 2T；两个跳跃段分别完成三周半和两周。Illustrative / simulated，无北京冬奥运动员比赛捕捉数据。"
+      "note": "The triple Axel landing leads through a short transition into a right-foot double toe loop. The jumps complete three and a half and two rotations respectively. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     },
     "3Lz+3T": {
       "id": "3Lz+3T",
-      "name": "3Lz+3T · 三周 Lutz 接三周 Toe loop",
+      "name": "3Lz+3T · Triple Lutz + triple toe loop",
       "kind": "combination",
       "file": "3Lz+3T-r3-v6-web.glb",
       "frames": 444,
@@ -1637,11 +1637,11 @@
         "EXIT": 444
       },
       "motion_label": "illustrative / simulated",
-      "note": "r3 v6 修正 3Lz→3T 点冰过渡的侧视鞋靴重叠；Blender 几何/技术检查通过，Edge 公开全段播放验收待做。Illustrative / simulated，无北京冬奥运动员比赛捕捉数据。"
+      "note": "Round 3 version 6 corrects the skate overlap visible from the side during the Lutz-to-toe-loop transition. Blender geometry and technique checks passed. Full public playback in Edge awaits review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     },
     "3A+1Eu+3S": {
       "id": "3A+1Eu+3S",
-      "name": "3A+1Eu+3S · 三周 Axel 接 Euler 再接三周 Salchow",
+      "name": "3A+1Eu+3S · Triple Axel + Euler + triple Salchow",
       "kind": "combination",
       "file": "3A+1Eu+3S-r3-web.glb",
       "frames": 465,
@@ -1666,11 +1666,11 @@
         "EXIT": 465
       },
       "motion_label": "illustrative / simulated",
-      "note": "左脚前外刃 3A → 右脚后外刃落冰 → 右脚后外刃 Euler → 左脚后内刃落冰 → 左脚后内刃 3S。Illustrative / simulated，无北京运动员比赛捕捉数据。"
+      "note": "The triple Axel takes off from the left forward outside edge and lands on the right back outside edge. The Euler takes off from that edge and lands on the left back inside edge, which leads into the triple Salchow. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     },
     "3F+3T": {
       "id": "3F+3T",
-      "name": "3F+3T · 三周 Flip 接三周 Toe loop",
+      "name": "3F+3T · Triple Flip + triple toe loop",
       "kind": "combination",
       "file": "3F+3T-r3-crossing-v6-web.glb",
       "frames": 444,
@@ -1692,11 +1692,11 @@
         "EXIT": 444
       },
       "motion_label": "illustrative / simulated",
-      "note": "3F 落冰接 3T 点冰准备以 0.24 m 平滑短弧抬脚改善侧视鞋靴分离；Blender 几何与技术审计通过。Edge 默认侧视 1× 全程播放、暂停与时间轴拖动已验收。Illustrative / simulated，无北京运动员比赛捕捉数据。"
+      "note": "A smooth 0.24 m lift of the free skate between the triple Flip landing and the triple toe loop toe-pick preparation improves skate separation in side view. Blender geometry and technique audits passed. Full 1× playback, pause, and scrubbing were verified in Edge's default side view. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     },
     "3Lz+3Lo": {
       "id": "3Lz+3Lo",
-      "name": "3Lz+3Lo · 三周 Lutz 接三周 Loop",
+      "name": "3Lz+3Lo · Triple Lutz + triple loop",
       "kind": "combination",
       "file": "3Lz+3Lo-r3-transition12-v1-web.glb",
       "frames": 438,
@@ -1718,11 +1718,11 @@
         "EXIT": 438
       },
       "motion_label": "illustrative / simulated",
-      "note": "Edge 默认 Side profile 已验收：1× 从第 1 帧完整播放至 438/438 并正常结束；在第 260 帧暂停后等待 0.5 秒仍保持该帧；时间轴可定位到 3Lz 最高点/落冰 185/203 与 3Lo 最高点/落冰 260/278。默认画幅下全身和双冰鞋可见，关键帧鞋靴可分辨。Illustrative / simulated，无北京冬奥选手比赛捕捉数据。"
+      "note": "Edge verified the default side profile at 1× from frame 1 through frame 438. Pausing at frame 260 held that frame for 0.5 s. Scrubbing reached the Lutz apex and landing at frames 185 and 203 and the loop apex and landing at frames 260 and 278. The default framing shows the full body and both skates, with the boots distinguishable at key frames. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     },
     "4T+2T": {
       "id": "4T+2T",
-      "name": "4T+2T · 四周 Toe loop 接两周 Toe loop",
+      "name": "4T+2T · Quadruple toe loop + double toe loop",
       "kind": "combination",
       "file": "4T+2T-r3-web.glb",
       "frames": 427,
@@ -1744,11 +1744,11 @@
         "EXIT": 427
       },
       "motion_label": "illustrative / simulated",
-      "note": "右脚后向外刃承重、左刀齿辅助起跳；连续完成 4T 后衔接 2T。Illustrative / simulated，无北京冬奥运动员比赛捕捉数据。"
+      "note": "The right back outside edge bears weight and the left toe pick assists takeoff. The quad toe loop leads into the double toe loop. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     },
     "2F+1Eu+3S": {
       "id": "2F+1Eu+3S",
-      "name": "2F+1Eu+3S · 两周 Flip 接 Euler 再接三周 Salchow",
+      "name": "2F+1Eu+3S · Double Flip + Euler + triple Salchow",
       "kind": "combination",
       "file": "2F+1Eu+3S-r3-web.glb",
       "frames": 452,
@@ -1777,7 +1777,7 @@
     },
     "3A+1Eu+1F": {
       "id": "3A+1Eu+1F",
-      "name": "3A+1Eu+1F · 三周 Axel 接 Euler 再接一周 Flip",
+      "name": "3A+1Eu+1F · Triple Axel + Euler + single Flip",
       "kind": "combination",
       "file": "3A+1Eu+1F-r3-web.glb",
       "frames": 453,
@@ -1806,7 +1806,7 @@
     },
     "3F+2T": {
       "id": "3F+2T",
-      "name": "3F+2T · 三周 Flip 接两周 Toe loop",
+      "name": "3F+2T · Triple Flip + double toe loop",
       "kind": "combination",
       "file": "3F+2T-r3-takeoff-seam-fade-v1-web.glb",
       "frames": 436,
@@ -1832,7 +1832,7 @@
     },
     "3F+3Lo": {
       "id": "3F+3Lo",
-      "name": "3F+3Lo · 三周 Flip 接三周 Loop",
+      "name": "3F+3Lo · Triple Flip + triple loop",
       "kind": "combination",
       "file": "3F+3Lo-r3-transition12-v1-web.glb",
       "frames": 438,
@@ -1854,11 +1854,11 @@
         "EXIT": 438
       },
       "motion_label": "illustrative / simulated",
-      "note": "3F 落冰分离缓冲延至 frame197–205；r1/r3 默认侧视关键帧复核，三轮 Blender 几何与技术审计通过，完整播放待验收。Illustrative / simulated，无北京冬奥捕捉数据。"
+      "note": "The separation adjustment at the triple Flip landing extends through frames 197–205. Key frames in the default side view were checked for rounds 1 and 3. All three rounds passed Blender geometry and technique audits. Full playback awaits review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     },
     "3Lz+1Eu+2S": {
       "id": "3Lz+1Eu+2S",
-      "name": "3Lz+1Eu+2S · 三周 Lutz 接 Euler 再接两周 Salchow",
+      "name": "3Lz+1Eu+2S · Triple Lutz + Euler + double Salchow",
       "kind": "combination",
       "file": "3Lz+1Eu+2S-r3-web.glb",
       "frames": 447,
@@ -1916,7 +1916,7 @@
     },
     "3Lz+2T": {
       "id": "3Lz+2T",
-      "name": "3Lz+2T · 三周 Lutz 接两周 Toe loop",
+      "name": "3Lz+2T · Triple Lutz + double toe loop",
       "kind": "combination",
       "file": "3Lz+2T-rootfade-v5-r3-web.glb",
       "frames": 430,
@@ -1938,11 +1938,11 @@
         "EXIT": 430
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender 几何与技术审计通过；Edge 本机默认侧视已完成 1× 全片、暂停、时间轴和退出滑行检查。公开站尚未更新，公开验收仍待做。Illustrative / simulated，无北京冬奥选手捕捉数据。"
+      "note": "All three rounds passed Blender geometry and technique audits. Local Edge review in the default side view covered full 1× playback, pause, scrubbing, and the exit glide. Public playback awaits review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     },
     "4F+3T": {
       "id": "4F+3T",
-      "name": "4F+3T · 四周 Flip 接三周 Toe loop",
+      "name": "4F+3T · Quadruple Flip + triple toe loop",
       "kind": "combination",
       "file": "4F+3T-r3-web.glb",
       "frames": 450,
@@ -1968,7 +1968,7 @@
     },
     "4Lo+1Eu+3S": {
       "id": "4Lo+1Eu+3S",
-      "name": "4Lo+1Eu+3S · 四周 Loop 接 Euler 再接三周 Salchow",
+      "name": "4Lo+1Eu+3S · Quadruple loop + Euler + triple Salchow",
       "kind": "combination",
       "file": "4Lo+1Eu+3S-r3-web.glb",
       "frames": 454,
@@ -1997,7 +1997,7 @@
     },
     "4S+2T": {
       "id": "4S+2T",
-      "name": "4S+2T · 四周 Salchow 接两周 Toe loop",
+      "name": "4S+2T · Quadruple Salchow + double toe loop",
       "kind": "combination",
       "file": "4S+2T-r3-web.glb",
       "frames": 442,
@@ -2023,7 +2023,7 @@
     },
     "4S+3T": {
       "id": "4S+3T",
-      "name": "4S+3T · 四周 Salchow 接三周 Toe loop",
+      "name": "4S+3T · Quadruple Salchow + triple toe loop",
       "kind": "combination",
       "file": "4S+3T-r3-web.glb",
       "frames": 450,
@@ -2049,7 +2049,7 @@
     },
     "4T+1Eu+1F": {
       "id": "4T+1Eu+1F",
-      "name": "4T+1Eu+1F · 四周 Toe loop 接 Euler 再接一周 Flip",
+      "name": "4T+1Eu+1F · Quadruple toe loop + Euler + single Flip",
       "kind": "combination",
       "file": "4T+1Eu+1F-r3-euler-freeleg-v2-web.glb",
       "frames": 442,
@@ -2074,11 +2074,11 @@
         "EXIT": 442
       },
       "motion_label": "illustrative / simulated",
-      "note": "本地 Edge 默认侧视三轮 1× 全播、暂停、拖动均通过；Frame 219 双鞋轮廓可分。公开站尚未更新。Illustrative / simulated；没有使用北京冬奥比赛捕捉数据。"
+      "note": "Local Edge review in the default side view verified full 1× playback, pause, and scrubbing for all three rounds. Both skate outlines are distinct at frame 219. Public playback awaits review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     },
     "4T+1Eu+2S": {
       "id": "4T+1Eu+2S",
-      "name": "4T+1Eu+2S · 四周 Toe loop 接 Euler 再接两周 Salchow",
+      "name": "4T+1Eu+2S · Quadruple toe loop + Euler + double Salchow",
       "kind": "combination",
       "file": "4T+1Eu+2S-r3-web.glb",
       "frames": 458,
@@ -2107,7 +2107,7 @@
     },
     "4T+1Eu+3S": {
       "id": "4T+1Eu+3S",
-      "name": "4T+1Eu+3S · 四周 Toe loop 接 Euler 再接三周 Salchow",
+      "name": "4T+1Eu+3S · Quadruple toe loop + Euler + triple Salchow",
       "kind": "combination",
       "file": "4T+1Eu+3S-r3-web.glb",
       "frames": 454,
@@ -2136,7 +2136,7 @@
     },
     "CCoSp": {
       "id": "CCoSp",
-      "name": "CCoSp · 换足联合旋转",
+      "name": "CCoSp · Change-foot combination spin",
       "kind": "spin",
       "file": "CCoSp-r3-web.glb",
       "frames": 541,
@@ -2157,11 +2157,11 @@
         "EXIT": 510
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender/GLB 已归档，12 周（每脚 6 周），三种基本姿势及换足轨迹均经采样；具体选手编排和公开全段播放待复核。"
+      "note": "All three Blender and GLB iterations are archived. Sampling covered 12 revolutions, six per foot, with the three basic positions and the foot-change trajectory. The skater-specific choreography and full public playback await review."
     },
     "CSSp": {
       "id": "CSSp",
-      "name": "CSSp · 换足蹲踞旋转",
+      "name": "CSSp · Change-foot sit spin",
       "kind": "spin",
       "file": "CSSp-r3-web.glb",
       "frames": 401,
@@ -2181,11 +2181,11 @@
         "EXIT": 370
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender/GLB 已归档；换足蹲踞旋转约 8 周、每脚约 4 周；网格与技术采样通过，公开全段播放待复核。"
+      "note": "All three Blender and GLB iterations are archived. The change-foot sit spin completes about eight revolutions, roughly four per foot. Sampled mesh and technique checks passed. Full public playback awaits review."
     },
     "FCSp": {
       "id": "FCSp",
-      "name": "FCSp · 跳接燕式旋转",
+      "name": "FCSp · Flying camel spin",
       "kind": "spin",
       "file": "FCSp-r3-web.glb",
       "frames": 401,
@@ -2206,11 +2206,11 @@
         "EXIT": 370
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender/GLB 已归档；跳接腾空后右脚燕式旋转约八周；刀刃起跳与落冰、网格和旋转采样通过，公开播放待验收。"
+      "note": "All three Blender and GLB iterations are archived. After the flying entry, the skater completes about eight camel-spin revolutions on the right foot. Sampled takeoff and landing edge, mesh, and rotation checks passed. Public playback awaits review."
     },
     "FCCoSp": {
       "id": "FCCoSp",
-      "name": "FCCoSp · 跳接换足联合旋转",
+      "name": "FCCoSp · Flying change-foot combination spin",
       "kind": "spin",
       "file": "FCCoSp-r3-web.glb",
       "frames": 541,
@@ -2233,11 +2233,11 @@
         "EXIT": 510
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender/GLB 已归档；短暂腾空后右脚六周、换至左脚六周，含 Camel/Sit/Upright。关节和冰刀采样通过；具体选手编排及公开全段播放待复核。"
+      "note": "All three Blender and GLB iterations are archived. The flying entry leads to six revolutions on the right foot and six on the left in camel, sit, and upright positions. Sampled joint and blade checks passed. The skater-specific choreography and full public playback await review."
     },
     "CCSp": {
       "id": "CCSp",
-      "name": "CCSp · 换足燕式旋转",
+      "name": "CCSp · Change-foot camel spin",
       "kind": "spin",
       "file": "CCSp-r3-web.glb",
       "frames": 541,
@@ -2257,11 +2257,11 @@
         "EXIT": 510
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender/GLB 已归档；全程燕式、左右脚各六周，几何与换足轨迹采样通过；公开全段播放待复核。"
+      "note": "All three Blender and GLB iterations are archived. The skater holds the camel position for six revolutions on each foot. Sampled geometry and foot-change trajectory checks passed. Full public playback awaits review."
     },
     "FSSp": {
       "id": "FSSp",
-      "name": "FSSp · 跳接蹲踞旋转",
+      "name": "FSSp · Flying sit spin",
       "kind": "spin",
       "file": "FSSp-r3-web.glb",
       "frames": 401,
@@ -2282,11 +2282,11 @@
         "EXIT": 370
       },
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender/GLB 已归档；右脚飞入蹲踞旋转约八周并滑出；四分之一帧几何与技术检查通过，公开侧视播放仍待验收。"
+      "note": "All three Blender and GLB iterations are archived. The right-foot flying sit spin completes about eight revolutions before the exit glide. Geometry and technique checks at quarter-frame intervals passed. Public playback in side view awaits review."
     },
     "FCSSp": {
       "id": "FCSSp",
-      "name": "FCSSp · 跳接换足蹲踞旋转",
+      "name": "FCSSp · Flying change-foot sit spin",
       "kind": "spin",
       "file": "FCSSp-r3-web.glb",
       "frames": 401,
@@ -2307,11 +2307,11 @@
         "EXIT": 370
       },
       "motion_label": "illustrative / simulated",
-      "note": "本地原始未压缩 GLB。三轮 Blender 几何与技术审计通过；飞入蹲踞换足旋转 8 周、每脚约 4 周。换足 frame 201 侧视双鞋可辨、膝部仍有少量投影重叠；Edge 完整播放待验收。Illustrative / simulated；无北京比赛捕捉数据。"
+      "note": "The local GLB is the uncompressed original. Blender geometry and technique audits passed for all three rounds. The flying change-foot sit spin completes about eight revolutions, four per foot. In side view at frame 201, both skate outlines are distinct and the knee silhouettes overlap slightly during the change of foot. Full Edge playback awaits review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     },
     "StSq": {
       "id": "StSq",
-      "name": "StSq · 接续步",
+      "name": "StSq · Step sequence",
       "kind": "sequence",
       "file": "StSq-r3-web.glb",
       "frames": 401,
@@ -2325,11 +2325,11 @@
       "public_side_view": "pending",
       "event_frames": {},
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender 几何和动作采样通过；公开默认侧视播放仍待 Edge 验收。动作 illustrative / simulated，无北京运动员捕捉数据。"
+      "note": "All three rounds passed sampled Blender geometry and movement checks. Playback in the public default side view awaits Edge review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     },
     "ChSq": {
       "id": "ChSq",
-      "name": "ChSq · 编排序列",
+      "name": "ChSq · Choreographic sequence",
       "kind": "sequence",
       "file": "ChSq-r3-web.glb",
       "frames": 401,
@@ -2343,11 +2343,11 @@
       "public_side_view": "pending",
       "event_frames": {},
       "motion_label": "illustrative / simulated",
-      "note": "三轮 Blender 几何与动作结构采样通过；公开默认侧视播放仍待 Edge 验收。Illustrative / simulated，无北京运动员比赛捕捉数据。"
+      "note": "All three rounds passed sampled Blender geometry and sequence structure checks. Playback in the public default side view awaits Edge review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     },
     "4Lz+3T": {
       "id": "4Lz+3T",
-      "name": "4Lz+3T · 四周 Lutz 接三周 Toe loop",
+      "name": "4Lz+3T · Quadruple Lutz + triple toe loop",
       "kind": "combination",
       "file": "4Lz+3T-r3-sideclear030-v1-web.glb",
       "frames": 451,
@@ -2369,7 +2369,7 @@
         "EXIT": 451
       },
       "motion_label": "illustrative / simulated",
-      "note": "Microsoft Edge 公开播放器默认 Side profile 验收通过：r3 Ready（7.50 s、96 animated channels、77 draw calls），Normal 1× 从第 1 帧完整播放至 451/451 并正常停止；时间轴可定位到第 100 帧，播放后按 Pause，等待 0.6 s 帧号保持不变。复核 4Lz 起跳/最高点/落冰 166/188/210 与 3T 起跳/最高点/落冰 254/273/291；第 228 帧衔接侧视中双腿和冰鞋轮廓分开。正常画幅中全身及冰鞋可见。姿态、阶段与轨迹均为 illustrative / simulated，无北京冬奥选手比赛捕捉数据。"
+      "note": "Microsoft Edge verified the public Round 3 default side profile. The player reported 7.50 s, 96 animated channels, and 77 draw calls. Normal 1× playback ran from frame 1 through frame 451 and stopped. Scrubbing reached frame 100, and Pause held the frame for 0.6 s. The quad Lutz takeoff, apex, and landing were checked at frames 166, 188, and 210, and the triple toe loop at frames 254, 273, and 291. Both legs and skates remain distinct in the side view at transition frame 228. The default framing shows the full skater and both blades. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
     }
   },
   "plannedBaseActions": 50
