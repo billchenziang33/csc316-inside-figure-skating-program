@@ -192,7 +192,7 @@ function updateSkateShadows() {
 	}
 	flightShadow.position.set(trajectoryPosition.x, iceHeight + .001, trajectoryPosition.z);
 	flightShadow.scale.setScalar(1 + .65 * Math.min(rise, 1.5));
-	flightShadow.material.opacity = .24 * Math.exp(-2.1 * rise);
+	flightShadow.material.opacity = .38 * Math.exp(-1.15 * rise);
 	flightShadow.visible = true;
 }
 
