@@ -8,7 +8,8 @@ const THREE = globalThis.THREE;
 const GLTFLoader = THREE?.GLTFLoader;
 
 const query = new URLSearchParams(location.search);
-const assetId = query.get('id');
+const requestedId = query.get('id');
+const assetId = requestedId === '4A-HANYU' ? '4A' : requestedId;
 let catalog;
 try {
   const response = await fetch('./catalog.json', { cache: 'no-cache' });
@@ -215,12 +216,6 @@ function resize() {
 function phaseLabel(frame) {
 	const events = asset?.event_frames;
 	const frameNumber = frame + 1;
-	if (events?.FALL && frameNumber >= events.LANDING) {
-		if (events.RESUME && frameNumber >= events.RESUME) return 'Recovery glide · simulated';
-		if (frameNumber >= events.RECOVERY) return 'Recovery · simulated';
-		if (frameNumber >= events.FALL) return 'Fall · simulated';
-		return 'Touchdown and loss of balance · simulated';
-	}
 	if (trajectoryEventFrames) return phaseAt(frame, trajectoryEventFrames);
 	if (asset?.kind === 'spin') return 'Spin · simulated';
 	if (asset?.kind === 'sequence') return 'Sequence · simulated';

@@ -12,8 +12,8 @@ const publicFiles = new Set(JSON.parse(read('public-files.json')));
 const competition = JSON.parse(readFileSync(new URL('../static/data/competition.json', import.meta.url), 'utf8'));
 const publisher = 'https://billchenziang33.github.io';
 
-test('50 base movements have versioned media and course-origin player routes', () => {
-  const base = Object.values(catalog.assets).filter((asset) => !asset.baseAction);
+test('the 50 standard movements have versioned media and course-origin player routes', () => {
+  const base = Object.values(catalog.assets);
   assert.equal(base.length, 50);
   assert.equal(catalog.plannedBaseActions, base.length);
   for (const asset of base) {
@@ -44,11 +44,12 @@ test('all 190 scored occurrences keep their original code and resolve to a refer
     );
     assert.equal(occurrence.official_info.includes('x'), (row.info_flag ?? '').includes('x'), row.id);
     assert.ok(catalog.assets[occurrence.asset], row.id);
-    assert.ok(resolveMotion(catalog, row)?.asset?.model, row.id);
+    assert.equal(resolveMotion(catalog, row)?.asset, catalog.assets[occurrence.asset], row.id);
+    assert.equal(occurrence.variant, undefined, row.id);
   }
 });
 
-test('Hanyu free skate starts with 4A< and keeps the unmodified score', () => {
+test('Hanyu’s official 4A< score opens the standard 4A technique', () => {
   const row = competition.elements.find(({ id }) => id === 'FS:4:1');
   assert.equal(row.skater, 'Yuzuru Hanyu');
   assert.equal(row.element_code_raw, '4A<');
@@ -57,14 +58,11 @@ test('Hanyu free skate starts with 4A< and keeps the unmodified score', () => {
   assert.equal(row.panel_element_score, 5);
   const motion = resolveMotion(catalog, row);
   assert.equal(motion.flags, '<');
-  assert.equal(motion.asset.id, '4A-HANYU');
-  assert.equal(motion.asset.baseAction, '4A');
-  assert.equal(motion.usesBase, false);
-  assert.notEqual(motion.asset.sha256, catalog.assets['4A'].sha256);
-  assert.ok(motion.asset.event_frames.LANDING < motion.asset.event_frames.FALL);
-  assert.ok(motion.asset.event_frames.FALL < motion.asset.event_frames.RECOVERY);
-  const variantOccurrences = Object.entries(catalog.occurrences).filter(([, entry]) => entry.variant);
-  assert.deepEqual(variantOccurrences.map(([id]) => id), ['FS:4:1']);
+  assert.equal(motion.asset, catalog.assets['4A']);
+  assert.equal(motion.asset.id, '4A');
+  assert.equal(motion.asset.player, '/movement/beijing-2022/player.html?id=4A');
+  assert.equal(motion.asset.event_frames.FALL, undefined);
+  assert.ok(!Object.hasOwn(catalog.assets, '4A-HANYU'));
 });
 
 test('library and player modules resolve in the curated public build', () => {

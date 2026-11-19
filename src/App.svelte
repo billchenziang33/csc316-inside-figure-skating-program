@@ -110,7 +110,7 @@
 			<p class="kicker">Inside a figure-skating program</p>
 			<h1 id="stage-heading" tabindex="-1">Jumps carry most of the technical score.<br /><em>And more in the free skate.</em></h1>
 			<p class="deck">Across the event’s top ten, jump elements account for 67.4% of technical element points in the short program and 77.1% in the free skate.</p>
-			<div class="hero-actions"><button class="primary" onclick={() => go('choose')}>Explore a program →</button><a class="secondary" href={libraryHref()}>Browse the 3D library ↗</a><a class="quiet" href="/#workspace/FS:4:1">Yuzuru Hanyu’s 4A&lt; →</a><button class="quiet" onclick={() => go('charts')}>Skip to charts</button></div>
+			<div class="hero-actions"><button class="primary" onclick={() => go('choose')}>Explore a program →</button><a class="secondary" href={libraryHref()}>Browse the 3D library ↗</a><a class="quiet" href="/#workspace/FS:4:1">Hanyu’s 4A&lt; score and 4A technique →</a><button class="quiet" onclick={() => go('charts')}>Skip to charts</button></div>
 		</div>
 		<div class="hero-chart panel">
 			<div class="panel-heading"><div><span class="section-number">01 / THE PATTERN</span><h2>Jump points take a larger share in the free skate</h2></div><span class="delta">+9.7 pp</span></div>
@@ -167,21 +167,16 @@
 				</section>
 
 				<section class="column panel motion-column" class:inactive-panel={workspaceTab !== 'movement'} aria-labelledby="motion-title">
-					<div class="column-head"><span class="section-number">C · 3D REFERENCE</span><h3 id="motion-title">{selectedElement?.element_code_raw ?? 'Movement reference'}</h3></div>
+					<div class="column-head"><span class="section-number">C · 3D REFERENCE</span><h3 id="motion-title">{selectedMotion?.asset?.id === '4A' ? 'Standard 4A technique' : selectedMotion?.asset?.id ?? 'Movement reference'}</h3></div>
 					{#if selectedMotion?.asset?.file}
 						<figure class="movement-preview"><img src={selectedMotion.asset.poster} alt={`${selectedMotion.asset.name} · side view`}/><figcaption>{selectedMotion.asset.name} · illustrative / simulated</figcaption></figure>
-						<button class="primary motion-expand" onclick={() => motionOpen = true}>Play {selectedElement.element_code_raw} in 3D ↗</button>
-						{#if selectedMotion.usesBase && selectedMotion.flags}<p class="motion-caveat">Protocol mark: {selectedMotion.flags}. Playback shows the generic {selectedMotion.asset.name} reference.</p>{/if}
-						{#if !selectedMotion.usesBase}
-							<p class="motion-caveat">{selectedMotion.asset.note}</p>
-							<a class="secondary" href={motionCatalog.assets[selectedMotion.asset.baseAction]?.player}>View the standard 4A reference ↗</a>
-							{#if selectedMotion.asset.source}<p class="motion-caveat"><a href={selectedMotion.asset.source} target="_blank" rel="noreferrer">Olympic reference video ↗</a></p>{/if}
-						{/if}
+						<button class="primary motion-expand" onclick={() => motionOpen = true}>Play {selectedMotion.asset.id === '4A' ? 'standard 4A' : selectedMotion.asset.id} in 3D ↗</button>
+						{#if selectedMotion.asset.id === '4A'}<p class="motion-caveat"><a href="https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/" target="_blank" rel="noreferrer">ISU Axel technique ↗</a></p>{/if}
 					{:else}<p role="status">{motionLoadError ? 'Movement library could not be loaded.' : motionCatalog ? '3D reference in production.' : 'Loading movement library…'}</p>{/if}
 					<a class="secondary" href="/movement/axel-1a-prototype/">Open Single Axel V178 ↗</a>
 					<a class="secondary" href={relatedLibrary}>Browse the 3D movement library ↗</a>
 					<a class="secondary" href="/movement/fs-jump3d/">Explore FS-Jump3D Blender library ↗</a>
-					<p class="motion-caveat">All 3D poses and trajectories are illustrative simulations. Scores and calls come from the official protocol.</p>
+					<p class="motion-caveat">The 3D model illustrates the movement’s technique. The official competition call and score appear in column B.</p>
 
 				</section>
 			</div>
@@ -216,4 +211,4 @@
   </details>
 </div>
 
-{#if motionOpen}<MotionOverlay onClose={closeMotion} skater={selectedSkater} motion={activeStage === 'workspace' ? selectedMotion?.asset : null} code={selectedElement?.element_code_raw}/>{/if}
+{#if motionOpen}<MotionOverlay onClose={closeMotion} motion={activeStage === 'workspace' ? selectedMotion?.asset : null}/>{/if}

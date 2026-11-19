@@ -388,8 +388,7 @@
       "code": "4A<",
       "flags": "<",
       "official_info": "<",
-      "asset": "4A",
-      "variant": "4A-HANYU"
+      "asset": "4A"
     },
     "FS:4:2": {
       "code": "4Sq",
@@ -1541,14 +1540,14 @@
     },
     "4A": {
       "id": "4A",
-      "name": "4A · Axel（阿克塞尔）",
+      "name": "4A · Standard quadruple Axel",
       "kind": "jump",
-      "file": "4A-r3-web.glb",
+      "file": "4A-STD-r3-web.glb",
       "frames": 379,
-      "sha256": "5b7fc442967cf0297391566b9ddf2f512d243bc2059f710b019b53294b245dc7",
-      "model": "https://billchenziang33.github.io/figure-skate-database-3d/4A-r3-web.glb?v=5b7fc442967c",
+      "sha256": "be172c95a86f294e21a5c22f09e3a8b731875e9ceb5406aafd2e16ffd18c778e",
+      "model": "https://billchenziang33.github.io/figure-skate-database-3d/4A-STD-r3-web.glb?v=be172c95a86f",
       "player": "/movement/beijing-2022/player.html?id=4A",
-      "poster": "https://billchenziang33.github.io/figure-skate-database-3d/4A-r3-apex-side.png?v=6f1e0266ab9f",
+      "poster": "https://billchenziang33.github.io/figure-skate-database-3d/4A-STD-r3-apex-side.png?v=210ac4ef7515",
       "archived_rounds": 3,
       "blender_geometry_reviewed": true,
       "blender_technique_reviewed": true,
@@ -1559,7 +1558,8 @@
         "LANDING": 219
       },
       "motion_label": "illustrative / simulated",
-      "note": "Nominal 4.5-turn Axel illustration; Beijing 2022 4A< under-rotation variation remains pending video review. Illustrative / simulated; no athlete capture data."
+      "note": "Standard 4A technique demonstration. Left forward outside-edge takeoff, compact air position, 4½ simulated turns, right backward outside-edge one-foot landing and controlled exit. The animation illustrates technique; official competition marks are kept in the protocol.",
+      "source": "https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/"
     },
     "4T+3T": {
       "id": "4T+3T",
@@ -2370,33 +2370,6 @@
       },
       "motion_label": "illustrative / simulated",
       "note": "Microsoft Edge 公开播放器默认 Side profile 验收通过：r3 Ready（7.50 s、96 animated channels、77 draw calls），Normal 1× 从第 1 帧完整播放至 451/451 并正常停止；时间轴可定位到第 100 帧，播放后按 Pause，等待 0.6 s 帧号保持不变。复核 4Lz 起跳/最高点/落冰 166/188/210 与 3T 起跳/最高点/落冰 254/273/291；第 228 帧衔接侧视中双腿和冰鞋轮廓分开。正常画幅中全身及冰鞋可见。姿态、阶段与轨迹均为 illustrative / simulated，无北京冬奥选手比赛捕捉数据。"
-    },
-    "4A-HANYU": {
-      "id": "4A-HANYU",
-      "name": "Yuzuru Hanyu · Beijing 2022 4A< attempt",
-      "kind": "jump",
-      "file": "4A-HANYU-r9-web.glb",
-      "frames": 379,
-      "sha256": "0694fea5687ee6641036254718405a3074c395d2db03afa918f6454a3461adc2",
-      "model": "https://billchenziang33.github.io/figure-skate-database-3d/4A-HANYU-r9-web.glb?v=0694fea5687e",
-      "player": "/movement/beijing-2022/player.html?id=4A-HANYU",
-      "poster": "https://billchenziang33.github.io/figure-skate-database-3d/4A-HANYU-r9-side.png?v=1f29168a1779",
-      "archived_rounds": 3,
-      "blender_geometry_reviewed": false,
-      "blender_technique_reviewed": false,
-      "public_side_view": "pending",
-      "event_frames": {
-        "TAKEOFF": 166,
-        "APEX": 193,
-        "LANDING": 219,
-        "FALL": 235,
-        "RECOVERY": 250,
-        "RESUME": 293
-      },
-      "motion_label": "illustrative / simulated",
-      "note": "Beijing 2022 free skate, element 1. The ISU called 4A<: an under-rotation of more than a quarter and less than a half turn under the 2021–22 rules. The illustrative model shows the forward outside-edge takeoff, tight air position, fall after touchdown and recovery. Rotation and trajectory are simulated.",
-      "source": "https://www.youtube.com/watch?v=D35ANhKWsc4&t=65s",
-      "baseAction": "4A"
     }
   },
   "plannedBaseActions": 50

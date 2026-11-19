@@ -13,12 +13,10 @@ test('a 3A opens its own clip, a pending spin never opens a different move', () 
   assert.equal(resolveMotion(catalog, data.elements.find(row => row.id === 'SP:1:3')).asset, null);
 });
 
-test('a sourced variant takes priority and a flagged base action remains labeled', () => {
+test('obsolete occurrence variants cannot override a standard reference', () => {
   const row = data.elements.find(row => row.id === 'FS:4:1');
   const catalog = { occurrences: {[row.id]: {asset:'4A', variant:'4A-hanyu-fs1', flags:'<'}},
     assets: {'4A':{player:'/base'}, '4A-hanyu-fs1':{player:'/variant'}} };
-  assert.equal(resolveMotion(catalog,row).asset.player,'/variant');
-  delete catalog.assets['4A-hanyu-fs1'];
+  assert.equal(resolveMotion(catalog,row).asset.player,'/base');
   assert.equal(resolveMotion(catalog,row).flags,'<');
-  assert.equal(resolveMotion(catalog,row).usesBase,true);
 });

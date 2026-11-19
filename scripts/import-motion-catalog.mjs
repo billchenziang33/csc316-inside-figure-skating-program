@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
-const [mediaIndex, variantPath] = process.argv.slice(2);
-if (!mediaIndex) throw new Error('Usage: node scripts/import-motion-catalog.mjs <media-index.json> [4A-variant.json]');
+const [mediaIndex, ...extraArgs] = process.argv.slice(2);
+if (!mediaIndex || extraArgs.length) throw new Error('Usage: node scripts/import-motion-catalog.mjs <media-index.json>');
 
 const staticDir = new URL('../static/movement/beijing-2022/', import.meta.url);
 const catalogPath = new URL('catalog.json', staticDir);
@@ -50,15 +50,6 @@ catalog.plannedBaseActions = 50;
 for (const occurrence of Object.values(catalog.occurrences)) {
   if (!catalog.assets[occurrence.asset]) throw new Error(`No base match for ${occurrence.code}`);
   delete occurrence.variant;
-}
-
-if (variantPath) {
-  const entry = await readJson(variantPath);
-  if (entry.id !== '4A-HANYU' || catalog.occurrences['FS:4:1'].asset !== '4A') {
-    throw new Error('The competition variant must map to Hanyu FS:4:1');
-  }
-  catalog.assets[entry.id] = { ...playerAsset(entry), baseAction: '4A' };
-  catalog.occurrences['FS:4:1'].variant = entry.id;
 }
 
 await writeFile(catalogPath, `${JSON.stringify(catalog, null, 2)}\n`);

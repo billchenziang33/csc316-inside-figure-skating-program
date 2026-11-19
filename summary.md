@@ -1,3 +1,8 @@
+## 2026-11-19 Standard technique references in the course workbench
+
+- The 190 scored occurrences resolve to the 50 movement entries. `FS:4:1` keeps the official `4A<` call and 5.00 panel score and opens the standard `4A` in column C.
+- The archive's athlete-specific study is retired from the course catalog. Existing `player.html?id=4A-HANYU` links resolve to the standard 4A. The trajectory HUD uses the standard landing and exit phases.
+
 ## 2026-11-11 CSC316 V178 anatomical take-off and landing
 
 - The V177 user observation was correct: f60 uses the anatomical right foot and f92 the anatomical left. The V176/V177 audit inferred anatomy from object names. The new `scripts/audit_1a_anatomical_handedness.py` compares the hip axis against the skater's torso facing, checks that direction against the modeled nose, and determines support from blade mesh height.

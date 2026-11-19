@@ -6,7 +6,7 @@ A CSC316 project built with Vite, Svelte 5, and D3. Its workbench links official
 
 Open the [CSC316 course site](https://csc316-inside-figure-skating-progra.vercel.app/). The [3D library](https://csc316-inside-figure-skating-progra.vercel.app/movement/beijing-2022/) and [Hanyu's first free-skating element](https://csc316-inside-figure-skating-progra.vercel.app/#workspace/FS:4:1) are on the course domain. The models and preview images are served on demand from the motion archive.
 
-The left column selects a scored occurrence, the middle column keeps the official score, and the right column resolves an illustrative model using that occurrence's ID. The same-origin player is opened only on demand. Use the competition-study link to compare the reported 4A< with the standard 4A illustration. Measured trajectories belong to the simulation. [ISU protocol](https://results.isu.org/results/season2122/owg2022/FSKMSINGLES-----------FNL-000100--_JudgesDetailsperSkater.pdf#page=2)
+The left column selects a scored occurrence, the middle column keeps the official score, and the right column opens the corresponding standard technique reference on demand. Hanyu's first free-skating element retains its official `4A<` call and 5.00 points. Its 3D reference shows a standard quadruple Axel. Measured trajectories belong to the simulation. [ISU protocol](https://results.isu.org/results/season2122/owg2022/FSKMSINGLES-----------FNL-000100--_JudgesDetailsperSkater.pdf#page=2) · [ISU jump guide](https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/)
 
 ## Current Blender reference
 
@@ -35,6 +35,6 @@ Six steps cover the finding, program selection, three-column workbench, S11 prot
 
 The gallery shows S12/S01/S02/S06/S15 one at a time, with an expanded chart stage and underlying-value tables. Below 1040 CSS pixels, the workspace uses Sequence/Score/Movement tabs.
 
-In column C, activate **Expand 3D example** to open the viewport-sized interactive 3D dialog. Moving the pointer over the panel does not launch it. The upper-right **Return to the main page** button or Escape closes it without changing the selected athlete/program/element. The demo is served from `/movement/index.html` on the same origin, with canvas, statistics and playback controls laid out separately; on phones the camera follows the mirrored skater horizontally.
+In column C, select **Play** to open the viewport-sized interactive 3D dialog. The upper-right **Return to the main page** button or Escape closes it and restores the selected athlete, program and element. The same-origin player lives at `/movement/beijing-2022/player.html`.
 
 This reuses the user's existing generated Single Axel example, preserving its generic-motion caveats and asset credits. The MotionExpert repository's Apache-2.0 license and Three.js MIT license are included under `static/movement/`; CC BY mesh/skate credits are preserved in `THIRD_PARTY_NOTICES.md` and the demo's expandable credits. Existing external frames remained blank during diagnostics; the local integrated demo was verified interactively in Edge.

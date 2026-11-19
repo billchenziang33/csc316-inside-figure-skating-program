@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  let { onClose, skater = '', motion = null, code = '' } = $props();
+  let { onClose, motion = null } = $props();
   let dialog;
   let frame = $state(null);
   let demoHtml = $state('');
@@ -24,8 +24,8 @@
 </script>
 
 <dialog bind:this={dialog} class="motion-overlay" aria-labelledby="motion-overlay-title" oncancel={(event) => { event.preventDefault(); onClose(); }}>
-  <header><div><h2 id="motion-overlay-title">{motion ? `${code} · 3D movement reference` : 'Single Axel · Blender v178 3D reference'}</h2><p>Illustrative / simulated action · not motion capture of {skater || 'the selected athlete'}</p></div><button onclick={onClose}>Return to the main page ↙</button></header>
-  {#if motion}<iframe bind:this={frame} src={motion.player} allow="fullscreen" title={`${code} Blender animation`}></iframe>{:else if demoHtml}<iframe bind:this={frame} srcdoc={demoHtml} allow="fullscreen" title="Blender v178 Single Axel animation with play, scrub and side/front cameras"></iframe>{:else if loadError}<p role="alert">{loadError}</p>{:else}<p role="status">Loading the Blender v178 animation…</p>{/if}
+  <header><div><h2 id="motion-overlay-title">{motion?.name ?? 'Single Axel · Blender v178 3D reference'}</h2><p>Illustrative / simulated technique reference</p></div><button onclick={onClose}>Return to the main page ↙</button></header>
+  {#if motion}<iframe bind:this={frame} src={motion.player} allow="fullscreen" title={`${motion.id} Blender animation`}></iframe>{:else if demoHtml}<iframe bind:this={frame} srcdoc={demoHtml} allow="fullscreen" title="Blender v178 Single Axel animation with play, scrub and side/front cameras"></iframe>{:else if loadError}<p role="alert">{loadError}</p>{:else}<p role="status">Loading the Blender v178 animation…</p>{/if}
 </dialog>
 
 <style>

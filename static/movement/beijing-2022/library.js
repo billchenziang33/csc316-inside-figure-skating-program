@@ -9,7 +9,7 @@ async function loadLibrary() {
   const response = await fetch('./catalog.json', { cache: 'no-cache' });
   if (!response.ok) throw new Error(`Motion catalog returned HTTP ${response.status}`);
   const catalog = await response.json();
-  const motions = Object.values(catalog.assets).filter((motion) => !motion.baseAction);
+  const motions = Object.values(catalog.assets);
   const returnToOccurrence = Object.hasOwn(catalog.occurrences, from);
   if (returnToOccurrence) document.querySelector('#workbench').href = `/#workspace/${from}`;
 
