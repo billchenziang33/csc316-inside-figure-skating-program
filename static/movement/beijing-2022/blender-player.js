@@ -47,6 +47,9 @@ const counter = document.querySelector('#blender-counter');
 const speedSelect = document.querySelector('#blender-speed');
 const fullscreenButton = document.querySelector('#blender-fullscreen');
 const flightHud = document.querySelector('#flight-hud');
+const flightToggle = document.querySelector('#flight-toggle');
+const flightPanel = document.querySelector('#flight-panel');
+const flightClose = document.querySelector('#flight-close');
 const cameraButtons = [...document.querySelectorAll('[data-view]')];
 const phaseHud = document.querySelector('#flight-phase');
 const heightHud = document.querySelector('#flight-height');
@@ -83,6 +86,7 @@ let followInspection = false;
 let orbitEnabled = false;
 let orbitYaw = 0;
 let orbitPitch = 0;
+const bulletTimeElevation = THREE.MathUtils.degToRad(35);
 let orbitZoom = 1;
 const orbitPan = new THREE.Vector3();
 let dragPointerId = null;
@@ -432,7 +436,7 @@ function selectView(mode) {
 	if (mode === 'bullet') {
 		const offset = inspectionCameraPosition.clone().sub(inspectionTarget);
 		const basePhi = Math.acos(THREE.MathUtils.clamp(offset.y / Math.max(offset.length(), 1e-6), -1, 1));
-		orbitPitch = Math.PI / 4 - basePhi;
+		orbitPitch = bulletTimeElevation - basePhi;
 	}
 	orbitZoom = 1;
 	orbitPan.set(0, 0, 0);
@@ -444,6 +448,39 @@ function selectView(mode) {
 	}
 	resize();
 }
+
+function setFlightPanelOpen(open) {
+	flightToggle.setAttribute('aria-expanded', String(open));
+	flightToggle.setAttribute('aria-label', open ? 'Close flight details' : 'Open flight details');
+	if (open) {
+		flightPanel.hidden = false;
+		flightHud.classList.add('is-open');
+		requestAnimationFrame(() => {
+			if (flightToggle.getAttribute('aria-expanded') === 'true') flightPanel.classList.add('is-visible');
+		});
+		return;
+	}
+	flightHud.classList.remove('is-open');
+	flightPanel.classList.remove('is-visible');
+	window.setTimeout(() => {
+		if (flightToggle.getAttribute('aria-expanded') === 'false') flightPanel.hidden = true;
+	}, 190);
+}
+
+flightToggle.addEventListener('click', () => {
+	setFlightPanelOpen(flightToggle.getAttribute('aria-expanded') !== 'true');
+});
+flightClose.addEventListener('click', () => {
+	setFlightPanelOpen(false);
+	flightToggle.focus();
+});
+document.addEventListener('keydown', (event) => {
+	if (event.key !== 'Escape' || flightToggle.getAttribute('aria-expanded') !== 'true') return;
+	event.preventDefault();
+	event.stopImmediatePropagation();
+	setFlightPanelOpen(false);
+	flightToggle.focus();
+});
 
 function animate(now) {
 	requestAnimationFrame(animate);

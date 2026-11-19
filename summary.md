@@ -7,6 +7,12 @@
 - Files: `static/movement/beijing-2022/player.html`, `static/movement/beijing-2022/blender-player.js`, and this README/summary. The catalog contains 50 assets and all routes use the same player module.
 - Verification: `node --check static/movement/beijing-2022/blender-player.js`, `git diff --check`, and Vite production build pass. The new production deployment `dpl_McuZ84t6q9vwSW8S516vGk2cQzuz` is READY on commit `0480e9addfd6313c6d9b55c470f01e2e82d3a179`; it serves `https://csc316-inside-figure-skating-progra.vercel.app`. Edge verified the live 4A route: Auto fit keeps the full figure and both skates in frame above the rink; at frame 195, HUD reports +0.51 m rise and the aerial shadow is visible; Bullet Time holds that frame, orbits from above, then returns to Auto fit after one 12-second turn. The enlarged HUD, labels, explanation, playback controls, and library return link remain readable at desktop size. Since all 50 entries use this shared player, the camera controls and presentation update apply across the catalog.
 
+## 2026-11-19 Lower Bullet Time and compact flight island
+
+- Lowered the Bullet Time orbit from 45° to 35° above the rink while preserving the paused pose, one-turn path, and return-to-previous-view behavior.
+- Moved trajectory readouts into a floating, expandable flight capsule over the rink. The compact state shows phase and current rise; the open state shows horizontal travel, peak rise, total jump distance, and simulation attribution. The popup does not change the 3D stage's layout, supports keyboard Escape/close, and respects reduced-motion preferences.
+- Catalog route audit: 50/50 asset entries contain a model and link to the shared `player.html` with the corresponding encoded movement ID. The player resolves each ID against the same catalog; special legacy ID `4A-HANYU` continues to resolve to standard `4A`.
+
 ## 2026-11-19 Movement Reference embeds the 50-model library
 
 - Step 6 (`/#movement`) embeds `/movement/beijing-2022/`, the complete 50-model competition movement library. The 253-record FS-Jump3D research archive is separate.
