@@ -436,7 +436,7 @@ function selectView(mode) {
 	if (mode === 'bullet') {
 		const offset = inspectionCameraPosition.clone().sub(inspectionTarget);
 		const basePhi = Math.acos(THREE.MathUtils.clamp(offset.y / Math.max(offset.length(), 1e-6), -1, 1));
-		orbitPitch = bulletTimeElevation - basePhi;
+		orbitPitch = Math.PI / 2 - bulletTimeElevation - basePhi;
 	}
 	orbitZoom = 1;
 	orbitPan.set(0, 0, 0);
