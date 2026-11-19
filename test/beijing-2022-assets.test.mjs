@@ -57,14 +57,14 @@ test('Hanyu free skate starts with 4A< and keeps the unmodified score', () => {
   assert.equal(row.panel_element_score, 5);
   const motion = resolveMotion(catalog, row);
   assert.equal(motion.flags, '<');
-  assert.equal(motion.asset.id, catalog.assets['4A-HANYU'] ? '4A-HANYU' : '4A');
-  if (catalog.assets['4A-HANYU']) {
-    assert.equal(motion.asset.baseAction, '4A');
-    assert.equal(motion.usesBase, false);
-    assert.notEqual(motion.asset.sha256, catalog.assets['4A'].sha256);
-    const variantOccurrences = Object.entries(catalog.occurrences).filter(([, entry]) => entry.variant);
-    assert.deepEqual(variantOccurrences.map(([id]) => id), ['FS:4:1']);
-  }
+  assert.equal(motion.asset.id, '4A-HANYU');
+  assert.equal(motion.asset.baseAction, '4A');
+  assert.equal(motion.usesBase, false);
+  assert.notEqual(motion.asset.sha256, catalog.assets['4A'].sha256);
+  assert.ok(motion.asset.event_frames.LANDING < motion.asset.event_frames.FALL);
+  assert.ok(motion.asset.event_frames.FALL < motion.asset.event_frames.RECOVERY);
+  const variantOccurrences = Object.entries(catalog.occurrences).filter(([, entry]) => entry.variant);
+  assert.deepEqual(variantOccurrences.map(([id]) => id), ['FS:4:1']);
 });
 
 test('library and player modules resolve in the curated public build', () => {

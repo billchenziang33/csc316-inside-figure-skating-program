@@ -68,3 +68,7 @@ License https://creativecommons.org/licenses/by-nc-sa/4.0/
 ## Double Axel database rebuild (2A-FS)
 
 The current 2A and the 2A-FS comparison clips derive from FS-Jump3D by Ryota Takeda and collaborators, trial Skater_C/Axel/Axel_7.c3d. The marker-derived poses were retargeted to the generic CSC316 character. Later revisions adjusted the character proportions, arm transitions and free skate position during exit. The adapted motion, GLB and preview are offered under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). See the [source dataset](https://github.com/ryota-skating/FS-Jump3D) and [paper](https://arxiv.org/abs/2408.16638). This was a training capture with a generic model and simulated trajectory display.
+
+## Beijing 2022 free skate 4A< study
+
+The 4A< study is an authored Blender illustration using the existing CSC316 character, ice and standard 4A pose basis. The [Olympic Games broadcast](https://www.youtube.com/watch?v=D35ANhKWsc4&t=65s) was used as a visual reference. The [ISU judges' protocol, page 2](https://results.isu.org/results/season2122/owg2022/FSKMSINGLES-----------FNL-000100--_JudgesDetailsperSkater.pdf#page=2) records the official call and score. The [2021–22 technical panel handbook](https://www.nzifsa.org.nz/rules/TP%20Handbook%20Single%20Skating%202021-22_Final.pdf#page=19) explains the under-rotation notation. All model trajectories and timings are simulated. The release carries no footage or Olympic motion-capture data.

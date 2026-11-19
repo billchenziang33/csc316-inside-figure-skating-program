@@ -213,9 +213,15 @@ function resize() {
 }
 
 function phaseLabel(frame) {
+	const events = asset?.event_frames;
+	if (events?.FALL && frame + 1 >= events.FALL) {
+		return frame + 1 >= events.RECOVERY ? 'Recovery · simulated' : 'Fall · simulated';
+	}
 	if (trajectoryEventFrames) return phaseAt(frame, trajectoryEventFrames);
+	if (asset?.kind === 'spin') return 'Spin · simulated';
+	if (asset?.kind === 'sequence') return 'Sequence · simulated';
 	const frameNumber = frame + 1;
-	const event = Object.entries(asset?.event_frames ?? {})
+	const event = Object.entries(events ?? {})
 		.filter(([, value]) => Number.isSafeInteger(Number(value)) && Number(value) <= frameNumber)
 		.sort((a, b) => Number(a[1]) - Number(b[1])).at(-1);
 	const label = event?.[0]?.replaceAll('_', ' ') ?? 'Action';
@@ -479,7 +485,7 @@ async function start() {
 			action.play();
 			return action;
 		});
-		trajectoryEventFrames = resolveTrajectoryEvents(sceneObjects);
+		trajectoryEventFrames = ['jump', 'combination'].includes(asset.kind) ? resolveTrajectoryEvents(sceneObjects) : null;
 		flightHud.hidden = !trajectoryEventFrames;
 		const eventFrames = trajectoryEventFrames?.segments
 			? trajectoryEventFrames.segments.flatMap(({ takeoff, apex, landing }) => [takeoff, apex, landing])
