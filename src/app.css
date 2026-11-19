@@ -91,8 +91,14 @@ button:disabled { opacity:.4; cursor:default; }
 .stage-intro { color:var(--muted); max-width:800px; line-height:1.65; font-size:.9rem; }
 .hero { padding-top:1rem; }.hero-copy { margin:clamp(1.8rem,3vw,3rem) auto 2rem; }.hero h1 { font-size:clamp(2.1rem,4vw,3.6rem); }.hero-actions { display:flex; gap:.75rem; flex-wrap:wrap; }
 .hero-chart { max-width:950px; }
-.step-controls { display:flex; position:sticky; bottom:0; z-index:5; align-items:center; justify-content:space-between; gap:1rem; background:var(--card); border-top:1px solid var(--line); padding:.85rem clamp(1rem,3vw,3rem); }
-.step-controls>span { font: .7rem var(--mono); color:var(--muted); }.step-controls>span b { margin-left:.7rem; font-weight:400; }
+.step-controls { display:grid; grid-template-columns:1fr auto 1fr; position:sticky; bottom:.75rem; z-index:5; align-items:center; gap:.65rem; width:min(520px,calc(100% - 2rem)); margin:1.25rem auto; padding:.5rem; background:#fffefaed; border:1px solid #dfe2dc; border-radius:999px; box-shadow:0 6px 24px #182d3d18; backdrop-filter:blur(12px); }
+.step-controls>button { min-height:44px; border-radius:999px; }
+.step-controls>button:first-child { justify-self:start; }
+.step-controls>button:last-child { justify-self:end; }
+.step-current { display:grid; justify-items:center; gap:.12rem; min-width:140px; padding:.35rem .8rem; border:0; background:transparent; color:var(--ink); }
+.step-current:disabled { opacity:1; cursor:default; }
+.step-current span { font:.62rem var(--mono); color:var(--muted); }
+.step-current b { font-size:.76rem; font-weight:600; white-space:nowrap; }
 .choice-summary { max-width:720px; margin:2rem auto; padding:2rem; }.choice-summary h2 { font:600 2rem var(--serif); margin:.6rem 0; }.choice-summary p { color:var(--muted); line-height:1.65; }
 .workspace-tabs { display:none; }.workspace-actions { display:flex; gap:.7rem; flex-wrap:wrap; margin-top:1rem; }
 .three-col { grid-template-columns:1fr 1fr 1fr; }.motion-column { grid-column:auto; }
@@ -110,4 +116,4 @@ button:disabled { opacity:.4; cursor:default; }
 .motion-expand{width:100%;margin-top:.25rem}.poster-launch{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
 @media(max-width:1100px) { .stage-nav { gap:.5rem; }.stage-nav li button b { display:none; }.stage-nav ol { gap:.35rem; } }
 @media(max-width:1040px) { .three-col { display:block; }.three-col .inactive-panel { display:none; }.workspace-tabs { display:flex; gap:.5rem; margin-bottom:1rem; }.sequence { max-height:500px; }.column { max-width:850px; }.stage-heading { gap:1rem; } }
-@media(max-width:700px) { .stage-nav { flex-wrap:wrap; justify-content:center; padding:.7rem 1rem; }.brand { width:100%; text-align:center; }.stage-nav ol { margin:0 auto; gap:.4rem; }.stage-heading { display:block; }.selection-context { text-align:left; max-width:none; margin:.8rem 0 0; }.text-button { margin-left:0; display:inline-block; padding-left:.6rem; }.step-controls { gap:.5rem; }.step-controls>span b { display:none; }.step-controls .primary,.step-controls .secondary { font-size:.75rem; padding:.65rem; }.choice-summary { padding:1.25rem; }.analysis-card .panel-heading { align-items:start; }.chart-canvas { overflow:auto; }.chart-canvas>div { min-width:540px; }.large-motion { height:1000px; }.workspace-tabs { width:100%; }.workspace-tabs button { flex:1; padding:.6rem .3rem; }.sources footer { flex-direction:column; align-items:start; gap:1rem; } }
+@media(max-width:700px) { .stage-nav { flex-wrap:wrap; justify-content:center; padding:.7rem 1rem; }.brand { width:100%; text-align:center; }.stage-nav ol { margin:0 auto; gap:.4rem; }.stage-heading { display:block; }.selection-context { text-align:left; max-width:none; margin:.8rem 0 0; }.text-button { margin-left:0; display:inline-block; padding-left:.6rem; }.step-controls { gap:.25rem; width:calc(100% - 1rem); bottom:.35rem; padding:.3rem; }.step-controls>button { min-height:42px; font-size:.72rem; padding:.55rem .7rem; }.step-current { min-width:0; padding:.3rem .4rem; }.step-current b { font-size:.68rem; }.choice-summary { padding:1.25rem; }.analysis-card .panel-heading { align-items:start; }.chart-canvas { overflow:auto; }.chart-canvas>div { min-width:540px; }.large-motion { height:1000px; }.workspace-tabs { width:100%; }.workspace-tabs button { flex:1; padding:.6rem .3rem; }.sources footer { flex-direction:column; align-items:start; gap:1rem; } }

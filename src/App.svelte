@@ -207,7 +207,11 @@
   </section>
   {/if}
   </main>
-  <nav class="step-controls" aria-label="Step navigation"><button class="secondary" disabled={stageIndex === 0} onclick={() => go(stages[Math.max(0,stageIndex-1)].id)}>← Previous</button><span>{stageIndex+1} / {stages.length} <b>{stages[stageIndex]?.label}</b></span><button class="primary" onclick={() => go(stageIndex === stages.length-1 ? 'story' : stages[stageIndex+1].id)}>{stageIndex === stages.length-1 ? 'Back to the finding ↺' : 'Next →'}</button></nav>
+  <nav class="step-controls" aria-label="Step navigation">
+    <button class="secondary" disabled={stageIndex === 0} onclick={() => go(stages[Math.max(0,stageIndex-1)].id)}>← Previous</button>
+    <button class="step-current" disabled aria-current="step"><span>{stageIndex+1} / {stages.length}</span><b>{stages[stageIndex]?.label}</b></button>
+    <button class="primary" onclick={() => go(stageIndex === stages.length-1 ? 'story' : stages[stageIndex+1].id)}>{stageIndex === stages.length-1 ? 'Back to the finding ↺' : 'Next →'}</button>
+  </nav>
   <details class="sources"><summary>Data, sources & scope</summary>
 	<footer><div><span class="section-number">DATA & SCOPE</span><p>Beijing 2022 individual men’s singles · final top ten · 190 protocol elements · 20 segment records</p></div><div class="footer-links"><a href="https://results.isu.org/results/season2122/owg2022/CAT001RS.htm" target="_blank" rel="noreferrer">Final standings ↗</a><a href="https://www.isuresults.com/results/season2122/owg2022/owg2022_protocol.pdf" target="_blank" rel="noreferrer">Official protocol book ↗</a><a href="https://github.com/billchenziang33/csc316-inside-figure-skating-program" target="_blank" rel="noreferrer">Project source ↗</a></div></footer>
   </details>
