@@ -12,6 +12,8 @@ The left column selects a scored occurrence, the middle column keeps the officia
 
 [Step 6 · Movement Reference](https://csc316-inside-figure-skating-progra.vercel.app/#movement) embeds the complete 50-entry 3D Movement Library. Search or filter the competition movement models, then open a model's interactive Blender player on the same page. The standalone library remains at `/movement/beijing-2022/`.
 
+The shared player has three camera controls: a 45° angle, **Auto fit** for a full-body frame, and **Bullet Time**, which pauses at the selected frame and makes one slow camera orbit around the skater. Bullet Time is a camera move; the pose stays at the selected instant. All 50 entries use the same player.
+
 The workbench also links to the standalone V178 Single Axel study. It shows a left-foot forward take-off, a one-and-a-half-turn airborne phase, and a right-foot backward landing. The animation is illustrative/simulated and uses no Beijing 2022 athlete capture. [Single Axel assets and measurements](static/movement/axel-1a-prototype/README.md)
 
 ## Milestone 7 package

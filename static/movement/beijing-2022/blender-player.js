@@ -46,9 +46,8 @@ const frameSlider = document.querySelector('#blender-frame');
 const counter = document.querySelector('#blender-counter');
 const speedSelect = document.querySelector('#blender-speed');
 const fullscreenButton = document.querySelector('#blender-fullscreen');
-const cameraResetButton = document.querySelector('#blender-camera-reset');
 const flightHud = document.querySelector('#flight-hud');
-const cameraButtons = [...document.querySelectorAll('[data-camera]')];
+const cameraButtons = [...document.querySelectorAll('[data-view]')];
 const phaseHud = document.querySelector('#flight-phase');
 const heightHud = document.querySelector('#flight-height');
 const distanceHud = document.querySelector('#flight-distance');
@@ -71,6 +70,11 @@ frameSlider.max = String(frameCount - 1);
 let playbackTime = 0;
 let playing = false;
 let lastTick = 0;
+let bulletTimeActive = false;
+let bulletTimeAngle = 0;
+let lastBulletTimeTick = 0;
+let selectedView = 'angled';
+let returnView = 'angled';
 let inspectionSkates;
 let skaterSideCamera;
 let inspectionCamera;
@@ -171,8 +175,7 @@ function frameFromTime(time) {
 function updateInspectionCamera() {
 	if (!followInspection || !activeCamera) return;
 	modelScene.updateMatrixWorld(true);
-	inspectionBox.makeEmpty();
-	for (const skatePart of inspectionSkates) inspectionBox.expandByObject(skatePart);
+	inspectionBox.setFromObject(trajectoryRoot);
 	inspectionBox.getCenter(inspectionTarget);
 	skaterSideCamera.getWorldQuaternion(inspectionOrientation);
 	inspectionDirection.set(0.27, 0.04, 1).applyQuaternion(inspectionOrientation).normalize();
@@ -371,39 +374,34 @@ function updateViewerCamera() {
 	viewerCamera.updateMatrixWorld(true);
 }
 
-function resetView() {
-	orbitEnabled = false;
-	orbitYaw = 0;
-	orbitPitch = 0;
-	orbitZoom = 1;
-	orbitPan.set(0, 0, 0);
-	updateViewerCamera();
-	resize();
-}
-
-function chooseCamera(name) {
-	const selectedCamera = findExportedNameMatch(sceneObjects, name);
-	if (!selectedCamera?.isCamera) {
-		const available = [];
-		modelScene.traverse((object) => { if (object.isCamera) available.push(`${object.name}:${object.constructor.name}`); });
-		throw new Error(`Camera not found: ${name}; available cameras: ${available.join(', ') || '(none)'}`);
+function selectView(mode) {
+	if (mode === 'bullet' && !bulletTimeActive) {
+		returnView = selectedView === 'bullet' ? 'angled' : selectedView;
+		playing = false;
+		playButton.textContent = 'Play';
+		lastTick = 0;
+		bulletTimeAngle = 0;
+		lastBulletTimeTick = performance.now();
+		message.textContent = `Bullet Time · frame ${frameFromTime(playbackTime) + 1} · orbiting`;
+	} else if (mode !== 'bullet' && bulletTimeActive) {
+		message.textContent = 'Ready to play';
 	}
-	selectedCamera.updateWorldMatrix(true, false);
-	sourceCamera = selectedCamera;
+	bulletTimeActive = mode === 'bullet';
+	selectedView = mode;
+	sourceCamera = skaterSideCamera;
 	activeCamera = viewerCamera;
-	followInspection = sourceCamera === inspectionCamera;
-	orbitEnabled = false;
-	orbitYaw = 0;
+	followInspection = mode !== 'angled';
+	orbitEnabled = mode === 'angled' || mode === 'bullet';
+	orbitYaw = mode === 'angled' ? Math.PI / 4 : (mode === 'bullet' ? bulletTimeAngle : 0);
 	orbitPitch = 0;
 	orbitZoom = 1;
 	orbitPan.set(0, 0, 0);
-	for (const guide of trajectoryGuides) guide.visible = !followInspection;
+	for (const guide of trajectoryGuides) guide.visible = true;
 	updateInspectionCamera();
 	updateViewerCamera();
 	for (const button of cameraButtons) {
-		button.setAttribute('aria-pressed', String(button.dataset.camera === name));
+		button.setAttribute('aria-pressed', String(button.dataset.view === mode));
 	}
-	cameraResetButton.disabled = false;
 	resize();
 }
 
@@ -412,6 +410,13 @@ function animate(now) {
 	if (!renderer || !activeCamera) return;
 	const elapsed = elapsedPlaybackSeconds(now, lastTick, document.visibilityState === 'visible');
 	lastTick = now;
+	if (bulletTimeActive && document.visibilityState === 'visible') {
+		const bulletElapsed = Math.min(Math.max((now - lastBulletTimeTick) / 1000, 0), 0.05);
+		lastBulletTimeTick = now;
+		bulletTimeAngle += bulletElapsed * Math.PI / 6;
+		orbitYaw = bulletTimeAngle;
+		if (bulletTimeAngle >= Math.PI * 2) selectView(returnView);
+	}
 	if (playing && document.visibilityState === 'visible') {
 		const next = advancePlaybackTime(playbackTime, elapsed, playbackSpeedFromControl(speedSelect.value), duration);
 		setPlaybackTime(next);
@@ -497,14 +502,13 @@ async function start() {
 		inspectionCamera.updateProjectionMatrix();
 		mixer.setTime(animationStartTime);
 		modelScene.updateMatrixWorld(true);
-		chooseCamera(CAMERA_NAMES[5]);
+	selectView('angled');
 		frameSlider.disabled = false;
 		playButton.disabled = false;
 		resetButton.disabled = false;
 		fullscreenButton.disabled = false;
-		cameraResetButton.disabled = false;
 		setPlaybackTime(0);
-		message.textContent = `Ready · ${asset.name} · ${(duration).toFixed(2)} s · ${animationTrackCount} animated channels · ${renderer.info.render.calls} draw calls`;
+		message.textContent = 'Ready to play';
 		requestAnimationFrame(animate);
 	} catch (error) {
 		console.error('Blender v178 player failed to load:', error);
@@ -515,6 +519,7 @@ async function start() {
 
 playButton.addEventListener('click', () => {
 	if (!duration) return;
+	if (bulletTimeActive) selectView(returnView);
 	if (!playing && playbackTime >= duration) setPlaybackTime(0);
 	playing = !playing;
 	lastTick = 0;
@@ -522,6 +527,7 @@ playButton.addEventListener('click', () => {
 });
 
 resetButton.addEventListener('click', () => {
+	if (bulletTimeActive) selectView(returnView);
 	playing = false;
 	playButton.textContent = 'Play';
 	setPlaybackTime(0);
@@ -536,13 +542,16 @@ document.addEventListener('visibilitychange', () => {
 });
 
 frameSlider.addEventListener('input', () => {
+	if (bulletTimeActive) selectView(returnView);
 	playing = false;
 	playButton.textContent = 'Play';
 	setPlaybackTime((Number(frameSlider.value) / (frameCount - 1)) * duration, false);
 });
 
-cameraButtons.forEach((button) => button.addEventListener('click', () => chooseCamera(button.dataset.camera)));
-cameraResetButton.addEventListener('click', resetView);
+cameraButtons.forEach((button) => button.addEventListener('click', () => {
+	const mode = button.dataset.view;
+	selectView(mode === 'bullet' && bulletTimeActive ? returnView : mode);
+}));
 canvas.addEventListener('pointerdown', (event) => {
 	if ((event.button !== 0 && event.button !== 2) || !activeCamera) return;
 	dragPointerId = event.pointerId;

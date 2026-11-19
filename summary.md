@@ -1,3 +1,11 @@
+## 2026-11-19 Shared three-view motion player
+
+- The 50 movement entries share `static/movement/beijing-2022/player.html` and `blender-player.js`; the camera controls therefore apply to every catalog item.
+- Matched the player chrome to the six-step course site: paper background and cards, Georgia section title, small mono labels, teal active controls, and a cool rink canvas. Replaced the previous dark palette and stale camera presets with a compact 45° angle / Auto fit / Bullet Time control.
+- Added Bullet Time: clicking it pauses at the current animation time and smoothly orbits the full-body camera at 30°/s (one 360° pass in 12 seconds). Clicking it again, switching views, pressing Play/Restart, or seeking stops the orbit; Play and seeking preserve their expected playback behavior. The selected pose does not advance during the camera move.
+- Files: `static/movement/beijing-2022/player.html`, `static/movement/beijing-2022/blender-player.js`, and this README/summary. The catalog contains 50 assets and all routes use the same player module.
+- Verification: `node --check static/movement/beijing-2022/blender-player.js`, `git diff --check`, and Vite production build pass. Browser verification is still pending because the sandboxed Edge extension cannot reach the local Vite port; check the public deployment after publishing.
+
 ## 2026-11-19 Movement Reference embeds the 50-model library
 
 - Step 6 (`/#movement`) embeds `/movement/beijing-2022/`, the complete 50-model competition movement library. The 253-record FS-Jump3D research archive is separate.
