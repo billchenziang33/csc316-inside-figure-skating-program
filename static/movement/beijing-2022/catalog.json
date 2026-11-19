@@ -1476,23 +1476,24 @@
       "id": "1S",
       "name": "1S · Salchow",
       "kind": "jump",
-      "file": "1S-r3-web.glb",
-      "frames": 351,
-      "sha256": "1516fd661e9846b02252ccce344a1fc32e02745ae9293ace642eb26d1cee63aa",
-      "model": "https://billchenziang33.github.io/figure-skate-database-3d/1S-r3-web.glb?v=1516fd661e98",
+      "file": "1S-new-v10.glb",
+      "frames": 271,
+      "sha256": "c243d1ac34a9332ca91981a57874445a945ef59aed0d9a4da474e56f596e45f7",
+      "model": "https://billchenziang33.github.io/figure-skate-database-3d/1S-new-v10.glb?v=c243d1ac34a9",
       "player": "/movement/beijing-2022/player.html?id=1S",
-      "poster": "https://billchenziang33.github.io/figure-skate-database-3d/1S-r3-apex-side.png?v=48794003def8",
-      "archived_rounds": 3,
+      "poster": "https://billchenziang33.github.io/figure-skate-database-3d/1S-new-v10-poster-final.png?v=704d2c4a1278",
+      "archived_rounds": 10,
       "blender_geometry_reviewed": true,
       "blender_technique_reviewed": true,
       "public_side_view": "pending",
       "event_frames": {
-        "TAKEOFF": 166,
-        "APEX": 178,
-        "LANDING": 191
+        "TAKEOFF": 117,
+        "APEX": 131,
+        "LANDING": 145
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. Sampled geometry and technique checks passed. Full playback in the public default side view awaits review."
+      "note": "Illustrative / simulated standard Salchow. No Beijing 2022 motion-capture data was used.",
+      "trajectory": "https://billchenziang33.github.io/figure-skate-database-3d/1S-new-v10-trajectory.json?v=a7998c2a0b12"
     },
     "2A": {
       "id": "2A",
