@@ -10,7 +10,7 @@
 
 	import MotionOverlay from './lib/MotionOverlay.svelte';
 	import { resolveMotion } from './lib/data/motion-reference.mjs';
-	import { stages, chartIds, readRoute, routeHash } from './lib/navigation.mjs';
+	import { stages, chartIds, readRoute, routeHash, libraryHref } from './lib/navigation.mjs';
 	let activeStage = $state('story');
 	let activeChart = $state('S12');
 	let workspaceTab = $state('sequence');
@@ -19,9 +19,20 @@
 	let stageIndex = $derived(activeStage === 'chart-detail' ? 4 : stages.findIndex(s => s.id === activeStage));
 	const chartTitles = { S12: 'How do technical points contribute to the total?', S01: 'How many scored jump elements appear in each program?', S02: 'How do jump rotations relate to execution?', S06: 'How do spin and step levels compare with scores?', S15: 'How does execution change the element score?' };
 	let chartRows = $derived(activeChart === 'S12' ? segmentRows : allElements.filter(d => activeChart === 'S06' ? d.segment === selectedSegment && d.element_group !== 'jump' : activeChart === 'S02' || activeChart === 'S15' || activeChart === 'S01' ? d.element_group === 'jump' : true));
-	function syncRoute() { const r = readRoute(location.hash); activeStage = r.stage; activeChart = r.chart; }
+	function syncRoute() {
+		const route = readRoute(location.hash);
+		activeStage = route.stage;
+		activeChart = route.chart;
+		motionOpen = false;
+		const element = data?.elements.find((row) => row.id === route.elementId);
+		if (element) {
+			selectedRank = element.final_rank;
+			selectedSegment = element.segment;
+			selectedElementId = element.id;
+		}
+	}
 	async function go(stage, chart = activeChart) {
-		history.pushState(null, '', routeHash(stage, chart)); syncRoute();
+		history.pushState(null, '', routeHash(stage, chart, selectedElement?.id)); syncRoute();
 		await tick(); document.getElementById('stage-heading')?.focus({ preventScroll: true }); window.scrollTo({ top: 0, behavior: 'instant' });
 	}
 	onMount(() => { syncRoute(); window.addEventListener('hashchange', syncRoute); window.addEventListener('popstate', syncRoute); return () => { window.removeEventListener('hashchange', syncRoute); window.removeEventListener('popstate', syncRoute); }; });
@@ -40,6 +51,7 @@
 		.sort((a, b) => a.element_order - b.element_order));
 	let selectedElement = $derived(programElements.find((d) => d.id === selectedElementId) ?? programElements[0] ?? null);
 	let selectedMotion = $derived(resolveMotion(motionCatalog, selectedElement));
+	let relatedLibrary = $derived(libraryHref(selectedElement?.id));
 	let jumpShare = $derived(data?.jumpShare ?? []);
 	let allElements = $derived(data?.elements ?? []);
 
@@ -48,6 +60,7 @@
 			const response = await fetch('/data/competition.json');
 			if (!response.ok) throw new Error(`Data request failed (${response.status})`);
 			data = await response.json();
+			syncRoute();
 		} catch (error) {
 			loadError = error instanceof Error ? error.message : 'Unable to load the competition data.';
 		}
@@ -74,6 +87,11 @@
 		workspaceTab = 'score'; go('workspace');
 	}
 
+	function selectWorkbenchElement(id) {
+		selectedElementId = id;
+		history.replaceState(null, '', routeHash('workspace', activeChart, id));
+	}
+
 </script>
 
 <svelte:head><title>Inside a Figure-Skating Program · Beijing 2022</title></svelte:head>
@@ -92,7 +110,7 @@
 			<p class="kicker">Inside a figure-skating program</p>
 			<h1 id="stage-heading" tabindex="-1">Jumps carry most of the technical score.<br /><em>And more in the free skate.</em></h1>
 			<p class="deck">Across the event’s top ten, jump elements account for 67.4% of technical element points in the short program and 77.1% in the free skate.</p>
-			<div class="hero-actions"><button class="primary" onclick={() => go('choose')}>Explore a program →</button><button class="quiet" onclick={() => go('charts')}>Skip to charts</button></div>
+			<div class="hero-actions"><button class="primary" onclick={() => go('choose')}>Explore a program →</button><a class="secondary" href={libraryHref()}>Browse the 3D library ↗</a><a class="quiet" href="/#workspace/FS:4:1">Yuzuru Hanyu’s 4A&lt; →</a><button class="quiet" onclick={() => go('charts')}>Skip to charts</button></div>
 		</div>
 		<div class="hero-chart panel">
 			<div class="panel-heading"><div><span class="section-number">01 / THE PATTERN</span><h2>Jump points take a larger share in the free skate</h2></div><span class="delta">+9.7 pp</span></div>
@@ -130,7 +148,7 @@
 					<div class="column-head"><span class="section-number">A · SEQUENCE</span><h3 id="sequence-title">Element order</h3><p>Official protocol order; not a timeline or rink map.</p></div>
 					<ol class="sequence">
 						{#each programElements as element (element.id)}
-							<li><button class:selected={selectedElement?.id === element.id} onclick={() => selectedElementId = element.id} aria-pressed={selectedElement?.id === element.id}>
+							<li><button class:selected={selectedElement?.id === element.id} onclick={() => selectWorkbenchElement(element.id)} aria-pressed={selectedElement?.id === element.id}>
 								<span class="order">{String(element.element_order).padStart(2,'0')}</span><span class="element-name"><b>{element.element_code_raw}</b><small>{element.element_group.replace('_',' ')}</small></span><span class="element-score">{element.panel_element_score.toFixed(2)}</span>
 							</button></li>
 						{/each}
@@ -150,15 +168,20 @@
 
 				<section class="column panel motion-column" class:inactive-panel={workspaceTab !== 'movement'} aria-labelledby="motion-title">
 					<div class="column-head"><span class="section-number">C · 3D REFERENCE</span><h3 id="motion-title">{selectedElement?.element_code_raw ?? 'Movement reference'}</h3></div>
-					{#if selectedMotion?.asset}
+					{#if selectedMotion?.asset?.file}
 						<figure class="movement-preview"><img src={selectedMotion.asset.poster} alt={`${selectedMotion.asset.name} · side view`}/><figcaption>{selectedMotion.asset.name} · illustrative / simulated</figcaption></figure>
 						<button class="primary motion-expand" onclick={() => motionOpen = true}>Play {selectedElement.element_code_raw} in 3D ↗</button>
-						{#if selectedMotion.usesBase && selectedMotion.flags}<p class="motion-caveat">Protocol mark: {selectedMotion.flags}. Playback shows the standard {selectedMotion.asset.name} technique.</p>{/if}
+						{#if selectedMotion.usesBase && selectedMotion.flags}<p class="motion-caveat">Protocol mark: {selectedMotion.flags}. Playback shows the generic {selectedMotion.asset.name} reference.</p>{/if}
+						{#if !selectedMotion.usesBase}
+							<p class="motion-caveat">{selectedMotion.asset.note}</p>
+							<a class="secondary" href={motionCatalog.assets[selectedMotion.asset.baseAction]?.player}>View the standard 4A reference ↗</a>
+							{#if selectedMotion.asset.source}<p class="motion-caveat"><a href={selectedMotion.asset.source} target="_blank" rel="noreferrer">Olympic reference video ↗</a></p>{/if}
+						{/if}
 					{:else}<p role="status">{motionLoadError ? 'Movement library could not be loaded.' : motionCatalog ? '3D reference in production.' : 'Loading movement library…'}</p>{/if}
 					<a class="secondary" href="/movement/axel-1a-prototype/">Open Single Axel V178 ↗</a>
-					<a class="secondary" href="/movement/beijing-2022/">Browse the 3D movement library ↗</a>
+					<a class="secondary" href={relatedLibrary}>Browse the 3D movement library ↗</a>
 					<a class="secondary" href="/movement/fs-jump3d/">Explore FS-Jump3D Blender library ↗</a>
-					<p class="motion-caveat">This is a generic reference demo, not motion capture of {selectedSkater || 'the selected skater'} or a Beijing 2022 performance.</p>
+					<p class="motion-caveat">All 3D poses and trajectories are illustrative simulations. Scores and calls come from the official protocol.</p>
 
 				</section>
 			</div>
@@ -179,7 +202,7 @@
       </article>
     {:else if activeStage === 'movement'}
       <p class="stage-intro">Single Axel · a generic movement reference. This is not motion capture of {selectedSkater} or a Beijing 2022 performance.</p>
-      <div class="motion-toolbar"><button class="secondary" onclick={() => { workspaceTab = 'movement'; go('workspace'); }}>← Return to workbench</button><a class="primary" href="/movement/beijing-2022/">Browse the 3D movement library ↗</a><a class="secondary" href="/movement/axel-1a-prototype/">Open 1A illustrative pose study ↗</a><a class="secondary" href="/movement/fs-jump3d/">FS-Jump3D Blender library ↗</a></div>
+      <div class="motion-toolbar"><button class="secondary" onclick={() => { workspaceTab = 'movement'; go('workspace'); }}>← Return to workbench</button><a class="primary" href={relatedLibrary}>Browse the 3D movement library ↗</a><a class="secondary" href="/movement/axel-1a-prototype/">Open 1A illustrative pose study ↗</a><a class="secondary" href="/movement/fs-jump3d/">FS-Jump3D Blender library ↗</a></div>
       <figure class="motion-poster"><button class="poster-launch" onclick={() => motionOpen = true} aria-label="Enter the Blender v178 Single Axel animation in full screen"><img src="/movement/axel-1a-prototype/single-axel-1a-human-rink-v178-frame047-side.png" alt="Blender v178 simulated skater approaching take-off, shown in the horizontal side view"/></button><figcaption>Blender v178 · play, scrub, and inspect the same action from side, front, skate close-up, or arena views.</figcaption></figure>
       <p class="scope-note">The full-screen view keeps your selected program and element. It loads the same Blender v178 motion as the standalone prototype. Use Play, Front, Side and skate close-up; all phases remain illustrative / simulated.</p>
     {/if}

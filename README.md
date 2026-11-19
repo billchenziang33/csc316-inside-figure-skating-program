@@ -1,10 +1,12 @@
 # Inside a Figure-Skating Program
 
-A CSC316 prototype built with Vite, Svelte 5, and D3. It explores the official Beijing 2022 men's singles top-ten scoring protocols and presents a separate generic 3D jump reference.
+A CSC316 project built with Vite, Svelte 5, and D3. Its workbench links official Beijing 2022 men's singles top-ten scoring protocols to 50 illustrative 3D references.
 
 ## Live site
 
-Open the public prototype at [inside-figure-skating-program.eagercoast2.chatgpt.site](https://inside-figure-skating-program.eagercoast2.chatgpt.site/). No local server is needed.
+Open the [CSC316 course site](https://csc316-inside-figure-skating-progra.vercel.app/). The [3D library](https://csc316-inside-figure-skating-progra.vercel.app/movement/beijing-2022/) and [Hanyu's first free-skating element](https://csc316-inside-figure-skating-progra.vercel.app/#workspace/FS:4:1) are on the course domain. The models and preview images are served on demand from the motion archive.
+
+The left column selects a scored occurrence, the middle column keeps the official score, and the right column resolves an illustrative model using that occurrence's ID. The same-origin player is opened only on demand. Use the competition-study link to compare the reported 4A< with the standard 4A illustration. Measured trajectories belong to the simulation. [ISU protocol](https://results.isu.org/results/season2122/owg2022/FSKMSINGLES-----------FNL-000100--_JudgesDetailsperSkater.pdf#page=2)
 
 ## Current Blender reference
 

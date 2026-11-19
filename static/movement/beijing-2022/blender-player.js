@@ -2,19 +2,31 @@ import { findExportedNameMatch, findExportedNamesByPrefix } from '../axel-1a-pro
 import { fitBoundingSphereDistance, fitOrbitCameraDistance } from '../axel-1a-prototype/camera-fit.mjs';
 import { toggleFullscreen } from '../axel-1a-prototype/fullscreen-control.js';
 import { advancePlaybackTime, elapsedPlaybackSeconds, playbackSpeedFromControl, seekAnimationActions } from '../axel-1a-prototype/playback-clock.mjs?v=100';
-import { formatMeters, measureFlightMetrics, phaseAt, readAxelEventFrames, timeAtAnimationFrame } from '../axel-1a-prototype/trajectory-hud.mjs?v=102';
+import { formatMeters, measureFlightMetrics, phaseAt, readAxelEventFrames, readEventSegments, selectEventSegment, timeAtAnimationFrame } from './trajectory-hud.mjs?v=105';
 
 const THREE = globalThis.THREE;
 const GLTFLoader = THREE?.GLTFLoader;
 
-const assetId = new URLSearchParams(location.search).get('id');
-const catalogResponse = await fetch('./catalog.json');
-const catalog = catalogResponse.ok ? await catalogResponse.json() : {assets:{}};
-const asset = Object.hasOwn(catalog.assets,assetId) ? catalog.assets[assetId] : null;
-const FILE = asset ? './' + asset.file : null;
+const query = new URLSearchParams(location.search);
+const assetId = query.get('id');
+let catalog;
+try {
+  const response = await fetch('./catalog.json', { cache: 'no-cache' });
+  if (!response.ok) throw new Error(`Motion catalog returned HTTP ${response.status}`);
+  catalog = await response.json();
+} catch (error) {
+  console.error(error);
+}
+const asset = catalog && Object.hasOwn(catalog.assets, assetId) ? catalog.assets[assetId] : null;
+const FILE = asset?.model;
+const returnLink = document.querySelector('.library-return');
+if (window.top !== window) returnLink.hidden = true;
+const from = query.get('from');
+if (catalog && Object.hasOwn(catalog.occurrences, from)) returnLink.href = `./?from=${encodeURIComponent(from)}`;
 if (asset) {
   document.querySelector('.player-head strong').textContent = asset.name;
-  document.title = asset.name + ' · CSC316 Blender reference';
+  document.title = asset.name + ' · CSC316 3D reference';
+  document.querySelector('#motion-note').textContent = asset.note;
 }
 const CAMERA_NAMES = [
 	'Action side view · horizontal follow composition',
@@ -34,6 +46,7 @@ const counter = document.querySelector('#blender-counter');
 const speedSelect = document.querySelector('#blender-speed');
 const fullscreenButton = document.querySelector('#blender-fullscreen');
 const cameraResetButton = document.querySelector('#blender-camera-reset');
+const flightHud = document.querySelector('#flight-hud');
 const cameraButtons = [...document.querySelectorAll('[data-camera]')];
 const phaseHud = document.querySelector('#flight-phase');
 const heightHud = document.querySelector('#flight-height');
@@ -52,7 +65,7 @@ let clipActions = [];
 let animationTrackCount = 0;
 let duration = 0;
 let animationStartTime = 0;
-let frameCount = asset?.frames ?? 1;
+const frameCount = asset?.frames ?? 1;
 frameSlider.max = String(frameCount - 1);
 let playbackTime = 0;
 let playing = false;
@@ -73,7 +86,7 @@ let lastPointerX = 0;
 let lastPointerY = 0;
 let trajectoryRoot;
 let trajectoryEventFrames;
-let trajectoryPoints;
+let trajectoryPointSegments = [];
 let trajectoryGuides = [];
 const inspectionDirection = new THREE.Vector3();
 const inspectionOrientation = new THREE.Quaternion();
@@ -200,13 +213,50 @@ function resize() {
 }
 
 function phaseLabel(frame) {
-	if (frame + 1 === trajectoryEventFrames.takeoff) return 'Take-off · skater’s left foot';
-	if (frame + 1 === trajectoryEventFrames.landing) return 'Landing · skater’s right foot';
-	return phaseAt(frame, trajectoryEventFrames);
+	if (trajectoryEventFrames) return phaseAt(frame, trajectoryEventFrames);
+	const frameNumber = frame + 1;
+	const event = Object.entries(asset?.event_frames ?? {})
+		.filter(([, value]) => Number.isSafeInteger(Number(value)) && Number(value) <= frameNumber)
+		.sort((a, b) => Number(a[1]) - Number(b[1])).at(-1);
+	const label = event?.[0]?.replaceAll('_', ' ') ?? 'Action';
+	return `${label.toLowerCase().replace(/\b\w/g, (letter) => letter.toUpperCase())} · simulated`;
+}
+
+function resolveTrajectoryEvents(objects) {
+	const segments = readEventSegments(asset?.event_frames);
+	if (segments.length) return { ...segments[0], segments };
+	try {
+		return readAxelEventFrames(objects);
+	} catch (markerError) {
+		const events = asset?.event_frames ?? {};
+		const direct = {
+			takeoff: Number(events.TAKEOFF),
+			apex: Number(events.APEX ?? events.FLIGHT_APEX),
+			landing: Number(events.LANDING),
+		};
+		if (Number.isSafeInteger(direct.takeoff) && Number.isSafeInteger(direct.apex) &&
+			Number.isSafeInteger(direct.landing) && direct.takeoff < direct.apex && direct.apex < direct.landing) {
+			return direct;
+		}
+		const takeoffs = Object.entries(events)
+			.filter(([name, frame]) => /^TAKEOFF_.+/.test(name) && Number.isSafeInteger(Number(frame)))
+			.sort((a, b) => Number(a[1]) - Number(b[1]));
+		for (const [name, takeoffFrame] of takeoffs) {
+			const suffix = name.slice('TAKEOFF_'.length);
+			const apexFrame = Number(events[`APEX_${suffix}`]);
+			const landingFrame = Number(events[`LANDING_${suffix}`]);
+			if (Number.isSafeInteger(apexFrame) && Number.isSafeInteger(landingFrame) &&
+				Number(takeoffFrame) < apexFrame && apexFrame < landingFrame) {
+				return { takeoff: Number(takeoffFrame), apex: apexFrame, landing: landingFrame };
+			}
+		}
+		console.info(`Flight HUD hidden for ${asset?.id ?? 'motion'}: no take-off/apex/landing triplet.`, markerError);
+		return null;
+	}
 }
 
 function setPlaybackTime(time, updateSlider = true) {
-	if (!activeCamera) throw new Error('The selected GLB camera was not resolved.');
+	if (!activeCamera) throw new Error('The v178 GLB camera was not resolved.');
 	playbackTime = Math.max(0, Math.min(duration, time));
 	seekAnimationActions(mixer, clipActions, animationStartTime + playbackTime);
 	modelScene.updateMatrixWorld(true);
@@ -221,10 +271,14 @@ function setPlaybackTime(time, updateSlider = true) {
 }
 
 function updateFlightHud(frame) {
-	if (!trajectoryRoot || !trajectoryPoints) return;
+	if (!trajectoryRoot || trajectoryPointSegments.length === 0) return;
 	trajectoryRoot.getWorldPosition(trajectoryPosition);
 	const current = { x: trajectoryPosition.x, y: trajectoryPosition.y, z: trajectoryPosition.z };
-	const { takeoff, apex, landing } = trajectoryPoints;
+	const eventSegments = trajectoryEventFrames.segments ?? [trajectoryEventFrames];
+	const eventSegment = selectEventSegment(frame, eventSegments);
+	const points = trajectoryPointSegments.find((segment) => segment.takeoffFrame === eventSegment.takeoff);
+	if (!points) return;
+	const { takeoff, apex, landing } = points;
 	const metrics = measureFlightMetrics(current, takeoff, apex, landing);
 	phaseHud.textContent = phaseLabel(frame);
 	heightHud.textContent = formatMeters(metrics.heightFromTakeoff, true);
@@ -242,11 +296,13 @@ function sampleTrajectoryEvents() {
 		trajectoryRoot.getWorldPosition(trajectoryPosition);
 		return { x: trajectoryPosition.x, y: trajectoryPosition.y, z: trajectoryPosition.z };
 	};
-	trajectoryPoints = {
-		takeoff: sample(trajectoryEventFrames.takeoff),
-		apex: sample(trajectoryEventFrames.apex),
-		landing: sample(trajectoryEventFrames.landing),
-	};
+	const eventSegments = trajectoryEventFrames.segments ?? [trajectoryEventFrames];
+	trajectoryPointSegments = eventSegments.map((segment) => ({
+		takeoffFrame: segment.takeoff,
+		takeoff: sample(segment.takeoff),
+		apex: sample(segment.apex),
+		landing: sample(segment.landing),
+	}));
 	seekAnimationActions(mixer, clipActions, animationStartTime + restoreTime);
 	modelScene.updateMatrixWorld(true);
 }
@@ -385,7 +441,7 @@ async function start() {
 		viewerCamera.name = 'Interactive orbit camera';
 		modelScene.add(viewerCamera);
 
-		if (!FILE) throw new Error('This movement reference is unavailable');
+		if (!FILE) throw new Error(catalog ? 'This movement reference is unavailable.' : 'The movement catalog could not be loaded.');
 		const loader = new GLTFLoader();
 		const gltf = await loader.loadAsync(FILE);
 		modelScene.add(gltf.scene);
@@ -400,22 +456,21 @@ async function start() {
 		skaterSideCamera = findExportedNameMatch(sceneObjects, CAMERA_NAMES[5]);
 		arenaObject = findExportedNameMatch(sceneObjects, 'V23 capsule ice · 60 m × 30 m (30 m straights + semicircles)');
 		if (inspectionSkates.some((part) => !part) || !inspectionCamera?.isCamera || !arenaCamera?.isCamera || !skaterFollowCamera?.isCamera || !skaterSideCamera?.isCamera || !arenaObject) {
-			throw new Error('The selected skate inspection, arena, skater-follow or side-profile camera is missing.');
+			throw new Error('The v178 skate inspection, arena, skater-follow or side-profile camera is missing.');
 		}
 		createSkateShadows();
 		const clips = gltf.animations;
 		animationTrackCount = clips.reduce((count, clip) => count + clip.tracks.length, 0);
-		if (!clips.length || animationTrackCount < 80) {
-			throw new Error('The selected GLB did not contain the expected articulated 3D action.');
-		}
+		if (!clips.length || animationTrackCount === 0) throw new Error('The GLB does not contain an animation.');
+		if (!trajectoryRoot) throw new Error('The GLB is missing its animated skater root.');
 		const rootPositionTrack = clips.flatMap((clip) => clip.tracks).find((track) =>
 			track.name.startsWith(trajectoryRoot.name) && track.name.endsWith('.position'));
 		if (!rootPositionTrack || rootPositionTrack.times.length !== frameCount) {
-			throw new Error('The selected root track does not contain the expected frame samples.');
+			throw new Error('The v178 root track does not contain the expected frame samples.');
 		}
 		animationStartTime = rootPositionTrack.times[0];
 		duration = rootPositionTrack.times.at(-1) - animationStartTime;
-		if (!Number.isFinite(duration) || duration <= 0) throw new Error('The selected animation has no usable duration.');
+		if (!Number.isFinite(duration) || duration <= 0) throw new Error('The v178 animation has no usable duration.');
 		mixer = new THREE.AnimationMixer(gltf.scene);
 		clipActions = clips.map((clip) => {
 			const action = mixer.clipAction(clip);
@@ -424,12 +479,15 @@ async function start() {
 			action.play();
 			return action;
 		});
-		if (!trajectoryRoot) throw new Error('The selected GLB is missing its animated skater root track.');
-		trajectoryEventFrames = readAxelEventFrames(sceneObjects);
-		if (Object.values(trajectoryEventFrames).some((frame) => frame > frameCount)) {
+		trajectoryEventFrames = resolveTrajectoryEvents(sceneObjects);
+		flightHud.hidden = !trajectoryEventFrames;
+		const eventFrames = trajectoryEventFrames?.segments
+			? trajectoryEventFrames.segments.flatMap(({ takeoff, apex, landing }) => [takeoff, apex, landing])
+			: trajectoryEventFrames && [trajectoryEventFrames.takeoff, trajectoryEventFrames.apex, trajectoryEventFrames.landing];
+		if (eventFrames?.some((frame) => frame > frameCount)) {
 			throw new Error('A V102 inherited trajectory event is outside the exported animation frame range.');
 		}
-		sampleTrajectoryEvents();
+		if (trajectoryEventFrames) sampleTrajectoryEvents();
 		inspectionCamera.zoom = 1.0;
 		inspectionCamera.near = 0.01;
 		inspectionCamera.updateProjectionMatrix();

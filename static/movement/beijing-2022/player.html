@@ -14,7 +14,7 @@
 		.player-head strong{font-size:.92rem}.badge{font-size:.65rem;font-weight:750;letter-spacing:.08em;color:#ffd38c;border:1px solid #916d3e;border-radius:999px;padding:.25rem .5rem;white-space:nowrap}
 		.stage-shell{position:relative;flex:1;min-height:160px;overflow:hidden;background:#c9dce1}
 		#blender-stage{display:block;width:100%;height:100%;background:#c9dce1}
-		.flight-hud{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.35rem;padding:.45rem .65rem;background:#193846;color:#eaf3f4}
+		.flight-hud[hidden]{display:none}.flight-hud{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.35rem;padding:.45rem .65rem;background:#193846;color:#eaf3f4}
 		.flight-hud div{min-width:0;border-left:2px solid #547482;padding-left:.45rem}.flight-hud b{display:block;font-size:.65rem;color:#a8c0c7;font-weight:500}.flight-hud strong{display:block;font-size:.82rem;font-variant-numeric:tabular-nums}.flight-reference{grid-column:1/-1;margin:0;color:#a8c0c7;font-size:.62rem}
 		.stage-message{align-self:flex-start;max-width:calc(100% - 1.3rem);margin:.3rem .65rem 0;padding:.3rem .5rem;border-radius:5px;background:#102734;color:#edf4f7;font-size:.72rem}
 		.camera-picks{display:flex;justify-content:center;flex-wrap:wrap;gap:.45rem;padding:.5rem .65rem .15rem}
@@ -31,9 +31,9 @@
 	.library-return{color:#9de0d8;margin-right:1rem;font-size:.84rem}</style>
 </head>
 <body>
-	<div class="player-head"><div><a class="library-return" href="./">← 动作库</a><strong>Beijing 2022 · 3D movement reference</strong></div><span class="badge">ILLUSTRATIVE / SIMULATED</span></div>
+	<div class="player-head"><div><a class="library-return" href="./">← 3D library</a><strong>Beijing 2022 · 3D movement reference</strong></div><span class="badge">ILLUSTRATIVE / SIMULATED</span></div>
 	<div class="stage-shell" id="stage-shell"><canvas id="blender-stage" aria-label="Illustrative figure skating movement on capsule ice"></canvas></div>
-	<div class="flight-hud" aria-live="polite" aria-label="Live simulated flight measurements">
+	<div id="flight-hud" class="flight-hud" aria-live="polite" aria-label="Live simulated flight measurements">
 		<div><b>Phase</b><strong id="flight-phase">Loading…</strong></div>
 		<div><b>Current rise from take-off</b><strong id="flight-height">—</strong></div>
 		<div><b>Current horizontal travel</b><strong id="flight-distance">—</strong></div>
@@ -52,7 +52,8 @@
 	</div>
 	<p class="view-hint">Left-drag: rotate · Shift + left-drag or right-drag: pan · scroll: zoom · Reset view restores the selected camera preset</p>
 	<div class="controls"><button id="blender-play" type="button" disabled>Play</button><button id="blender-reset" type="button" disabled>Restart</button><label for="blender-frame">Frame</label><input id="blender-frame" type="range" min="0" max="159" step="1" value="0" aria-label="Blender animation frame" disabled><span id="blender-counter" class="counter">Frame 1 / 160 · Approach · simulated</span><label class="speed-label" for="blender-speed">Speed</label><select id="blender-speed" aria-label="Playback speed"><option value="0.35">Slow · 0.35×</option><option value="1" selected>Normal · 1×</option></select><button id="blender-fullscreen" type="button" disabled>Fullscreen</button></div>
-	<p class="note">Every pose, phase and trajectory is illustrative / simulated; this is not Beijing 2022 athlete capture. The bundled Three.js player works without an external CDN request.</p>
+	<p class="note" id="motion-note"></p>
+	<p class="note">Poses, phases and trajectories are illustrative simulations. <a class="library-return" href="./THIRD_PARTY_NOTICES.md" target="_blank" rel="noreferrer">Sources and licenses</a></p>
 	<script src="/movement/axel-1a-prototype/vendor/three.umd.js"></script>
 	<script src="/movement/axel-1a-prototype/vendor/GLTFLoader.js"></script>
 	<script type="module" src="./blender-player.js"></script>
