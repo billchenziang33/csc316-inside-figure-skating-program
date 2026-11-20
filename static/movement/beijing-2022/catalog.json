@@ -1476,13 +1476,13 @@
       "id": "1S",
       "name": "1S · Salchow",
       "kind": "jump",
-      "file": "1S-r3-web.glb",
+      "file": "1S-r3-local-v1-web.glb",
       "frames": 351,
-      "sha256": "1516fd661e9846b02252ccce344a1fc32e02745ae9293ace642eb26d1cee63aa",
-      "model": "https://billchenziang33.github.io/figure-skate-database-3d/1S-r3-web.glb?v=1516fd661e98",
+      "sha256": "77f3377b01d23e02459306f982c0fdc707c38fde12d04fa7aaa822332b8e4e92",
+      "model": "https://billchenziang33.github.io/figure-skate-database-3d/1S-r3-local-v1-web.glb?v=77f3377b01d2",
       "player": "/movement/beijing-2022/player.html?id=1S",
-      "poster": "https://billchenziang33.github.io/figure-skate-database-3d/1S-r3-apex-side.png?v=48794003def8",
-      "archived_rounds": 3,
+      "poster": "https://billchenziang33.github.io/figure-skate-database-3d/1S-r3-local-v1-landing.png?v=34518736df09",
+      "archived_rounds": 4,
       "blender_geometry_reviewed": true,
       "blender_technique_reviewed": true,
       "public_side_view": "pending",
@@ -1492,7 +1492,7 @@
         "LANDING": 191
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. Sampled geometry and technique checks passed. Full playback in the public default side view awaits review."
+      "note": "Local R3 refinement. Landing arm timing improved. Illustrative / simulated."
     },
     "2A": {
       "id": "2A",
