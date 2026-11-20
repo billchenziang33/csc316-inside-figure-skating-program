@@ -69,8 +69,8 @@
 		<span class="camera-label" aria-hidden="true">View</span>
 		<button type="button" data-view="angled" aria-pressed="true">45° angle</button>
 		<button type="button" data-view="auto" aria-pressed="false">Auto fit</button>
-		<button type="button" data-view="bullet" aria-pressed="false" title="Pause at the selected moment and orbit around the full-body pose from a lower 35° view">Bullet Time</button>
-		<span class="camera-explain">Pause on a frame and orbit around the skater once from a lower 35° view.</span>
+		<button type="button" data-view="bullet" aria-pressed="false" title="Pause at the selected moment and orbit around the full-body pose from a 10° view for 1S, 35° for other movements">Bullet Time</button>
+		<span class="camera-explain">Pause on a frame and orbit around the skater once from the selected low-angle view.</span>
 	</div>
 	<div class="controls"><button id="blender-play" type="button" disabled>Play</button><button id="blender-reset" type="button" disabled>Restart</button><input id="blender-frame" type="range" min="0" max="159" step="1" value="0" aria-label="Animation progress" disabled><span id="blender-counter" class="counter">Frame 1 / 160 · Approach · simulated</span><label class="speed-label" for="blender-speed">Speed</label><select id="blender-speed" aria-label="Playback speed"><option value="0.35">Slow · 0.35×</option><option value="1" selected>Normal · 1×</option></select><button id="blender-fullscreen" type="button" disabled>Fullscreen</button></div>
 	<p class="note" id="motion-note"></p>

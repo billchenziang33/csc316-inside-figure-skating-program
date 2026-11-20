@@ -86,7 +86,7 @@ let followInspection = false;
 let orbitEnabled = false;
 let orbitYaw = 0;
 let orbitPitch = 0;
-const bulletTimeElevation = THREE.MathUtils.degToRad(35);
+const bulletTimeElevation = THREE.MathUtils.degToRad(assetId === '1S' ? 10 : 35);
 let orbitZoom = 1;
 const orbitPan = new THREE.Vector3();
 let dragPointerId = null;
