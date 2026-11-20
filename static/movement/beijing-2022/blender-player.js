@@ -50,6 +50,14 @@ const flightHud = document.querySelector('#flight-hud');
 const flightToggle = document.querySelector('#flight-toggle');
 const flightPanel = document.querySelector('#flight-panel');
 const flightClose = document.querySelector('#flight-close');
+const defaultView = assetId === '1S' ? 'jump' : 'angled';
+if (defaultView === 'jump') {
+	const button = document.createElement('button');
+	button.type = 'button';
+	button.dataset.view = 'jump';
+	button.textContent = 'Jump view';
+	document.querySelector('[data-view="angled"]').before(button);
+}
 const cameraButtons = [...document.querySelectorAll('[data-view]')];
 const phaseHud = document.querySelector('#flight-phase');
 const heightHud = document.querySelector('#flight-height');
@@ -429,7 +437,7 @@ function selectView(mode) {
 	selectedView = mode;
 	sourceCamera = skaterSideCamera;
 	activeCamera = viewerCamera;
-	followInspection = mode !== 'angled';
+	followInspection = mode === 'auto' || mode === 'bullet';
 	orbitEnabled = mode === 'angled' || mode === 'bullet';
 	orbitYaw = mode === 'angled' ? Math.PI / 4 : (mode === 'bullet' ? bulletTimeAngle : 0);
 	orbitPitch = 0;
@@ -579,7 +587,7 @@ async function start() {
 		inspectionCamera.updateProjectionMatrix();
 		mixer.setTime(animationStartTime);
 		modelScene.updateMatrixWorld(true);
-	selectView('angled');
+	selectView(defaultView);
 		frameSlider.disabled = false;
 		playButton.disabled = false;
 		resetButton.disabled = false;

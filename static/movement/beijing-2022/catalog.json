@@ -1476,13 +1476,13 @@
       "id": "1S",
       "name": "1S · Salchow",
       "kind": "jump",
-      "file": "1S-r3-local-v1-web.glb",
+      "file": "1S-edge-study.glb",
       "frames": 351,
-      "sha256": "77f3377b01d23e02459306f982c0fdc707c38fde12d04fa7aaa822332b8e4e92",
-      "model": "https://billchenziang33.github.io/figure-skate-database-3d/1S-r3-local-v1-web.glb?v=77f3377b01d2",
+      "sha256": "d3a67dcb987658edf9d3a6fbc9a7f37284f8cfb1697393695e3457cebc24c07a",
+      "model": "https://billchenziang33.github.io/figure-skate-database-3d/1S-edge-study.glb?v=d3a67dcb9876",
       "player": "/movement/beijing-2022/player.html?id=1S",
-      "poster": "https://billchenziang33.github.io/figure-skate-database-3d/1S-r3-local-v1-landing.png?v=34518736df09",
-      "archived_rounds": 4,
+      "poster": "https://billchenziang33.github.io/figure-skate-database-3d/1S-edge-study-takeoff.png?v=bc9e08f04ad1",
+      "archived_rounds": 5,
       "blender_geometry_reviewed": true,
       "blender_technique_reviewed": true,
       "public_side_view": "pending",
@@ -1492,7 +1492,7 @@
         "LANDING": 191
       },
       "motion_label": "illustrative / simulated",
-      "note": "Local R3 refinement. Landing arm timing improved. Illustrative / simulated."
+      "note": "New single Salchow demonstration: backward inside-edge takeoff, one rotation and an opposite-foot outside-edge landing. Illustrative / simulated; no Beijing 2022 motion capture."
     },
     "2A": {
       "id": "2A",
