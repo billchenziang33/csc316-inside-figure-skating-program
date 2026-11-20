@@ -1476,13 +1476,13 @@
       "id": "1S",
       "name": "1S · Salchow",
       "kind": "jump",
-      "file": "1S-edge-study.glb",
+      "file": "1S-edge-study-r6.glb",
       "frames": 351,
-      "sha256": "d3a67dcb987658edf9d3a6fbc9a7f37284f8cfb1697393695e3457cebc24c07a",
-      "model": "https://billchenziang33.github.io/figure-skate-database-3d/1S-edge-study.glb?v=d3a67dcb9876",
+      "sha256": "3d172a33d2e68425fc7137afb36948024c9b33c839fe50c465ae5512d7f26e0b",
+      "model": "https://billchenziang33.github.io/figure-skate-database-3d/1S-edge-study-r6.glb?v=3d172a33d2e6",
       "player": "/movement/beijing-2022/player.html?id=1S",
-      "poster": "https://billchenziang33.github.io/figure-skate-database-3d/1S-edge-study-takeoff.png?v=bc9e08f04ad1",
-      "archived_rounds": 5,
+      "poster": "https://billchenziang33.github.io/figure-skate-database-3d/1S-edge-study-r6-takeoff.png?v=b4ee42e96530",
+      "archived_rounds": 6,
       "blender_geometry_reviewed": true,
       "blender_technique_reviewed": true,
       "public_side_view": "pending",
@@ -1492,7 +1492,8 @@
         "LANDING": 191
       },
       "motion_label": "illustrative / simulated",
-      "note": "New single Salchow demonstration: backward inside-edge takeoff, one rotation and an opposite-foot outside-edge landing. Illustrative / simulated; no Beijing 2022 motion capture."
+      "note": "Single Salchow: follow the left back inside edge through takeoff, then the right knee as it absorbs the landing. Illustrative / simulated; no Beijing 2022 motion capture.",
+      "shadow_mode": "blade-clearance"
     },
     "2A": {
       "id": "2A",

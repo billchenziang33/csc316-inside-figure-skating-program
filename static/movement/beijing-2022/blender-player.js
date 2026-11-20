@@ -4,6 +4,7 @@ import { toggleFullscreen } from '../axel-1a-prototype/fullscreen-control.js';
 import { advancePlaybackTime, elapsedPlaybackSeconds, playbackSpeedFromControl, seekAnimationActions } from '../axel-1a-prototype/playback-clock.mjs?v=100';
 import { formatMeters, measureFlightMetrics, phaseAt, readAxelEventFrames, readEventSegments, selectEventSegment, timeAtAnimationFrame } from './trajectory-hud.mjs?v=105';
 
+import { createBodyShadow, updateBodyShadow } from './blade-shadow.mjs';
 const THREE = globalThis.THREE;
 const GLTFLoader = THREE?.GLTFLoader;
 
@@ -20,6 +21,7 @@ try {
 }
 const asset = catalog && Object.hasOwn(catalog.assets, assetId) ? catalog.assets[assetId] : null;
 const FILE = asset?.model;
+const useBladeClearance = asset?.shadow_mode === 'blade-clearance';
 const returnLink = document.querySelector('.library-return');
 if (window.top !== window) returnLink.hidden = true;
 const from = query.get('from');
@@ -142,12 +144,7 @@ function createSkateShadows() {
 	const texture = new THREE.CanvasTexture(textureCanvas);
 	const geometry = new THREE.PlaneGeometry(.57, .21).rotateX(-Math.PI / 2);
 	iceHeight = shadowBounds.setFromObject(arenaObject).max.y;
-	const flightGeometry = new THREE.PlaneGeometry(1.8, 1.1).rotateX(-Math.PI / 2);
-	flightShadow = new THREE.Mesh(flightGeometry, new THREE.MeshBasicMaterial({
-		map: texture, color: 0x263c4c, transparent: true, opacity: 0, depthWrite: false,
-	}));
-	flightShadow.visible = false;
-	flightShadow.renderOrder = 1;
+	flightShadow = createBodyShadow(THREE, texture);
 	modelScene.add(flightShadow);
 	skateShadows = [inspectionSkates[1], inspectionSkates[3]].map((runner) => {
 		const surfaces = [];
@@ -166,6 +163,7 @@ function createSkateShadows() {
 }
 
 function updateSkateShadows() {
+	let lowerBladeGap = Infinity;
 	for (const { runner, surfaces, shadow } of skateShadows) {
 		let lowest = Infinity;
 		for (const { part, positions } of surfaces) {
@@ -177,7 +175,8 @@ function updateSkateShadows() {
 			}
 		}
 		const gap = Math.max(0, lowest - iceHeight);
-		shadow.visible = gap < .26;
+		lowerBladeGap = Math.min(lowerBladeGap, gap);
+		shadow.visible = useBladeClearance || gap < .26;
 		if (!shadow.visible) continue;
 		shadowBounds.setFromObject(runner).getCenter(shadowCenter);
 		shadow.position.set(shadowCenter.x, iceHeight + .002, shadowCenter.z);
@@ -185,6 +184,11 @@ function updateSkateShadows() {
 		shadow.rotation.y = Math.atan2(-shadowDirection.z, shadowDirection.x);
 		shadow.scale.setScalar(1 + 1.5 * gap);
 		shadow.material.opacity = .53 * Math.exp(-16 * gap);
+	}
+	if (useBladeClearance && flightShadow && trajectoryRoot && Number.isFinite(lowerBladeGap)) {
+		trajectoryRoot.getWorldPosition(trajectoryPosition);
+		updateBodyShadow(flightShadow, lowerBladeGap, trajectoryPosition, iceHeight);
+		return;
 	}
 	if (!flightShadow || !trajectoryRoot || !trajectoryEventFrames || !trajectoryPointSegments.length) return;
 	const segments = trajectoryEventFrames.segments ?? [trajectoryEventFrames];

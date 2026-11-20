@@ -4,6 +4,7 @@
   "catalog.json",
   "player.html",
   "blender-player.js",
+  "blade-shadow.mjs",
   "trajectory-hud.mjs",
   "THIRD_PARTY_NOTICES.md"
 ]
