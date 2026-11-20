@@ -1566,13 +1566,13 @@
       "id": "4T+3T",
       "name": "4T+3T · Quadruple toe loop + triple toe loop",
       "kind": "combination",
-      "file": "4T+3T-r3-web.glb",
+      "file": "4T3T-r5.glb",
       "frames": 435,
-      "sha256": "ba89a726834166d898835ef618f894b25fee2d08115d7449c8e95fe9da7677b7",
-      "model": "https://billchenziang33.github.io/figure-skate-database-3d/4T%2B3T-r3-web.glb?v=ba89a7268341",
+      "sha256": "76f85655937b2698c05928fc0f6dddd1d73619bbab84caf8cea28fcb68381284",
+      "model": "https://billchenziang33.github.io/figure-skate-database-3d/4T3T-r5.glb?v=76f85655937b",
       "player": "/movement/beijing-2022/player.html?id=4T%2B3T",
-      "poster": "https://billchenziang33.github.io/figure-skate-database-3d/4T%2B3T-r3-landing-3t-side.png?v=e6a1f8014a71",
-      "archived_rounds": 3,
+      "poster": "https://billchenziang33.github.io/figure-skate-database-3d/4T3T-r5-landing.jpg?v=867bc58f12cf",
+      "archived_rounds": 5,
       "blender_geometry_reviewed": true,
       "blender_technique_reviewed": true,
       "public_side_view": "pending",
@@ -1586,7 +1586,8 @@
         "EXIT": 435
       },
       "motion_label": "illustrative / simulated",
-      "note": "The right-foot triple toe loop follows the quad toe loop landing within 29 frames. The jumps complete four and three rotations respectively. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Two toe-assisted jumps. Follow the right back outside landing edge into the triple, with a left toe pick for each takeoff. Illustrative / simulated; no Beijing 2022 motion capture.",
+      "shadow_mode": "blade-clearance"
     },
     "3A+2T": {
       "id": "3A+2T",

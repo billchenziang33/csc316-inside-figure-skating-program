@@ -52,7 +52,8 @@ const flightHud = document.querySelector('#flight-hud');
 const flightToggle = document.querySelector('#flight-toggle');
 const flightPanel = document.querySelector('#flight-panel');
 const flightClose = document.querySelector('#flight-close');
-const defaultView = assetId === '1S' ? 'jump' : 'angled';
+const lowJumpView = assetId === '1S' || assetId === '4T+3T';
+const defaultView = lowJumpView ? 'jump' : 'angled';
 if (defaultView === 'jump') {
 	const button = document.createElement('button');
 	button.type = 'button';
@@ -96,7 +97,7 @@ let followInspection = false;
 let orbitEnabled = false;
 let orbitYaw = 0;
 let orbitPitch = 0;
-const bulletTimeElevation = THREE.MathUtils.degToRad(assetId === '1S' ? 10 : 35);
+const bulletTimeElevation = THREE.MathUtils.degToRad(lowJumpView ? 10 : 35);
 let orbitZoom = 1;
 const orbitPan = new THREE.Vector3();
 let dragPointerId = null;
