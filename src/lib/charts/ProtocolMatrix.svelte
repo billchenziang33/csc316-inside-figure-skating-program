@@ -10,7 +10,7 @@
 	{#if markedCount === 0}
 		This program has no protocol marks.
 	{:else}
-		<strong>{markedCount} of {rows.length}</strong> elements have protocol marks.
+		This program has protocol marks on <strong>{markedCount} of {rows.length}</strong> elements.
 	{/if}
 </p>
 
@@ -85,6 +85,7 @@
 		cursor:pointer;
 	}
 	.element-button:hover .code { text-decoration:underline; text-underline-offset:.2em; }
+	.element-button:focus-visible, .mark-button:focus-visible { outline-color:var(--navy); }
 	.element-button:focus-visible { outline-offset:-4px; }
 	.order { color:#4d6057; font:.77rem var(--mono); }
 	.code { font-size:1rem; font-weight:700; overflow-wrap:anywhere; }
