@@ -229,7 +229,6 @@
       {#if activeStage === 'evidence' && evidencePanel === 'protocol'}
         <article class="matrix-card panel">
           <div class="panel-heading"><h2>Protocol marks by element</h2></div>
-          <p class="scope-note">Select an element or a marked cell to see its score above.</p>
           <ProtocolMatrix elements={programElements} selectedId={selectedElement?.id} onSelect={selectEvidenceElement} />
         </article>
       {:else}
