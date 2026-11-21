@@ -32,15 +32,26 @@
 		evidencePanel = route.panel ?? 'protocol';
 		if (evidencePanel === 'compare' || activeStage === 'chart-detail') activeChart = route.chart;
 		motionOpen = false;
-		const element = data?.elements.find((row) => row.id === route.elementId);
+		const elementId = route.elementId ?? history.state?.evidenceElementId;
+		const element = data?.elements.find((row) => row.id === elementId);
 		if (element) {
 			selectedRank = element.final_rank;
 			selectedSegment = element.segment;
 			selectedElementId = element.id;
 		}
 	}
+	function navigate(hash) {
+		if (location.hash === hash) return;
+		if ((activeStage === 'evidence' || activeStage === 'chart-detail') && !readRoute(location.hash).elementId) {
+			// Legacy links have no occurrence in the URL. Remember their selection for Back.
+			history.replaceState({ evidenceElementId: selectedElement?.id }, '', location.href);
+		}
+		history.pushState(null, '', hash);
+		syncRoute();
+	}
+
 	async function go(stage, view) {
-		history.pushState(null, '', routeHash(stage, view, selectedElement?.id)); syncRoute();
+		navigate(routeHash(stage, view, selectedElement?.id));
 		await tick(); document.getElementById('stage-heading')?.focus({ preventScroll: true }); window.scrollTo({ top: 0, behavior: 'instant' });
 	}
 	onMount(() => { syncRoute(); window.addEventListener('hashchange', syncRoute); window.addEventListener('popstate', syncRoute); return () => { window.removeEventListener('hashchange', syncRoute); window.removeEventListener('popstate', syncRoute); }; });
@@ -87,18 +98,12 @@
 	});
 
 	function switchEvidenceView(view) {
-		const hash = routeHash('evidence', view, selectedElement?.id);
-		if (location.hash === hash) return;
-		history.pushState(null, '', hash);
-		syncRoute();
+		navigate(routeHash('evidence', view, selectedElement?.id));
 	}
 
 	function selectEvidenceElement(id) {
 		const view = activeStage === 'evidence' && evidencePanel === 'protocol' ? 'protocol' : activeChart;
-		const hash = routeHash(activeStage, view, id);
-		if (location.hash === hash) return;
-		history.pushState(null, '', hash);
-		syncRoute();
+		navigate(routeHash(activeStage, view, id));
 	}
 
 	function selectWorkbenchElement(id) {
