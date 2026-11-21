@@ -9,33 +9,64 @@ a { color:inherit; }
 button:focus-visible,select:focus-visible,a:focus-visible { outline:3px solid #e9ab55; outline-offset:3px; }
 .section-number,.kicker,.program-score span,.selected-element>span,.program-math>span { font-family:var(--mono); text-transform:uppercase; letter-spacing:.11em; font-size:.68rem; }
 .finding-hero {
-  --finding-gap: clamp(2rem, 4.5vw, 5.5rem);
+  position:relative;
+  isolation:isolate;
   display:grid;
-  grid-template-columns:minmax(0, 1.2fr) minmax(0, 1fr);
-  gap:var(--finding-gap);
+  grid-template-rows:auto 1fr;
   min-height:100vh;
   min-height:100svh;
-  padding:clamp(1.5rem, 4.5vh, 4rem) clamp(1.5rem, 4.2vw, 6rem);
-  background:#faf3e8;
-  color:var(--navy);
+  padding:0 clamp(1.25rem, 2.5vw, 4rem);
+  background:#081724;
+  color:#faf3e8;
 }
-.finding-copy { align-self:center; }
-.finding-copy h1 { font-size:clamp(3rem, 6.6vw, 8rem); font-weight:700; line-height:1.02; letter-spacing:-.065em; }
-.finding-copy h1 span { display:block; max-width:12ch; }
-.finding-copy h1 em { display:block; margin-top:.08em; color:#946637; letter-spacing:-.055em; }
-.finding-copy p { max-width:38ch; margin:clamp(1.3rem, 3vw, 2.75rem) 0 0; font-size:clamp(1.05rem, 1.75vw, 1.65rem); line-height:1.45; }
-.finding-copy .primary { margin-top:clamp(1.25rem, 2.8vw, 2.5rem); padding:clamp(.75rem, 1.1vw, 1.2rem) clamp(1.2rem, 2vw, 2.2rem); font-size:clamp(1rem, 1.35vw, 1.3rem); background:#296b64; }
-.finding-copy .primary:hover { background:#20534e; }
-.finding-photo { position:relative; min-height:18rem; margin:0; background:#061322; }
-.finding-photo::before { content:''; position:absolute; top:0; bottom:0; left:calc(var(--finding-gap) / -2); border-left:1px solid #15223566; }
-.finding-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 46%; }
-@media(max-width:760px) {
-  .finding-hero { grid-template-columns:1fr; grid-template-rows:auto 1fr; gap:1.35rem; padding:clamp(1.25rem, 5vw, 2rem); }
-  .finding-copy h1 { font-size:clamp(2.35rem, 9vw, 4.5rem); }
-  .finding-copy h1 span { max-width:none; }
-  .finding-photo { min-height:clamp(15rem, 46svh, 31rem); }
-  .finding-photo::before { display:none; }
-  .finding-photo img { object-fit:contain; }
+.finding-masthead {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  padding:1.05rem .35rem;
+  border-bottom:1px solid #faf3e88c;
+  font-size:clamp(.8rem, 1.35vw, 1.33rem);
+}
+.finding-masthead span:first-child { font:500 1em var(--mono); letter-spacing:.07em; text-transform:uppercase; }
+.finding-masthead span:last-child { font-weight:600; white-space:nowrap; }
+.finding-copy {
+  align-self:center;
+  width:min(69%, 76rem);
+  margin-inline-start:clamp(0rem, 3vw, 5rem);
+  padding:2rem 0 clamp(3rem, 9vh, 7rem);
+  text-align:center;
+}
+.finding-copy h1 {
+  max-width:none;
+  font:600 clamp(3rem, 6.1vw, 8rem)/1.06 var(--serif);
+  letter-spacing:-.04em;
+}
+.finding-copy h1 span,.finding-copy h1 em { display:block; }
+.finding-copy h1 em { margin-top:.05em; color:#e1b27a; }
+.finding-copy p {
+  max-width:45ch;
+  margin:clamp(1.2rem, 3vw, 2.5rem) auto 0;
+  font-size:clamp(1.05rem, 1.85vw, 1.85rem);
+  line-height:1.45;
+}
+.finding-copy .primary {
+  margin-top:clamp(1.2rem, 2.7vw, 2.5rem);
+  padding:clamp(.75rem, 1.1vw, 1.2rem) clamp(1.25rem, 2.4vw, 2.6rem);
+  border-color:#d6e5dc;
+  border-radius:9px;
+  background:#285d58;
+  font-size:clamp(1rem, 1.55vw, 1.5rem);
+}
+.finding-copy .primary:hover { background:#34736b; }
+.finding-photo { position:absolute; z-index:-1; inset:0; margin:0; }
+.finding-photo img { display:block; width:100%; height:100%; object-fit:cover; object-position:80% center; }
+@media(max-width:800px), (max-aspect-ratio:5/4) {
+  .finding-hero { grid-template-rows:auto auto 1fr; }
+  .finding-copy { width:100%; margin:0; padding:clamp(1.3rem, 4vh, 3.5rem) 0 1.1rem; }
+  .finding-copy h1 { font-size:clamp(2.25rem, 8.8vw, 4.7rem); }
+  .finding-photo { position:relative; min-height:clamp(14rem, 45svh, 30rem); }
+  .finding-photo img { position:absolute; inset:0; object-fit:contain; }
 }
 .kicker { color:#c99b6c; margin:0 0 1rem; }
 h1,h2,h3,h4,p { margin-top:0; }

@@ -1,5 +1,6 @@
 <script>
 	import { onMount, tick } from 'svelte';
+	import findingIceRink from './assets/finding-ice-rink.webp';
 	import findingSkater from './assets/finding-skater.webp';
 	import ScoreComparison from './lib/charts/ScoreComparison.svelte';
 	import JumpCounts from './lib/charts/JumpCounts.svelte';
@@ -105,16 +106,23 @@
   <main id="main-content" tabindex="-1">
   {#if activeStage === 'story'}
 	<header class="finding-hero">
+		<div class="finding-masthead">
+			<span>Inside the Program</span>
+			<span>The finding</span>
+		</div>
 		<div class="finding-copy">
 			<h1 id="stage-heading" tabindex="-1">
-				<span>See a skating program,</span>
-				<em>move by move.</em>
+				<span>What turns a skating</span>
+				<em>move into points?</em>
 			</h1>
-			<p>Choose a skater, follow the order of their elements, and see how each move was scored.</p>
-			<button class="primary" onclick={() => go('choose')}>Choose a program <span aria-hidden="true">→</span></button>
+			<p>Open an Olympic program, see what each element earned, and watch the technique in 3D.</p>
+			<button class="primary" onclick={() => go('choose')}>See how scoring works <span aria-hidden="true">→</span></button>
 		</div>
 		<figure class="finding-photo">
-			<img src={findingSkater} width="1122" height="1402" alt="Illustration of a figure skater rotating in midair" fetchpriority="high" />
+			<picture>
+				<source media="(max-width: 800px), (max-aspect-ratio: 5/4)" srcset={findingSkater} />
+				<img src={findingIceRink} width="1672" height="941" alt="Illustration of a figure skater rotating in midair" fetchpriority="high" />
+			</picture>
 		</figure>
 	</header>
 
