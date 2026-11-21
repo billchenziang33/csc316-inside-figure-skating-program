@@ -1,6 +1,6 @@
 <script>
 	import { onMount, tick } from 'svelte';
-	import JumpShareChart from './lib/charts/JumpShareChart.svelte';
+	import findingSkater from './assets/finding-skater.webp';
 	import ScoreComparison from './lib/charts/ScoreComparison.svelte';
 	import JumpCounts from './lib/charts/JumpCounts.svelte';
 	import RotationGoe from './lib/charts/RotationGoe.svelte';
@@ -10,7 +10,7 @@
 
 	import MotionOverlay from './lib/MotionOverlay.svelte';
 	import { resolveMotion } from './lib/data/motion-reference.mjs';
-	import { stages, chartIds, readRoute, routeHash, libraryHref } from './lib/navigation.mjs';
+	import { stages, chartIds, readRoute, routeHash } from './lib/navigation.mjs';
 	let activeStage = $state('story');
 	let activeChart = $state('S12');
 	let workspaceTab = $state('sequence');
@@ -51,8 +51,6 @@
 		.sort((a, b) => a.element_order - b.element_order));
 	let selectedElement = $derived(programElements.find((d) => d.id === selectedElementId) ?? programElements[0] ?? null);
 	let selectedMotion = $derived(resolveMotion(motionCatalog, selectedElement));
-	let relatedLibrary = $derived(libraryHref(selectedElement?.id));
-	let jumpShare = $derived(data?.jumpShare ?? []);
 	let allElements = $derived(data?.elements ?? []);
 
 	onMount(async () => {
@@ -97,26 +95,27 @@
 <svelte:head><title>Inside a Figure-Skating Program · Beijing 2022</title></svelte:head>
 <a class="skip-link" href="#main-content" onclick={(event) => { event.preventDefault(); document.getElementById('main-content')?.focus(); }}>Skip to content</a>
 <div class="app-shell">
+  {#if activeStage !== 'story'}
   <nav class="stage-nav" aria-label="Story steps">
     <button class="brand" onclick={() => go('story')}>INSIDE THE PROGRAM <small>BEIJING 2022 · MEN’S SINGLES</small></button>
     <ol>{#each stages as stage, i}<li><button aria-label={`${i+1} ${stage.label}`} aria-current={stageIndex === i ? 'step' : undefined} onclick={() => go(stage.id)}><span>{i+1}</span><b>{stage.label}</b></button></li>{/each}</ol>
   </nav>
+  {/if}
   <p class="sr-only" aria-live="polite">Step {stageIndex + 1} of 6: {stages[stageIndex]?.label}. {selectedSkater}, {selectedSegment}.</p>
   <main id="main-content" tabindex="-1">
   {#if activeStage === 'story'}
-	<header class="hero">
-		<div class="hero-top"><span class="eyebrow">CSC316 · Beijing 2022 · Men’s singles</span><span class="issue">THE SCORE, DECODED</span></div>
-		<div class="hero-copy">
-			<p class="kicker">Inside a figure-skating program</p>
-			<h1 id="stage-heading" tabindex="-1">Jumps carry most of the technical score.<br /><em>And more in the free skate.</em></h1>
-			<p class="deck">Across the event’s top ten, jump elements account for 67.4% of technical element points in the short program and 77.1% in the free skate.</p>
-			<div class="hero-actions"><button class="primary" onclick={() => go('choose')}>Explore a program →</button><a class="secondary" href={libraryHref()}>Browse the 3D library ↗</a><a class="quiet" href="/#workspace/FS:4:1">Hanyu’s 4A&lt; score and 4A technique →</a><button class="quiet" onclick={() => go('charts')}>Skip to charts</button></div>
+	<header class="finding-hero">
+		<div class="finding-copy">
+			<h1 id="stage-heading" tabindex="-1">
+				<span>See a skating program,</span>
+				<em>move by move.</em>
+			</h1>
+			<p>Choose a skater, follow the order of their elements, and see how each move was scored.</p>
+			<button class="primary" onclick={() => go('choose')}>Choose a program <span aria-hidden="true">→</span></button>
 		</div>
-		<div class="hero-chart panel">
-			<div class="panel-heading"><div><span class="section-number">01 / THE PATTERN</span><h2>Jump points take a larger share in the free skate</h2></div><span class="delta">+9.7 pp</span></div>
-			{#if loadError}<p class="error" role="alert">{loadError}</p>{:else if jumpShare.length}<JumpShareChart data={jumpShare} />{:else}<p class="loading">Loading official protocol data…</p>{/if}
-		</div>
-		<div class="source-line">A top-ten cohort analysis · 10 skaters · official ISU element panel scores · <a href="https://results.isu.org/results/season2122/owg2022/" target="_blank" rel="noreferrer">Source: ISU results</a></div>
+		<figure class="finding-photo">
+			<img src={findingSkater} width="1122" height="1402" alt="Illustration of a figure skater rotating in midair" fetchpriority="high" />
+		</figure>
 	</header>
 
   {:else}
@@ -203,11 +202,13 @@
   </section>
   {/if}
   </main>
+  {#if activeStage !== 'story'}
   <nav class="step-controls" aria-label="Step navigation">
     <button class="secondary" disabled={stageIndex === 0} onclick={() => go(stages[Math.max(0,stageIndex-1)].id)}>← Previous</button>
     <button class="step-current" disabled aria-current="step"><span>{stageIndex+1} / {stages.length}</span><b>{stages[stageIndex]?.label}</b></button>
     <button class="primary" onclick={() => go(stageIndex === stages.length-1 ? 'story' : stages[stageIndex+1].id)}>Next →</button>
   </nav>
+  {/if}
   <details class="sources"><summary>Data, sources & scope</summary>
 	<footer><div><span class="section-number">DATA & SCOPE</span><p>Beijing 2022 individual men’s singles · final top ten · 190 protocol elements · 20 segment records</p></div><div class="footer-links"><a href="https://results.isu.org/results/season2122/owg2022/CAT001RS.htm" target="_blank" rel="noreferrer">Final standings ↗</a><a href="https://www.isuresults.com/results/season2122/owg2022/owg2022_protocol.pdf" target="_blank" rel="noreferrer">Official protocol book ↗</a><a href="https://github.com/billchenziang33/csc316-inside-figure-skating-program" target="_blank" rel="noreferrer">Project source ↗</a></div></footer>
   </details>
