@@ -17,16 +17,37 @@ export function jumpRotations(element) {
 	return [...element.element_code_raw.matchAll(/([1-4])(?=[A-Z])/g)].reduce((sum, match) => sum + Number(match[1]), 0);
 }
 
+export const protocolMarkLabels = {
+	'!': 'Unclear takeoff edge',
+	e: 'Wrong takeoff edge',
+	q: 'Landed on the quarter',
+	'<': 'Under-rotated',
+	'<<': 'Downgraded',
+	'*': 'Invalid element'
+};
+
+const JUMP_TOKEN = /^[1-4](?:A|F|Lz|Lo|S|T|Eu)/;
+
 export function protocolMarks(element) {
 	const code = element.element_code_raw;
 	const info = element.info_flag ?? '';
+	// Read letter marks from jump suffixes so the q in StSq or ChSq is ignored.
+	const jumpSuffixes = code.split('+').filter((token) => JUMP_TOKEN.test(token)).map((token) => token.replace(JUMP_TOKEN, ''));
 	return ['<<', '<', 'e', 'q', '!', '*'].filter((mark) => {
 		if (mark === '<<') return info.includes('<<') || code.includes('<<');
 		if (mark === '<') return info === '<' || (code.includes('<') && !code.includes('<<'));
 		if (info.includes(mark)) return true;
-		if (mark === 'e') return /[1-4][A-Z]+e/.test(code);
+		if (mark === 'e' || mark === 'q') return jumpSuffixes.some((suffix) => suffix.includes(mark));
 		return code.includes(mark);
 	});
+}
+
+export function levelledElements(elements) {
+	return elements
+		.filter((element) => ['spin', 'step_sequence'].includes(element.element_group))
+		// A trailing V reduces a spin's base value while retaining its level.
+		.map((element) => ({ ...element, level: Number(element.element_code_raw.match(/([1-4])V?$/)?.[1] ?? 0) }))
+		.filter((element) => element.level > 0);
 }
 
 export function summarizeJumpShare(elements) {

@@ -1,7 +1,9 @@
 <script>
 	import { scaleBand, scaleLinear } from 'd3';
 	let { elements = [] } = $props();
-	let points = $derived(elements.filter((d) => d.element_group === 'spin' || d.element_group === 'step_sequence').map((d, i) => ({...d, family: d.element_group === 'spin' ? 'Spin' : 'Step sequence', level: Number(d.element_code_raw.match(/([1-4])$/)?.[1] ?? 0), jitter: ((d.final_rank * 17 + d.element_order * 13 + i) % 11 - 5) * 2.1})).filter((d) => d.level > 0));
+	let points = $derived(elements.map((d, i) => ({
+		...d, jitter: ((d.final_rank * 17 + d.element_order * 13 + i) % 11 - 5) * 2.1
+	})));
 	const x = scaleBand().domain([1,2,3,4]).range([78, 725]).padding(.3);
 	const y = scaleLinear().domain([0, 12]).range([252, 32]);
 	const yTicks = [0,3,6,9,12];
@@ -14,7 +16,7 @@
 		{#each [1,2,3,4] as level}<line x1={x(level)+x.bandwidth()/2} x2={x(level)+x.bandwidth()/2} y1="32" y2="252" stroke="#f0f1ed"/><text x={x(level)+x.bandwidth()/2} y="271" text-anchor="middle">Level {level}</text>{/each}
 		<line x1="78" x2="725" y1="252" y2="252" stroke="#819088"/><line x1="78" x2="78" y1="32" y2="252" stroke="#819088"/>
 		{#each points as point (point.id)}
-			{#if point.family === 'Spin'}<circle cx={x(point.level)+x.bandwidth()/2+point.jitter} cy={y(point.panel_element_score)} r="4" class="spin-dot"><title>{point.skater} · {point.segment} · {point.element_code_raw} · {point.panel_element_score.toFixed(2)} points</title></circle>
+			{#if point.element_group === 'spin'}<circle cx={x(point.level)+x.bandwidth()/2+point.jitter} cy={y(point.panel_element_score)} r="4" class="spin-dot"><title>{point.skater} · {point.segment} · {point.element_code_raw} · {point.panel_element_score.toFixed(2)} points</title></circle>
 			{:else}<rect x={x(point.level)+x.bandwidth()/2+point.jitter-3.5} y={y(point.panel_element_score)-3.5} width="7" height="7" class="step-dot"><title>{point.skater} · {point.segment} · {point.element_code_raw} · {point.panel_element_score.toFixed(2)} points</title></rect>{/if}
 		{/each}
 		<text x="400" y="296" text-anchor="middle">Protocol level</text><text transform="translate(18 140) rotate(-90)" text-anchor="middle">Element panel score (points)</text>

@@ -10,20 +10,27 @@
 	import BaseVsPanel from './lib/charts/BaseVsPanel.svelte';
 
 	import MotionOverlay from './lib/MotionOverlay.svelte';
+	import { levelledElements, protocolMarks, protocolMarkLabels } from './lib/data/derived.mjs';
 	import { resolveMotion } from './lib/data/motion-reference.mjs';
-	import { stages, chartIds, readRoute, routeHash } from './lib/navigation.mjs';
+	import { stages, chartIds, defaultEvidenceChart, readRoute, routeHash } from './lib/navigation.mjs';
 	let activeStage = $state('story');
-	let activeChart = $state('S12');
+	let activeChart = $state(defaultEvidenceChart);
+	let evidencePanel = $state('protocol');
 	let workspaceTab = $state('sequence');
 	let motionOpen = $state(false);
 	function closeMotion() { motionOpen = false; }
-	let stageIndex = $derived(activeStage === 'chart-detail' ? 4 : stages.findIndex(s => s.id === activeStage));
+	let stageIndex = $derived(stages.findIndex(s => s.id === (activeStage === 'chart-detail' ? 'evidence' : activeStage)));
+	const chartLabels = { S12: 'Program totals', S01: 'Jump counts', S02: 'Rotation & GOE', S06: 'Spin & step levels', S15: 'Base & final score' };
 	const chartTitles = { S12: 'How do technical points contribute to the total?', S01: 'How many scored jump elements appear in each program?', S02: 'How do jump rotations relate to execution?', S06: 'How do spin and step levels compare with scores?', S15: 'How does execution change the element score?' };
-	let chartRows = $derived(activeChart === 'S12' ? segmentRows : allElements.filter(d => activeChart === 'S06' ? d.segment === selectedSegment && d.element_group !== 'jump' : activeChart === 'S02' || activeChart === 'S15' || activeChart === 'S01' ? d.element_group === 'jump' : true));
+	let jumpElements = $derived(allElements.filter(row => row.element_group === 'jump'));
+	let chartRows = $derived(activeChart === 'S12' ? segmentRows
+		: activeChart === 'S06' ? levelledElements(allElements.filter(row => row.segment === selectedSegment))
+		: jumpElements);
 	function syncRoute() {
 		const route = readRoute(location.hash);
 		activeStage = route.stage;
-		activeChart = route.chart;
+		evidencePanel = route.panel ?? 'protocol';
+		if (evidencePanel === 'compare' || activeStage === 'chart-detail') activeChart = route.chart;
 		motionOpen = false;
 		const element = data?.elements.find((row) => row.id === route.elementId);
 		if (element) {
@@ -32,8 +39,8 @@
 			selectedElementId = element.id;
 		}
 	}
-	async function go(stage, chart = activeChart) {
-		history.pushState(null, '', routeHash(stage, chart, selectedElement?.id)); syncRoute();
+	async function go(stage, view) {
+		history.pushState(null, '', routeHash(stage, view, selectedElement?.id)); syncRoute();
 		await tick(); document.getElementById('stage-heading')?.focus({ preventScroll: true }); window.scrollTo({ top: 0, behavior: 'instant' });
 	}
 	onMount(() => { syncRoute(); window.addEventListener('hashchange', syncRoute); window.addEventListener('popstate', syncRoute); return () => { window.removeEventListener('hashchange', syncRoute); window.removeEventListener('popstate', syncRoute); }; });
@@ -79,11 +86,19 @@
 		}
 	});
 
-	function selectFromChart(element) {
-		selectedRank = element.final_rank;
-		selectedSegment = element.segment;
-		selectedElementId = element.id;
-		workspaceTab = 'score'; go('workspace');
+	function switchEvidenceView(view) {
+		const hash = routeHash('evidence', view, selectedElement?.id);
+		if (location.hash === hash) return;
+		history.pushState(null, '', hash);
+		syncRoute();
+	}
+
+	function selectEvidenceElement(id) {
+		const view = activeStage === 'evidence' && evidencePanel === 'protocol' ? 'protocol' : activeChart;
+		const hash = routeHash(activeStage, view, id);
+		if (location.hash === hash) return;
+		history.pushState(null, '', hash);
+		syncRoute();
 	}
 
 	function selectWorkbenchElement(id) {
@@ -102,7 +117,7 @@
     <ol>{#each stages as stage, i}<li><button aria-label={`${i+1} ${stage.label}`} aria-current={stageIndex === i ? 'step' : undefined} onclick={() => go(stage.id)}><span>{i+1}</span><b>{stage.label}</b></button></li>{/each}</ol>
   </nav>
   {/if}
-  <p class="sr-only" aria-live="polite">Step {stageIndex + 1} of 6: {stages[stageIndex]?.label}. {selectedSkater}, {selectedSegment}.</p>
+  <p class="sr-only" aria-live="polite">Step {stageIndex + 1} of {stages.length}: {stages[stageIndex]?.label}. {selectedSkater}, {selectedSegment}.</p>
   <main id="main-content" tabindex="-1">
   {#if activeStage === 'story'}
 	<header class="finding-hero">
@@ -128,7 +143,7 @@
 
   {:else}
   <section class="stage-body" class:expanded={activeStage === 'chart-detail'}>
-    <div class="stage-heading"><div><p class="kicker">STEP {stageIndex+1} / 6 · {activeStage === 'chart-detail' ? activeChart : stages[stageIndex]?.label}</p><h1 id="stage-heading" tabindex="-1">{activeStage === 'choose' ? 'Choose a program to follow.' : activeStage === 'workspace' ? 'One program, three connected views.' : activeStage === 'protocol' ? 'Read the protocol marks.' : activeStage === 'movement' ? 'See the movement.' : chartTitles[activeChart]}</h1></div>{#if activeStage !== 'choose'}<p class="selection-context">{selectedSkater} · {selectedSegment === 'SP' ? 'Short program' : 'Free skate'}<button class="text-button" onclick={() => go('choose')}>Change program</button></p>{/if}</div>
+    <div class="stage-heading"><div><p class="kicker">STEP {stageIndex+1} / {stages.length} · {stages[stageIndex]?.label}</p><h1 id="stage-heading" tabindex="-1">{activeStage === 'choose' ? 'Choose a program to follow.' : activeStage === 'workspace' ? 'One program, three connected views.' : activeStage === 'evidence' ? 'How did this move earn its score?' : activeStage === 'movement' ? 'See the movement.' : chartTitles[activeChart]}</h1></div>{#if activeStage !== 'choose'}<p class="selection-context">{selectedSkater} · {selectedSegment === 'SP' ? 'Short program' : 'Free skate'}<button class="text-button" onclick={() => go('choose')}>Change program</button></p>{/if}</div>
     {#if loadError}<p class="error" role="alert">Could not load program data: {loadError}</p>{:else if !data}<p class="loading" role="status">Loading official protocol data…</p>{:else}
     {#if activeStage === 'choose'}
       <p class="stage-intro">Follow one of the final top ten through the official element sequence and scoring breakdown.</p>
@@ -183,21 +198,47 @@
 
 				</section>
 			</div>
-      <div class="workspace-actions"><button class="secondary" onclick={() => go('protocol')}>Inspect protocol marks →</button><button class="secondary" onclick={() => go('charts','S15')}>Compare base value and panel score →</button></div>
-    {:else if activeStage === 'protocol'}
-      <p class="stage-intro">S11 · Select an element row or marked cell. The same selection is retained in the workbench.</p>
-			<div class="matrix-card panel">
-				<div class="panel-heading"><div><span class="section-number">S11 · NOVEL VIEW</span><h2>Protocol marks in {selectedSkater || 'the selected program'}’s {selectedSegment === 'SP' ? 'short program' : 'free skate'}</h2></div><span class="selected-label">Select a marked cell to link the element</span></div>
-				{#if programElements.length}<ProtocolMatrix elements={programElements} selectedId={selectedElement?.id} onSelect={(id) => { selectedElementId = id; workspaceTab = 'score'; }} />{/if}
-			</div>
-      <button class="secondary" onclick={() => { workspaceTab = 'score'; go('workspace'); }}>Inspect {selectedElement?.element_code_raw} in the workbench →</button>
-    {:else if activeStage === 'charts' || activeStage === 'chart-detail'}
-      {#if activeStage === 'charts'}<div class="chart-tabs" role="group" aria-label="Choose evidence chart">{#each chartIds as chart}<button aria-pressed={activeChart === chart} onclick={() => go('charts',chart)}>{chart} · {chart === 'S12' ? 'Program totals' : chart === 'S01' ? 'Jump counts' : chart === 'S02' ? 'Rotation & GOE' : chart === 'S06' ? 'Spin & step levels' : 'Base & final score'}</button>{/each}</div>{/if}
-      <article class="analysis-card panel"><div class="panel-heading"><div><span class="section-number">{activeChart} · {activeChart === 'S12' ? selectedSkater : 'FINAL TOP-TEN COHORT'}</span><h2>{chartTitles[activeChart]}</h2></div><button class="secondary" onclick={() => go(activeStage === 'charts' ? 'chart-detail' : 'charts')}>{activeStage === 'charts' ? 'Expand chart ↗' : '← Return to charts'}</button></div>
-        <div class="chart-canvas">{#if activeChart === 'S12'}<ScoreComparison segments={segmentRows}/>{:else if activeChart === 'S01'}<JumpCounts elements={allElements}/>{:else if activeChart === 'S02'}<RotationGoe elements={allElements}/>{:else if activeChart === 'S06'}<p class="scope-note">{selectedSegment === 'SP' ? 'Short program' : 'Free skate'} · all ten skaters</p><SpinStepLevels elements={allElements.filter(d => d.segment === selectedSegment)}/>{:else}<BaseVsPanel elements={allElements.filter(d => d.element_group === 'jump')} onSelect={selectFromChart}/>{/if}</div>
-        <p class="scope-note">{activeChart === 'S12' ? 'TES + PCS + deductions = TSS. Points in SP and FS belong to different program lengths.' : activeChart === 'S01' ? 'A combination is counted as one scored jump element, not as separate jumps.' : activeChart === 'S02' ? 'Rotations and GOE describe different aspects of a jump. This comparison does not establish causation.' : activeChart === 'S06' ? 'Level is a technical classification; the panel score also includes execution.' : 'Choose a point to open that athlete, program and element in the workbench.'}</p>
+      <div class="workspace-actions"><button class="secondary" onclick={() => go('evidence', 'protocol')}>Inspect protocol marks →</button><button class="secondary" onclick={() => go('evidence', defaultEvidenceChart)}>Compare base value and panel score →</button></div>
+    {:else if activeStage === 'evidence' || activeStage === 'chart-detail'}
+      {#if selectedElement}
+        {@const marks = protocolMarks(selectedElement)}
+        <section class="evidence-selection panel" aria-label="Selected element">
+          <div class="evidence-element" aria-live="polite" aria-atomic="true">
+            <h2><span class="section-number">Element {String(selectedElement.element_order).padStart(2, '0')}</span> {selectedElement.element_code_raw}</h2>
+            <p>{marks.length ? marks.map(mark => protocolMarkLabels[mark]).join(' · ') : 'No protocol marks'}</p>
+          </div>
+          <dl class="evidence-points" aria-label="Score breakdown">
+            <div><dt>Base value</dt><dd>{selectedElement.base_value.toFixed(2)}</dd></div>
+            <div><dt>Execution (GOE)</dt><dd>{selectedElement.goe > 0 ? '+' : ''}{selectedElement.goe.toFixed(2)}</dd></div>
+            <div><dt>Panel score</dt><dd>{selectedElement.panel_element_score.toFixed(2)}</dd></div>
+          </dl>
+          <button class="secondary" onclick={() => { workspaceTab = 'score'; go('workspace'); }}>Open in workbench →</button>
+        </section>
+      {/if}
+      {#if activeStage === 'evidence'}
+        <div class="evidence-tabs" role="group" aria-label="Scoring evidence view">
+          <button aria-pressed={evidencePanel === 'protocol'} onclick={() => switchEvidenceView('protocol')}>Protocol marks</button>
+          <button aria-pressed={evidencePanel === 'compare'} onclick={() => switchEvidenceView(activeChart)}>Compare scores</button>
+        </div>
+      {/if}
+      {#if activeStage === 'evidence' && evidencePanel === 'protocol'}
+        <article class="matrix-card panel">
+          <div class="panel-heading"><h2>Protocol marks by element</h2></div>
+          <p class="scope-note">Select an element or a marked cell to see its score above.</p>
+          <ProtocolMatrix elements={programElements} selectedId={selectedElement?.id} onSelect={selectEvidenceElement} />
+        </article>
+      {:else}
+        {#if activeStage === 'evidence'}
+          <div class="chart-tabs" role="group" aria-label="Choose evidence chart">
+            {#each chartIds as chart}<button aria-pressed={activeChart === chart} onclick={() => switchEvidenceView(chart)}>{chartLabels[chart]}</button>{/each}
+          </div>
+        {/if}
+        <article class="analysis-card panel"><div class="panel-heading"><div><span class="section-number">{activeChart === 'S12' ? selectedSkater : 'FINAL TOP-TEN COHORT'}</span>{#if activeStage === 'evidence'}<h2>{chartTitles[activeChart]}</h2>{/if}</div><button class="secondary" onclick={() => go(activeStage === 'evidence' ? 'chart-detail' : 'evidence', activeChart)}>{activeStage === 'evidence' ? 'Expand chart ↗' : '← Return to scoring evidence'}</button></div>
+        <div class="chart-canvas">{#if activeChart === 'S12'}<ScoreComparison segments={segmentRows}/>{:else if activeChart === 'S01'}<JumpCounts elements={allElements}/>{:else if activeChart === 'S02'}<RotationGoe elements={allElements}/>{:else if activeChart === 'S06'}<p class="scope-note">{selectedSegment === 'SP' ? 'Short program' : 'Free skate'} · all ten skaters</p><SpinStepLevels elements={chartRows}/>{:else}<BaseVsPanel elements={jumpElements} selectedId={selectedElement?.id} onSelect={selectEvidenceElement}/>{/if}</div>
+        <p class="scope-note">{activeChart === 'S12' ? 'TES + PCS + deductions = TSS. Points in SP and FS belong to different program lengths.' : activeChart === 'S01' ? 'A combination counts as one scored jump element.' : activeChart === 'S02' ? 'Rotations and GOE describe different aspects of a jump. This comparison does not establish causation.' : activeChart === 'S06' ? 'Level is a technical classification. The panel score also includes execution.' : 'This chart compares jumps. Select a point to see that jump’s score breakdown above.'}</p>
         <details class="data-values"><summary>Read the underlying values ({chartRows.length} records)</summary><div class="table-scroll"><table><caption>{activeChart} source values · official ISU protocols</caption><thead><tr><th>Skater</th><th>Program</th>{#if activeChart === 'S12'}<th>TES</th><th>PCS</th><th>Deductions</th><th>TSS</th>{:else}<th>Element</th><th>Base value</th><th>GOE</th><th>Panel points</th>{/if}</tr></thead><tbody>{#each chartRows as row}<tr><th>{row.skater}</th><td>{row.segment}</td>{#if activeChart === 'S12'}<td>{row.TES}</td><td>{row.PCS_factored}</td><td>{row.deductions}</td><td>{row.segment_score_TSS}</td>{:else}<td>{row.element_code_raw}</td><td>{row.base_value}</td><td>{row.goe}</td><td>{row.panel_element_score}</td>{/if}</tr>{/each}</tbody></table></div></details>
       </article>
+      {/if}
     {:else if activeStage === 'movement'}
       <div class="motion-toolbar"><button class="secondary" onclick={() => { workspaceTab = 'movement'; go('workspace'); }}>← Return to workbench</button></div>
       <section class="panel reference-library" aria-labelledby="movement-library-heading">
