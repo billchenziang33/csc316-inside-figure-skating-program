@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { parseBrief } from '../src/lib/data/parse-brief.mjs';
-import { countJumpElements, jumpRotations, protocolMarks, summarizeJumpShare } from '../src/lib/data/derived.mjs';
+import { countJumpElements, jumpRotations, protocolMarks, summarizeJumpShare, levelledElements } from '../src/lib/data/derived.mjs';
 
 const markdown = await readFile(new URL('../data/source/Beijing_2022_Mens_Singles_Top10_Data_Brief.md', import.meta.url), 'utf8');
 const data = parseBrief(markdown);
@@ -40,4 +40,22 @@ test('selected-view helpers preserve combinations, rotation totals, and protocol
 	assert.ok(protocolMarks(data.elements.find((d) => d.element_code_raw.includes('<'))).includes('<'));
 	assert.deepEqual(protocolMarks({ element_code_raw: '4A<<', info_flag: null }), ['<<']);
 	assert.equal(countJumpElements(data.elements).length, 20);
+});
+
+test('step sequence names do not introduce quarter-rotation calls', () => {
+	assert.deepEqual(protocolMarks({ element_code_raw: 'StSq4', info_flag: null }), []);
+	assert.deepEqual(protocolMarks({ element_code_raw: 'ChSq1', info_flag: null }), []);
+	assert.deepEqual(protocolMarks({ element_code_raw: '4Lz!q', info_flag: '!' }), ['q', '!']);
+	assert.deepEqual(protocolMarks({ element_code_raw: '3Lze', info_flag: null }), ['e']);
+	const marked = data.elements.filter((element) => protocolMarks(element).length);
+	assert.equal(marked.length, 11);
+	assert.ok(marked.every((element) => element.element_group === 'jump'));
+});
+
+test('spin and step chart includes reduced-base-value spins at their recorded levels', () => {
+	const rows = levelledElements(data.elements);
+	assert.equal(rows.length, 80);
+	for (const level of [2, 4]) {
+		assert.equal(rows.find((row) => row.element_code_raw === `CCoSp${level}V`)?.level, level);
+	}
 });
