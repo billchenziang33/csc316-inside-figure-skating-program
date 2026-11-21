@@ -1,22 +1,48 @@
 <script>
 	import { protocolMarks, protocolMarkLabels } from '../data/derived.mjs';
 	let { elements = [], selectedId = null, onSelect = () => {} } = $props();
-	const flags = ['!', 'e', 'q', '<', '<<', '*'];
+	const flags = Object.entries(protocolMarkLabels);
+	let rows = $derived(elements.map((element) => ({ element, marks: protocolMarks(element) })));
+	let markedCount = $derived(rows.filter(({ marks }) => marks.length > 0).length);
 </script>
 
-<div class="matrix-wrap">
-	<table class="matrix">
-		<thead><tr><th scope="col">Order / element</th>{#each flags as flag (flag)}<th scope="col" title={protocolMarkLabels[flag]}>{flag}</th>{/each}</tr></thead>
+<p class="marks-summary">
+	{#if markedCount === 0}
+		This program has no protocol marks.
+	{:else}
+		<strong>{markedCount} of {rows.length}</strong> elements have protocol marks.
+	{/if}
+</p>
+
+<div class="protocol-table-wrap">
+	<table class="protocol-table" aria-label="Element codes, protocol marks, and panel scores">
+		<thead>
+			<tr><th scope="col">Element</th><th scope="col">Protocol marks</th><th scope="col" class="panel-score">Panel score</th></tr>
+		</thead>
 		<tbody>
-			{#each elements as element (element.id)}
-				{@const marks = protocolMarks(element)}
+			{#each rows as { element, marks } (element.id)}
 				<tr class:chosen={selectedId === element.id}>
-					<th scope="row"><button class="row-button" onclick={() => onSelect(element.id)} aria-pressed={selectedId === element.id}><span>{String(element.element_order).padStart(2,'0')}</span><b>{element.element_code_raw}</b><small>{element.panel_element_score.toFixed(2)}</small></button></th>
-					{#each flags as flag (flag)}
-						<td>{#if marks.includes(flag)}
-							<button class="cell" aria-label={`${element.element_code_raw}, ${flag} · ${protocolMarkLabels[flag]}`} aria-pressed={selectedId === element.id} onclick={() => onSelect(element.id)}>●</button>
-						{:else}<span class="empty" aria-hidden="true">·</span>{/if}</td>
-					{/each}
+					<th scope="row">
+						<button class="element-button" onclick={() => onSelect(element.id)} aria-pressed={selectedId === element.id}>
+							<span class="order">{String(element.element_order).padStart(2, '0')}</span>
+							<span class="code">{element.element_code_raw}</span>
+						</button>
+					</th>
+					<td>
+						{#if marks.length}
+							<div class="mark-list">
+								{#each marks as mark (mark)}
+									<button class="mark-button" aria-label={`${element.element_code_raw}, ${mark} · ${protocolMarkLabels[mark]}`} aria-pressed={selectedId === element.id} onclick={() => onSelect(element.id)}>
+										<span class="mark-symbol">{mark}</span>
+										<span>{protocolMarkLabels[mark]}</span>
+									</button>
+								{/each}
+							</div>
+						{:else}
+							<span class="no-marks">None</span>
+						{/if}
+					</td>
+					<td class="panel-score">{element.panel_element_score.toFixed(2)}</td>
 				</tr>
 			{/each}
 		</tbody>
@@ -24,29 +50,83 @@
 </div>
 <details class="mark-legend">
 	<summary>What do these marks mean?</summary>
-	<dl>{#each flags as flag (flag)}<div><dt>{flag}</dt><dd>{protocolMarkLabels[flag]}</dd></div>{/each}</dl>
+	<dl>{#each flags as [flag, label] (flag)}<div><dt>{flag}</dt><dd>{label}</dd></div>{/each}</dl>
 </details>
 
 <style>
-	.matrix-wrap{overflow:auto;border:1px solid #e6e8e2;border-radius:4px}
-	.matrix{border-collapse:collapse;width:100%;font-size:.72rem}
-	.matrix th,.matrix td{border-bottom:1px solid #eceee9;padding:.12rem .18rem;text-align:center}
-	.matrix thead th{background:#f4f5f0;color:#59665f;height:29px;font:500 .68rem var(--mono)}
-	.matrix thead th:not(:first-child){width:8%}
-	.matrix th:first-child{text-align:left;padding-inline:.4rem}
-	.matrix tbody th{padding:0}
-	.row-button{border:0;background:transparent;color:var(--ink);width:100%;min-height:40px;display:flex;align-items:center;gap:.4rem;text-align:left;padding:.2rem .4rem;cursor:pointer}
-	.row-button span,.row-button small{color:#59665f;font:.62rem var(--mono)}
-	.row-button b{font-size:.7rem;overflow-wrap:anywhere}
-	.row-button small{margin-left:auto}
-	.matrix tr.chosen{background:#edf2ed}
-	.cell{border:0;background:transparent;color:#9e442f;min-width:24px;min-height:32px;padding:0;cursor:pointer}
-	.cell:hover,.cell[aria-pressed=true]{background:#f4e8df;border-radius:4px}
-	.empty{color:#747f78}
-	.mark-legend{margin-top:.75rem;color:#59665f;font-size:.8rem}
-	.mark-legend summary{cursor:pointer}
-	.mark-legend dl{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin-bottom:0}
-	.mark-legend dl div{display:flex;align-items:baseline;gap:.3rem}
-	.mark-legend dt{color:var(--ink);font:700 .85rem var(--mono)}
-	.mark-legend dd{margin:0}
+	.marks-summary { margin:.5rem 0 1rem; color:#42544b; font-size:.95rem; }
+	.protocol-table-wrap { border:1px solid var(--line); border-radius:6px; }
+	.protocol-table { border-collapse:collapse; width:100%; }
+	.protocol-table th, .protocol-table td {
+		padding:.45rem clamp(.45rem, 1.4vw, 1.1rem);
+		border-bottom:1px solid var(--line);
+		text-align:left;
+	}
+	.protocol-table thead th { background:#eef1ed; color:var(--navy); font-size:.88rem; font-weight:700; }
+	.protocol-table thead th:first-child { width:28%; border-top-left-radius:5px; }
+	.protocol-table thead th:last-child { width:16%; border-top-right-radius:5px; }
+	.protocol-table tbody th { padding:0; box-shadow:inset 3px 0 transparent; }
+	.protocol-table tr:last-child > td, .protocol-table tbody tr:last-child > th { border-bottom:0; }
+	.protocol-table .panel-score { text-align:right; }
+	.protocol-table td.panel-score { font-family:var(--mono); font-size:1rem; font-weight:500; }
+	.protocol-table .chosen { background:#e5f0ea; }
+	.protocol-table .chosen th { box-shadow:inset 3px 0 var(--teal); }
+	.element-button {
+		display:flex;
+		align-items:baseline;
+		gap:clamp(.35rem, 1vw, .85rem);
+		width:100%;
+		min-height:48px;
+		padding:.65rem clamp(.45rem, 1.4vw, 1.1rem);
+		border:0;
+		background:transparent;
+		color:var(--navy);
+		text-align:left;
+		cursor:pointer;
+	}
+	.element-button:hover .code { text-decoration:underline; text-underline-offset:.2em; }
+	.element-button:focus-visible { outline-offset:-4px; }
+	.order { color:#4d6057; font:.77rem var(--mono); }
+	.code { font-size:1rem; font-weight:700; overflow-wrap:anywhere; }
+	.no-marks { color:#4d6057; font-size:.88rem; }
+	.mark-list { display:flex; flex-wrap:wrap; gap:.35rem .5rem; }
+	.mark-button {
+		display:inline-flex;
+		align-items:center;
+		gap:.45rem;
+		min-height:44px;
+		max-width:100%;
+		padding:.2rem .55rem;
+		border:1px solid #d3a488;
+		border-radius:5px;
+		background:#fff2e8;
+		color:#773a28;
+		font-size:.88rem;
+		font-weight:600;
+		text-align:left;
+		cursor:pointer;
+	}
+	.mark-button:hover { border-color:#773a28; }
+	.mark-symbol {
+		flex:none;
+		min-width:1.6rem;
+		padding:.14rem .2rem;
+		border-radius:3px;
+		background:#793d2d;
+		color:white;
+		font:500 .9rem var(--mono);
+		text-align:center;
+	}
+	.mark-legend { margin-top:.85rem; color:#42544b; font-size:.88rem; }
+	.mark-legend summary { width:fit-content; cursor:pointer; font-weight:600; }
+	.mark-legend dl { display:flex; flex-wrap:wrap; gap:.55rem 1.15rem; margin-bottom:0; }
+	.mark-legend dl div { display:flex; align-items:baseline; gap:.4rem; }
+	.mark-legend dt { color:var(--ink); font:500 .95rem var(--mono); }
+	.mark-legend dd { margin:0; }
+	@media (max-width:480px) {
+		.protocol-table thead th:first-child { width:32%; }
+		.protocol-table thead th:last-child { width:23%; }
+		.protocol-table td.panel-score { font-size:.9rem; }
+		.mark-button { gap:.3rem; padding-inline:.3rem; }
+	}
 </style>
