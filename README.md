@@ -4,7 +4,7 @@ A CSC316 project built with Vite, Svelte 5, and D3. Its workbench links official
 
 ## Live site
 
-Open the [CSC316 course site](https://csc316-inside-figure-skating-progra.vercel.app/). The [3D library](https://csc316-inside-figure-skating-progra.vercel.app/movement/beijing-2022/) and [Hanyu's first free-skating element](https://csc316-inside-figure-skating-progra.vercel.app/#workspace/FS:4:1) are on the course domain. Both play the same 50 r4 models served by the [Figure Skate Database 3D](https://billchenziang33.github.io/figure-skate-database-3d/). The existing thumbnails are archived views.
+Open the [CSC316 course site](https://csc316-inside-figure-skating-progra.vercel.app/). The [3D library](https://csc316-inside-figure-skating-progra.vercel.app/movement/beijing-2022/) and [Hanyu's first free-skating element](https://csc316-inside-figure-skating-progra.vercel.app/#workspace/FS:4:1) are on the course domain. Both play the same 50 r4 models served by the [Figure Skate Database 3D](https://billchenziang33.github.io/figure-skate-database-3d/); the Step 6 library uses matching r4 cover renders.
 
 The left column selects a scored occurrence, the middle column keeps the official score, and the right column opens the corresponding standard technique reference on demand. Hanyu's first free-skating element retains its official `4A<` call and 5.00 points. Its 3D reference shows a standard quadruple Axel. Measured trajectories belong to the simulation. [ISU protocol](https://results.isu.org/results/season2122/owg2022/FSKMSINGLES-----------FNL-000100--_JudgesDetailsperSkater.pdf#page=2) · [ISU jump guide](https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/)
 
