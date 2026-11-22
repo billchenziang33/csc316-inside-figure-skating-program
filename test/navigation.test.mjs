@@ -11,7 +11,7 @@ test('all stages and expanded charts survive direct-link round trips', () => {
 });
 
 test('scoring evidence links preserve the view and exact selected element', () => {
-  assert.deepEqual(stages.map((stage) => stage.id), ['story', 'choose', 'workspace', 'evidence', 'movement']);
+  assert.deepEqual(stages.map((stage) => stage.id), ['story', 'elements', 'choose', 'workspace', 'evidence', 'movement']);
   assert.equal(routeHash('evidence'), '#evidence/S15');
   assert.deepEqual(readRoute('#evidence'), { stage: 'evidence', chart: 'S15', panel: 'compare' });
   assert.deepEqual(readRoute('#protocol'), { stage: 'evidence', chart: 'S15', panel: 'protocol' });

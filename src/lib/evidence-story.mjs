@@ -1,4 +1,4 @@
-// Scrollytelling order for Step 4 · Compare scores.
+// Scrollytelling order for Step 5 · Compare scores.
 // The story zooms out: one element → all jumps → jump allowance → spins & steps → whole program.
 export const evidenceStory = [
   {

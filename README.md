@@ -10,7 +10,7 @@ The left column selects a scored occurrence, the middle column keeps the officia
 
 ## Movement Reference
 
-[Step 5 · Movement Reference](https://csc316-inside-figure-skating-progra.vercel.app/#movement) embeds the complete 50-entry 3D Movement Library. Search or filter the competition movement models, then open a model's interactive Blender player on the same page. The standalone library remains at `/movement/beijing-2022/`.
+[Step 6 · Movement Reference](https://csc316-inside-figure-skating-progra.vercel.app/#movement) embeds the complete 50-entry 3D Movement Library. Search or filter the competition movement models, then open a model's interactive Blender player on the same page. The standalone library remains at `/movement/beijing-2022/`.
 
 The shared player has three camera controls: a 45° angle, **Auto fit** from above the rink for a full-body frame, and **Bullet Time**, which pauses at the selected frame and makes one slow camera orbit around the skater from a lower 35°-above-rink view. A compact flight capsule sits over the rink; open it to read the simulated phase, height, horizontal travel, peak rise and jump distance without reducing the player layout. A soft projected shadow helps show the skater's clearance above the ice. Bullet Time is a camera move; the pose stays at the selected instant. All 50 entries use the same player.
 
@@ -35,9 +35,9 @@ The project intentionally keeps official scoring records separate from motion re
 
 ## Guided navigation
 
-Five steps cover the finding, program selection, three-column workbench, scoring evidence, and movement reference. Step 4 shares the selected athlete, program, and element between **Protocol marks** and **Compare scores**. Open [Hanyu's first free-skating element in scoring evidence](https://csc316-inside-figure-skating-progra.vercel.app/#evidence/S15/FS:4:1) to see the linked selection.
+Six steps cover the finding, a jumps-and-spins primer, program selection, three-column workbench, scoring evidence, and movement reference. Step 2 explains how to read element codes (jump types, spin parts, levels and protocol marks), and the workbench shows the same plain-English reading when you hover or focus an element code. Step 5 shares the selected athlete, program, and element between **Protocol marks** and **Compare scores**. Open [Hanyu's first free-skating element in scoring evidence](https://csc316-inside-figure-skating-progra.vercel.app/#evidence/S15/FS:4:1) to see the linked selection.
 
-Step 4 opens the **Compare scores** story. As you scroll, the chart moves from S15 to S02, S01, S06, and S12. The last section links to the 3D library with your selected element in context. Each chart has an expanded view and an underlying-values table. Direct links such as `#protocol`, `#charts/S15`, and `#chart-detail/S15` still work. Below 1040 CSS pixels, the workbench uses Sequence/Score/Movement tabs.
+Step 5 opens the **Compare scores** story. As you scroll, the chart moves from S15 to S02, S01, S06, and S12. The last section links to the 3D library with your selected element in context. Each chart has an expanded view and an underlying-values table. Direct links such as `#protocol`, `#charts/S15`, and `#chart-detail/S15` still work. Below 1040 CSS pixels, the workbench uses Sequence/Score/Movement tabs.
 
 In column C, select **Play** to open the viewport-sized interactive 3D dialog. The upper-right **Return to the main page** button or Escape closes it and restores the selected athlete, program and element. The same-origin player lives at `/movement/beijing-2022/player.html`.
 
