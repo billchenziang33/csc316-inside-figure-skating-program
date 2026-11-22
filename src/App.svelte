@@ -1,5 +1,8 @@
 <script>
 	import { onMount, tick } from 'svelte';
+	import { fade } from 'svelte/transition';
+	import { evidenceStory } from './lib/evidence-story.mjs';
+	import { scrolly, scrollToStep } from './lib/scrolly.mjs';
 	import findingIceRink from './assets/finding-ice-rink.webp';
 	import findingSkater from './assets/finding-skater.webp';
 	import ScoreComparison from './lib/charts/ScoreComparison.svelte';
@@ -14,14 +17,15 @@
 	import { resolveMotion } from './lib/data/motion-reference.mjs';
 	import { stages, chartIds, defaultEvidenceChart, readRoute, routeHash } from './lib/navigation.mjs';
 	let activeStage = $state('story');
+	let storySteps = $state(null);
 	let activeChart = $state(defaultEvidenceChart);
 	let evidencePanel = $state('protocol');
 	let workspaceTab = $state('sequence');
 	let motionOpen = $state(false);
 	function closeMotion() { motionOpen = false; }
 	let stageIndex = $derived(stages.findIndex(s => s.id === (activeStage === 'chart-detail' ? 'evidence' : activeStage)));
-	const chartLabels = { S12: 'Program totals', S01: 'Jump counts', S02: 'Rotation & GOE', S06: 'Spin & step levels', S15: 'Base & final score' };
-	const chartTitles = { S12: 'How do technical points contribute to the total?', S01: 'How many scored jump elements appear in each program?', S02: 'How do jump rotations relate to execution?', S06: 'How do spin and step levels compare with scores?', S15: 'How does execution change the element score?' };
+	const chartLabels = { S12: 'Program totals', S01: 'Jump types', S02: 'Rotation & GOE', S06: 'Spin & step levels', S15: 'Base & final score' };
+	const chartTitles = { S12: 'How do technical points contribute to the total?', S01: 'Which jump types do skaters perform in each program?', S02: 'How do jump rotations relate to execution?', S06: 'How do spin and step levels compare with scores?', S15: 'How does execution change the element score?' };
 	let jumpElements = $derived(allElements.filter(row => row.element_group === 'jump'));
 	let chartRows = $derived(activeChart === 'S12' ? segmentRows
 		: activeChart === 'S06' ? levelledElements(allElements.filter(row => row.segment === selectedSegment))
@@ -52,9 +56,17 @@
 
 	async function go(stage, view) {
 		navigate(routeHash(stage, view, selectedElement?.id));
-		await tick(); document.getElementById('stage-heading')?.focus({ preventScroll: true }); window.scrollTo({ top: 0, behavior: 'instant' });
+		await tick(); document.getElementById('stage-heading')?.focus({ preventScroll: true });
+		if (!revealStoryStep()) window.scrollTo({ top: 0, behavior: 'instant' });
 	}
-	onMount(() => { syncRoute(); window.addEventListener('hashchange', syncRoute); window.addEventListener('popstate', syncRoute); return () => { window.removeEventListener('hashchange', syncRoute); window.removeEventListener('popstate', syncRoute); }; });
+	// Links and Back/Forward that land on a Compare-scores chart also scroll its story step into place.
+	function revealStoryStep() {
+		if (activeStage !== 'evidence' || evidencePanel !== 'compare' || !storySteps?.isConnected || activeChart === evidenceStory[0].chart) return false;
+		scrollToStep(storySteps, activeChart, { behavior: 'instant', focus: false });
+		return true;
+	}
+	function onRouteChange() { syncRoute(); tick().then(revealStoryStep); }
+	onMount(() => { syncRoute(); window.addEventListener('hashchange', onRouteChange); window.addEventListener('popstate', onRouteChange); return () => { window.removeEventListener('hashchange', onRouteChange); window.removeEventListener('popstate', onRouteChange); }; });
 	let data = $state(null);
 	let motionCatalog = $state(null);
 	let motionLoadError = $state(false);
@@ -106,12 +118,22 @@
 		navigate(routeHash(activeStage, view, id));
 	}
 
+	function onStoryStep(chart) {
+		if (activeChart === chart) return;
+		activeChart = chart;
+		// Scrolling is reading, not navigating: update the link without adding Back entries.
+		history.replaceState(history.state, '', routeHash('evidence', chart, selectedElement?.id));
+	}
+
 	function selectWorkbenchElement(id) {
 		selectedElementId = id;
 		history.replaceState(null, '', routeHash('workspace', activeChart, id));
 	}
 
 </script>
+
+{#snippet evidenceChart()}{#if activeChart === 'S12'}<ScoreComparison segments={segmentRows}/>{:else if activeChart === 'S01'}<JumpCounts elements={allElements}/>{:else if activeChart === 'S02'}<RotationGoe elements={allElements}/>{:else if activeChart === 'S06'}<p class="scope-note">{selectedSegment === 'SP' ? 'Short program' : 'Free skate'} · all ten skaters</p><SpinStepLevels elements={chartRows}/>{:else}<BaseVsPanel elements={jumpElements} selectedId={selectedElement?.id} onSelect={selectEvidenceElement}/>{/if}{/snippet}
+{#snippet valuesTable()}<table><caption>{activeChart} source values · official ISU protocols</caption><thead><tr><th>Skater</th><th>Program</th>{#if activeChart === 'S12'}<th>TES</th><th>PCS</th><th>Deductions</th><th>TSS</th>{:else}<th>Element</th><th>Base value</th><th>GOE</th><th>Panel points</th>{/if}</tr></thead><tbody>{#each chartRows as row}<tr><th>{row.skater}</th><td>{row.segment}</td>{#if activeChart === 'S12'}<td>{row.TES}</td><td>{row.PCS_factored}</td><td>{row.deductions}</td><td>{row.segment_score_TSS}</td>{:else}<td>{row.element_code_raw}</td><td>{row.base_value}</td><td>{row.goe}</td><td>{row.panel_element_score}</td>{/if}</tr>{/each}</tbody></table>{/snippet}
 
 <svelte:head><title>Inside a Figure-Skating Program · Beijing 2022</title></svelte:head>
 <a class="skip-link" href="#main-content" onclick={(event) => { event.preventDefault(); document.getElementById('main-content')?.focus(); }}>Skip to content</a>
@@ -231,16 +253,35 @@
           <div class="panel-heading"><h2>Protocol marks by element</h2></div>
           <ProtocolMatrix elements={programElements} selectedId={selectedElement?.id} onSelect={selectEvidenceElement} />
         </article>
+      {:else if activeStage === 'evidence'}
+        <div class="scrolly">
+          <ol class="scrolly-steps" bind:this={storySteps} use:scrolly={{ onStep: onStoryStep, initial: activeChart }} aria-label="Scoring story">
+            {#each evidenceStory as step (step.chart)}
+              <li class="scrolly-step" class:is-active={activeChart === step.chart} data-step={step.chart}>
+                <div class="panel">
+                  <span class="section-number">{step.kicker}</span>
+                  <h3 tabindex="-1">{step.title}</h3>
+                  <p>{step.body}</p>
+                  {#if step.chart === 'S15' && selectedElement}<p class="scrolly-focus"><b>{selectedElement.element_code_raw}</b> · {selectedElement.base_value.toFixed(2)} base {selectedElement.goe < 0 ? '−' : '+'} {Math.abs(selectedElement.goe).toFixed(2)} GOE = <b>{selectedElement.panel_element_score.toFixed(2)}</b> points</p>{/if}
+                  <p class="scope-note">{step.note}</p>
+                </div>
+              </li>
+            {/each}
+          </ol>
+          <article class="scrolly-graphic analysis-card panel">
+            <nav class="scrolly-progress" aria-label="Jump to a chart">
+              {#each evidenceStory as step, i (step.chart)}<button aria-current={activeChart === step.chart ? 'step' : undefined} onclick={() => scrollToStep(storySteps, step.chart)}><span>{i + 1}</span>{chartLabels[step.chart]}</button>{/each}
+            </nav>
+            <div class="panel-heading"><div aria-live="polite"><span class="section-number">{activeChart === 'S12' ? selectedSkater : 'FINAL TOP-TEN COHORT'}</span><h2>{chartTitles[activeChart]}</h2></div><button class="secondary" onclick={() => go('chart-detail', activeChart)}>Expand chart ↗</button></div>
+            {#key activeChart}<div class="chart-canvas" in:fade={{ duration: 250 }}>{@render evidenceChart()}</div>{/key}
+          </article>
+        </div>
+        <details class="data-values panel"><summary>Read the underlying values for {chartLabels[activeChart]} ({chartRows.length} records)</summary><div class="table-scroll">{@render valuesTable()}</div></details>
       {:else}
-        {#if activeStage === 'evidence'}
-          <div class="chart-tabs" role="group" aria-label="Choose evidence chart">
-            {#each chartIds as chart}<button aria-pressed={activeChart === chart} onclick={() => switchEvidenceView(chart)}>{chartLabels[chart]}</button>{/each}
-          </div>
-        {/if}
         <article class="analysis-card panel"><div class="panel-heading"><div><span class="section-number">{activeChart === 'S12' ? selectedSkater : 'FINAL TOP-TEN COHORT'}</span>{#if activeStage === 'evidence'}<h2>{chartTitles[activeChart]}</h2>{/if}</div><button class="secondary" onclick={() => go(activeStage === 'evidence' ? 'chart-detail' : 'evidence', activeChart)}>{activeStage === 'evidence' ? 'Expand chart ↗' : '← Return to scoring evidence'}</button></div>
-        <div class="chart-canvas">{#if activeChart === 'S12'}<ScoreComparison segments={segmentRows}/>{:else if activeChart === 'S01'}<JumpCounts elements={allElements}/>{:else if activeChart === 'S02'}<RotationGoe elements={allElements}/>{:else if activeChart === 'S06'}<p class="scope-note">{selectedSegment === 'SP' ? 'Short program' : 'Free skate'} · all ten skaters</p><SpinStepLevels elements={chartRows}/>{:else}<BaseVsPanel elements={jumpElements} selectedId={selectedElement?.id} onSelect={selectEvidenceElement}/>{/if}</div>
-        <p class="scope-note">{activeChart === 'S12' ? 'TES + PCS + deductions = TSS. Points in SP and FS belong to different program lengths.' : activeChart === 'S01' ? 'A combination counts as one scored jump element.' : activeChart === 'S02' ? 'Rotations and GOE describe different aspects of a jump. This comparison does not establish causation.' : activeChart === 'S06' ? 'Level is a technical classification. The panel score also includes execution.' : 'This chart compares jumps. Select a point to see that jump’s score breakdown above.'}</p>
-        <details class="data-values"><summary>Read the underlying values ({chartRows.length} records)</summary><div class="table-scroll"><table><caption>{activeChart} source values · official ISU protocols</caption><thead><tr><th>Skater</th><th>Program</th>{#if activeChart === 'S12'}<th>TES</th><th>PCS</th><th>Deductions</th><th>TSS</th>{:else}<th>Element</th><th>Base value</th><th>GOE</th><th>Panel points</th>{/if}</tr></thead><tbody>{#each chartRows as row}<tr><th>{row.skater}</th><td>{row.segment}</td>{#if activeChart === 'S12'}<td>{row.TES}</td><td>{row.PCS_factored}</td><td>{row.deductions}</td><td>{row.segment_score_TSS}</td>{:else}<td>{row.element_code_raw}</td><td>{row.base_value}</td><td>{row.goe}</td><td>{row.panel_element_score}</td>{/if}</tr>{/each}</tbody></table></div></details>
+        <div class="chart-canvas">{@render evidenceChart()}</div>
+        <p class="scope-note">{activeChart === 'S12' ? 'TES + PCS + deductions = TSS. Points in SP and FS belong to different program lengths.' : activeChart === 'S01' ? 'Each jump inside a combination is counted separately by its type. Counts cover all ten skaters; the free skate has more jump elements than the short program.' : activeChart === 'S02' ? 'Rotations and GOE describe different aspects of a jump. This comparison does not establish causation.' : activeChart === 'S06' ? 'Level is a technical classification. The panel score also includes execution.' : 'This chart compares jumps. Select a point to see that jump’s score breakdown above.'}</p>
+        <details class="data-values"><summary>Read the underlying values ({chartRows.length} records)</summary><div class="table-scroll">{@render valuesTable()}</div></details>
       </article>
       {/if}
     {:else if activeStage === 'movement'}
