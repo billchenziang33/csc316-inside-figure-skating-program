@@ -14,6 +14,7 @@
 		{#each yTicks as t}<line x1="62" x2="720" y1={y(t)} y2={y(t)} stroke="#e7e9e4"/><text x="51" y={y(t)+4} text-anchor="end">{t}</text>{/each}
 		{#each xTicks as t}<line x1={x(t)} x2={x(t)} y1="32" y2="242" stroke="#eef0ec"/><text x={x(t)} y="260" text-anchor="middle">{t}</text>{/each}
 		<line x1="62" x2="720" y1="242" y2="242" stroke="#819088"/><line x1="62" x2="62" y1="32" y2="242" stroke="#819088"/>
+		<line class="parity" x1={x(0)} y1={y(0)} x2={x(22)} y2={y(22)} aria-hidden="true"/><text class="parity-label" x={x(21.6)} y={y(22)-6} text-anchor="end">score = base value</text>
 		{#each elements as element (element.id)}
 			<g class="point" role="button" tabindex="0" aria-pressed={selectedId === element.id} aria-label={`${element.skater}, ${element.segment}, ${element.element_code_raw}, base ${element.base_value.toFixed(2)}, panel score ${element.panel_element_score.toFixed(2)}`} onclick={() => onSelect(element.id)} onkeydown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onSelect(element.id); } }}>
 				<circle cx={x(element.base_value)} cy={y(element.panel_element_score)} r="4.5" class:sp-dot={element.segment==='SP'} class:fs-dot={element.segment==='FS'}><title>{element.skater} · {element.segment} · {element.element_code_raw} · base {element.base_value.toFixed(2)} · panel score {element.panel_element_score.toFixed(2)}</title></circle>
@@ -28,6 +29,7 @@
 </div>
 
 <style>
+	.parity{stroke:#94a39a;stroke-width:1;stroke-dasharray:4 4}svg text.parity-label{fill:#596b61;font-style:italic}
 	.viz{display:grid;gap:.1rem}.legend{display:flex;justify-content:flex-end;gap:1rem;flex-wrap:wrap;font-size:.7rem;color:#58645f}.legend i{display:inline-block;width:.65rem;height:.65rem;border-radius:50%;margin-right:.25rem}.sp{background:#d46b47}.fs{background:#397a74}svg{width:100%;height:auto}svg text{font:10px 'DM Sans',Arial,sans-serif;fill:#6b7770}.point{all:unset;cursor:pointer}.point circle{stroke-width:1;fill-opacity:.7}.point:hover circle,.point:focus-visible circle{r:7;stroke-width:2}.point:focus-visible{outline:none}.sp-dot{fill:#d46b47;stroke:#a64b31}.fs-dot{fill:#397a74;stroke:#285f5a}.foot{margin:.1rem 0 0;color:#707c75;font-size:.69rem;line-height:1.5}
 	.legend .selection-ring{border:2px solid var(--navy)}
 	svg .selection-ring{fill:none;stroke:var(--navy);stroke-width:2;pointer-events:none}
