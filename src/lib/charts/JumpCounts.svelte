@@ -1,27 +1,53 @@
 <script>
-	import { scaleBand, scaleLinear } from 'd3';
-	import { countJumpElements } from '../data/derived.mjs';
+	import { max, scaleLinear } from 'd3';
 	let { elements = [] } = $props();
-	let groups = $derived(countJumpElements(elements).sort((a,b) => a.final_rank - b.final_rank));
-	const x = scaleLinear().domain([0, 13]).range([0, 100]);
-	const y = scaleBand().domain(Array.from({length:10}, (_,i) => i + 1)).range([0, 330]).padding(0.28);
-	const ticks = [0, 4, 8, 12];
+
+	// Jump types in protocol notation, ordered from the Axel down to the Toe loop; the Euler appears only inside combinations.
+	const TYPES = [
+		{ code: 'A', label: 'Axel' },
+		{ code: 'Lz', label: 'Lutz' },
+		{ code: 'F', label: 'Flip' },
+		{ code: 'Lo', label: 'Loop' },
+		{ code: 'S', label: 'Salchow' },
+		{ code: 'T', label: 'Toe loop' },
+		{ code: 'Eu', label: 'Euler' }
+	];
+	const SEGMENTS = ['SP', 'FS'];
+	const JUMP_PART = /^\d(Lz|Lo|Eu|A|F|S|T)/;
+
+	// Split each jump element into its individual jumps ("4F+3T" -> F, T) and count them per segment and type.
+	let counts = $derived.by(() => {
+		const tally = new Map();
+		for (const d of elements) {
+			if (d.element_group !== 'jump') continue;
+			for (const part of String(d.element_code_raw).split('+')) {
+				const type = part.match(JUMP_PART)?.[1];
+				if (!type) continue;
+				const key = `${d.segment}:${type}`;
+				tally.set(key, (tally.get(key) ?? 0) + 1);
+			}
+		}
+		return TYPES.map((t) => ({ ...t, SP: tally.get(`SP:${t.code}`) ?? 0, FS: tally.get(`FS:${t.code}`) ?? 0 }));
+	});
+	let x = $derived(scaleLinear().domain([0, max(counts, (d) => Math.max(d.SP, d.FS)) || 1]).nice().range([0, 92]));
+	let ticks = $derived(x.ticks(5));
+	let summary = $derived(counts.map((d) => `${d.label}: ${d.SP} in short program, ${d.FS} in free skate`).join('; '));
 </script>
 
-<div class="viz" role="img" aria-label="Count of jump protocol elements per skater, comparing short program and free skate. A combination counts as one scored protocol element.">
+<div class="viz" role="img" aria-label={`Number of jumps by jump type across the final top ten, short program versus free skate. Each jump inside a combination counts separately. ${summary}.`}>
 	<div class="legend"><span><i class="sp"></i>Short program</span><span><i class="fs"></i>Free skate</span></div>
-	<div class="axis"><span>Final rank</span><div>{#each ticks as t}<small style={`left:${x(t)}%`}>{t}</small>{/each}<b>Scored jump elements per program</b></div></div>
-	{#each Array.from({length:10}, (_,i)=>i+1) as rank (rank)}
-		<div class="row"><span class="rank">#{rank}</span><div class="plot">
-			{#each ['SP','FS'] as segment (segment)}
-				{@const item = groups.find((d) => d.final_rank === rank && d.segment === segment)}
-				<div class:sp-bar={segment === 'SP'} class:fs-bar={segment === 'FS'} class="bar" style={`width:${x(item?.count ?? 0)}%`}><span>{item?.count ?? 0}</span></div>
+	<div class="axis"><span>Jump type</span><div>{#each ticks as t}<small style={`left:${x(t)}%`}>{t}</small>{/each}<b>Jumps performed (all ten skaters)</b></div></div>
+	{#each counts as d (d.code)}
+		<div class="row"><span class="type">{d.label} <em>{d.code}</em></span><div class="plot">
+			{#each ticks as t}<i class="grid" style={`left:${x(t)}%`}></i>{/each}
+			{#each SEGMENTS as segment (segment)}
+				<div class:sp-bar={segment === 'SP'} class:fs-bar={segment === 'FS'} class="bar" style={`width:${x(d[segment])}%`}><span>{d[segment]}</span></div>
 			{/each}
 		</div></div>
 	{/each}
-	<p class="foot">Each official scored jump element is one count. A combination such as 4F+3T remains one protocol row.</p>
+	<p class="foot">Each jump inside a combination counts separately: 4F+3T adds one Flip and one Toe loop. Under-rotated, edge-called and invalid (*) jumps still count as performed. The Euler (Eu) appears only as a link inside three-jump combinations.</p>
 </div>
 
 <style>
-	.viz{display:grid;gap:.3rem}.legend{display:flex;gap:1rem;justify-content:flex-end;font-size:.72rem;color:#58645f}.legend span{display:flex;align-items:center;gap:.35rem}.legend i{width:.65rem;height:.65rem;border-radius:2px}.sp{background:#d46b47}.fs{background:#397a74}.axis,.row{display:grid;grid-template-columns:48px minmax(0,1fr);gap:.7rem;align-items:center}.axis>span{font-size:.68rem;color:#77827d}.axis>div{position:relative;height:1.55rem;border-bottom:1px solid #cfd6d0}.axis small{position:absolute;bottom:.2rem;transform:translateX(-50%);font-size:.65rem;color:#77827d}.axis b{position:absolute;right:0;bottom:.2rem;font-size:.62rem;color:#77827d;background:#fffefa;padding-left:.25rem}.row{height:29px}.rank{font: .7rem var(--mono);color:#69756f;text-align:right}.plot{position:relative;display:grid;gap:3px}.plot::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 0%,transparent calc(30.77% - 1px),#e6e9e4 calc(30.77% - 1px),#e6e9e4 30.77%,transparent 30.77%,transparent calc(61.54% - 1px),#e6e9e4 calc(61.54% - 1px),#e6e9e4 61.54%,transparent 61.54%,transparent calc(92.3% - 1px),#e6e9e4 calc(92.3% - 1px),#e6e9e4 92.3%,transparent 92.3%);pointer-events:none}.bar{height:10px;min-width:16px;border-radius:2px;position:relative}.sp-bar{background:#d46b47}.fs-bar{background:#397a74}.bar span{position:absolute;left:calc(100% + 5px);top:50%;transform:translateY(-50%);font: .65rem var(--mono);color:#41504a}.foot{margin:.55rem 0 0;color:#707c75;font-size:.69rem;line-height:1.5}
+	.viz{display:grid;gap:.3rem}.legend{display:flex;gap:1rem;justify-content:flex-end;font-size:.72rem;color:#58645f}.legend span{display:flex;align-items:center;gap:.35rem}.legend i{width:.65rem;height:.65rem;border-radius:2px}.sp{background:#d46b47}.fs{background:#397a74}.axis,.row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:.7rem;align-items:center}.axis>span{font-size:.68rem;color:#77827d}.axis>div{position:relative;height:1.55rem;border-bottom:1px solid #cfd6d0}.axis small{position:absolute;bottom:.2rem;transform:translateX(-50%);font-size:.65rem;color:#77827d}.axis b{position:absolute;right:0;top:-.2rem;font-size:.62rem;color:#77827d;background:#fffefa;padding-left:.25rem}.row{height:31px}.type{font-size:.72rem;color:#41504a;text-align:right;white-space:nowrap}.type em{font: normal .62rem var(--mono);color:#77827d}.plot{position:relative;display:grid;gap:3px}.grid{position:absolute;top:0;bottom:0;width:1px;background:#e6e9e4;pointer-events:none}.bar{height:11px;min-width:2px;border-radius:2px;position:relative}.sp-bar{background:#d46b47}.fs-bar{background:#397a74}.bar span{position:absolute;left:calc(100% + 5px);top:50%;transform:translateY(-50%);font: .65rem var(--mono);color:#41504a}.foot{margin:.55rem 0 0;color:#707c75;font-size:.69rem;line-height:1.5}
 </style>
