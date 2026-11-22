@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { resolveMotion } from '../src/lib/data/motion-reference.mjs';
 import { protocolMarks } from '../src/lib/data/derived.mjs';
+import { cumulativeTurns, formatTurns, turnsAt } from '../static/movement/beijing-2022/trajectory-hud.mjs';
 
 const root = new URL('../static/movement/beijing-2022/', import.meta.url);
 const read = (name) => readFileSync(new URL(name, root), 'utf8');
@@ -26,7 +27,7 @@ test('the 50 standard movements have versioned media and course-origin player ro
     assert.ok(Number.isInteger(asset.frames) && asset.frames > 1);
     assert.equal(new URL(asset.poster).origin, publisher);
   }
-  assert.equal(catalog.assets['2A'].file, '2A-C07-iteration-3-web.glb');
+  assert.equal(catalog.assets['2A'].file, '2A-r4-smooth-web.glb');
   assert.equal(new URL(catalog.assets['4T+3T'].player, 'https://example.test').searchParams.get('id'), '4T+3T');
 });
 
@@ -84,4 +85,15 @@ test('library and player modules resolve in the curated public build', () => {
   }
   assert.match(read('index.html'), /href="\/#workspace\/FS:4:1"/);
   assert.ok([...publicFiles].every((name) => !name.endsWith('.glb')));
+});
+
+test('the flight readout counts air turns across the ±π wrap without losing a revolution', () => {
+  const yaws = Array.from({ length: 41 }, (_, i) => ((i * Math.PI * 2 * 4) / 40 + Math.PI) % (2 * Math.PI) - Math.PI);
+  const turns = cumulativeTurns(yaws);
+  assert.ok(Math.abs(turns.at(-1) - 4) < 1e-9);
+  const segment = { takeoff: 166, apex: 186, landing: 206 };
+  assert.equal(turnsAt(160, segment, turns), 0);
+  assert.ok(Math.abs(turnsAt(185, segment, turns) - 2) < 1e-9);
+  assert.equal(turnsAt(300, segment, turns), turns.at(-1));
+  assert.equal(formatTurns(2, 4), '2.0 / 4.0');
 });
