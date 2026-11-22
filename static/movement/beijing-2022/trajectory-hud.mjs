@@ -97,3 +97,26 @@ export function formatMeters(value, signed = false) {
 	const prefix = signed && value > 0 ? '+' : '';
 	return `${prefix}${value.toFixed(2)} m`;
 }
+
+/** Cumulative turns from a list of yaw angles (radians) sampled every frame from take-off to landing. */
+export function cumulativeTurns(yaws) {
+	const turns = [0];
+	for (let i = 1; i < yaws.length; i++) {
+		let delta = yaws[i] - yaws[i - 1];
+		delta -= Math.round(delta / (2 * Math.PI)) * 2 * Math.PI;
+		turns.push(turns[i - 1] + Math.abs(delta) / (2 * Math.PI));
+	}
+	return turns;
+}
+
+/** Turns completed in the air at a 0-based player frame for one take-off/landing segment. */
+export function turnsAt(frame, segment, turns) {
+	const blenderFrame = frame + 1;
+	if (!turns?.length || blenderFrame <= segment.takeoff) return 0;
+	if (blenderFrame >= segment.landing) return turns.at(-1);
+	return turns[Math.min(turns.length - 1, blenderFrame - segment.takeoff)];
+}
+
+export function formatTurns(current, total) {
+	return `${current.toFixed(1)} / ${total.toFixed(1)}`;
+}

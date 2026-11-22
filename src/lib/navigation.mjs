@@ -12,10 +12,10 @@ const validOccurrence = /^(?:SP|FS):(?:[1-9]|10):(?:[1-9]|1[0-2])$/;
 export function readRoute(hash) {
   const [requested, view, occurrence] = String(hash).replace(/^#\/?/, '').split('/');
   if (requested === 'evidence' || requested === 'protocol' || requested === 'charts') {
-    const compare = requested === 'charts' || (requested === 'evidence' && chartIds.includes(view));
+    const compare = requested === 'charts' || (requested === 'evidence' && (!view || chartIds.includes(view)));
     const route = {
       stage: 'evidence',
-      chart: compare ? (chartIds.includes(view) ? view : 'S12') : defaultEvidenceChart,
+      chart: chartIds.includes(view) ? view : requested === 'charts' ? 'S12' : defaultEvidenceChart,
       panel: compare ? 'compare' : 'protocol'
     };
     const id = requested === 'protocol' ? view : occurrence;
@@ -24,12 +24,12 @@ export function readRoute(hash) {
   }
   const stage = stages.some(s => s.id === requested) || requested === 'chart-detail' ? requested : 'story';
   const route = { stage, chart: chartIds.includes(view) ? view : 'S12' };
-  const id = stage === 'workspace' ? view : occurrence;
-  if (['workspace', 'chart-detail'].includes(stage) && validOccurrence.test(id)) route.elementId = id;
+  const id = stage === 'chart-detail' ? occurrence : view;
+  if (['workspace', 'movement', 'chart-detail'].includes(stage) && validOccurrence.test(id)) route.elementId = id;
   return route;
 }
 export function routeHash(stage, view, elementId) {
-  const path = stage === 'workspace' ? [stage, elementId] : [stage, view, elementId];
+  const path = ['workspace', 'movement'].includes(stage) ? [stage, elementId] : [stage, view, elementId];
   const safe = readRoute(`#${path.join('/')}`);
   const detail = safe.panel === 'protocol' ? 'protocol' : safe.chart;
   const parts = [safe.stage];

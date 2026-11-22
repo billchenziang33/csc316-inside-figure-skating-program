@@ -12,7 +12,8 @@ test('all stages and expanded charts survive direct-link round trips', () => {
 
 test('scoring evidence links preserve the view and exact selected element', () => {
   assert.deepEqual(stages.map((stage) => stage.id), ['story', 'choose', 'workspace', 'evidence', 'movement']);
-  assert.equal(routeHash('evidence'), '#evidence/protocol');
+  assert.equal(routeHash('evidence'), '#evidence/S15');
+  assert.deepEqual(readRoute('#evidence'), { stage: 'evidence', chart: 'S15', panel: 'compare' });
   assert.deepEqual(readRoute('#protocol'), { stage: 'evidence', chart: 'S15', panel: 'protocol' });
   const elementId = 'FS:4:1';
   const protocol = routeHash('evidence', 'protocol', elementId);
@@ -33,5 +34,8 @@ test('the workbench and library retain the exact scored occurrence', () => {
   assert.deepEqual(readRoute('#workspace/FS:4:1'), { stage: 'workspace', chart: 'S12', elementId: 'FS:4:1' });
   assert.equal(readRoute('#workspace/invalid').elementId, undefined);
   assert.equal(libraryHref('FS:4:1'), '/movement/beijing-2022/?from=FS%3A4%3A1');
+  assert.equal(routeHash('movement', undefined, 'SP:4:2'), '#movement/SP:4:2');
+  assert.deepEqual(readRoute('#movement/SP:4:2'), { stage: 'movement', chart: 'S12', elementId: 'SP:4:2' });
+  assert.equal(readRoute('#movement').stage, 'movement');
   assert.equal(libraryHref(null), '/movement/beijing-2022/');
 });
