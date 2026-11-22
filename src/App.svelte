@@ -13,6 +13,9 @@
 	import BaseVsPanel from './lib/charts/BaseVsPanel.svelte';
 
 	import MotionOverlay from './lib/MotionOverlay.svelte';
+	import ElementPrimer from './lib/ElementPrimer.svelte';
+	import { elementTip } from './lib/tooltip.mjs';
+	import { describeElement, MARKS } from './lib/data/element-glossary.mjs';
 	import { levelledElements, protocolMarks, protocolMarkLabels } from './lib/data/derived.mjs';
 	import { resolveMotion } from './lib/data/motion-reference.mjs';
 	import { stages, defaultEvidenceChart, libraryHref, readRoute, routeHash } from './lib/navigation.mjs';
@@ -160,7 +163,7 @@
 				<em>move into points?</em>
 			</h1>
 			<p>Open an Olympic program, see what each element earned, and watch the technique in 3D.</p>
-			<button class="primary" onclick={() => go('choose')}>See how scoring works <span aria-hidden="true">→</span></button>
+			<button class="primary" onclick={() => go('elements')}>See how scoring works <span aria-hidden="true">→</span></button>
 		</div>
 		<figure class="finding-photo">
 			<picture>
@@ -172,9 +175,12 @@
 
   {:else}
   <section class="stage-body" class:expanded={activeStage === 'chart-detail'}>
-    <div class="stage-heading"><div><p class="kicker">STEP {stageIndex+1} / {stages.length} · {stages[stageIndex]?.label}</p><h1 id="stage-heading" tabindex="-1">{activeStage === 'choose' ? 'Choose a program to follow.' : activeStage === 'workspace' ? 'One program, three connected views.' : activeStage === 'evidence' ? 'How did this move earn its score?' : activeStage === 'movement' ? 'See the movement.' : chartTitles[activeChart]}</h1></div>{#if activeStage !== 'choose'}<p class="selection-context">{selectedSkater} · {selectedSegment === 'SP' ? 'Short program' : 'Free skate'}<button class="text-button" onclick={() => go('choose')}>Change program</button></p>{/if}</div>
+    <div class="stage-heading"><div><p class="kicker">STEP {stageIndex+1} / {stages.length} · {stages[stageIndex]?.label}</p><h1 id="stage-heading" tabindex="-1">{activeStage === 'elements' ? 'Learn the jumps and spins first.' : activeStage === 'choose' ? 'Choose a program to follow.' : activeStage === 'workspace' ? 'One program, three connected views.' : activeStage === 'evidence' ? 'How did this move earn its score?' : activeStage === 'movement' ? 'See the movement.' : chartTitles[activeChart]}</h1></div>{#if activeStage !== 'choose' && activeStage !== 'elements'}<p class="selection-context">{selectedSkater} · {selectedSegment === 'SP' ? 'Short program' : 'Free skate'}<button class="text-button" onclick={() => go('choose')}>Change program</button></p>{/if}</div>
     {#if loadError}<p class="error" role="alert">Could not load program data: {loadError}</p>{:else if !data}<p class="loading" role="status">Loading official protocol data…</p>{:else}
-    {#if activeStage === 'choose'}
+    {#if activeStage === 'elements'}
+      <p class="stage-intro">A two-minute guide to the codes on an official score sheet, using the jumps and spins the Beijing 2022 top ten actually performed.</p>
+      <ElementPrimer elements={allElements} onContinue={() => go('choose')} />
+    {:else if activeStage === 'choose'}
       <p class="stage-intro">Follow one of the final top ten through the official element sequence and scoring breakdown.</p>
 			<div class="controls panel">
 				<label>Skater
@@ -199,7 +205,7 @@
 					<div class="column-head"><span class="section-number">A · SEQUENCE</span><h3 id="sequence-title">Element order</h3><p>Official protocol order; not a timeline or rink map.</p></div>
 					<ol class="sequence">
 						{#each programElements as element (element.id)}
-							<li><button class:selected={selectedElement?.id === element.id} onclick={() => selectWorkbenchElement(element.id)} aria-pressed={selectedElement?.id === element.id}>
+							<li><button class:selected={selectedElement?.id === element.id} onclick={() => selectWorkbenchElement(element.id)} aria-pressed={selectedElement?.id === element.id} use:elementTip={describeElement(element.element_code_raw, element.info_flag)}>
 								<span class="order">{String(element.element_order).padStart(2,'0')}</span><span class="element-name"><b>{element.element_code_raw}</b><small>{element.element_group.replace('_',' ')}</small></span><span class="element-score">{element.panel_element_score.toFixed(2)}</span>
 							</button></li>
 						{/each}
@@ -209,9 +215,9 @@
 				<section class="column panel score-column" class:inactive-panel={workspaceTab !== 'score'} aria-labelledby="detail-title">
 					<div class="column-head"><span class="section-number">B · ELEMENT SCORE</span><h3 id="detail-title">What the protocol awarded</h3><p>Official panel values for the selected element.</p></div>
 					{#if selectedElement}
-						<div class="selected-element"><span>ELEMENT {String(selectedElement.element_order).padStart(2,'0')}</span><h4>{selectedElement.element_code_raw}</h4><p>{selectedElement.element_group.replace('_',' ')} · {selectedSegment === 'SP' ? 'Short program' : 'Free skate'}</p></div>
+						<div class="selected-element"><span>ELEMENT {String(selectedElement.element_order).padStart(2,'0')}</span><h4><span class="code-help" tabindex="0" use:elementTip={describeElement(selectedElement.element_code_raw, selectedElement.info_flag)}>{selectedElement.element_code_raw}</span></h4><p>{selectedElement.element_group.replace('_',' ')} · {selectedSegment === 'SP' ? 'Short program' : 'Free skate'}</p></div>
 						<div class="score-math"><div><span>Base value</span><b>{selectedElement.base_value.toFixed(2)}</b></div><div><span>GOE</span><b class:negative={selectedElement.goe < 0}>{selectedElement.goe > 0 ? '+' : ''}{selectedElement.goe.toFixed(2)}</b></div><div class="final-score"><span>Panel score</span><b>{selectedElement.panel_element_score.toFixed(2)}</b></div></div>
-						{#if selectedElement.info_flag}<p class="flag-note"><strong>Protocol mark: {selectedElement.info_flag}</strong> · Check the official notation key for this call.</p>{/if}
+						{#if selectedElement.info_flag}<p class="flag-note"><strong>Protocol mark: {selectedElement.info_flag}{#if MARKS[selectedElement.info_flag]} · {MARKS[selectedElement.info_flag].label}{/if}</strong>{#if MARKS[selectedElement.info_flag]} · {MARKS[selectedElement.info_flag].meaning}.{/if}</p>{/if}
 						<div class="program-math"><span>PROGRAM TOTAL</span><strong>{selectedProgram?.TES.toFixed(2)} TES + {selectedProgram?.PCS_factored.toFixed(2)} PCS {selectedProgram?.deductions && selectedProgram.deductions < 0 ? `− ${Math.abs(selectedProgram.deductions).toFixed(2)} deductions` : ''}</strong><b>= {selectedProgram?.segment_score_TSS.toFixed(2)} TSS</b></div>
 					{:else}<p class="loading">Choose an element from the sequence.</p>{/if}
 					<p class="score-caveat">An element score combines base value and Grade of Execution (GOE). It does not measure the full artistic or athletic performance.</p>
