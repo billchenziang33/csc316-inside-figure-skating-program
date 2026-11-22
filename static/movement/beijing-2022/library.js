@@ -26,12 +26,9 @@ async function loadLibrary() {
     const details = document.createElement('div');
     const title = document.createElement('strong');
     title.textContent = motion.name;
-    const review = document.createElement('small');
-    const rounds = `${motion.archived_rounds} of 3 rounds archived`;
-    review.textContent = motion.blender_geometry_reviewed ? `${rounds} · Blender geometry reviewed` : rounds;
     const play = document.createElement('span');
     play.textContent = 'Play in 3D →';
-    details.append(title, review, play);
+    details.append(title, play);
     card.append(image, details);
     return card;
   }

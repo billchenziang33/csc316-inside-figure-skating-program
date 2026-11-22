@@ -18,6 +18,7 @@ test('the 50 standard movements have versioned media and course-origin player ro
   assert.equal(base.length, 50);
   assert.equal(catalog.plannedBaseActions, base.length);
   for (const asset of base) {
+    assert.equal(asset.file, `${asset.id}-r4-smooth-web.glb`);
     assert.equal(asset.player, `/movement/beijing-2022/player.html?id=${encodeURIComponent(asset.id)}`);
     const glb = new URL(asset.model);
     assert.equal(glb.origin, publisher);
@@ -27,7 +28,7 @@ test('the 50 standard movements have versioned media and course-origin player ro
     assert.ok(Number.isInteger(asset.frames) && asset.frames > 1);
     assert.equal(new URL(asset.poster).origin, publisher);
   }
-  assert.equal(catalog.assets['2A'].file, '2A-r4-smooth-web.glb');
+  assert.equal(catalog.assets['2A'].air_turns_available, false);
   assert.equal(new URL(catalog.assets['4T+3T'].player, 'https://example.test').searchParams.get('id'), '4T+3T');
 });
 
@@ -83,7 +84,7 @@ test('library and player modules resolve in the curated public build', () => {
   for (const name of ['catalog.json', 'player.html', 'blender-player.js', 'library.js', 'THIRD_PARTY_NOTICES.md']) {
     assert.ok(publicFiles.has(name), name);
   }
-  assert.match(read('index.html'), /href="\/#workspace\/FS:4:1"/);
+  assert.match(read('index.html'), /href="\/#workspace\/FS:4:1" target="_top"/);
   assert.ok([...publicFiles].every((name) => !name.endsWith('.glb')));
 });
 

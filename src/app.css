@@ -203,6 +203,7 @@ button:disabled { opacity:.4; cursor:default; }
 .scrolly-step p { margin:0 0 .7rem; line-height:1.65; font-size:.92rem; }
 .scrolly-step .scope-note { margin:.5rem 0 0; font-size:.76rem; }
 .scrolly-focus { padding:.55rem .7rem; background:var(--paper); border-left:3px solid var(--rust); font-variant-numeric:tabular-nums; }
+.scrolly-next { margin-top:1rem; }
 .scrolly-graphic { position:sticky; top:1rem; max-height:calc(100dvh - 2rem); overflow:auto; }
 .scrolly-graphic .chart-canvas { margin:1rem auto .5rem; }
 .scrolly-progress { display:flex; flex-wrap:wrap; gap:.35rem; margin-bottom:.9rem; }

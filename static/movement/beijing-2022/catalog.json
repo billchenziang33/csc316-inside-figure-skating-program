@@ -1500,6 +1500,7 @@
       "name": "2A · Axel",
       "kind": "jump",
       "file": "2A-r4-smooth-web.glb",
+      "air_turns_available": false,
       "frames": 300,
       "sha256": "3b0ead2ae0b23e4bec774198ba12a8df436de9621a27acffafb5ad9409592357",
       "model": "https://billchenziang33.github.io/figure-skate-database-3d/2A-r4-smooth-web.glb?v=3b0ead2ae0b2",
@@ -1515,7 +1516,7 @@
         "LANDING": 193
       },
       "motion_label": "illustrative / simulated",
-      "note": "Round 3 of FS-Jump3D sample C07 improves head and neck proportions, the transition into the arm tuck, and skate separation after landing. It depicts a training double Axel attempt. The skater and trajectory are illustrative / simulated. Adapted from FS-Jump3D by Ryota Takeda and colleagues, CC BY-NC-SA 4.0."
+      "note": "This simulated training double Axel reference is adapted from FS-Jump3D sample C07 by Ryota Takeda and colleagues, CC BY-NC-SA 4.0. The take-off marker is too late for a reliable air-turn count."
     },
     "2F": {
       "id": "2F",

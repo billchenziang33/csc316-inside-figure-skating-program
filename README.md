@@ -4,7 +4,7 @@ A CSC316 project built with Vite, Svelte 5, and D3. Its workbench links official
 
 ## Live site
 
-Open the [CSC316 course site](https://csc316-inside-figure-skating-progra.vercel.app/). The [3D library](https://csc316-inside-figure-skating-progra.vercel.app/movement/beijing-2022/) and [Hanyu's first free-skating element](https://csc316-inside-figure-skating-progra.vercel.app/#workspace/FS:4:1) are on the course domain. The models and preview images are served on demand from the motion archive.
+Open the [CSC316 course site](https://csc316-inside-figure-skating-progra.vercel.app/). The [3D library](https://csc316-inside-figure-skating-progra.vercel.app/movement/beijing-2022/) and [Hanyu's first free-skating element](https://csc316-inside-figure-skating-progra.vercel.app/#workspace/FS:4:1) are on the course domain. Both play the same 50 r4 models served by the [Figure Skate Database 3D](https://billchenziang33.github.io/figure-skate-database-3d/). The existing thumbnails are archived views.
 
 The left column selects a scored occurrence, the middle column keeps the official score, and the right column opens the corresponding standard technique reference on demand. Hanyu's first free-skating element retains its official `4A<` call and 5.00 points. Its 3D reference shows a standard quadruple Axel. Measured trajectories belong to the simulation. [ISU protocol](https://results.isu.org/results/season2122/owg2022/FSKMSINGLES-----------FNL-000100--_JudgesDetailsperSkater.pdf#page=2) · [ISU jump guide](https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/)
 
@@ -37,7 +37,7 @@ The project intentionally keeps official scoring records separate from motion re
 
 Five steps cover the finding, program selection, three-column workbench, scoring evidence, and movement reference. Step 4 shares the selected athlete, program, and element between **Protocol marks** and **Compare scores**. Open [Hanyu's first free-skating element in scoring evidence](https://csc316-inside-figure-skating-progra.vercel.app/#evidence/S15/FS:4:1) to see the linked selection.
 
-Compare scores opens with S15, the jump base-value and panel-score chart. S12, S01, S02, and S06 are available alongside it. Each chart has an expanded view and an underlying-values table. Direct links such as `#protocol`, `#charts/S15`, and `#chart-detail/S15` still work. Below 1040 CSS pixels, the workbench uses Sequence/Score/Movement tabs.
+Step 4 opens the **Compare scores** story. As you scroll, the chart moves from S15 to S02, S01, S06, and S12. The last section links to the 3D library with your selected element in context. Each chart has an expanded view and an underlying-values table. Direct links such as `#protocol`, `#charts/S15`, and `#chart-detail/S15` still work. Below 1040 CSS pixels, the workbench uses Sequence/Score/Movement tabs.
 
 In column C, select **Play** to open the viewport-sized interactive 3D dialog. The upper-right **Return to the main page** button or Escape closes it and restores the selected athlete, program and element. The same-origin player lives at `/movement/beijing-2022/player.html`.
 

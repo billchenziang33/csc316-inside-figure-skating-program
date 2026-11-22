@@ -15,7 +15,7 @@
 	import MotionOverlay from './lib/MotionOverlay.svelte';
 	import { levelledElements, protocolMarks, protocolMarkLabels } from './lib/data/derived.mjs';
 	import { resolveMotion } from './lib/data/motion-reference.mjs';
-	import { stages, chartIds, defaultEvidenceChart, readRoute, routeHash } from './lib/navigation.mjs';
+	import { stages, defaultEvidenceChart, libraryHref, readRoute, routeHash } from './lib/navigation.mjs';
 	let activeStage = $state('story');
 	let storySteps = $state(null);
 	let activeChart = $state(defaultEvidenceChart);
@@ -61,8 +61,9 @@
 	}
 	// Links and Back/Forward that land on a Compare-scores chart also scroll its story step into place.
 	function revealStoryStep() {
-		if (activeStage !== 'evidence' || evidencePanel !== 'compare' || !storySteps?.isConnected || activeChart === evidenceStory[0].chart) return false;
-		scrollToStep(storySteps, activeChart, { behavior: 'instant', focus: false });
+		if (activeStage !== 'evidence' || evidencePanel !== 'compare' || !storySteps?.isConnected) return false;
+		if (activeChart === defaultEvidenceChart) window.scrollTo({ top: 0, behavior: 'instant' });
+		else scrollToStep(storySteps, activeChart, { behavior: 'instant', focus: false });
 		return true;
 	}
 	function onRouteChange() { syncRoute(); tick().then(revealStoryStep); }
@@ -111,6 +112,7 @@
 
 	function switchEvidenceView(view) {
 		navigate(routeHash('evidence', view, selectedElement?.id));
+		if (view !== 'protocol') tick().then(revealStoryStep);
 	}
 
 	function selectEvidenceElement(id) {
@@ -119,7 +121,7 @@
 	}
 
 	function onStoryStep(chart) {
-		if (activeChart === chart) return;
+		if (activeStage !== 'evidence' || evidencePanel !== 'compare' || activeChart === chart) return;
 		activeChart = chart;
 		// Scrolling is reading, not navigating: update the link without adding Back entries.
 		history.replaceState(history.state, '', routeHash('evidence', chart, selectedElement?.id));
@@ -244,8 +246,8 @@
       {/if}
       {#if activeStage === 'evidence'}
         <div class="evidence-tabs" role="group" aria-label="Scoring evidence view">
-          <button aria-pressed={evidencePanel === 'protocol'} onclick={() => switchEvidenceView('protocol')}>Protocol marks</button>
           <button aria-pressed={evidencePanel === 'compare'} onclick={() => switchEvidenceView(activeChart)}>Compare scores</button>
+          <button aria-pressed={evidencePanel === 'protocol'} onclick={() => switchEvidenceView('protocol')}>Protocol marks</button>
         </div>
       {/if}
       {#if activeStage === 'evidence' && evidencePanel === 'protocol'}
@@ -254,6 +256,7 @@
           <ProtocolMatrix elements={programElements} selectedId={selectedElement?.id} onSelect={selectEvidenceElement} />
         </article>
       {:else if activeStage === 'evidence'}
+        <p class="scope-note">Scroll through the scoring story to see the chart change with each section.</p>
         <div class="scrolly">
           <ol class="scrolly-steps" bind:this={storySteps} use:scrolly={{ onStep: onStoryStep, initial: activeChart }} aria-label="Scoring story">
             {#each evidenceStory as step (step.chart)}
@@ -264,6 +267,7 @@
                   <p>{step.body}</p>
                   {#if step.chart === 'S15' && selectedElement}<p class="scrolly-focus"><b>{selectedElement.element_code_raw}</b> · {selectedElement.base_value.toFixed(2)} base {selectedElement.goe < 0 ? '−' : '+'} {Math.abs(selectedElement.goe).toFixed(2)} GOE = <b>{selectedElement.panel_element_score.toFixed(2)}</b> points</p>{/if}
                   <p class="scope-note">{step.note}</p>
+                  {#if step.chart === 'S12'}<button class="secondary scrolly-next" onclick={() => go('movement')}>Explore the 3D movement library →</button>{/if}
                 </div>
               </li>
             {/each}
@@ -285,11 +289,16 @@
       </article>
       {/if}
     {:else if activeStage === 'movement'}
-      <div class="motion-toolbar"><button class="secondary" onclick={() => { workspaceTab = 'movement'; go('workspace'); }}>← Return to workbench</button></div>
+      <div class="motion-toolbar">
+        <button class="secondary" onclick={() => { workspaceTab = 'movement'; go('workspace'); }}>← Return to workbench</button>
+        {#if selectedMotion?.asset?.file}
+          <button class="primary" onclick={() => motionOpen = true}>Play {selectedMotion.asset.id === '4A' ? 'standard 4A' : selectedMotion.asset.id} in 3D ↗</button>
+        {/if}
+      </div>
       <section class="panel reference-library" aria-labelledby="movement-library-heading">
         <h2 id="movement-library-heading">50 Movement 3D Library</h2>
-        <p class="scope-note">Browse and play the 50 standard movement models from the Beijing 2022 top-ten programs.</p>
-        <iframe class="movement-library-frame" src="/movement/beijing-2022/" title="50 movement 3D library with searchable model cards and interactive Blender playback"></iframe>
+        <p class="scope-note">Explore 50 simulated technique models linked to the Beijing 2022 top-ten programs.</p>
+        <iframe class="movement-library-frame" src={libraryHref(selectedElement?.id)} title="50 movement 3D library with searchable model cards and interactive Blender playback"></iframe>
       </section>
     {/if}
     {/if}

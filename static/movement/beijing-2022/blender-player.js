@@ -345,7 +345,10 @@ function updateFlightHud(frame) {
 	distanceHud.textContent = formatMeters(metrics.horizontalDistanceFromTakeoff);
 	peakHud.textContent = formatMeters(metrics.peakRise);
 	totalHud.textContent = formatMeters(metrics.totalHorizontalTravel);
-	if (turnsHud) turnsHud.textContent = (points.turns?.at(-1) ?? 0) < 0.25 ? '—' : formatTurns(turnsAt(frame, eventSegment, points.turns), points.turns?.at(-1) ?? 0);
+	const totalTurns = points.turns.at(-1) ?? 0;
+	turnsHud.textContent = asset.air_turns_available === false || totalTurns < 0.25
+		? 'Unavailable'
+		: formatTurns(turnsAt(frame, eventSegment, points.turns), totalTurns);
 }
 
 function sampleTrajectoryEvents() {
