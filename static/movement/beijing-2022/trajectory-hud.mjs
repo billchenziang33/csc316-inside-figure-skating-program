@@ -120,3 +120,28 @@ export function turnsAt(frame, segment, turns) {
 export function formatTurns(current, total) {
 	return `${current.toFixed(1)} / ${total.toFixed(1)}`;
 }
+
+/**
+ * Smooth a per-frame track of {x, y, z} points with a centred moving average.
+ * `half` frames on each side for x and z, `halfY` for y. A step longer than `cut` metres is a camera cut,
+ * and the average never reaches across one. A centred window adds no lag to steady travel.
+ */
+export function smoothTrack(points, half, halfY = half, cut = 1) {
+	const breaks = [0];
+	for (let i = 1; i < points.length; i++) {
+		if (Math.hypot(points[i].x - points[i - 1].x, points[i].y - points[i - 1].y, points[i].z - points[i - 1].z) > cut) breaks.push(i);
+	}
+	breaks.push(points.length);
+	const mean = (key, i, lo, hi, reach) => {
+		const from = Math.max(lo, i - reach), to = Math.min(hi - 1, i + reach);
+		let sum = 0;
+		for (let j = from; j <= to; j++) sum += points[j][key];
+		return sum / (to - from + 1);
+	};
+	const out = [];
+	for (let b = 0; b + 1 < breaks.length; b++) {
+		const lo = breaks[b], hi = breaks[b + 1];
+		for (let i = lo; i < hi; i++) out.push({ x: mean('x', i, lo, hi, half), y: mean('y', i, lo, hi, halfY), z: mean('z', i, lo, hi, half) });
+	}
+	return out;
+}
