@@ -42,6 +42,13 @@ export function protocolMarks(element) {
 	});
 }
 
+/** Everything the protocol prints against an element: the panel's calls, then the second-half bonus (x). */
+export function elementMarks(element) {
+	const marks = protocolMarks(element).map((mark) => ({ mark, label: protocolMarkLabels[mark], bonus: false }));
+	if ((element.info_flag ?? '').includes('x')) marks.push({ mark: 'x', label: 'Second-half bonus', bonus: true });
+	return marks;
+}
+
 export function levelledElements(elements) {
 	return elements
 		.filter((element) => ['spin', 'step_sequence'].includes(element.element_group))

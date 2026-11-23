@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { resolveMotion } from '../src/lib/data/motion-reference.mjs';
 import { protocolMarks } from '../src/lib/data/derived.mjs';
-import { cumulativeTurns, formatTurns, turnsAt } from '../static/movement/beijing-2022/trajectory-hud.mjs';
+import { cumulativeTurns, formatTurns, smoothTrack, turnsAt } from '../static/movement/beijing-2022/trajectory-hud.mjs';
 
 const root = new URL('../static/movement/beijing-2022/', import.meta.url);
 const read = (name) => readFileSync(new URL(name, root), 'utf8');
@@ -97,4 +97,27 @@ test('the flight readout counts air turns across the ±π wrap without losing a 
   assert.ok(Math.abs(turnsAt(185, segment, turns) - 2) < 1e-9);
   assert.equal(turnsAt(300, segment, turns), turns.at(-1));
   assert.equal(formatTurns(2, 4), '2.0 / 4.0');
+});
+
+test('the camera path is smoothed without lag and never across a camera cut', () => {
+  // A skater travelling at constant speed while circling a spin axis every 36 frames.
+  const circling = Array.from({ length: 200 }, (_, i) => ({
+    x: 0.01 * i + 0.3 * Math.cos((i * 2 * Math.PI) / 36),
+    y: 1,
+    z: 0.3 * Math.sin((i * 2 * Math.PI) / 36),
+  }));
+  const smooth = smoothTrack(circling, 18);
+  assert.equal(smooth.length, circling.length);
+  for (let i = 30; i < 170; i++) {
+    assert.ok(Math.abs(smooth[i].x - 0.01 * i) < 0.02, `x follows the travel at frame ${i}`);
+    assert.ok(Math.abs(smooth[i].z) < 0.02, `the circle is averaged out at frame ${i}`);
+  }
+  // Height uses its own, shorter window.
+  const hop = Array.from({ length: 60 }, (_, i) => ({ x: 0, y: i === 30 ? 1 : 0, z: 0 }));
+  assert.ok(Math.abs(smoothTrack(hop, 18, 2)[30].y - 0.2) < 1e-12);
+  // A 5 m jump between two frames is a cut: both sides keep their own position.
+  const cut = [...Array.from({ length: 20 }, () => ({ x: 0, y: 0, z: 0 })), ...Array.from({ length: 20 }, () => ({ x: 5, y: 0, z: 0 }))];
+  const kept = smoothTrack(cut, 18);
+  assert.equal(kept[19].x, 0);
+  assert.equal(kept[20].x, 5);
 });

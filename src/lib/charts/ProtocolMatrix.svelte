@@ -1,8 +1,8 @@
 <script>
-	import { protocolMarks, protocolMarkLabels } from '../data/derived.mjs';
+	import { elementMarks, protocolMarkLabels } from '../data/derived.mjs';
 	let { elements = [], selectedId = null, onSelect = () => {} } = $props();
-	const flags = Object.entries(protocolMarkLabels);
-	let rows = $derived(elements.map((element) => ({ element, marks: protocolMarks(element) })));
+	const flags = [...Object.entries(protocolMarkLabels), ['x', 'Second-half bonus: base value × 1.1']];
+	let rows = $derived(elements.map((element) => ({ element, marks: elementMarks(element) })));
 	let markedCount = $derived(rows.filter(({ marks }) => marks.length > 0).length);
 </script>
 
@@ -31,10 +31,10 @@
 					<td>
 						{#if marks.length}
 							<div class="mark-list">
-								{#each marks as mark (mark)}
-									<button class="mark-button" aria-label={`${element.element_code_raw}, ${mark} · ${protocolMarkLabels[mark]}`} aria-pressed={selectedId === element.id} onclick={() => onSelect(element.id)}>
+								{#each marks as { mark, label, bonus } (mark)}
+									<button class="mark-button" class:bonus aria-label={`${element.element_code_raw}, ${mark} · ${label}`} aria-pressed={selectedId === element.id} onclick={() => onSelect(element.id)}>
 										<span class="mark-symbol">{mark}</span>
-										<span>{protocolMarkLabels[mark]}</span>
+										<span>{label}</span>
 									</button>
 								{/each}
 							</div>
@@ -108,6 +108,10 @@
 		cursor:pointer;
 	}
 	.mark-button:hover { border-color:#773a28; }
+	/* The second-half bonus raises the score, so it does not share the colour of the panel's calls. */
+	.mark-button.bonus { border-color:#a9c4bd; background:#edf5f2; color:#24534e; }
+	.mark-button.bonus:hover { border-color:#24534e; }
+	.mark-button.bonus .mark-symbol { background:var(--teal); }
 	.mark-symbol {
 		flex:none;
 		min-width:1.6rem;

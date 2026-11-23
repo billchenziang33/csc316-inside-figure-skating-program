@@ -16,7 +16,7 @@
 	import ElementPrimer from './lib/ElementPrimer.svelte';
 	import { elementTip } from './lib/tooltip.mjs';
 	import { describeElement, MARKS } from './lib/data/element-glossary.mjs';
-	import { levelledElements, protocolMarks, protocolMarkLabels } from './lib/data/derived.mjs';
+	import { elementMarks, levelledElements } from './lib/data/derived.mjs';
 	import { resolveMotion } from './lib/data/motion-reference.mjs';
 	import { stages, defaultEvidenceChart, libraryHref, readRoute, routeHash } from './lib/navigation.mjs';
 	let activeStage = $state('story');
@@ -217,7 +217,7 @@
 					{#if selectedElement}
 						<div class="selected-element"><span>ELEMENT {String(selectedElement.element_order).padStart(2,'0')}</span><h4><span class="code-help" tabindex="0" use:elementTip={describeElement(selectedElement.element_code_raw, selectedElement.info_flag)}>{selectedElement.element_code_raw}</span></h4><p>{selectedElement.element_group.replace('_',' ')} · {selectedSegment === 'SP' ? 'Short program' : 'Free skate'}</p></div>
 						<div class="score-math"><div><span>Base value</span><b>{selectedElement.base_value.toFixed(2)}</b></div><div><span>GOE</span><b class:negative={selectedElement.goe < 0}>{selectedElement.goe > 0 ? '+' : ''}{selectedElement.goe.toFixed(2)}</b></div><div class="final-score"><span>Panel score</span><b>{selectedElement.panel_element_score.toFixed(2)}</b></div></div>
-						{#if selectedElement.info_flag}<p class="flag-note"><strong>Protocol mark: {selectedElement.info_flag}{#if MARKS[selectedElement.info_flag]} · {MARKS[selectedElement.info_flag].label}{/if}</strong>{#if MARKS[selectedElement.info_flag]} · {MARKS[selectedElement.info_flag].meaning}.{/if}</p>{/if}
+						{#each elementMarks(selectedElement) as { mark } (mark)}<p class="flag-note"><strong>Protocol mark: {mark} · {MARKS[mark].label}</strong> · {MARKS[mark].meaning}.</p>{/each}
 						<div class="program-math"><span>PROGRAM TOTAL</span><strong>{selectedProgram?.TES.toFixed(2)} TES + {selectedProgram?.PCS_factored.toFixed(2)} PCS {selectedProgram?.deductions && selectedProgram.deductions < 0 ? `− ${Math.abs(selectedProgram.deductions).toFixed(2)} deductions` : ''}</strong><b>= {selectedProgram?.segment_score_TSS.toFixed(2)} TSS</b></div>
 					{:else}<p class="loading">Choose an element from the sequence.</p>{/if}
 					<p class="score-caveat">An element score combines base value and Grade of Execution (GOE). It does not measure the full artistic or athletic performance.</p>
@@ -236,11 +236,11 @@
       <div class="workspace-actions"><button class="secondary" onclick={() => go('evidence', 'protocol')}>Inspect protocol marks →</button><button class="secondary" onclick={() => go('evidence', defaultEvidenceChart)}>Compare base value and panel score →</button></div>
     {:else if activeStage === 'evidence' || activeStage === 'chart-detail'}
       {#if selectedElement}
-        {@const marks = protocolMarks(selectedElement)}
+        {@const marks = elementMarks(selectedElement)}
         <section class="evidence-selection panel" aria-label="Selected element">
           <div class="evidence-element" aria-live="polite" aria-atomic="true">
             <h2><span class="section-number">Element {String(selectedElement.element_order).padStart(2, '0')}</span> {selectedElement.element_code_raw}</h2>
-            <p>{marks.length ? marks.map(mark => protocolMarkLabels[mark]).join(' · ') : 'No protocol marks'}</p>
+            <p>{marks.length ? marks.map(({ label }) => label).join(' · ') : 'No protocol marks'}</p>
           </div>
           <dl class="evidence-points" aria-label="Score breakdown">
             <div><dt>Base value</dt><dd>{selectedElement.base_value.toFixed(2)}</dd></div>

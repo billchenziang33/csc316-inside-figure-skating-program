@@ -2,7 +2,7 @@ import { findExportedNameMatch, findExportedNamesByPrefix } from '../axel-1a-pro
 import { fitBoundingSphereDistance, fitOrbitCameraDistance } from '../axel-1a-prototype/camera-fit.mjs';
 import { toggleFullscreen } from '../axel-1a-prototype/fullscreen-control.js';
 import { advancePlaybackTime, elapsedPlaybackSeconds, playbackSpeedFromControl, seekAnimationActions } from '../axel-1a-prototype/playback-clock.mjs?v=100';
-import { cumulativeTurns, formatMeters, formatTurns, measureFlightMetrics, phaseAt, readAxelEventFrames, readEventSegments, selectEventSegment, timeAtAnimationFrame, turnsAt } from './trajectory-hud.mjs?v=106';
+import { cumulativeTurns, formatMeters, formatTurns, measureFlightMetrics, phaseAt, readAxelEventFrames, readEventSegments, selectEventSegment, smoothTrack, timeAtAnimationFrame, turnsAt } from './trajectory-hud.mjs?v=107';
 
 import { createBodyShadow, updateBodyShadow } from './blade-shadow.mjs';
 const THREE = globalThis.THREE;
@@ -106,6 +106,13 @@ let dragMode = 'orbit';
 let lastPointerX = 0;
 let lastPointerY = 0;
 let trajectoryRoot;
+// Hips bone of the skinned skater. The camera is aimed along its smoothed path; see skaterBounds().
+let skaterHips = null;
+let skaterTrack = null;
+let sideCameraTrack = null;
+const skaterCenter = new THREE.Vector3();
+// A cube whose bounding sphere has a 1.1 m radius: it holds the skater from the blades to raised arms.
+const skaterFrameSize = new THREE.Vector3().setScalar(2 * 1.1 / Math.sqrt(3));
 let trajectoryEventFrames;
 let trajectoryPointSegments = [];
 let trajectoryGuides = [];
@@ -218,10 +225,53 @@ function frameFromTime(time) {
 	return Math.min(frameCount - 1, Math.max(0, Math.round(time / duration * (frameCount - 1))));
 }
 
+/**
+ * Bounds used to aim the camera at the skater and to fit the skater in view.
+ * A skinned mesh keeps the bounding box of one pose, and that box turns with the skater root, so a camera
+ * fitted to it swings and zooms with every rotation. The skinned skater is framed by a fixed box on the
+ * hips instead: it follows the body and never changes size. Older rigid models keep their own box.
+ */
+function skaterBounds(box) {
+	if (!skaterHips) return box.setFromObject(trajectoryRoot);
+	if (skaterTrack) trackAt(skaterTrack, skaterCenter);
+	else skaterHips.getWorldPosition(skaterCenter);
+	return box.setFromCenterAndSize(skaterCenter, skaterFrameSize);
+}
+
+/** Position on a per-frame track at the current playback time. */
+function trackAt(track, target) {
+	const at = THREE.MathUtils.clamp(playbackTime / duration * (frameCount - 1), 0, track.length - 1);
+	const index = Math.floor(at);
+	const next = track[Math.min(index + 1, track.length - 1)];
+	return target.set(track[index].x, track[index].y, track[index].z).lerp(next, at - index);
+}
+
+/**
+ * Sample where the skater's hips and the exported side camera are on every frame, then smooth both paths.
+ * The hips circle the spin axis and the exported camera follows the source skater, so an unsmoothed camera
+ * rocks about twice a second in a spin. Height is smoothed less, so the camera still rises with a jump.
+ */
+function sampleFramingTracks() {
+	if (!skaterHips || !skaterSideCamera) return;
+	const restoreTime = playbackTime;
+	const hips = [];
+	const cameras = [];
+	for (let frame = 1; frame <= frameCount; frame++) {
+		seekAnimationActions(mixer, clipActions, animationStartTime + timeAtAnimationFrame(frame, duration, frameCount));
+		modelScene.updateMatrixWorld(true);
+		hips.push(skaterHips.getWorldPosition(new THREE.Vector3()));
+		cameras.push(skaterSideCamera.getWorldPosition(new THREE.Vector3()));
+	}
+	skaterTrack = smoothTrack(hips, 18, 8);
+	sideCameraTrack = smoothTrack(cameras, 18);
+	seekAnimationActions(mixer, clipActions, animationStartTime + restoreTime);
+	modelScene.updateMatrixWorld(true);
+}
+
 function updateInspectionCamera() {
 	if (!followInspection || !activeCamera) return;
 	modelScene.updateMatrixWorld(true);
-	inspectionBox.setFromObject(trajectoryRoot);
+	skaterBounds(inspectionBox);
 	inspectionBox.getCenter(inspectionTarget);
 	skaterSideCamera.getWorldQuaternion(inspectionOrientation);
 	inspectionDirection.set(0.27, 0.04, 1).applyQuaternion(inspectionOrientation);
@@ -394,7 +444,8 @@ function updateViewerCamera() {
 	if (followInspection) {
 		cameraWorldPosition.copy(inspectionCameraPosition);
 	} else {
-		sourceCamera.getWorldPosition(cameraWorldPosition);
+		if (sideCameraTrack && sourceCamera === skaterSideCamera) trackAt(sideCameraTrack, cameraWorldPosition);
+		else sourceCamera.getWorldPosition(cameraWorldPosition);
 		sourceCamera.getWorldQuaternion(cameraWorldQuaternion);
 	}
 	if (!orbitEnabled) {
@@ -415,7 +466,7 @@ function updateViewerCamera() {
 			orbitTarget.copy(arenaTarget);
 			orbitFitRadius = orbitFitSphere.radius;
 		} else {
-			orbitFitBounds.setFromObject(trajectoryRoot);
+			skaterBounds(orbitFitBounds);
 			orbitFitBounds.getBoundingSphere(orbitFitSphere);
 			orbitTarget.copy(orbitFitSphere.center);
 			orbitFitRadius = orbitFitSphere.radius;
@@ -569,6 +620,7 @@ async function start() {
 		modelScene.traverse((object) => sceneObjects.push(object));
 		trajectoryGuides = findExportedNamesByPrefix(sceneObjects, 'V102');
 		trajectoryRoot = findExportedNameMatch(sceneObjects, 'Skater root · simulated travel and 1.5-turn yaw v8');
+		skaterHips = sceneObjects.find((object) => object.isBone && object.name === 'hips') ?? null;
 		inspectionSkates = ['Left', 'Right'].flatMap((side) => ['boot', 'blade'].map((part) =>
 			findExportedNameMatch(sceneObjects, `${side} skate · website ${part} v64`)));
 		inspectionCamera = findExportedNameMatch(sceneObjects, CAMERA_NAMES[2]);
@@ -609,6 +661,7 @@ async function start() {
 			throw new Error('A V102 inherited trajectory event is outside the exported animation frame range.');
 		}
 		if (trajectoryEventFrames) sampleTrajectoryEvents();
+		sampleFramingTracks();
 		inspectionCamera.zoom = 1.0;
 		inspectionCamera.near = 0.01;
 		inspectionCamera.updateProjectionMatrix();
