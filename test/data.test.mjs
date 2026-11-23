@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { parseBrief } from '../src/lib/data/parse-brief.mjs';
-import { countJumpElements, jumpRotations, protocolMarks, summarizeJumpShare, levelledElements } from '../src/lib/data/derived.mjs';
+import { countJumpElements, elementMarks, jumpRotations, protocolMarks, summarizeJumpShare, levelledElements } from '../src/lib/data/derived.mjs';
 
 const markdown = await readFile(new URL('../data/source/Beijing_2022_Mens_Singles_Top10_Data_Brief.md', import.meta.url), 'utf8');
 const data = parseBrief(markdown);
@@ -58,4 +58,17 @@ test('spin and step chart includes reduced-base-value spins at their recorded le
 	for (const level of [2, 4]) {
 		assert.equal(rows.find((row) => row.element_code_raw === `CCoSp${level}V`)?.level, level);
 	}
+});
+
+test('the second-half bonus is listed with an element\'s marks, after any panel calls', () => {
+	const symbols = (element) => elementMarks(element).map(({ mark }) => mark);
+	assert.deepEqual(elementMarks({ element_code_raw: '4Lz+3T', info_flag: 'x' }), [{ mark: 'x', label: 'Second-half bonus', bonus: true }]);
+	assert.deepEqual(symbols({ element_code_raw: '3F+3T<', info_flag: 'x' }), ['<', 'x']);
+	assert.deepEqual(symbols({ element_code_raw: '4Lz!q', info_flag: '!' }), ['q', '!']);
+	assert.deepEqual(symbols({ element_code_raw: 'StSq4', info_flag: null }), []);
+	const bonus = data.elements.filter((element) => symbols(element).includes('x'));
+	assert.equal(bonus.length, 40);
+	assert.ok(bonus.every((element) => element.element_group === 'jump'));
+	// 11 called elements + 40 bonus elements, two of which carry both.
+	assert.equal(data.elements.filter((element) => elementMarks(element).length).length, 49);
 });

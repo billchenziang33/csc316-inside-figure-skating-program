@@ -1162,7 +1162,7 @@
         "TAKEOFF": 166
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three rounds passed the Blender geometry and technique audits. Full playback in the public default side view awaits review."
+      "note": "Triple Axel. Take-off from the left forward outside edge, the only forward take-off. 3½ turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4T": {
       "id": "4T",
@@ -1184,7 +1184,7 @@
         "LANDING": 209
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. Sampled geometry and technique checks passed. Full playback in the public default side view awaits review."
+      "note": "Quadruple toe loop. Take-off from the right back outside edge with a left toe pick. 4 turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3T": {
       "id": "3T",
@@ -1206,7 +1206,7 @@
         "LANDING": 203
       },
       "motion_label": "illustrative / simulated",
-      "note": "The three boot-separation revisions are archived. Blender geometry and technique checks passed. The public default side view awaits Edge review."
+      "note": "Triple toe loop. Take-off from the right back outside edge with a left toe pick. 3 turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4S": {
       "id": "4S",
@@ -1228,7 +1228,7 @@
         "LANDING": 209
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. Sampled geometry and technique checks passed. Full playback in the public default side view awaits review."
+      "note": "Quadruple Salchow. Take-off from the left back inside edge, free leg sweeping round, no toe pick. 4 turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "1Eu": {
       "id": "1Eu",
@@ -1250,7 +1250,7 @@
         "LANDING": 191
       },
       "motion_label": "illustrative / simulated",
-      "note": "Euler / right backward outside-edge takeoff, left backward inside-edge landing; no toe-pick assist. Illustrative / simulated; no Beijing 2022 athlete capture data."
+      "note": "Euler. One turn from the right back outside edge, landing on the left back inside edge. In competition it appears only inside combinations, to link two jumps. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3F": {
       "id": "3F",
@@ -1272,7 +1272,7 @@
         "LANDING": 203
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. Mesh checks passed for the left back inside takeoff, right toe-pick assist, right back outside landing, and triple rotation. Full playback in the public default side view awaits review."
+      "note": "Triple flip. Take-off from the left back inside edge with a right toe pick. 3 turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3Lz": {
       "id": "3Lz",
@@ -1294,7 +1294,7 @@
         "LANDING": 203
       },
       "motion_label": "illustrative / simulated",
-      "note": "3Lz Lutz / left backward outside-edge takeoff, right toe-pick assist, right backward outside-edge landing. Geometry and technique sampled; public default-side full-play review pending."
+      "note": "Triple Lutz. Take-off from the left back outside edge with a right toe pick. 3 turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "2T": {
       "id": "2T",
@@ -1316,7 +1316,7 @@
         "LANDING": 195
       },
       "motion_label": "illustrative / simulated",
-      "note": "Round 3 revises the phases in side view. Geometry and technique checks passed. The public default side view awaits Edge review."
+      "note": "Double toe loop. Take-off from the right back outside edge with a left toe pick. 2 turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3Lo": {
       "id": "3Lo",
@@ -1338,7 +1338,7 @@
         "LANDING": 203
       },
       "motion_label": "illustrative / simulated",
-      "note": "Loop / right backward outside-edge takeoff and same-foot landing; no toe-pick assist. Passed desktop Edge public default-side review: complete 1× playback, pause, seek to frame 178, full skater and skates visible. Illustrative / simulated; no Beijing 2022 athlete capture data."
+      "note": "Triple loop. Take-off from the right back outside edge with both feet close, no toe pick. 3 turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3S": {
       "id": "3S",
@@ -1360,7 +1360,7 @@
         "LANDING": 203
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. Sampled geometry and technique checks passed. Full playback in the public default side view awaits review."
+      "note": "Triple Salchow. Take-off from the left back inside edge, free leg sweeping round, no toe pick. 3 turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4F": {
       "id": "4F",
@@ -1382,7 +1382,7 @@
         "LANDING": 209
       },
       "motion_label": "illustrative / simulated",
-      "note": "4F Flip / left backward inside-edge takeoff, right toe-pick assist, right backward outside-edge landing. Geometry and technique sampled; public default-side full-play review pending."
+      "note": "Quadruple flip. Take-off from the left back inside edge with a right toe pick. 4 turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4Lz": {
       "id": "4Lz",
@@ -1404,7 +1404,7 @@
         "LANDING": 210
       },
       "motion_label": "illustrative / simulated",
-      "note": "Lutz / left backward outside-edge takeoff, right toe-pick assist, right backward outside-edge landing. Passed desktop Edge default side: Ready, normal 1× playback from frame 1 through 370/370 (6.15 s); at landing f210 the right support blade is at the ice and the trailing left skate is separated by 0.33 m. Illustrative / simulated; no Beijing 2022 athlete capture data."
+      "note": "Quadruple Lutz. Take-off from the left back outside edge with a right toe pick. 4 turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4Lo": {
       "id": "4Lo",
@@ -1426,7 +1426,7 @@
         "LANDING": 209
       },
       "motion_label": "illustrative / simulated",
-      "note": "Loop / right backward outside-edge takeoff and same-foot landing; no toe-pick assist. Illustrative / simulated; no Beijing 2022 athlete capture data."
+      "note": "Quadruple loop. Take-off from the right back outside edge with both feet close, no toe pick. 4 turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "1F": {
       "id": "1F",
@@ -1448,7 +1448,7 @@
         "LANDING": 191
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. Mesh checks passed for the left back inside takeoff, right toe-pick assist, right back outside landing, and single rotation. The trajectory is simulated. Full public playback awaits review."
+      "note": "Single flip. Take-off from the left back inside edge with a right toe pick. 1 turn in an open air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "2S": {
       "id": "2S",
@@ -1470,7 +1470,7 @@
         "LANDING": 196
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. Sampled geometry and technique checks passed. Full playback in the public default side view awaits review."
+      "note": "Double Salchow. Take-off from the left back inside edge, free leg sweeping round, no toe pick. 2 turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "1S": {
       "id": "1S",
@@ -1492,7 +1492,7 @@
         "LANDING": 191
       },
       "motion_label": "illustrative / simulated",
-      "note": "Single Salchow: follow the left back inside edge through takeoff, then the right knee as it absorbs the landing. Illustrative / simulated; no Beijing 2022 motion capture.",
+      "note": "Single Salchow. Take-off from the left back inside edge, free leg sweeping round, no toe pick. 1 turn in an open air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture.",
       "shadow_mode": "blade-clearance"
     },
     "2A": {
@@ -1516,7 +1516,7 @@
         "LANDING": 193
       },
       "motion_label": "illustrative / simulated",
-      "note": "This simulated training double Axel reference is adapted from FS-Jump3D sample C07 by Ryota Takeda and colleagues, CC BY-NC-SA 4.0. The take-off marker is too late for a reliable air-turn count."
+      "note": "Double Axel. Take-off from the left forward outside edge, the only forward take-off. 2½ turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Path and timing adapted from FS-Jump3D sample C07 by Ryota Takeda and colleagues, CC BY-NC-SA 4.0; its take-off marker is late, so the turn readout undercounts this jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "2F": {
       "id": "2F",
@@ -1538,7 +1538,7 @@
         "LANDING": 198
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. Checks passed for the Flip's back inside takeoff, right toe-pick assist, back outside landing, and geometry. Full playback in the public default side view awaits review."
+      "note": "Double flip. Take-off from the left back inside edge with a right toe pick. 2 turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4A": {
       "id": "4A",
@@ -1560,7 +1560,7 @@
         "LANDING": 219
       },
       "motion_label": "illustrative / simulated",
-      "note": "Standard 4A technique demonstration. Left forward outside-edge takeoff, compact air position, 4½ simulated turns, right backward outside-edge one-foot landing and controlled exit. The animation illustrates technique; official competition marks are kept in the protocol.",
+      "note": "Quadruple Axel. Take-off from the left forward outside edge, the only forward take-off. 4½ turns in a tight air position, then a one-foot landing on the right back outside edge with the free leg extended. Illustrative / simulated; not Beijing 2022 motion capture.",
       "source": "https://www.isu-skating.com/en/figure-skating/news/figure-skating-jumps-explained/"
     },
     "4T+3T": {
@@ -1587,7 +1587,7 @@
         "EXIT": 435
       },
       "motion_label": "illustrative / simulated",
-      "note": "Two toe-assisted jumps. Follow the right back outside landing edge into the triple, with a left toe pick for each takeoff. Illustrative / simulated; no Beijing 2022 motion capture.",
+      "note": "Two jumps with no step between them: Quadruple toe loop (left toe pick) → triple toe loop (left toe pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture.",
       "shadow_mode": "blade-clearance"
     },
     "3A+2T": {
@@ -1614,7 +1614,7 @@
         "EXIT": 440
       },
       "motion_label": "illustrative / simulated",
-      "note": "The triple Axel landing leads through a short transition into a right-foot double toe loop. The jumps complete three and a half and two rotations respectively. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Two jumps with no step between them: Triple Axel (forward take-off) → double toe loop (left toe pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3Lz+3T": {
       "id": "3Lz+3T",
@@ -1640,7 +1640,7 @@
         "EXIT": 444
       },
       "motion_label": "illustrative / simulated",
-      "note": "Round 3 version 6 corrects the skate overlap visible from the side during the Lutz-to-toe-loop transition. Blender geometry and technique checks passed. Full public playback in Edge awaits review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Two jumps with no step between them: Triple Lutz (right toe pick) → triple toe loop (left toe pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3A+1Eu+3S": {
       "id": "3A+1Eu+3S",
@@ -1669,7 +1669,7 @@
         "EXIT": 465
       },
       "motion_label": "illustrative / simulated",
-      "note": "The triple Axel takes off from the left forward outside edge and lands on the right back outside edge. The Euler takes off from that edge and lands on the left back inside edge, which leads into the triple Salchow. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Three jumps with no step between them: Triple Axel (forward take-off) → Euler (one turn, lands on the left back inside edge) → triple Salchow (left back inside edge). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3F+3T": {
       "id": "3F+3T",
@@ -1695,7 +1695,7 @@
         "EXIT": 444
       },
       "motion_label": "illustrative / simulated",
-      "note": "A smooth 0.24 m lift of the free skate between the triple Flip landing and the triple toe loop toe-pick preparation improves skate separation in side view. Blender geometry and technique audits passed. Full 1× playback, pause, and scrubbing were verified in Edge's default side view. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Two jumps with no step between them: Triple flip (right toe pick) → triple toe loop (left toe pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3Lz+3Lo": {
       "id": "3Lz+3Lo",
@@ -1721,7 +1721,7 @@
         "EXIT": 438
       },
       "motion_label": "illustrative / simulated",
-      "note": "Edge verified the default side profile at 1× from frame 1 through frame 438. Pausing at frame 260 held that frame for 0.5 s. Scrubbing reached the Lutz apex and landing at frames 185 and 203 and the loop apex and landing at frames 260 and 278. The default framing shows the full body and both skates, with the boots distinguishable at key frames. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Two jumps with no step between them: Triple Lutz (right toe pick) → triple loop (right back outside edge, no pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4T+2T": {
       "id": "4T+2T",
@@ -1747,7 +1747,7 @@
         "EXIT": 427
       },
       "motion_label": "illustrative / simulated",
-      "note": "The right back outside edge bears weight and the left toe pick assists takeoff. The quad toe loop leads into the double toe loop. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Two jumps with no step between them: Quadruple toe loop (left toe pick) → double toe loop (left toe pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "2F+1Eu+3S": {
       "id": "2F+1Eu+3S",
@@ -1776,7 +1776,7 @@
         "EXIT": 452
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three current local Edge default-side routes completed Normal 1x playback through 452/452. Blender geometry and technique audits pass. Public review pending. Illustrative / simulated; no Beijing 2022 athlete capture."
+      "note": "Three jumps with no step between them: Double flip (right toe pick) → Euler (one turn, lands on the left back inside edge) → triple Salchow (left back inside edge). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3A+1Eu+1F": {
       "id": "3A+1Eu+1F",
@@ -1805,7 +1805,7 @@
         "EXIT": 453
       },
       "motion_label": "illustrative / simulated",
-      "note": "Rebuilt r1-r3 from the current archived 1Eu. Blender audits pass; Edge default-side r3 completed 1x playback through 453/453 with Euler/Flip take-off and landing poses reviewed. Public review pending. Illustrative / simulated; no Beijing 2022 athlete capture."
+      "note": "Three jumps with no step between them: Triple Axel (forward take-off) → Euler (one turn, lands on the left back inside edge) → single flip (right toe pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3F+2T": {
       "id": "3F+2T",
@@ -1831,7 +1831,7 @@
         "EXIT": 436
       },
       "motion_label": "illustrative / simulated",
-      "note": "takeoff-seam-fade-v1: knee-chain reconstruction fades to the authored 2T pose through source frames 160–166; takeoff/event frames unchanged. Local original-quality preview only; public deployment unchanged. Illustrative / simulated; no Beijing 2022 capture."
+      "note": "Two jumps with no step between them: Triple flip (right toe pick) → double toe loop (left toe pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3F+3Lo": {
       "id": "3F+3Lo",
@@ -1857,7 +1857,7 @@
         "EXIT": 438
       },
       "motion_label": "illustrative / simulated",
-      "note": "The separation adjustment at the triple Flip landing extends through frames 197–205. Key frames in the default side view were checked for rounds 1 and 3. All three rounds passed Blender geometry and technique audits. Full playback awaits review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Two jumps with no step between them: Triple flip (right toe pick) → triple loop (right back outside edge, no pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3Lz+1Eu+2S": {
       "id": "3Lz+1Eu+2S",
@@ -1886,7 +1886,7 @@
         "EXIT": 447
       },
       "motion_label": "illustrative / simulated",
-      "note": "Rebuilt r1-r3 from current 1Eu and 2S. Euler connection free-leg separation was iterated from 0.22m to 0.55m after side-view review. Blender audits pass; Edge local r3 1x playback reached 447/447; key poses 216/220/228/257/287 checked. Public review pending. Illustrative/simulated; no Beijing 2022 athlete capture."
+      "note": "Three jumps with no step between them: Triple Lutz (right toe pick) → Euler (one turn, lands on the left back inside edge) → double Salchow (left back inside edge). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3Lz+1Eu+3S": {
       "id": "3Lz+1Eu+3S",
@@ -1915,7 +1915,7 @@
         "EXIT": 454
       },
       "motion_label": "illustrative / simulated",
-      "note": "Rebuilt r1-r3 with Euler free-leg offset 0.44m and window 198/206/221/228. Blender audits and side-frame reviews pass; Edge r3 default-side Normal 1x played 1/454 through 454/454, seeks 203/204/210/211/220 verified, pause stable. Public review pending. Illustrative/simulated; no Beijing 2022 athlete capture."
+      "note": "Three jumps with no step between them: Triple Lutz (right toe pick) → Euler (one turn, lands on the left back inside edge) → triple Salchow (left back inside edge). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "3Lz+2T": {
       "id": "3Lz+2T",
@@ -1941,7 +1941,7 @@
         "EXIT": 430
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three rounds passed Blender geometry and technique audits. Local Edge review in the default side view covered full 1× playback, pause, scrubbing, and the exit glide. Public playback awaits review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Two jumps with no step between them: Triple Lutz (right toe pick) → double toe loop (left toe pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4F+3T": {
       "id": "4F+3T",
@@ -1967,7 +1967,7 @@
         "EXIT": 450
       },
       "motion_label": "illustrative / simulated",
-      "note": "Illustrative / simulated. Blender geometry/technique and keyframe checks passed; Edge default-side full playback is pending. No Beijing 2022 athlete motion-capture data."
+      "note": "Two jumps with no step between them: Quadruple flip (right toe pick) → triple toe loop (left toe pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4Lo+1Eu+3S": {
       "id": "4Lo+1Eu+3S",
@@ -1996,7 +1996,7 @@
         "EXIT": 454
       },
       "motion_label": "illustrative / simulated",
-      "note": "Current r1-r3 built from 4Lo, 1Eu and 3S sources; Blender audits pass. Edge local r3 default-side 1x playback reached 454/454. Frames 251-254 checked: knee, calf and skate silhouettes remain separate with no visible reversal or single-frame jump. Public review pending. Illustrative/simulated; no Beijing 2022 athlete capture."
+      "note": "Three jumps with no step between them: Quadruple loop (right back outside edge, no pick) → Euler (one turn, lands on the left back inside edge) → triple Salchow (left back inside edge). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4S+2T": {
       "id": "4S+2T",
@@ -2022,7 +2022,7 @@
         "EXIT": 442
       },
       "motion_label": "illustrative / simulated",
-      "note": "Rebuilt from current 4S takeoff-continuity v1; all rounds pass Blender audits; r3 full 1x default-side playback verified in local Edge. Public review pending. Illustrative / simulated; no Beijing 2022 competition capture data."
+      "note": "Two jumps with no step between them: Quadruple Salchow (left back inside edge) → double toe loop (left toe pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4S+3T": {
       "id": "4S+3T",
@@ -2048,7 +2048,7 @@
         "EXIT": 450
       },
       "motion_label": "illustrative / simulated",
-      "note": "Rebuilt from current 4S takeoff-continuity v1; all rounds pass Blender audits; r3 full 1x default-side playback verified in local Edge. Public review pending. Illustrative / simulated; no Beijing 2022 competition capture data."
+      "note": "Two jumps with no step between them: Quadruple Salchow (left back inside edge) → triple toe loop (left toe pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4T+1Eu+1F": {
       "id": "4T+1Eu+1F",
@@ -2077,7 +2077,7 @@
         "EXIT": 442
       },
       "motion_label": "illustrative / simulated",
-      "note": "Local Edge review in the default side view verified full 1× playback, pause, and scrubbing for all three rounds. Both skate outlines are distinct at frame 219. Public playback awaits review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Three jumps with no step between them: Quadruple toe loop (left toe pick) → Euler (one turn, lands on the left back inside edge) → single flip (right toe pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4T+1Eu+2S": {
       "id": "4T+1Eu+2S",
@@ -2106,7 +2106,7 @@
         "EXIT": 458
       },
       "motion_label": "illustrative / simulated",
-      "note": "Local candidate Edge default-side 1x playback passed for all three rounds; formal local route verification and public deployment remain pending. Illustrative / simulated; no Beijing Olympic athlete motion-capture data."
+      "note": "Three jumps with no step between them: Quadruple toe loop (left toe pick) → Euler (one turn, lands on the left back inside edge) → double Salchow (left back inside edge). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4T+1Eu+3S": {
       "id": "4T+1Eu+3S",
@@ -2135,7 +2135,7 @@
         "EXIT": 454
       },
       "motion_label": "illustrative / simulated",
-      "note": "Local Edge default-side v6 review passed on r1-r3; 1x playback reached 454/454 on all rounds. Public review pending. Illustrative / simulated; no Beijing athlete capture data."
+      "note": "Three jumps with no step between them: Quadruple toe loop (left toe pick) → Euler (one turn, lands on the left back inside edge) → triple Salchow (left back inside edge). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "CCoSp": {
       "id": "CCoSp",
@@ -2160,7 +2160,7 @@
         "EXIT": 510
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. Sampling covered 12 revolutions, six per foot, with the three basic positions and the foot-change trajectory. The skater-specific choreography and full public playback await review."
+      "note": "Change-foot combination spin. Camel, sit and upright positions on the first foot, then sit and upright on the other foot. The spin speeds up as the arms pull in. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "CSSp": {
       "id": "CSSp",
@@ -2184,7 +2184,7 @@
         "EXIT": 370
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. The change-foot sit spin completes about eight revolutions, roughly four per foot. Sampled mesh and technique checks passed. Full public playback awaits review."
+      "note": "Change-foot sit spin. Sit position on one foot (skating knee bent, free leg extended forward), a change of foot, then the sit position again. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "FCSp": {
       "id": "FCSp",
@@ -2209,7 +2209,7 @@
         "EXIT": 370
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. After the flying entry, the skater completes about eight camel-spin revolutions on the right foot. Sampled takeoff and landing edge, mesh, and rotation checks passed. Public playback awaits review."
+      "note": "Flying camel spin. A jump entry lands in the camel position: body and free leg in one horizontal line. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "FCCoSp": {
       "id": "FCCoSp",
@@ -2236,7 +2236,7 @@
         "EXIT": 510
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. The flying entry leads to six revolutions on the right foot and six on the left in camel, sit, and upright positions. Sampled joint and blade checks passed. The skater-specific choreography and full public playback await review."
+      "note": "Flying change-foot combination spin. A jump entry leads into camel, sit and upright positions, a change of foot, then sit and upright again. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "CCSp": {
       "id": "CCSp",
@@ -2260,7 +2260,7 @@
         "EXIT": 510
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. The skater holds the camel position for six revolutions on each foot. Sampled geometry and foot-change trajectory checks passed. Full public playback awaits review."
+      "note": "Change-foot camel spin. Camel position (body and free leg in one horizontal line) on one foot, a change of foot, then camel again. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "FSSp": {
       "id": "FSSp",
@@ -2285,7 +2285,7 @@
         "EXIT": 370
       },
       "motion_label": "illustrative / simulated",
-      "note": "All three Blender and GLB iterations are archived. The right-foot flying sit spin completes about eight revolutions before the exit glide. Geometry and technique checks at quarter-frame intervals passed. Public playback in side view awaits review."
+      "note": "Flying sit spin. A jump entry lands directly in the sit position: skating knee bent, free leg extended forward. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "FCSSp": {
       "id": "FCSSp",
@@ -2310,7 +2310,7 @@
         "EXIT": 370
       },
       "motion_label": "illustrative / simulated",
-      "note": "The local GLB is the uncompressed original. Blender geometry and technique audits passed for all three rounds. The flying change-foot sit spin completes about eight revolutions, four per foot. In side view at frame 201, both skate outlines are distinct and the knee silhouettes overlap slightly during the change of foot. Full Edge playback awaits review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Flying change-foot sit spin. A jump entry lands in the sit position, followed by a change of foot and the sit position again. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "StSq": {
       "id": "StSq",
@@ -2328,7 +2328,7 @@
       "public_side_view": "pending",
       "event_frames": {},
       "motion_label": "illustrative / simulated",
-      "note": "All three rounds passed sampled Blender geometry and movement checks. Playback in the public default side view awaits Edge review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Step sequence. Turns and steps across the ice; this sample shows a three-turn, a twizzle, a bracket and toe steps. Competition sequences are longer and set to the music. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "ChSq": {
       "id": "ChSq",
@@ -2346,7 +2346,7 @@
       "public_side_view": "pending",
       "event_frames": {},
       "motion_label": "illustrative / simulated",
-      "note": "All three rounds passed sampled Blender geometry and sequence structure checks. Playback in the public default side view awaits Edge review. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Choreographic sequence. Free movement with a fixed base value; this sample shows a spiral, a spread eagle and a lunge. Illustrative / simulated; not Beijing 2022 motion capture."
     },
     "4Lz+3T": {
       "id": "4Lz+3T",
@@ -2372,7 +2372,7 @@
         "EXIT": 451
       },
       "motion_label": "illustrative / simulated",
-      "note": "Microsoft Edge verified the public Round 3 default side profile. The player reported 7.50 s, 96 animated channels, and 77 draw calls. Normal 1× playback ran from frame 1 through frame 451 and stopped. Scrubbing reached frame 100, and Pause held the frame for 0.6 s. The quad Lutz takeoff, apex, and landing were checked at frames 166, 188, and 210, and the triple toe loop at frames 254, 273, and 291. Both legs and skates remain distinct in the side view at transition frame 228. The default framing shows the full skater and both blades. Illustrative / simulated. No Beijing 2022 competition motion capture was used."
+      "note": "Two jumps with no step between them: Quadruple Lutz (right toe pick) → triple toe loop (left toe pick). Each landing edge is the take-off edge of the next jump. Illustrative / simulated; not Beijing 2022 motion capture."
     }
   },
   "plannedBaseActions": 50
