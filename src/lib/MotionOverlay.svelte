@@ -1,6 +1,10 @@
 <script>
   import { onMount } from 'svelte';
+  import { describeElement } from './data/element-glossary.mjs';
+  import { rise, leave } from './motion.mjs';
   let { onClose, motion = null } = $props();
+  // The overlay draws its own title bar, so the player hides its own and takes the site's dark look.
+  let src = $derived(motion?.player ? `${motion.player}${motion.player.includes('?') ? '&' : '?'}chrome=overlay` : '');
   let dialog;
   let frame = $state(null);
   let demoHtml = $state('');
@@ -23,17 +27,17 @@
   });
 </script>
 
-<dialog bind:this={dialog} class="motion-overlay" aria-labelledby="motion-overlay-title" oncancel={(event) => { event.preventDefault(); onClose(); }}>
-  <header><div><h2 id="motion-overlay-title">{motion?.name ?? 'Single Axel · Blender v178 3D reference'}</h2><p>Illustrative / simulated technique reference</p></div><button onclick={onClose}>Return to the main page ↙</button></header>
-  {#if motion}<iframe bind:this={frame} src={motion.player} allow="fullscreen" title={`${motion.id} Blender animation`}></iframe>{:else if demoHtml}<iframe bind:this={frame} srcdoc={demoHtml} allow="fullscreen" title="Blender v178 Single Axel animation with play, scrub and side/front cameras"></iframe>{:else if loadError}<p role="alert">{loadError}</p>{:else}<p role="status">Loading the Blender v178 animation…</p>{/if}
+<dialog bind:this={dialog} in:rise|global out:leave|global={{ duration: 200 }} class="motion-overlay" aria-labelledby="motion-overlay-title" oncancel={(event) => { event.preventDefault(); onClose(); }}>
+  <header><div><h2 id="motion-overlay-title">{motion ? `${describeElement(motion.id).name} (${motion.id})` : 'Single Axel, Blender v178 3D reference'}</h2><p>A 3D simulation of the technique, not a recording of a skater.</p></div><button onclick={onClose}>Done</button></header>
+  {#if motion}<iframe bind:this={frame} {src} allow="fullscreen" title={`${motion.id} Blender animation`}></iframe>{:else if demoHtml}<iframe bind:this={frame} srcdoc={demoHtml} allow="fullscreen" title="Blender v178 Single Axel animation with play, scrub and side/front cameras"></iframe>{:else if loadError}<p role="alert">{loadError}</p>{:else}<p role="status">Loading the Blender v178 animation…</p>{/if}
 </dialog>
 
 <style>
-  .motion-overlay{position:fixed;inset:0;margin:0;padding:0;width:100vw;max-width:none;height:100dvh;max-height:none;border:0;background:#142c3c;color:#edf4f7;overflow:hidden}
-  .motion-overlay[open]{display:flex;flex-direction:column}.motion-overlay::backdrop{background:#101b2c}
-  header{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 1.2rem;background:#101b2c;flex-shrink:0}
-  h2{font-size:1rem;margin:0 0 .25rem}p{font-size:.72rem;color:#c7d6d8;margin:0;line-height:1.4}
-  button{font:600 .82rem 'DM Sans',Arial,sans-serif;background:#fffefa;border:1px solid #aebfba;border-radius:5px;color:#18382f;padding:.7rem 1rem;min-height:44px;cursor:pointer;flex-shrink:0}button:focus-visible{outline:3px solid #e9ab55;outline-offset:3px}
-  iframe{width:100%;flex:1;min-height:0;border:0;background:#142c3c}
+  .motion-overlay{position:fixed;inset:0;margin:0;padding:0;width:100vw;max-width:none;height:100dvh;max-height:none;border:0;background:#000;color:#f5f5f7;overflow:hidden}
+  .motion-overlay[open]{display:flex;flex-direction:column}.motion-overlay::backdrop{background:#000}
+  header{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.6rem 1.2rem;background:#000;border-bottom:1px solid #ffffff1f;flex-shrink:0}
+  h2{font:600 1.05rem var(--display);letter-spacing:-.02em;margin:0 0 .15rem}p{font-size:.78rem;color:#a1a1a6;margin:0;line-height:1.4}
+  button{font:500 .9rem var(--sans);background:#0071e3;border:0;border-radius:980px;color:#fff;padding:.5rem 1.2rem;min-height:36px;cursor:pointer;flex-shrink:0;transition:background-color var(--dur-fast) var(--ease),transform var(--dur-fast) var(--ease)}button:hover{background:#0077ed}button:active{transform:scale(.97);transition-duration:60ms}button:focus-visible{outline:2px solid #2997ff;outline-offset:3px}
+  iframe{width:100%;flex:1;min-height:0;border:0;background:#000}
   @media(max-width:600px){header{padding:.5rem .7rem;gap:.5rem}h2{font-size:.8rem}p{font-size:.62rem}button{font-size:.68rem;padding:.5rem;max-width:145px}}
 </style>

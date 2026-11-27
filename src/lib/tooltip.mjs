@@ -10,8 +10,8 @@ function tipNode() {
     tip.id = TIP_ID;
     tip.className = 'element-tip';
     tip.setAttribute('role', 'tooltip');
-    tip.hidden = true;
     document.body.append(tip);
+    void tip.offsetWidth; // settle its hidden state first, so even the first showing fades in
   }
   return tip;
 }
@@ -32,7 +32,8 @@ export function elementTip(node, content) {
       list.append(item);
     }
     tip.replaceChildren(title, ...(list.children.length ? [list] : []));
-    tip.hidden = false;
+    // Already showing for another code: move it without fading out and in again.
+    tip.classList.add('on');
     owner = true;
     node.setAttribute('aria-describedby', TIP_ID);
 
@@ -56,7 +57,7 @@ export function elementTip(node, content) {
     owner = false;
     node.removeAttribute('aria-describedby');
     const tip = document.getElementById(TIP_ID);
-    if (tip) tip.hidden = true;
+    if (tip) tip.classList.remove('on');
   }
 
   const onKey = (event) => { if (event.key === 'Escape') hide(); };

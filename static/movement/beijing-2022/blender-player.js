@@ -11,6 +11,17 @@ const GLTFLoader = THREE?.GLTFLoader;
 const query = new URLSearchParams(location.search);
 const requestedId = query.get('id');
 const assetId = requestedId === '4A-HANYU' ? '4A' : requestedId;
+// Stage mode: the home page embeds this player as a picture with no controls and drives the frame itself.
+// Frames in the URL and in messages are Blender frame numbers (1-based), as in catalog event_frames.
+const stageMode = query.get('mode') === 'stage';
+const stageLoop = stageMode && /^\d+-\d+$/.test(query.get('loop') ?? '') ? query.get('loop').split('-').map(Number) : null;
+const stageView = stageMode && ['angled', 'auto', 'jump'].includes(query.get('view')) ? query.get('view') : null;
+// Overlay mode: opened inside the home page's 3D overlay, on the site's black background.
+const overlayMode = query.get('chrome') === 'overlay';
+// The colour of the page behind an embedded stage, so the rink can fade into it.
+const stageBackground = stageMode && /^[0-9a-f]{6}$/i.test(query.get('bg') ?? '') ? `#${query.get('bg')}` : '#000000';
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let stagePaused = false;
 let catalog;
 try {
   const response = await fetch('./catalog.json', { cache: 'no-cache' });
@@ -378,7 +389,22 @@ function setPlaybackTime(time, updateSlider = true) {
 	counter.textContent = `Frame ${frame + 1} / ${frameCount} · ${phaseLabel(frame)}`;
 	updateFlightHud(frame);
 	renderer.render(modelScene, activeCamera);
+	if (stageMode) postStage({ type: 'stage-frame', frame: frame + 1, turns: stageTurns(frame) });
 }
+
+function postStage(message) {
+	if (stageMode && window.parent !== window) window.parent.postMessage({ ...message, id: assetId }, location.origin);
+}
+
+/** Turns completed in the air at a frame (0-based), for the page's own counter. Null when the move has no flight. */
+function stageTurns(frame) {
+	if (!trajectoryEventFrames || !trajectoryPointSegments.length) return null;
+	const segment = selectEventSegment(frame, trajectoryEventFrames.segments ?? [trajectoryEventFrames]);
+	const points = segment && trajectoryPointSegments.find((sampled) => sampled.takeoffFrame === segment.takeoff);
+	return points ? turnsAt(frame, segment, points.turns) : null;
+}
+
+const timeOfBlenderFrame = (frame) => THREE.MathUtils.clamp((frame - 1) / (frameCount - 1), 0, 1) * duration;
 
 function updateFlightHud(frame) {
 	if (!trajectoryRoot || trajectoryPointSegments.length === 0) return;
@@ -526,7 +552,7 @@ function selectView(mode) {
 	}
 	orbitZoom = 1;
 	orbitPan.set(0, 0, 0);
-	for (const guide of trajectoryGuides) guide.visible = true;
+	for (const guide of trajectoryGuides) guide.visible = !stageMode;
 	updateInspectionCamera();
 	updateViewerCamera();
 	for (const button of cameraButtons) {
@@ -582,12 +608,15 @@ function animate(now) {
 	}
 	if (playing && document.visibilityState === 'visible') {
 		const next = advancePlaybackTime(playbackTime, elapsed, playbackSpeedFromControl(speedSelect.value), duration);
-		setPlaybackTime(next);
-		if (next >= duration) {
+		if (stageLoop && next >= timeOfBlenderFrame(stageLoop[1])) setPlaybackTime(timeOfBlenderFrame(stageLoop[0]));
+		else setPlaybackTime(next);
+		if (next >= duration && !stageLoop) {
 			playing = false;
 			playButton.textContent = 'Play';
 		}
 	}
+	// A paused stage only changes when the page seeks it, and every seek renders.
+	if (stageMode && !playing && dragPointerId === null) return;
 	updateViewerCamera();
 	renderer.render(modelScene, activeCamera);
 }
@@ -601,7 +630,9 @@ async function start() {
 		renderer.toneMapping = THREE.ACESFilmicToneMapping;
 		renderer.toneMappingExposure = 1.05;
 		modelScene = new THREE.Scene();
-		modelScene.background = new THREE.Color('#c9dce1');
+		modelScene.background = new THREE.Color(stageMode ? stageBackground : overlayMode ? '#000000' : '#c9dce1');
+		// On the page the rink fades into the black page instead of ending at a horizon.
+		if (stageMode) modelScene.fog = new THREE.Fog(new THREE.Color(stageBackground), 7, 26);
 		modelScene.add(new THREE.HemisphereLight(0xeaf7ff, 0x415667, 1.5));
 		const key = new THREE.DirectionalLight(0xfff6e9, 2.3);
 		key.position.set(-8, 12, 10);
@@ -667,15 +698,24 @@ async function start() {
 		inspectionCamera.updateProjectionMatrix();
 		mixer.setTime(animationStartTime);
 		modelScene.updateMatrixWorld(true);
-	selectView(defaultView);
+	selectView(stageView ?? defaultView);
 		frameSlider.disabled = false;
 		playButton.disabled = false;
 		resetButton.disabled = false;
 		fullscreenButton.disabled = false;
 		setPlaybackTime(0);
 		message.textContent = 'Ready to play';
+		if (stageMode) {
+			postStage({ type: 'stage-ready', frames: frameCount, kind: asset.kind, events: asset.event_frames ?? {} });
+			if (stageLoop) {
+				const still = Number(asset.event_frames?.APEX) || stageLoop[0];
+				setPlaybackTime(timeOfBlenderFrame(reducedMotion ? still : stageLoop[0]));
+				playing = !reducedMotion;
+			}
+		}
 		requestAnimationFrame(animate);
 	} catch (error) {
+		postStage({ type: 'stage-error', message: error.message });
 		console.error('Blender v178 player failed to load:', error);
 		message.textContent = `3D playback failed: ${error.message}. Open README for the .blend and fallback previews.`;
 		message.setAttribute('data-error', 'true');
@@ -704,6 +744,25 @@ document.addEventListener('visibilitychange', () => {
 	if (document.hidden && playing) {
 		playing = false;
 		playButton.textContent = 'Play';
+	}
+	if (!document.hidden && stageLoop && !stagePaused && !reducedMotion && duration) playing = true;
+});
+
+if (stageMode) window.addEventListener('message', (event) => {
+	if (event.origin !== location.origin || event.source !== window.parent) return;
+	const { type, action, frame } = event.data ?? {};
+	if (type !== 'stage' || !duration) return;
+	if (action === 'seek' && Number.isFinite(frame)) {
+		playing = false;
+		stagePaused = true;
+		setPlaybackTime(timeOfBlenderFrame(frame));
+	} else if (action === 'pause') {
+		playing = false;
+		stagePaused = true;
+	} else if (action === 'play' && !reducedMotion) {
+		stagePaused = false;
+		lastTick = 0;
+		playing = true;
 	}
 });
 
@@ -762,7 +821,8 @@ canvas.addEventListener('pointerup', endOrbitDrag);
 canvas.addEventListener('pointercancel', endOrbitDrag);
 canvas.addEventListener('contextmenu', (event) => event.preventDefault());
 canvas.addEventListener('wheel', (event) => {
-	if (!activeCamera) return;
+	// On the page the wheel scrolls the page; zoom stays in the full player.
+	if (!activeCamera || stageMode) return;
 	event.preventDefault();
 	orbitEnabled = true;
 	orbitZoom = THREE.MathUtils.clamp(orbitZoom * Math.exp(event.deltaY * 0.001), 0.35, 3.5);

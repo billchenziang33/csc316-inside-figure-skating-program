@@ -40,9 +40,43 @@
 		#blender-fullscreen{border-color:transparent;background:transparent;text-decoration:underline;text-underline-offset:3px}#blender-fullscreen:hover{background:#e7e9e1}
 		@media(max-width:700px){.player-head{padding:.55rem .7rem}.player-head>div{align-items:flex-start;flex-direction:column;gap:.35rem}.player-head strong{font-size:1.05rem}.badge{font-size:.62rem}.stage-shell{min-height:100px}.flight-island{top:.55rem;right:.55rem;width:min(350px,calc(100% - 1.1rem))}.flight-island-toggle{min-height:56px;padding:.45rem .75rem}.flight-details{gap:.4rem}.flight-details div{padding:.55rem}.flight-panel{padding:.8rem}.controls{grid-template-columns:auto auto 1fr auto;gap:.4rem;padding:.4rem .65rem .55rem}.controls #blender-frame{grid-column:1/-1;grid-row:2}.controls #blender-counter{grid-column:1/-1;text-align:left}.controls .speed-label{grid-column:1;grid-row:3}.controls #blender-speed{grid-column:2;grid-row:3;min-width:0;width:100%}.controls #blender-fullscreen{grid-column:3/5;grid-row:3}.note{padding:.15rem .7rem .4rem;font-size:.68rem}.camera-picks{row-gap:.4rem;padding:.4rem .65rem .25rem}.camera-explain{flex-basis:100%;max-width:none;margin:.1rem 0 0;text-align:center}}
 		@media(prefers-reduced-motion:reduce){.flight-island-toggle,.flight-panel,.flight-chevron{transition:none}}
+		/* Stage mode: embedded on the home page as a picture; the page draws its own captions and counter. */
+		body.stage-mode,body.stage-mode .stage-shell,body.stage-mode #blender-stage{background:#000}
+		body.stage-mode .player-head,body.stage-mode .stage-message,body.stage-mode .camera-picks,body.stage-mode .controls,body.stage-mode .note,body.stage-mode .flight-island{display:none!important}
+		body.stage-mode .stage-shell{min-height:0}
+		/* Overlay mode: opened from the home page, which draws the title bar. Same dark look as the site. */
+		body.overlay-mode{--o-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",system-ui,sans-serif;background:#000;color:#f5f5f7;color-scheme:dark;font-family:var(--o-font)}
+		body.overlay-mode .player-head,body.overlay-mode .camera-label{display:none}
+		body.overlay-mode .stage-shell,body.overlay-mode #blender-stage,body.overlay-mode .camera-picks,body.overlay-mode .controls,body.overlay-mode .note{background:#000}
+		body.overlay-mode .stage-message,body.overlay-mode label,body.overlay-mode .counter,body.overlay-mode .flight-summary small,body.overlay-mode .flight-panel-kicker,body.overlay-mode .flight-details b{font-family:var(--o-font);text-transform:none;letter-spacing:0;color:#a1a1a6}
+		body.overlay-mode .stage-message{font-size:.82rem;margin:.35rem 0 .1rem}
+		body.overlay-mode .camera-picks{gap:.4rem;padding:.6rem 1rem .4rem}
+		body.overlay-mode .camera-explain{color:#a1a1a6}
+		body.overlay-mode .controls{grid-template-columns:auto auto minmax(80px,1fr) auto auto auto auto;padding:.5rem 1rem .75rem}
+		body.overlay-mode button,body.overlay-mode select{font-family:var(--o-font);background:#1d1d1f;color:#f5f5f7;border:1px solid #ffffff1f;border-radius:980px;box-shadow:none}
+		body.overlay-mode button:hover,body.overlay-mode select:hover{background:#2c2c2e}
+		body.overlay-mode button,body.overlay-mode select,body.overlay-mode .source-link{transition:background-color 150ms cubic-bezier(.28,.11,.32,1),color 150ms cubic-bezier(.28,.11,.32,1),border-color 150ms cubic-bezier(.28,.11,.32,1),transform 150ms cubic-bezier(.28,.11,.32,1)}
+		body.overlay-mode button:active{transform:scale(.97);transition-duration:60ms}
+		body.overlay-mode .flight-island-toggle{transition:border-radius 250ms cubic-bezier(.28,.11,.32,1),background-color 150ms cubic-bezier(.28,.11,.32,1)}
+		body.overlay-mode .flight-panel{transition:transform 250ms cubic-bezier(.2,.8,.2,1),opacity 250ms cubic-bezier(.2,.8,.2,1)}
+		body.overlay-mode button[aria-pressed=true]{background:#f5f5f7;color:#1d1d1f;border-color:#f5f5f7;box-shadow:none}
+		body.overlay-mode .camera-picks button:first-of-type,body.overlay-mode .camera-picks button:last-of-type,body.overlay-mode .camera-picks button[data-view="bullet"]{border-radius:980px;margin-left:0}
+		body.overlay-mode #blender-play{background:#0071e3;border-color:#0071e3;color:#fff}body.overlay-mode #blender-play:hover{background:#0077ed}
+		body.overlay-mode #blender-fullscreen{background:transparent;border-color:transparent;color:#2997ff;text-decoration:none}body.overlay-mode #blender-fullscreen:hover{text-decoration:underline}
+		body.overlay-mode input[type=range]{accent-color:#2997ff}
+		body.overlay-mode button:focus-visible,body.overlay-mode select:focus-visible,body.overlay-mode input:focus-visible{outline:2px solid #2997ff;outline-offset:3px}
+		body.overlay-mode .note{color:#6e6e73}body.overlay-mode .source-link{color:#2997ff;text-decoration:none}body.overlay-mode .source-link:hover{text-decoration:underline}
+		body.overlay-mode .flight-island{color:#f5f5f7}
+		body.overlay-mode .flight-island-toggle{background:rgba(29,29,31,.8);border-color:#ffffff1f;box-shadow:none;color:#f5f5f7}body.overlay-mode .flight-island-toggle:hover{background:rgba(44,44,46,.88)}
+		body.overlay-mode .flight-indicator{background:#64d2ff;box-shadow:0 0 0 4px #64d2ff26}body.overlay-mode .flight-chevron{border-color:#a1a1a6}
+		body.overlay-mode .flight-panel{background:rgba(29,29,31,.92);border-color:#ffffff1f;box-shadow:0 16px 40px #0009}
+		body.overlay-mode .flight-panel-heading strong{font-family:var(--o-font)}
+		body.overlay-mode .flight-details div{background:#ffffff0d;border-color:#ffffff14}body.overlay-mode .flight-reference{color:#6e6e73}
+		@media(max-width:700px){body.overlay-mode .controls{grid-template-columns:auto auto 1fr auto;padding:.4rem .65rem .55rem}}
 	</style>
 </head>
 <body>
+	<script>{ const q = new URLSearchParams(location.search); if (q.get('mode') === 'stage') document.body.classList.add('stage-mode'); if (q.get('chrome') === 'overlay') document.body.classList.add('overlay-mode'); }</script>
 	<div class="player-head"><div><a class="library-return" href="./">← 3D library</a><strong>Beijing 2022 · 3D movement reference</strong></div><span class="badge">ILLUSTRATIVE / SIMULATED</span></div>
 	<div class="stage-shell" id="stage-shell">
 		<canvas id="blender-stage" aria-label="Illustrative figure skating movement on capsule ice"></canvas>

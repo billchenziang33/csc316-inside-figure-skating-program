@@ -10,11 +10,11 @@
 </script>
 
 <div class="viz" role="img" aria-label="Scatterplot of jump rotation total and official element GOE for top-ten short-program and free-skate jump elements. Combinations retain one element-level GOE score.">
-	<div class="legend"><span><i class="sp"></i>Short program</span><span><i class="fs"></i>Free skate</span><span>□ Combination · ○ Solo</span></div>
+	<div class="legend"><span><i class="sp"></i>Short program</span><span><i class="fs"></i>Free skate</span><span>□ In a combination</span><span>○ On its own</span></div>
 	<svg viewBox="0 0 770 300" role="presentation">
-		{#each yTicks as t}<line x1="58" x2="730" y1={y(t)} y2={y(t)} stroke={t===0?'#9da9a2':'#e7e9e4'} stroke-dasharray={t===0?'':'3 4'}/><text x="48" y={y(t)+4} text-anchor="end">{t}</text>{/each}
-		{#each xTicks as t}<line x1={x(t)} x2={x(t)} y1="32" y2="245" stroke="#eef0ec"/><text x={x(t)} y="263" text-anchor="middle">{t}</text>{/each}
-		<line x1="58" x2="730" y1="245" y2="245" stroke="#819088"/><line x1="58" x2="58" y1="32" y2="245" stroke="#819088"/>
+		{#each yTicks as t}<line x1="58" x2="730" y1={y(t)} y2={y(t)} style:stroke={t===0?'var(--faint)':'var(--line)'} stroke-dasharray={t===0?'':'3 4'}/><text x="48" y={y(t)+4} text-anchor="end">{t}</text>{/each}
+		{#each xTicks as t}<line x1={x(t)} x2={x(t)} y1="32" y2="245" style="stroke:var(--line)"/><text x={x(t)} y="263" text-anchor="middle">{t}</text>{/each}
+		<line x1="58" x2="730" y1="245" y2="245" style="stroke:var(--faint)"/><line x1="58" x2="58" y1="32" y2="245" style="stroke:var(--faint)"/>
 		{#each points as point (point.id)}
 			{#if point.combo}<rect x={x(point.rotations)-4} y={y(point.goe)-4} width="8" height="8" class:fs-mark={point.segment==='FS'} class:sp-mark={point.segment==='SP'}><title>{point.skater} · {point.segment} · {point.element_code_raw} · {point.rotations} jump rotations · element GOE {point.goe > 0 ? '+' : ''}{point.goe.toFixed(2)}</title></rect>
 			{:else}<circle cx={x(point.rotations)} cy={y(point.goe)} r="4" class:fs-mark={point.segment==='FS'} class:sp-mark={point.segment==='SP'}><title>{point.skater} · {point.segment} · {point.element_code_raw} · {point.rotations} jump rotations · element GOE {point.goe > 0 ? '+' : ''}{point.goe.toFixed(2)}</title></circle>{/if}
@@ -25,5 +25,5 @@
 </div>
 
 <style>
-	.viz{display:grid;gap:.2rem}.legend{display:flex;gap:1rem;justify-content:flex-end;align-items:center;flex-wrap:wrap;font-size:.7rem;color:#58645f}.legend i{display:inline-block;width:.65rem;height:.65rem;border-radius:50%;margin-right:.25rem}.sp{background:#d46b47}.fs{background:#397a74}svg{width:100%;height:auto;overflow:visible}svg text{font:10px 'DM Sans',Arial,sans-serif;fill:#6b7770}.fs-mark{fill:#397a74;fill-opacity:.72;stroke:#285f5a}.sp-mark{fill:#d46b47;fill-opacity:.72;stroke:#a64b31}.foot{margin:.2rem 0 0;color:#707c75;font-size:.69rem;line-height:1.5}
+	.viz{display:grid;gap:.2rem}.legend{display:flex;gap:1rem;justify-content:flex-end;align-items:center;flex-wrap:wrap;font-size:.7rem;color:var(--muted)}.legend i{display:inline-block;width:.65rem;height:.65rem;border-radius:50%;margin-right:.25rem}.sp{background:var(--sp)}.fs{background:var(--fs)}svg{width:100%;height:auto;overflow:visible}svg text{font:10px 'DM Sans',Arial,sans-serif;fill:var(--muted)}.fs-mark{fill:var(--fs);fill-opacity:.72;stroke:var(--bg)}.sp-mark{fill:var(--sp);fill-opacity:.72;stroke:var(--bg)}.foot{margin:.2rem 0 0;color:var(--muted);font-size:.69rem;line-height:1.5}
 </style>
