@@ -15,7 +15,7 @@
 <section class="compare" aria-labelledby="compare-heading">
 	<div class="intro">
 		<h2 id="compare-heading">An easier jump can score more.</h2>
-		<p>Jason Brown did not try a single quad in Beijing. His triple flip is worth less than half of Uno’s quad flip. In the free skate, it still earned more.</p>
+		<p>Not every jump lands. In the free skate, Shoma Uno fell on a quad flip. Jason Brown did not try a single quad in Beijing. His triple flip is worth less than half of Uno’s quad flip. In the free skate, it still earned more.</p>
 	</div>
 
 	<div class="pair">

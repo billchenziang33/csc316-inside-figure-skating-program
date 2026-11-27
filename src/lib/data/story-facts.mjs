@@ -57,3 +57,34 @@ export function storyFacts(elements = [], segments = []) {
 		tesShare: total ? tes / total : 0
 	};
 }
+
+// Marks in a protocol code or info flag that mean a jump was not fully clean.
+// "x" (second-half bonus) is a reward, not a fault, so it does not count.
+const FAULT = /<|q|e|!|\*/;
+
+/** True for a jump the judges rewarded with no technical-panel fault: GOE above zero and no <, <<, q, e, ! or *. */
+export function isCleanJump(element) {
+	return element?.element_group === 'jump'
+		&& element.goe > 0
+		&& !FAULT.test(element.element_code_raw ?? '')
+		&& !FAULT.test(element.info_flag ?? '');
+}
+
+/** One skater's highest-scoring clean jump across both programs, or null. */
+export function bestCleanJump(elements = [], skater) {
+	return elements
+		.filter((element) => element.skater === skater && isCleanJump(element))
+		.reduce((best, element) => (!best || element.panel_element_score > best.panel_element_score ? element : best), null);
+}
+
+/** Rotations of each jump in a code, e.g. "4T+3T" → [4, 3]; an Axel adds half a turn. */
+export function jumpRotations(code = '') {
+	return String(code).split('+').map((part) => Number(part[0]) + (/^\dA/.test(part) ? 0.5 : 0)).filter(Number.isFinite);
+}
+
+/** The ten skaters in final-standing order, with their nation. */
+export function skaterRoster(segments = []) {
+	const seen = new Map();
+	for (const segment of segments) if (!seen.has(segment.skater)) seen.set(segment.skater, { skater: segment.skater, NOC: segment.NOC, rank: segment.final_rank });
+	return [...seen.values()].sort((a, b) => a.rank - b.rank);
+}

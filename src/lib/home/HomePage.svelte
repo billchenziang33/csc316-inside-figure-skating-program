@@ -8,7 +8,8 @@
 	import ScoreStory from '../ScoreStory.svelte';
 	import ElementPrimer from '../ElementPrimer.svelte';
 	import MotionOverlay from '../MotionOverlay.svelte';
-	import { CHARACTERS, storyFacts } from '../data/story-facts.mjs';
+	import { CHARACTERS, bestCleanJump, skaterRoster, storyFacts } from '../data/story-facts.mjs';
+	import { resolveMotion } from '../data/motion-reference.mjs';
 
 	// The whole project on one page: the jump, all 190 elements, the codes, the 3D library,
 	// the charts and one program at a time.
@@ -20,11 +21,29 @@
 	let facts = $derived(storyFacts(elements, segments));
 
 	// The program read in "Read one program"; dots and charts elsewhere on the page can choose it.
-	let rank = $state(3);
+	// It starts on the opening skater's best clean jump, and follows whoever the reader picks there.
+	let rank = $state(1);
 	let segment = $state('FS');
-	let elementId = $state(CHARACTERS.unoFree);
+	let elementId = $state(null);
 	let skater = $derived(segments.find((s) => s.final_rank === rank)?.skater ?? '');
 	let overlay = $state(null);
+
+	// The opening: the reader's chosen skater (the gold medallist until they pick) and that skater's best clean jump.
+	let roster = $derived(skaterRoster(segments));
+	let pickedSkater = $state('');
+	let openingSkater = $derived(pickedSkater || roster[0]?.skater || '');
+	let openingJump = $derived(bestCleanJump(elements, openingSkater));
+	let openingAsset = $derived(resolveMotion(catalog, openingJump)?.asset ?? null);
+	// Picking a skater also opens their program, with the same jump selected, in "Read one program".
+	function pickSkater(name) {
+		pickedSkater = name;
+		const jump = bestCleanJump(elements, name);
+		if (!jump) return;
+		rank = jump.final_rank;
+		segment = jump.segment;
+		elementId = jump.id;
+	}
+	$effect(() => { if (elementId === null && openingJump) pickSkater(openingJump.skater); });
 	// Counts arrivals in "Read one program" from a dot or a chart, so the chosen element can greet the reader.
 	let arrival = $state(0);
 
@@ -83,7 +102,7 @@
 </nav>
 
 <div id="top">
-	<JumpScrub short={byId.get(CHARACTERS.unoShort)} free={byId.get(CHARACTERS.unoFree)} />
+	<JumpScrub {roster} skater={openingSkater} jump={openingJump} asset={openingAsset} onPick={pickSkater} />
 </div>
 
 <JumpCompare uno={byId.get(CHARACTERS.unoFree)} brown={byId.get(CHARACTERS.brownFree)} />

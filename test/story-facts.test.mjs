@@ -30,3 +30,20 @@ test('the counts quoted in the story come from the 190 protocol rows', () => {
 	assert.deepEqual([facts.pairs, facts.upsets], [4750, 778]);
 	assert.equal(Math.round(facts.tesShare * 100), 53);
 });
+
+test('every top-ten skater has a clean jump for the opening, and it is their best-scoring one', async () => {
+	const { bestCleanJump, isCleanJump, jumpRotations, skaterRoster } = await import('../src/lib/data/story-facts.mjs');
+	const roster = skaterRoster(data.segments);
+	assert.equal(roster.length, 10);
+	assert.deepEqual(roster.map((s) => s.rank), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+	for (const { skater } of roster) {
+		const jump = bestCleanJump(data.elements, skater);
+		assert.ok(jump, `${skater} has a clean jump`);
+		assert.ok(jump.goe > 0 && !/[<q!*]|e/.test(jump.element_code_raw));
+		const others = data.elements.filter((e) => e.skater === skater && isCleanJump(e));
+		assert.ok(others.every((e) => e.panel_element_score <= jump.panel_element_score));
+		assert.equal(Math.round((jump.base_value + jump.goe) * 100) / 100, jump.panel_element_score);
+	}
+	assert.equal(bestCleanJump(data.elements, 'Nathan Chen').element_code_raw, '4Lz+3T');
+	assert.deepEqual(jumpRotations('3A+1Eu+3S'), [3.5, 1, 3]);
+});
