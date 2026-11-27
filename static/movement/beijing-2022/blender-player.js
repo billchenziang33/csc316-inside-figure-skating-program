@@ -717,7 +717,7 @@ async function start() {
 	} catch (error) {
 		postStage({ type: 'stage-error', message: error.message });
 		console.error('Blender v178 player failed to load:', error);
-		message.textContent = `3D playback failed: ${error.message}. Open README for the .blend and fallback previews.`;
+		message.textContent = 'The 3D model could not load. Refresh to try again.';
 		message.setAttribute('data-error', 'true');
 	}
 }

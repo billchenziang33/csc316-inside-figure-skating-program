@@ -161,7 +161,6 @@
     <div class="stage-heading"><div><p class="kicker">STEP {stageIndex+1} / {stages.length} · {stages[stageIndex]?.label}</p><h1 id="stage-heading" tabindex="-1">{activeStage === 'elements' ? 'Learn the jumps and spins first.' : activeStage === 'choose' ? 'Choose a program to follow.' : activeStage === 'workspace' ? 'One program, three connected views.' : activeStage === 'evidence' ? 'How did this move earn its score?' : activeStage === 'movement' ? 'See the movement.' : chartTitles[activeChart]}</h1></div>{#if activeStage !== 'choose' && activeStage !== 'elements'}<p class="selection-context">{selectedSkater} · {selectedSegment === 'SP' ? 'Short program' : 'Free skate'}<button class="text-button" onclick={() => go('choose')}>Change program</button></p>{/if}</div>
     {#if loadError}<p class="error" role="alert">Could not load program data: {loadError}</p>{:else if !data}<p class="loading" role="status">Loading official protocol data…</p>{:else}
     {#if activeStage === 'elements'}
-      <p class="stage-intro">A two-minute guide to the codes on an official score sheet, using the jumps and spins the Beijing 2022 top ten actually performed.</p>
       <ElementPrimer elements={allElements} onContinue={() => go('choose')} />
     {:else if activeStage === 'choose'}
       <p class="stage-intro">Follow one of the final top ten through the official element sequence and scoring breakdown.</p>
@@ -179,13 +178,13 @@
 				</div>
 				<div class="program-score"><span>Program total · TSS</span><strong>{selectedProgram?.segment_score_TSS.toFixed(2) ?? '—'}</strong></div>
 			</div>
-      <div class="choice-summary panel"><span class="section-number">YOUR PROGRAM</span><h2>{selectedSkater}</h2><p>{selectedSegment === 'SP' ? 'Short program · 7 elements' : 'Free skate · 12 elements'} · {selectedProgram?.segment_score_TSS.toFixed(2)} total points</p><p>Choose an element in the next screen to compare its base value, execution and final score.</p><button class="primary" onclick={() => go('workspace')}>Open the three-column workbench →</button></div>
+      <div class="choice-summary panel"><h2>{selectedSkater}</h2><p>{selectedSegment === 'SP' ? 'Short program · 7 elements' : 'Free skate · 12 elements'} · {selectedProgram?.segment_score_TSS.toFixed(2)} total points</p><button class="primary" onclick={() => go('workspace')}>Explore this program →</button></div>
     {:else if activeStage === 'workspace'}
       <p class="stage-intro">Select an element in Sequence. Its details appear in Score; Movement opens the 3D reference.</p>
       <div class="workspace-tabs" role="group" aria-label="Workbench panel">{#each ['sequence','score','movement'] as tab}<button aria-pressed={workspaceTab === tab} onclick={() => workspaceTab = tab}>{tab === 'sequence' ? 'A · Sequence' : tab === 'score' ? 'B · Score' : 'C · Movement'}</button>{/each}</div>
 			<div class="three-col">
 				<section class="column panel" class:inactive-panel={workspaceTab !== 'sequence'} aria-labelledby="sequence-title">
-					<div class="column-head"><span class="section-number">A · SEQUENCE</span><h3 id="sequence-title">Element order</h3><p>Official protocol order; not a timeline or rink map.</p></div>
+					<div class="column-head"><span class="section-number">A · SEQUENCE</span><h3 id="sequence-title">Element order</h3></div>
 					<ol class="sequence">
 						{#each programElements as element (element.id)}
 							<li><button class:selected={selectedElement?.id === element.id} onclick={() => selectWorkbenchElement(element.id)} aria-pressed={selectedElement?.id === element.id} use:elementTip={describeElement(element.element_code_raw, element.info_flag)}>
@@ -196,14 +195,13 @@
 				</section>
 
 				<section class="column panel score-column" class:inactive-panel={workspaceTab !== 'score'} aria-labelledby="detail-title">
-					<div class="column-head"><span class="section-number">B · ELEMENT SCORE</span><h3 id="detail-title">What the protocol awarded</h3><p>Official panel values for the selected element.</p></div>
+					<div class="column-head"><span class="section-number">B · ELEMENT SCORE</span><h3 id="detail-title">What the protocol awarded</h3></div>
 					{#if selectedElement}
 						<div class="selected-element"><span>ELEMENT {String(selectedElement.element_order).padStart(2,'0')}</span><h4><span class="code-help" tabindex="0" use:elementTip={describeElement(selectedElement.element_code_raw, selectedElement.info_flag)}>{selectedElement.element_code_raw}</span></h4><p>{selectedElement.element_group.replace('_',' ')} · {selectedSegment === 'SP' ? 'Short program' : 'Free skate'}</p></div>
 						<div class="score-math"><div><span>Base value</span><b>{selectedElement.base_value.toFixed(2)}</b></div><div><span>GOE</span><b class:negative={selectedElement.goe < 0}>{selectedElement.goe > 0 ? '+' : ''}{selectedElement.goe.toFixed(2)}</b></div><div class="final-score"><span>Panel score</span><b>{selectedElement.panel_element_score.toFixed(2)}</b></div></div>
 						{#each elementMarks(selectedElement) as { mark } (mark)}<p class="flag-note"><strong>Protocol mark: {mark} · {MARKS[mark].label}</strong> · {MARKS[mark].meaning}.</p>{/each}
 						<div class="program-math"><span>PROGRAM TOTAL</span><strong>{selectedProgram?.TES.toFixed(2)} TES + {selectedProgram?.PCS_factored.toFixed(2)} PCS {selectedProgram?.deductions && selectedProgram.deductions < 0 ? `− ${Math.abs(selectedProgram.deductions).toFixed(2)} deductions` : ''}</strong><b>= {selectedProgram?.segment_score_TSS.toFixed(2)} TSS</b></div>
 					{:else}<p class="loading">Choose an element from the sequence.</p>{/if}
-					<p class="score-caveat">An element score combines base value and Grade of Execution (GOE). It does not measure the full artistic or athletic performance.</p>
 				</section>
 
 				<section class="column panel motion-column" class:inactive-panel={workspaceTab !== 'movement'} aria-labelledby="motion-title">
@@ -211,8 +209,7 @@
 					{#if selectedMotion?.asset?.file}
 						<figure class="movement-preview"><img src={selectedMotion.asset.poster} alt={`${selectedMotion.asset.name} · side view`}/><figcaption>{selectedMotion.asset.name} · illustrative / simulated</figcaption></figure>
 						<button class="primary motion-expand" onclick={() => motionOpen = true}>Play {selectedMotion.asset.id === '4A' ? 'standard 4A' : selectedMotion.asset.id} in 3D ↗</button>
-					{:else}<p role="status">{motionLoadError ? 'Movement library could not be loaded.' : motionCatalog ? '3D reference in production.' : 'Loading movement library…'}</p>{/if}
-					<p class="motion-caveat">The 3D model illustrates the movement’s technique. The official competition call and score appear in column B.</p>
+					{:else}<p role="status">{motionLoadError ? 'Movement library could not be loaded.' : motionCatalog ? 'No 3D model for this element.' : 'Loading movement library…'}</p>{/if}
 
 				</section>
 			</div>
@@ -255,7 +252,7 @@
                   <h3 tabindex="-1">{step.title}</h3>
                   <p>{step.body}</p>
                   {#if step.chart === 'S15' && selectedElement}<p class="scrolly-focus"><b>{selectedElement.element_code_raw}</b> · {selectedElement.base_value.toFixed(2)} base {selectedElement.goe < 0 ? '−' : '+'} {Math.abs(selectedElement.goe).toFixed(2)} GOE = <b>{selectedElement.panel_element_score.toFixed(2)}</b> points</p>{/if}
-                  <p class="scope-note">{step.note}</p>
+                  {#if step.note}<p class="scope-note">{step.note}</p>{/if}
                   {#if step.chart === 'S12'}<button class="secondary scrolly-next" onclick={() => go('movement')}>Explore the 3D movement library →</button>{/if}
                 </div>
               </li>
@@ -273,7 +270,8 @@
       {:else}
         <article class="analysis-card panel"><div class="panel-heading"><div><span class="section-number">{activeChart === 'S12' ? selectedSkater : 'FINAL TOP-TEN COHORT'}</span>{#if activeStage === 'evidence'}<h2>{chartTitles[activeChart]}</h2>{/if}</div><button class="secondary" onclick={() => go(activeStage === 'evidence' ? 'chart-detail' : 'evidence', activeChart)}>{activeStage === 'evidence' ? 'Expand chart ↗' : '← Return to scoring evidence'}</button></div>
         <div class="chart-canvas">{@render evidenceChart()}</div>
-        <p class="scope-note">{activeChart === 'S12' ? 'TES + PCS + deductions = TSS. Points in SP and FS belong to different program lengths.' : activeChart === 'S01' ? 'Each jump inside a combination is counted separately by its type. Counts cover all ten skaters; the free skate has more jump elements than the short program.' : activeChart === 'S02' ? 'Rotations and GOE describe different aspects of a jump. This comparison does not establish causation.' : activeChart === 'S06' ? 'Level is a technical classification. The panel score also includes execution.' : 'This chart compares jumps. Select a point to see that jump’s score breakdown above.'}</p>
+        {#if activeChart === 'S01'}<p class="scope-note">Each jump in a combination is counted separately. The free skate allows more jump elements than the short program.</p>
+        {:else if activeChart !== 'S02'}<p class="scope-note">{evidenceStory.find((step) => step.chart === activeChart)?.note}</p>{/if}
         <details class="data-values"><summary>Read the underlying values ({chartRows.length} records)</summary><div class="table-scroll">{@render valuesTable()}</div></details>
       </article>
       {/if}
@@ -286,8 +284,7 @@
       </div>
       <section class="panel reference-library" aria-labelledby="movement-library-heading">
         <h2 id="movement-library-heading">50 Movement 3D Library</h2>
-        <p class="scope-note">Explore 50 simulated technique models linked to the Beijing 2022 top-ten programs.</p>
-        <iframe class="movement-library-frame" src={libraryHref(selectedElement?.id)} title="50 movement 3D library with searchable model cards and interactive Blender playback"></iframe>
+        <iframe class="movement-library-frame" src={libraryHref(selectedElement?.id)} title="Searchable 3D movement library"></iframe>
       </section>
     {/if}
     {/if}

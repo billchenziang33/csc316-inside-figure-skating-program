@@ -37,9 +37,9 @@
 		<div><b>Phase</b><strong id="flight-phase">Loading…</strong></div>
 		<div><b>Current rise from take-off</b><strong id="flight-height">—</strong></div>
 		<div><b>Current horizontal travel</b><strong id="flight-distance">—</strong></div>
-		<div><b>Peak rise · V178 track</b><strong id="flight-peak">—</strong></div>
+		<div><b>Peak rise</b><strong id="flight-peak">—</strong></div>
 		<div><b>Take-off to landing</b><strong id="flight-total">—</strong></div>
-		<p class="flight-reference">Actual Blender/GLB root track · illustrative/simulated. Separate reference preset: 0.60 s · 0.44 m · 1.92 m.</p>
+		<p class="flight-reference">Simulated measurements</p>
 	</div>
 	<div class="stage-message" id="stage-message" role="status">Loading Blender v178 animation…</div>
 	<div class="camera-picks" role="group" aria-label="3D camera view">
@@ -52,7 +52,7 @@
 	</div>
 	<p class="view-hint">Left-drag: rotate · Shift + left-drag or right-drag: pan · scroll: zoom · Reset view restores the selected camera preset</p>
 	<div class="controls"><button id="blender-play" type="button" disabled>Play</button><button id="blender-reset" type="button" disabled>Restart</button><label for="blender-frame">Frame</label><input id="blender-frame" type="range" min="0" max="159" step="1" value="0" aria-label="Blender animation frame" disabled><span id="blender-counter" class="counter">Frame 1 / 160 · Approach · simulated</span><label class="speed-label" for="blender-speed">Speed</label><select id="blender-speed" aria-label="Playback speed"><option value="0.35">Slow · 0.35×</option><option value="1" selected>Normal · 1×</option></select><button id="blender-fullscreen" type="button" disabled>Fullscreen</button></div>
-	<p class="note">Every pose, phase and trajectory is illustrative / simulated; this is not Beijing 2022 athlete capture. The bundled Three.js player works without an external CDN request.</p>
+	<p class="note">The poses, phases and trajectory are simulated.</p>
 	<script src="/movement/axel-1a-prototype/vendor/three.umd.js"></script>
 	<script src="/movement/axel-1a-prototype/vendor/GLTFLoader.js"></script>
 	<script type="module" src="/movement/axel-1a-prototype/blender-player.js?v=178"></script>

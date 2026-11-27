@@ -26,7 +26,7 @@ test('the standalone player exposes all simulated GLB trajectory measurements', 
 	assert.match(player, /findExportedNamesByPrefix\(sceneObjects, 'V102'\)/);
 	assert.match(player, /readAxelEventFrames\(sceneObjects\)/);
 	assert.match(player, /guide\.visible = !followInspection/);
-	assert.match(html, /Actual Blender\/GLB root track · illustrative\/simulated/);
+	assert.match(html, /Simulated measurements/);
 });
 
 test('V101 scene, GLB and previews remain as an archived checkpoint', async () => {

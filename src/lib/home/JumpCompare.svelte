@@ -36,7 +36,7 @@
 			</article>
 		{/each}
 	</div>
-	<p class="fineprint">Both 3D models show how the jump is done. They are simulations, not recordings of these skaters.</p>
+	<p class="fineprint">3D technique simulations.</p>
 </section>
 
 <style>

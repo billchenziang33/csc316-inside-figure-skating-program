@@ -99,7 +99,6 @@
 <section id="codes" class="chapter boxed" aria-labelledby="codes-heading">
 	<div class="lead">
 		<h2 id="codes-heading">Learn to read a score sheet.</h2>
-		<p>Two minutes here and you can read any program on this page: the codes, the jumps, the spins and the small marks the officials add.</p>
 	</div>
 	<ElementPrimer {elements} />
 </section>
@@ -118,9 +117,9 @@
 <footer class="colophon">
 	<div class="cols">
 		<div>
-			<h3>How we made this</h3>
-			<p>Data: the official ISU judges’ score sheets for the Beijing 2022 men’s singles, for the final top ten in both programs: {facts.programs} programs and {facts.elements} scored elements. For every element we checked that base value plus the judges’ points equals the element score. For every program we checked that the element scores add up to the technical score, and that the technical score plus program components minus deductions equals the published total.</p>
-			<p>“Quad jumps” counts jump elements whose first jump is a quadruple, including combinations such as 4T+3T. The 3D models show how each element type is done. They are simulations, not recordings of these skaters.</p>
+			<h3>Data and scope</h3>
+			<p>ISU score sheets for the Beijing 2022 men’s singles top ten. The data covers {facts.programs} programs and {facts.elements} scored elements.</p>
+			<p>Quad counts include combinations that start with a quad, such as 4T+3T.</p>
 		</div>
 		<div>
 			<h3>Sources</h3>
@@ -129,8 +128,7 @@
 				<li><a href="https://www.isuresults.com/results/season2122/owg2022/owg2022_protocol.pdf" target="_blank" rel="noreferrer">Official score sheets, PDF</a></li>
 				<li><a href="https://github.com/billchenziang33/csc316-inside-figure-skating-program" target="_blank" rel="noreferrer">Project source code</a></li>
 			</ul>
-			<h3>Step by step</h3>
-			<p>Prefer a guided tour? <button class="link" onclick={() => onStep('elements')}>Open the step-by-step version</button>.</p>
+			<button class="link" onclick={() => onStep('elements')}>Open the step-by-step version</button>
 		</div>
 	</div>
 	<p class="credit">By Bill Chen, Cindy Liu and Liam Li. CSC316, University of Toronto.</p>

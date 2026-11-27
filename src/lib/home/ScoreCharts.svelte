@@ -23,7 +23,6 @@
 <section class="charts" id="scores" aria-labelledby="scores-heading">
 	<div class="intro">
 		<h2 id="scores-heading">The scores, side by side.</h2>
-		<p>Five charts, each built from the official score sheets. Choose one.</p>
 	</div>
 
 	<div class="tabs seg" role="tablist" aria-label="Chart" use:slidingThumb={chart}>
@@ -40,8 +39,8 @@
 					<p>{story.body}</p>
 					{#if chart === 'S12'}<p class="scope">Shown for {skater}. Pick another skater below in “Read one program”.</p>
 					{:else if chart === 'S06'}<p class="scope">Shown for the {segment === 'SP' ? 'short program' : 'free skate'}, all ten skaters.</p>
-					{:else if chart === 'S15'}<p class="scope">Click a dot to read that jump in “Read one program”.</p>{/if}
-					<p class="note">{story.note}</p>
+					{:else if chart === 'S15'}<p class="scope">Select a dot to see that jump in “Read one program”.</p>{/if}
+					{#if chart !== 'S15' && story.note}<p class="note">{story.note}</p>{/if}
 				</div>
 			{/key}
 		</div>
@@ -63,7 +62,6 @@
 	.charts { padding:clamp(6rem, 16vh, 10rem) clamp(1rem, 4vw, 2rem) clamp(4rem, 10vh, 6rem); max-width:1240px; margin:0 auto; scroll-margin-top:52px; }
 	.intro { text-align:center; max-width:46rem; margin:0 auto 2.25rem; }
 	h2 { margin:0 0 1rem; font:700 clamp(2.5rem, 5.6vw, 4.5rem)/1.04 var(--display); letter-spacing:-.04em; }
-	.intro p { margin:0; color:var(--muted); font-size:clamp(1.1rem, 1.6vw, 1.32rem); line-height:1.42; font-weight:500; }
 	.tabs { display:flex; width:max-content; max-width:100%; margin:0 auto 1.5rem; padding:4px; gap:2px; background:var(--card-strong); border-radius:980px; overflow-x:auto; scrollbar-width:none; }
 .tabs button { border:0; background:transparent; color:var(--muted); padding:.55rem 1.1rem; border-radius:980px; font-size:.94rem; font-weight:500; cursor:pointer; white-space:nowrap; min-height:40px; transition:color var(--dur) var(--ease); }
 	.tabs button:hover { color:var(--ink); }

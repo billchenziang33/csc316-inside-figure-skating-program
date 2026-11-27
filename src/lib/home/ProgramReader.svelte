@@ -58,7 +58,7 @@
 <section class="reader" id="program" aria-labelledby="program-heading">
 	<div class="intro">
 		<h2 id="program-heading">Read one program.</h2>
-		<p>A program is a list of elements in the order they were skated. Pick a skater, then pick an element to see how its score was built.</p>
+		<p>Pick a skater, then choose an element to see how it scored.</p>
 	</div>
 
 	<div class="controls">
@@ -143,7 +143,7 @@
 
 	<div class="matrix">
 		<h3>What the officials marked</h3>
-		<p>Small symbols next to a code change its value: under-rotation, a wrong edge, a bonus for a jump late in the program. Choose an element in the table to read it above.</p>
+		<p>Protocol marks flag details such as an under-rotation, a wrong edge or a second-half bonus. Select a row to see that element’s score above.</p>
 		<ProtocolMatrix elements={rows} selectedId={row?.id} onSelect={(id) => (elementId = id)} />
 	</div>
 </section>

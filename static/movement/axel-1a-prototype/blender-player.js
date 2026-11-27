@@ -432,11 +432,11 @@ async function start() {
 		fullscreenButton.disabled = false;
 		cameraResetButton.disabled = false;
 		setPlaybackTime(0);
-		message.textContent = `Ready · Blender v178 · ${(duration).toFixed(2)} s · ${animationTrackCount} animated channels · ${renderer.info.render.calls} draw calls`;
+		message.textContent = 'Ready to play';
 		requestAnimationFrame(animate);
 	} catch (error) {
 		console.error('Blender v178 player failed to load:', error);
-		message.textContent = `3D playback failed: ${error.message}. Open README for the .blend and fallback previews.`;
+		message.textContent = 'The 3D model could not load. Refresh to try again.';
 		message.setAttribute('data-error', 'true');
 	}
 }

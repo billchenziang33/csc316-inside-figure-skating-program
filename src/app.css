@@ -144,7 +144,6 @@ select { width:100%; appearance:none; background:var(--card-strong) url("data:im
 .program-math>span { color:var(--muted); font-size:.72rem; }
 .program-math strong { font-size:.72rem; line-height:1.5; font-weight:500; }
 .program-math>b { font-family:var(--mono); font-size:.88rem; color:var(--gold); }
-.score-caveat,.motion-caveat { color:var(--muted); font-size:.72rem; line-height:1.5; margin:.75rem 0 0; }
 .movement-preview { margin:1rem 0; padding:0; overflow:hidden; background:var(--surface); border:1px solid var(--line); border-radius:12px; }
 .movement-preview img { display:block; width:100%; height:auto; }
 .movement-preview figcaption { padding:.7rem; font-size:.72rem; color:var(--muted); }

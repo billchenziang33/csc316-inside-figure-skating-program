@@ -62,7 +62,7 @@
 <div class="primer">
 	<section class="panel primer-block" aria-labelledby="read-code">
 		<h2 id="read-code">Every element on a score sheet is a short code.</h2>
-		<p class="lede">Official protocols list each move as a code. Once you can read the parts, any program becomes readable. Hover over any code on this site to see it spelled out.</p>
+		<p class="lede">Each code identifies a move. Hover over the highlighted codes for their full names.</p>
 		<div class="anatomy-pair">
 			<figure class="anatomy">
 				<figcaption>A jump combination</figcaption>

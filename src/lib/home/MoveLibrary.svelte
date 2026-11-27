@@ -46,7 +46,7 @@
 <section class="library" id="moves" aria-labelledby="moves-heading">
 	<div class="intro">
 		<h2 id="moves-heading">Every element, in 3D.</h2>
-		<p>We built a 3D model for each of the 50 element types the top ten performed. Choose one to watch it. Drag the picture to look from another side.</p>
+		<p>Explore 50 simulated movements. Choose a move, then drag to rotate the view.</p>
 	</div>
 
 	<div class="tabs seg" role="tablist" aria-label="Kind of element" use:slidingThumb={kind}>

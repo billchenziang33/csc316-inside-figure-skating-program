@@ -34,7 +34,7 @@
 		{
 			key: 'quads', layout: 'scatter', show: 'quads', color: 'goe',
 			label: 'Jumps that start with a quad',
-			text: `<p>But the losses are not spread evenly. They pile up on the hardest jumps.</p><p><span class="chip loss">${facts.quadsLost} of ${facts.quads}</span> jumps that start with a quad lost points. For all other jumps, it was ${facts.otherJumpsLost} of ${facts.otherJumps}.</p>`
+			text: `<p><span class="chip loss">${facts.quadsLost} of ${facts.quads}</span> jumps that start with a quad lost points. For all other jumps, it was ${facts.otherJumpsLost} of ${facts.otherJumps}.</p>`
 		},
 		{
 			key: 'hanyu', layout: 'scatter', show: 'quads', color: 'goe', notes: [hanyuFree],
@@ -44,17 +44,17 @@
 		{
 			key: 'upsets', layout: 'scatter', show: 'jumps', color: 'goe', notes: [unoFree, brownFree],
 			label: 'All 100 jumps',
-			text: `<p>Uno and Brown are not a rare case.</p><p>Take any two jumps with different base values. In <b>${facts.upsets.toLocaleString('en')} of ${facts.pairs.toLocaleString('en')}</b> pairs, about 1 in 6, the easier jump scored more.</p>`
+			text: `<p>Among jumps with different base values, the easier jump scored more in <b>${facts.upsets.toLocaleString('en')} of ${facts.pairs.toLocaleString('en')}</b> pairs, about 1 in 6.</p>`
 		},
 		{
 			key: 'program', layout: 'scatter', show: 'all', color: 'type',
 			label: 'Base value and final score, all elements',
-			text: `<p>And these moves are only part of the story. Across the 20 programs, element points made up about <b>${Math.round(facts.tesShare * 100)}%</b> of the total.</p><p>The rest comes from <b>program components</b>: the judges’ marks for the skating as a whole.</p>`
+			text: `<p>Element points made up about <b>${Math.round(facts.tesShare * 100)}%</b> of the total. <b>Program components</b> add points for the skating as a whole, and deductions can lower the total.</p>`
 		},
 		{
 			key: 'end', layout: 'scatter', show: 'all', color: 'goe',
 			label: 'Hover a dot for details. Click to read it.',
-			text: `<p>Every dot is now yours to explore.</p><p>Hover over a dot to see the move. Click it to read that element in its program, further down this page.</p>`
+			text: `<p>Hover over a dot for details. Select it to see the element in its program.</p>`
 		}
 	]);
 

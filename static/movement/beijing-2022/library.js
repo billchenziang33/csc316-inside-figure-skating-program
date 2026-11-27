@@ -39,7 +39,7 @@ async function loadLibrary() {
       (!filter.value || motion.kind === filter.value) &&
       (!query || `${motion.id} ${motion.name}`.toLocaleLowerCase().includes(query)));
     container.replaceChildren(...visible.map(cardFor));
-    progress.textContent = `${visible.length} of ${catalog.plannedBaseActions} movements shown · ${motions.filter((motion) => motion.file).length} 3D models available`;
+    progress.textContent = `${visible.length} of ${motions.length} movements shown`;
   }
 
   search.addEventListener('input', render);
