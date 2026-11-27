@@ -1,5 +1,5 @@
 export const stages = [
-  { id: 'story', label: 'The finding' },
+  { id: 'story', label: 'The story' },
   { id: 'elements', label: 'Jumps & spins' },
   { id: 'choose', label: 'Choose a program' },
   { id: 'workspace', label: 'Program workbench' },

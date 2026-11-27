@@ -1,10 +1,9 @@
 <script>
 	import { onMount, tick } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { arrive } from './lib/motion.mjs';
 	import { evidenceStory } from './lib/evidence-story.mjs';
 	import { scrolly, scrollToStep } from './lib/scrolly.mjs';
-	import findingIceRink from './assets/finding-ice-rink.webp';
-	import findingSkater from './assets/finding-skater.webp';
+	import HomePage from './lib/home/HomePage.svelte';
 	import ScoreComparison from './lib/charts/ScoreComparison.svelte';
 	import JumpCounts from './lib/charts/JumpCounts.svelte';
 	import RotationGoe from './lib/charts/RotationGoe.svelte';
@@ -130,6 +129,7 @@
 		history.replaceState(history.state, '', routeHash('evidence', chart, selectedElement?.id));
 	}
 
+
 	function selectWorkbenchElement(id) {
 		selectedElementId = id;
 		history.replaceState(null, '', routeHash('workspace', activeChart, id));
@@ -145,36 +145,19 @@
 <div class="app-shell">
   {#if activeStage !== 'story'}
   <nav class="stage-nav" aria-label="Story steps">
-    <button class="brand" onclick={() => go('story')}>INSIDE THE PROGRAM <small>BEIJING 2022 · MEN’S SINGLES</small></button>
+    <button class="brand" onclick={() => go('story')}>Inside the Program <small>Beijing 2022, men’s singles</small></button>
     <ol>{#each stages as stage, i}<li><button aria-label={`${i+1} ${stage.label}`} aria-current={stageIndex === i ? 'step' : undefined} onclick={() => go(stage.id)}><span>{i+1}</span><b>{stage.label}</b></button></li>{/each}</ol>
   </nav>
   {/if}
   <p class="sr-only" aria-live="polite">Step {stageIndex + 1} of {stages.length}: {stages[stageIndex]?.label}. {selectedSkater}, {selectedSegment}.</p>
   <main id="main-content" tabindex="-1">
   {#if activeStage === 'story'}
-	<header class="finding-hero">
-		<div class="finding-masthead">
-			<span>Inside the Program</span>
-			<span>The finding</span>
-		</div>
-		<div class="finding-copy">
-			<h1 id="stage-heading" tabindex="-1">
-				<span>What turns a skating</span>
-				<em>move into points?</em>
-			</h1>
-			<p>Open an Olympic program, see what each element earned, and watch the technique in 3D.</p>
-			<button class="primary" onclick={() => go('elements')}>See how scoring works <span aria-hidden="true">→</span></button>
-		</div>
-		<figure class="finding-photo">
-			<picture>
-				<source media="(max-width: 800px), (max-aspect-ratio: 5/4)" srcset={findingSkater} />
-				<img src={findingIceRink} width="1672" height="941" alt="Illustration of a figure skater rotating in midair" fetchpriority="high" />
-			</picture>
-		</figure>
-	</header>
+	{#if loadError}<p class="error story-error" role="alert">Could not load program data: {loadError}</p>{/if}
+	<HomePage {data} catalog={motionCatalog} onStep={(stage) => go(stage)} />
 
   {:else}
   <section class="stage-body" class:expanded={activeStage === 'chart-detail'}>
+    {#key activeStage}<div in:arrive={{ delay: 0 }}>
     <div class="stage-heading"><div><p class="kicker">STEP {stageIndex+1} / {stages.length} · {stages[stageIndex]?.label}</p><h1 id="stage-heading" tabindex="-1">{activeStage === 'elements' ? 'Learn the jumps and spins first.' : activeStage === 'choose' ? 'Choose a program to follow.' : activeStage === 'workspace' ? 'One program, three connected views.' : activeStage === 'evidence' ? 'How did this move earn its score?' : activeStage === 'movement' ? 'See the movement.' : chartTitles[activeChart]}</h1></div>{#if activeStage !== 'choose' && activeStage !== 'elements'}<p class="selection-context">{selectedSkater} · {selectedSegment === 'SP' ? 'Short program' : 'Free skate'}<button class="text-button" onclick={() => go('choose')}>Change program</button></p>{/if}</div>
     {#if loadError}<p class="error" role="alert">Could not load program data: {loadError}</p>{:else if !data}<p class="loading" role="status">Loading official protocol data…</p>{:else}
     {#if activeStage === 'elements'}
@@ -283,7 +266,7 @@
               {#each evidenceStory as step, i (step.chart)}<button aria-current={activeChart === step.chart ? 'step' : undefined} onclick={() => scrollToStep(storySteps, step.chart)}><span>{i + 1}</span>{chartLabels[step.chart]}</button>{/each}
             </nav>
             <div class="panel-heading"><div aria-live="polite"><span class="section-number">{activeChart === 'S12' ? selectedSkater : 'FINAL TOP-TEN COHORT'}</span><h2>{chartTitles[activeChart]}</h2></div><button class="secondary" onclick={() => go('chart-detail', activeChart)}>Expand chart ↗</button></div>
-            {#key activeChart}<div class="chart-canvas" in:fade={{ duration: 250 }}>{@render evidenceChart()}</div>{/key}
+            {#key activeChart}<div class="chart-canvas" in:arrive={{ delay: 0 }}>{@render evidenceChart()}</div>{/key}
           </article>
         </div>
         <details class="data-values panel"><summary>Read the underlying values for {chartLabels[activeChart]} ({chartRows.length} records)</summary><div class="table-scroll">{@render valuesTable()}</div></details>
@@ -308,6 +291,7 @@
       </section>
     {/if}
     {/if}
+    </div>{/key}
   </section>
   {/if}
   </main>
@@ -318,9 +302,11 @@
     <button class="primary" onclick={() => go(stageIndex === stages.length-1 ? 'story' : stages[stageIndex+1].id)}>Next →</button>
   </nav>
   {/if}
+  {#if activeStage !== 'story'}
   <details class="sources"><summary>Data, sources & scope</summary>
 	<footer><div><span class="section-number">DATA & SCOPE</span><p>Beijing 2022 individual men’s singles · final top ten · 190 protocol elements · 20 segment records</p></div><div class="footer-links"><a href="https://results.isu.org/results/season2122/owg2022/CAT001RS.htm" target="_blank" rel="noreferrer">Final standings ↗</a><a href="https://www.isuresults.com/results/season2122/owg2022/owg2022_protocol.pdf" target="_blank" rel="noreferrer">Official protocol book ↗</a><a href="https://github.com/billchenziang33/csc316-inside-figure-skating-program" target="_blank" rel="noreferrer">Project source ↗</a></div></footer>
   </details>
+  {/if}
 </div>
 
 {#if motionOpen && selectedMotion?.asset}<MotionOverlay onClose={closeMotion} motion={selectedMotion.asset}/>{/if}

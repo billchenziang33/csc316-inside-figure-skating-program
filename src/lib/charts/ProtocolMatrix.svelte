@@ -54,7 +54,7 @@
 </details>
 
 <style>
-	.marks-summary { margin:.5rem 0 1rem; color:#42544b; font-size:.95rem; }
+	.marks-summary { margin:.5rem 0 1rem; color:var(--muted); font-size:.95rem; }
 	.protocol-table-wrap { border:1px solid var(--line); border-radius:6px; }
 	.protocol-table { border-collapse:collapse; width:100%; }
 	.protocol-table th, .protocol-table td {
@@ -62,14 +62,14 @@
 		border-bottom:1px solid var(--line);
 		text-align:left;
 	}
-	.protocol-table thead th { background:#eef1ed; color:var(--navy); font-size:.88rem; font-weight:700; }
+	.protocol-table thead th { background:var(--paper); color:var(--navy); font-size:.88rem; font-weight:700; }
 	.protocol-table thead th:first-child { width:28%; border-top-left-radius:5px; }
 	.protocol-table thead th:last-child { width:16%; border-top-right-radius:5px; }
 	.protocol-table tbody th { padding:0; box-shadow:inset 3px 0 transparent; }
 	.protocol-table tr:last-child > td, .protocol-table tbody tr:last-child > th { border-bottom:0; }
 	.protocol-table .panel-score { text-align:right; }
 	.protocol-table td.panel-score { font-family:var(--mono); font-size:1rem; font-weight:500; }
-	.protocol-table .chosen { background:#e5f0ea; }
+	.protocol-table .chosen { background:var(--chosen); }
 	.protocol-table .chosen th { box-shadow:inset 3px 0 var(--teal); }
 	.element-button {
 		display:flex;
@@ -87,9 +87,9 @@
 	.element-button:hover .code { text-decoration:underline; text-underline-offset:.2em; }
 	.element-button:focus-visible, .mark-button:focus-visible { outline-color:var(--navy); }
 	.element-button:focus-visible { outline-offset:-4px; }
-	.order { color:#4d6057; font:.77rem var(--mono); }
+	.order { color:var(--muted); font:.77rem var(--mono); }
 	.code { font-size:1rem; font-weight:700; overflow-wrap:anywhere; }
-	.no-marks { color:#4d6057; font-size:.88rem; }
+	.no-marks { color:var(--muted); font-size:.88rem; }
 	.mark-list { display:flex; flex-wrap:wrap; gap:.35rem .5rem; }
 	.mark-button {
 		display:inline-flex;
@@ -98,31 +98,31 @@
 		min-height:44px;
 		max-width:100%;
 		padding:.2rem .55rem;
-		border:1px solid #d3a488;
+		border:1px solid var(--loss);
 		border-radius:5px;
-		background:#fff2e8;
-		color:#773a28;
+		background:var(--loss-bg);
+		color:var(--loss-ink);
 		font-size:.88rem;
 		font-weight:600;
 		text-align:left;
 		cursor:pointer;
 	}
-	.mark-button:hover { border-color:#773a28; }
+	.mark-button:hover { border-color:var(--loss-ink); }
 	/* The second-half bonus raises the score, so it does not share the colour of the panel's calls. */
-	.mark-button.bonus { border-color:#a9c4bd; background:#edf5f2; color:#24534e; }
-	.mark-button.bonus:hover { border-color:#24534e; }
+	.mark-button.bonus { border-color:var(--ice); background:var(--gain-bg); color:var(--ice); }
+	.mark-button.bonus:hover { border-color:var(--ice); }
 	.mark-button.bonus .mark-symbol { background:var(--teal); }
 	.mark-symbol {
 		flex:none;
 		min-width:1.6rem;
 		padding:.14rem .2rem;
 		border-radius:3px;
-		background:#793d2d;
-		color:white;
+		background:var(--loss);
+		color:var(--bg);
 		font:500 .9rem var(--mono);
 		text-align:center;
 	}
-	.mark-legend { margin-top:.85rem; color:#42544b; font-size:.88rem; }
+	.mark-legend { margin-top:.85rem; color:var(--muted); font-size:.88rem; }
 	.mark-legend summary { width:fit-content; cursor:pointer; font-weight:600; }
 	.mark-legend dl { display:flex; flex-wrap:wrap; gap:.55rem 1.15rem; margin-bottom:0; }
 	.mark-legend dl div { display:flex; align-items:baseline; gap:.4rem; }
