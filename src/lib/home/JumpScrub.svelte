@@ -11,15 +11,12 @@
 	const fmt = (n) => (n ?? 0).toFixed(2);
 	const signed = (n) => `${n < 0 ? '−' : '+'}${fmt(Math.abs(n ?? 0))}`;
 	const PROGRAM = { SP: 'short program', FS: 'free skate' };
-	const ORDINAL = ['', 'first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth', 'thirteenth'];
 
 	let modelId = $derived(asset?.id ?? jump?.element_code_raw ?? '4F');
 	let name = $derived(describeElement(jump?.element_code_raw ?? '').name);
 	let parts = $derived(jumpRotations(jump?.element_code_raw ?? ''));
 	let totalTurns = $derived(parts.reduce((sum, n) => sum + n, 0));
 	let isCombo = $derived(parts.length > 1);
-	let bonus = $derived(String(jump?.info_flag ?? '').includes('x'));
-	let surname = $derived(skater.split(' ').at(-1));
 	// "A quad flip" / "A quad toe loop + single Euler + triple Salchow combination": lower case after the
 	// article, except jumps named after skaters (Axel, Salchow, Lutz, Euler).
 	const lower = (text) => text.replace(/\b(?!Axel|Salchow|Lutz|Euler)[A-Z][a-z]*/g, (word) => word.toLowerCase());
@@ -94,13 +91,8 @@
 		return () => { cancelAnimationFrame(raf); removeEventListener('scroll', measure); removeEventListener('resize', measure); };
 	});
 
-	// Choosing a skater glides the page to the first caption, so the reader sees what they picked.
-	function pick(name) {
-		onPick(name);
-		const box = section.getBoundingClientRect();
-		const top = scrollY + box.top + 0.15 * Math.max(1, box.height - innerHeight);
-		scrollTo({ top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-	}
+	// Choosing a skater only swaps the model; the jump plays when the reader scrolls.
+	const pick = (name) => onPick(name);
 
 	// How visible a caption is for a window of the scroll progress.
 	function shown(from, to, fade = 0.035) {
@@ -157,18 +149,14 @@
 		{#if jump}
 		<div class="captions">
 			<div class="caption" style={veil(shown(0.13, 0.27, 0.025))}>
-				<p class="tag">{skater} · {PROGRAM[jump.segment]}, {ORDINAL[jump.element_order] ?? `#${jump.element_order}`} element</p>
 				{#if isCombo}
-					<h2>This is a {['', '', 'two', 'three'][parts.length] ?? parts.length}-jump combination.</h2>
-					<p class="names">{name.split(' + ').map(lower).join(', then ').replace(/^./, (c) => c.toUpperCase())}, with no step in between.</p>
+					<h2>This is a combination<span class="names">{name.split(' + ').map(lower).join(' + ').replace(/^./, (c) => c.toUpperCase())}</span></h2>
 				{:else}
-					<h2>This is {article} {phrase}.</h2>
+					<h2>This is {article} {phrase}</h2>
 				{/if}
-				<p>Before {surname} leaves the ice, it is already worth <b>{fmt(jump.base_value)}</b> points. That is its base value, fixed by the rules{#if bonus}, plus a 10% bonus for coming in the second half of the program{/if}.</p>
 			</div>
 			<div class="caption" style={veil(shown(0.33, 0.58, 0.025))}>
-				<h2>{totalTurns} turns in the air{isCombo ? `, over ${parts.length} jumps` : ''}.</h2>
-				<p>More turns mean a higher base value. Land a quarter turn short and the technical panel marks it, and the score drops. {surname} gets every turn around.</p>
+				<h2>{totalTurns} turns total</h2>
 			</div>
 			<div class="caption" style={veil(shown(0.66, 1.2, 0.025))}>
 				<h2>{skater} lands it cleanly,</h2>
@@ -227,10 +215,9 @@
 
 	.captions { position:absolute; left:0; right:0; bottom:clamp(2.5rem, 9vh, 5.5rem); display:grid; padding:0 1.5rem; }
 	.caption { grid-area:1 / 1; align-self:end; justify-self:center; max-width:52rem; text-align:center; will-change:opacity, transform; }
-	.caption .tag { display:inline-block; margin:0 auto .7rem; padding:.3rem .8rem; border-radius:980px; background:#000000b8; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); color:var(--ice); font-size:clamp(.85rem, 1.2vw, 1rem); font-weight:600; }
 	.caption h2 { text-wrap:balance; margin:0 0 .6rem; font:700 clamp(2rem, 4.2vw, 3.5rem)/1.06 var(--display); letter-spacing:-.035em; }
 	.caption p { margin:0 auto; max-width:34rem; color:var(--muted); font-size:clamp(1.02rem, 1.5vw, 1.3rem); line-height:1.42; font-weight:500; }
-	.caption p.names { margin-bottom:.5rem; color:var(--ink); }
+	.caption h2 .names { display:block; margin-top:.35rem; font-size:.55em; font-weight:600; letter-spacing:-.02em; color:var(--muted); }
 	.caption p b { color:var(--ink); font-weight:600; }
 	.gain { color:var(--gain) !important; }
 
